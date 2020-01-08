@@ -3,6 +3,9 @@ class FindAudio:
     def __init__(self, audio_repo):
         self.audio_repo = audio_repo
 
+    def by_id(self, id):
+        return self.audio_repo.find_by_id(id)
+
     def by_ayah_id(self, ayah_id):
         return self.audio_repo.find_by_ayah_id(ayah_id)
 

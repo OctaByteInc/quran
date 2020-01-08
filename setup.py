@@ -56,6 +56,6 @@ setup(
     ],
 
     # What does your project relate to?
-    keywords='Islam Quran Quran API',
+    keywords='Islam Quran Quran API', install_requires=['fireo']
 
 )

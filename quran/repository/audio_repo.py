@@ -5,7 +5,7 @@ from quran.utils.generate_key import generate_key
 
 class AudioRepo:
 
-    def create(self, audio: AudioDomain):
+    def create(self, audio):
         audio = Audio.from_dict(audio.to_dict())
         audio.save()
         return AudioDomain.from_dict(audio.to_dict())

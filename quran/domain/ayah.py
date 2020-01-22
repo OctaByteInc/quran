@@ -6,6 +6,7 @@ from quran.domain.entity import Entity
 @dataclass
 class Ayah(Entity):
     id: str
+    surah_id: str
     number: int
     number_in_surah: int
     juz: int

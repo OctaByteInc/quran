@@ -24,3 +24,11 @@ class AudioRepo:
         audio_stream = Audio.collection.filter(edition_id=id).fetch()
         for audio in audio_stream:
             yield AudioDomain.from_dict(audio.to_dict())
+
+    def find_arabic_audio(self, **kwargs):
+        audio = Audio.collection.filter(**kwargs).filter(type='Arabic').get()
+        return AudioDomain.from_dict(audio.to_dict())
+
+    def find_translation_audio(self, **kwargs):
+        audio = Audio.collection.filter(**kwargs).filter(type='Translation').get()
+        return AudioDomain.from_dict(audio.to_dict())

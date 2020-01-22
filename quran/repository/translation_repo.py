@@ -26,6 +26,5 @@ class TranslationRepo:
             yield TranslationDomain.from_dict(translation.to_dict())
 
     def filter(self, **kwargs):
-        translation_steam = Translation.collection.filter(**kwargs).fetch()
-        for translation in translation_steam:
-            yield TranslationDomain.from_dict(translation.to_dict())
+        translation = Translation.collection.filter(**kwargs).get()
+        return TranslationDomain.from_dict(translation.to_dict())

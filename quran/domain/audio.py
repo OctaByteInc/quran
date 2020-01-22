@@ -8,4 +8,5 @@ class Audio(Entity):
     id: str
     ayah_id: str
     edition_id: str
+    type: str
     audio: str

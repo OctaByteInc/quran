@@ -6,5 +6,5 @@ class Audio(Model):
     id = IDField()
     ayah_id = TextField()
     edition_id = TextField()
-    type = TextField()
+    type = TextField()  # Translation or Arabic
     audio = TextField()

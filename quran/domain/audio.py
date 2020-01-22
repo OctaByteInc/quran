@@ -8,5 +8,5 @@ class Audio(Entity):
     id: str
     ayah_id: str
     edition_id: str
-    type: str
+    type: str  # Translation or Arabic
     audio: str

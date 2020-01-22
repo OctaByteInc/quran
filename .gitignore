@@ -134,3 +134,4 @@ main.py
 
 # ignore editor files and folder
 .idea
+.vscode

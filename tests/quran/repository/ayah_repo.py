@@ -6,8 +6,8 @@ class AyahRepo:
     def __init__(self):
         self.data = [
             {
-                'id': 'id_1',
-                'surah_id': 'surah_1',
+                'id': 'ayah-id-1',
+                'surah_id': 'surah-id-1',
                 'number': 1,
                 'number_in_surah': 1,
                 'juz': 1,
@@ -18,8 +18,8 @@ class AyahRepo:
                 'arabic': 'Arabic Text of Ayah # 1'
             },
             {
-                'id': 'id_2',
-                'surah_id': 'surah_1',
+                'id': 'ayah-id-2',
+                'surah_id': 'surah-id-1',
                 'number': 2,
                 'number_in_surah': 2,
                 'juz': 1,
@@ -30,8 +30,8 @@ class AyahRepo:
                 'arabic': 'Arabic Text of Ayah # 2'
             },
             {
-                'id': 'id_3',
-                'surah_id': 'surah_2',
+                'id': 'ayah-id-3',
+                'surah_id': 'surah-id-2',
                 'number': 3,
                 'number_in_surah': 2,
                 'juz': 2,
@@ -42,8 +42,8 @@ class AyahRepo:
                 'arabic': 'Arabic Text of Ayah # 3'
             },
             {
-                'id': 'id_4',
-                'surah_id': 'surah_2',
+                'id': 'ayah-id-4',
+                'surah_id': 'surah-id-2',
                 'number': 3,
                 'number_in_surah': 2,
                 'juz': 2,

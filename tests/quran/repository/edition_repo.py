@@ -8,7 +8,7 @@ class EditionRepo:
     def __init__(self):
         self.data = [
             {
-                'id': 'id_1',
+                'id': 'edition-id-1',
                 'language': 'en',
                 'name': 'Edition Name',
                 'english_name': 'Edition English Name',
@@ -17,7 +17,7 @@ class EditionRepo:
                 'direction': 'ltr'
             },
             {
-                'id': 'id_2',
+                'id': 'edition-id-2',
                 'language': 'en',
                 'name': 'Edition Name',
                 'english_name': 'Edition English Name',
@@ -26,7 +26,7 @@ class EditionRepo:
                 'direction': 'ltr'
             },
             {
-                'id': 'id_3',
+                'id': 'edition-id-3',
                 'language': 'ur',
                 'name': 'Edition Name',
                 'english_name': 'Edition English Name',
@@ -35,7 +35,7 @@ class EditionRepo:
                 'direction': 'rtl'
             },
             {
-                'id': 'id_4',
+                'id': 'edition-id-4',
                 'language': 'ur',
                 'name': 'Edition Name',
                 'english_name': 'Edition English Name',

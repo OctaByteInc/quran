@@ -8,15 +8,15 @@ class ImageRepo:
     def __init__(self):
         self.data = [
             {
-                'ayah_id': 'id_1',
+                'ayah_id': 'ayah-id-1',
                 'image': 'image url for ayah 1'
             },
             {
-                'ayah_id': 'id_2',
+                'ayah_id': 'ayah-id-2',
                 'image': 'image url for ayah 2'
             },
             {
-                'ayah_id': 'id_3',
+                'ayah_id': 'ayah-id-3',
                 'image': 'image url for ayah 3'
             },
         ]

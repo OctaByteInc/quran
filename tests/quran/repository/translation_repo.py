@@ -8,21 +8,21 @@ class TranslationRepo:
     def __init__(self):
         self.data = [
             {
-                'id': 'id_1',
-                'ayah_id': 'id_1',
-                'edition_id': 'id_1',
+                'id': 'trans-id-1',
+                'ayah_id': 'ayah-id-1',
+                'edition_id': 'edition-id-1',
                 'text': 'Translation Text for ayah_1 edition_1'
             },
             {
-                'id': 'id_1',
-                'ayah_id': 'id_1',
-                'edition_id': 'id_2',
+                'id': 'trans-id-2',
+                'ayah_id': 'ayah-id-1',
+                'edition_id': 'edition-id-2',
                 'text': 'Translation Text ayah_1 edition_2'
             },
             {
-                'id': 'id_1',
-                'ayah_id': 'id_2',
-                'edition_id': 'id_1',
+                'id': 'trans-id-3',
+                'ayah_id': 'ayah-id-2',
+                'edition_id': 'edition-id-1',
                 'text': 'Translation Text ayah_2 edition_1'
             }
         ]

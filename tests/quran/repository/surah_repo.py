@@ -8,7 +8,7 @@ class SurahRepo:
     def __init__(self):
         self.data = [
             {
-                'id': 'id_1',
+                'id': 'surah-id-1',
                 'number': 1,
                 'name': 'surah name',
                 'english_name': 'surah english name',
@@ -17,7 +17,7 @@ class SurahRepo:
                 'revelation_type': 'type-1'
             },
             {
-                'id': 'id_2',
+                'id': 'surah-id-2',
                 'number': 2,
                 'name': 'surah name',
                 'english_name': 'surah english name',

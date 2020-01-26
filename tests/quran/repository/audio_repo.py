@@ -7,29 +7,29 @@ class AudioRepo:
         self.data = [
             {
                 'id': 'audio-id-1',
-                'ayah_id': 'id_1',
-                'edition_id': 'edition_1',
+                'ayah_id': 'ayah-id-1',
+                'edition_id': 'edition-id-1',
                 'type': 'Arabic',
                 'audio': 'Link to audio file for ayah id 1'
             },
             {
                 'id': 'audio-id-2',
-                'ayah_id': 'id_2',
-                'edition_id': 'edition_1',
+                'ayah_id': 'ayah-id-2',
+                'edition_id': 'edition-id-1',
                 'type': 'Arabic',
                 'audio': 'Link to audio file for ayah id 2'
             },
             {
                 'id': 'audio-id-3',
-                'ayah_id': 'id_1',
-                'edition_id': 'edition_2',
+                'ayah_id': 'ayah-id-1',
+                'edition_id': 'edition-id-2',
                 'type': 'Arabic',
                 'audio': 'Link to audio file for ayah id 1'
             },
             {
                 'id': 'audio-id-4',
-                'ayah_id': 'id_1',
-                'edition_id': 'edition_1',
+                'ayah_id': 'ayah-id-1',
+                'edition_id': 'edition-id-1',
                 'type': 'Translation',
                 'audio': 'Link to audio file for ayah id 1'
             },

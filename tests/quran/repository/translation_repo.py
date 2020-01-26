@@ -5,26 +5,49 @@ from quran.utils.generate_key import generate_key
 
 class TranslationRepo:
 
+    def __init__(self):
+        self.data = [
+            {
+                'id': 'id_1',
+                'ayah_id': 'id_1',
+                'edition_id': 'id_1',
+                'text': 'Translation Text for ayah_1 edition_1'
+            },
+            {
+                'id': 'id_1',
+                'ayah_id': 'id_1',
+                'edition_id': 'id_2',
+                'text': 'Translation Text ayah_1 edition_2'
+            },
+            {
+                'id': 'id_1',
+                'ayah_id': 'id_2',
+                'edition_id': 'id_1',
+                'text': 'Translation Text ayah_2 edition_1'
+            }
+        ]
+
     def create(self, translation):
-        translation = Translation.from_dict(translation.to_dict())
-        translation.save()
+        self.data.append(translation.to_dict())
         return TranslationDomain.from_dict(translation.to_dict())
 
     def find_by_id(self, id):
-        key = generate_key(Translation, id)
-        translation = Translation.collection.get(key)
-        return TranslationDomain.from_dict(translation.to_dict())
+        for translation in self.data:
+            if translation['id'] == id:
+                return TranslationDomain.from_dict(translation)
 
     def find_by_ayah_id(self, ayah_id):
-        translation_stream = Translation.collection.filter(ayah_id=ayah_id).fetch()
-        for translation in translation_stream:
-            yield TranslationDomain.from_dict(translation.to_dict())
+        for translation in self.data:
+            if translation['ayah_id'] == ayah_id:
+                yield TranslationDomain.from_dict(translation)
 
     def find_by_edition_id(self, edition_id):
-        translation_steam = Translation.collection.filter(edition_id=edition_id).fetch()
-        for translation in translation_steam:
-            yield TranslationDomain.from_dict(translation.to_dict())
+        for translation in self.data:
+            if translation['edition_id'] == edition_id:
+                yield TranslationDomain.from_dict(translation)
 
     def filter(self, **kwargs):
-        translation = Translation.collection.filter(**kwargs).get()
-        return TranslationDomain.from_dict(translation.to_dict())
+        for translation in self.data:
+            if translation['ayah_id'] == kwargs.get('ayah_id')\
+                    and translation['edition_id'] == kwargs.get('edition_id'):
+                return TranslationDomain.from_dict(translation)

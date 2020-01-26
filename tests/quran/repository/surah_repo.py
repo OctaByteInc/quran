@@ -5,29 +5,53 @@ from quran.utils.generate_key import generate_key
 
 class SurahRepo:
 
+    def __init__(self):
+        self.data = [
+            {
+                'id': 'id_1',
+                'number': 1,
+                'name': 'surah name',
+                'english_name': 'surah english name',
+                'english_name_translation': 'english name translation',
+                'number_of_ayahs': 10,
+                'revelation_type': 'type-1'
+            },
+            {
+                'id': 'id_2',
+                'number': 2,
+                'name': 'surah name',
+                'english_name': 'surah english name',
+                'english_name_translation': 'english name translation',
+                'number_of_ayahs': 20,
+                'revelation_type': 'type-2'
+            },
+        ]
+
     def create(self, surah):
-        surah = Surah.from_dict(surah.to_dict())
-        surah.save()
+        self.data.append(surah.to_dict())
         return SurahDomain.from_dict(surah.to_dict())
 
     def find_by_id(self, id):
-        key = generate_key(Surah, id)
-        surah = Surah.collection.get(key)
-        return SurahDomain.from_dict(surah.to_dict())
+        for surah in self.data:
+            if surah['id'] == id:
+                return SurahDomain.from_dict(surah)
 
     def find_by_number(self, number):
-        surah = Surah.collection.filter(number=number).get()
-        return SurahDomain.from_dict(surah.to_dict())
+        for surah in self.data:
+            if surah['number'] == number:
+                return SurahDomain.from_dict(surah)
 
     def find_by_name(self, name):
-        surah = Surah.collection.filter(name=name).get()
-        return SurahDomain.from_dict(surah.to_dict())
+        for surah in self.data:
+            if surah['name'] == name:
+                return SurahDomain.from_dict(surah)
 
     def find_by_english_name(self, english_name):
-        surah = Surah.collection.filter(english_name=english_name).get()
-        return SurahDomain.from_dict(surah.to_dict())
+        for surah in self.data:
+            if surah['english_name'] == english_name:
+                return SurahDomain.from_dict(surah)
 
     def find_by_revelation_type(self, type):
-        surah_stream = Surah.collection.filter(type=type).fetch()
-        for surah in surah_stream:
-            yield SurahDomain.from_dict(surah.to_dict())
+        for surah in self.data:
+            if surah['type'] == type:
+                yield SurahDomain.from_dict(surah)

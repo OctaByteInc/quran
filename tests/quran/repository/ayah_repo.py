@@ -7,7 +7,7 @@ class AyahRepo:
         self.data = [
             {
                 'id': 'id_1',
-                'surah_id': 1,
+                'surah_id': 'surah_1',
                 'number': 1,
                 'number_in_surah': 1,
                 'juz': 1,
@@ -19,7 +19,7 @@ class AyahRepo:
             },
             {
                 'id': 'id_2',
-                'surah_id': 1,
+                'surah_id': 'surah_1',
                 'number': 2,
                 'number_in_surah': 2,
                 'juz': 1,
@@ -31,7 +31,7 @@ class AyahRepo:
             },
             {
                 'id': 'id_3',
-                'surah_id': 2,
+                'surah_id': 'surah_2',
                 'number': 3,
                 'number_in_surah': 2,
                 'juz': 2,
@@ -43,7 +43,7 @@ class AyahRepo:
             },
             {
                 'id': 'id_4',
-                'surah_id': 2,
+                'surah_id': 'surah_2',
                 'number': 3,
                 'number_in_surah': 2,
                 'juz': 2,

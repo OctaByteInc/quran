@@ -5,37 +5,76 @@ from quran.utils.generate_key import generate_key
 
 class EditionRepo:
 
+    def __init__(self):
+        self.data = [
+            {
+                'id': 'id_1',
+                'language': 'en',
+                'name': 'Edition Name',
+                'english_name': 'Edition English Name',
+                'type': 'Audio',
+                'format': 'format-1',
+                'direction': 'ltr'
+            },
+            {
+                'id': 'id_2',
+                'language': 'en',
+                'name': 'Edition Name',
+                'english_name': 'Edition English Name',
+                'type': 'Translation',
+                'format': 'format-2',
+                'direction': 'ltr'
+            },
+            {
+                'id': 'id_3',
+                'language': 'ur',
+                'name': 'Edition Name',
+                'english_name': 'Edition English Name',
+                'type': 'Audio',
+                'format': 'format-3',
+                'direction': 'rtl'
+            },
+            {
+                'id': 'id_4',
+                'language': 'ur',
+                'name': 'Edition Name',
+                'english_name': 'Edition English Name',
+                'type': 'Translation',
+                'format': 'format-4',
+                'direction': 'rtl'
+            }
+        ]
+
     def create(self, edition):
-        edition = Edition.from_dict(edition.to_dict())
-        edition.save()
+        self.data.append(edition.to_dict())
         return EditionDomain.from_dict(edition.to_dict())
 
     def find_by_id(self, id):
-        key = generate_key(Edition, id)
-        edition = Edition.collection.get(key)
-        return EditionDomain.from_dict(edition.to_dict())
+        for edition in self.data:
+            if edition['id'] == id:
+                return EditionDomain.from_dict(edition)
 
     def find_by_language(self, language):
-        edition_stream = Edition.collection.filter(language=language).fetch()
-        for edition in edition_stream:
-            return EditionDomain.from_dict(edition.to_dict())
+        for edition in self.data:
+            if edition['language'] == language:
+                yield EditionDomain.from_dict(edition)
 
     def find_by_name(self, name):
-        edition_stream = Edition.collection.filter(name=name).fetch()
-        for edition in edition_stream:
-            return EditionDomain.from_dict(edition.to_dict())
+        for edition in self.data:
+            if edition['name'] == name:
+                yield EditionDomain.from_dict(edition)
 
     def find_by_english_name(self, name):
-        edition_stream = Edition.collection.filter(english_name=name).fetch()
-        for edition in edition_stream:
-            return EditionDomain.from_dict(edition.to_dict())
+        for edition in self.data:
+            if edition['english_name'] == name:
+                yield EditionDomain.from_dict(edition)
 
     def find_by_type(self, type):
-        edition_stream = Edition.collection.filter(type=type).fetch()
-        for edition in edition_stream:
-            return EditionDomain.from_dict(edition.to_dict())
+        for edition in self.data:
+            if edition['type'] == type:
+                yield EditionDomain.from_dict(edition)
 
     def find_by_format(self, format):
-        edition_stream = Edition.collection.filter(format=format).fetch()
-        for edition in edition_stream:
-            return EditionDomain.from_dict(edition.to_dict())
+        for edition in self.data:
+            if edition['format'] == format:
+                yield EditionDomain.from_dict(edition)

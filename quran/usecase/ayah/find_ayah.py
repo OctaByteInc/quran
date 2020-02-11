@@ -49,31 +49,37 @@ class FindAyah:
 
         if parts:
             surah_id = ayah.surah_id
-            self._get_ayah_parts(parts, ayah.id, edition_id, surah_id)
+            self._get_ayah_parts(response, parts, ayah.id, edition_id, surah_id)
 
         return response
 
-    def _get_ayah_parts(self, parts, ayah_id, edition_id='en', surah_id=None):
+    def _get_ayah_parts(self, response, parts, ayah_id, edition_id='edition-id-1', surah_id=None):
         # parts = ['Translation', 'Surah', 'Edition', 'Arabic_Audio', 'Translation_Audio', 'Image']
 
         if 'Translation' in parts:
             find_translation = TranslationFactory.find_translation()
             translation = find_translation.filter(ayah_id=ayah_id, edition_id=edition_id)
+            response.translation = translation
         if 'Surah' in parts:
             find_surah = SurahFactory.find_surah()
             if surah_id is None:
                 ayah = self.ayah_repo.find_by_id(ayah_id)
                 surah_id = ayah.surah_id
             surah = find_surah.by_id(surah_id)
+            response.surah = surah
         if 'Edition' in parts:
             find_edition = EditionFactory.find_edition()
             edition = find_edition.by_id(edition_id)
+            response.edition = edition
         if 'Arabic_Audio' in parts:
             find_audio = AudioFactory.find_audio()
             arabic_audio = find_audio.arabic_audio(ayah_id=ayah_id, edition_id=edition_id)
+            response.arabic_audio = arabic_audio
         if 'Translation_Audio' in parts:
             find_audio = AudioFactory.find_audio()
-            arabic_audio = find_audio.translation_audio(ayah_id=ayah_id, edition_id=edition_id)
+            translation_audio = find_audio.translation_audio(ayah_id=ayah_id, edition_id=edition_id)
+            response.translation_audio = translation_audio
         if 'Image':
             find_image = ImageFactory.find_image()
             ayah_image = find_image.by_ayah_id(ayah_id)
+            response.ayah_image = ayah_image

@@ -31,7 +31,7 @@ class AudioRepo:
                 'ayah_id': 'ayah-id-1',
                 'edition_id': 'edition-id-1',
                 'type': 'Translation',
-                'audio': 'Link to audio file for ayah id 1'
+                'audio': 'Link to Translation audio file for ayah id 1'
             },
         ]
 

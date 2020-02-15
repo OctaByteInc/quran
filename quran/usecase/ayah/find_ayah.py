@@ -1,15 +1,15 @@
-from quran.factory.audio_factory import AudioFactory
-from quran.factory.edition_factory import EditionFactory
-from quran.factory.image_factory import ImageFactory
-from quran.factory.surah_factory import SurahFactory
-from quran.factory.translation_factory import TranslationFactory
 from quran.utils.response import Response
 
 
 class FindAyah:
 
-    def __init__(self, ayah_repo):
+    def __init__(self, ayah_repo, find_translation, find_surah, find_edition, find_audio, find_image):
         self.ayah_repo = ayah_repo
+        self.find_translation = find_translation
+        self.find_surah = find_surah
+        self.find_edition = find_edition
+        self.find_audio = find_audio
+        self.find_image = find_image
 
     def by_id(self, ayah_id, edition_id='en', parts=None):
         ayah = self.ayah_repo.find_by_id(ayah_id)
@@ -57,29 +57,23 @@ class FindAyah:
         # parts = ['Translation', 'Surah', 'Edition', 'Arabic_Audio', 'Translation_Audio', 'Image']
 
         if 'Translation' in parts:
-            find_translation = TranslationFactory.find_translation()
-            translation = find_translation.filter(ayah_id=ayah_id, edition_id=edition_id)
+            translation = self.find_translation.filter(ayah_id=ayah_id, edition_id=edition_id)
             response.translation = translation
         if 'Surah' in parts:
-            find_surah = SurahFactory.find_surah()
             if surah_id is None:
                 ayah = self.ayah_repo.find_by_id(ayah_id)
                 surah_id = ayah.surah_id
-            surah = find_surah.by_id(surah_id)
+            surah = self.find_surah.by_id(surah_id)
             response.surah = surah
         if 'Edition' in parts:
-            find_edition = EditionFactory.find_edition()
-            edition = find_edition.by_id(edition_id)
+            edition = self.find_edition.by_id(edition_id)
             response.edition = edition
         if 'Arabic_Audio' in parts:
-            find_audio = AudioFactory.find_audio()
-            arabic_audio = find_audio.arabic_audio(ayah_id=ayah_id, edition_id=edition_id)
+            arabic_audio = self.find_audio.arabic_audio(ayah_id=ayah_id, edition_id=edition_id)
             response.arabic_audio = arabic_audio
         if 'Translation_Audio' in parts:
-            find_audio = AudioFactory.find_audio()
-            translation_audio = find_audio.translation_audio(ayah_id=ayah_id, edition_id=edition_id)
+            translation_audio = self.find_audio.translation_audio(ayah_id=ayah_id, edition_id=edition_id)
             response.translation_audio = translation_audio
         if 'Image':
-            find_image = ImageFactory.find_image()
-            ayah_image = find_image.by_ayah_id(ayah_id)
+            ayah_image = self.find_image.by_ayah_id(ayah_id)
             response.ayah_image = ayah_image

@@ -27,5 +27,5 @@ class ImageRepo:
 
     def find_by_ayah_id(self, ayah_id):
         for image in self.data:
-            if image['id'] == ayah_id:
+            if image['ayah_id'] == ayah_id:
                 return ImageDomain.from_dict(image)

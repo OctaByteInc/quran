@@ -22,7 +22,7 @@ class EditionRepo:
                 'name': 'Edition Name',
                 'english_name': 'Edition English Name',
                 'type': 'Translation',
-                'format': 'format-2',
+                'format': 'format-1',
                 'direction': 'ltr'
             },
             {

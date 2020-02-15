@@ -16,6 +16,6 @@ def test_create_image():
 
 def test_find_image_by_ayah_id():
     find_image = ImageFactory.find_image()
-    image = find_image.by_ayah_id('ayah-id-3')
+    response = find_image.by_ayah_id('ayah-id-3')
 
-    assert image.ayah_id == 'ayah-id-3'
+    assert response.image.ayah_id == 'ayah-id-3'

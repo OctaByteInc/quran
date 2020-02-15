@@ -6,6 +6,10 @@ class FindEdition:
     def __init__(self, edition_repo):
         self.edition_repo = edition_repo
 
+    def get_all(self):
+        edition = self.edition_repo.get_all()
+        return self._edition_response(edition)
+
     def by_id(self, id):
         edition = self.edition_repo.find_by_id(id)
         return self._edition_response(edition)

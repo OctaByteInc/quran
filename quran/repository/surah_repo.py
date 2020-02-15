@@ -10,6 +10,11 @@ class SurahRepo:
         surah.save()
         return SurahDomain.from_dict(surah.to_dict())
 
+    def find_all(self):
+        surah_stream = Surah.collection.fetch()
+        for surah in surah_stream:
+            yield SurahDomain.from_dict(surah.to_dict())
+
     def find_by_id(self, id):
         key = generate_key(Surah, id)
         surah = Surah.collection.get(key)

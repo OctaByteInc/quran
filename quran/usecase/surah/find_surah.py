@@ -6,6 +6,10 @@ class FindSurah:
     def __init__(self, surah_repo):
         self.surah_repo = surah_repo
 
+    def get_all(self):
+        surah = self.surah_repo.get_all()
+        return self._surah_response(surah)
+
     def by_id(self, id):
         surah = self.surah_repo.find_by_id(id)
         return self._surah_response(surah)

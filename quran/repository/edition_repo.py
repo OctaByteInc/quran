@@ -10,6 +10,11 @@ class EditionRepo:
         edition.save()
         return EditionDomain.from_dict(edition.to_dict())
 
+    def get_all(self):
+        edition_stream = Edition.collection.fetch()
+        for edition in edition_stream:
+            yield EditionDomain.from_dict(edition.to_dict())
+
     def find_by_id(self, id):
         key = generate_key(Edition, id)
         edition = Edition.collection.get(key)
@@ -18,24 +23,24 @@ class EditionRepo:
     def find_by_language(self, language):
         edition_stream = Edition.collection.filter(language=language).fetch()
         for edition in edition_stream:
-            return EditionDomain.from_dict(edition.to_dict())
+            yield EditionDomain.from_dict(edition.to_dict())
 
     def find_by_name(self, name):
         edition_stream = Edition.collection.filter(name=name).fetch()
         for edition in edition_stream:
-            return EditionDomain.from_dict(edition.to_dict())
+            yield EditionDomain.from_dict(edition.to_dict())
 
     def find_by_english_name(self, name):
         edition_stream = Edition.collection.filter(english_name=name).fetch()
         for edition in edition_stream:
-            return EditionDomain.from_dict(edition.to_dict())
+            yield EditionDomain.from_dict(edition.to_dict())
 
     def find_by_type(self, type):
         edition_stream = Edition.collection.filter(type=type).fetch()
         for edition in edition_stream:
-            return EditionDomain.from_dict(edition.to_dict())
+            yield EditionDomain.from_dict(edition.to_dict())
 
     def find_by_format(self, format):
         edition_stream = Edition.collection.filter(format=format).fetch()
         for edition in edition_stream:
-            return EditionDomain.from_dict(edition.to_dict())
+            yield EditionDomain.from_dict(edition.to_dict())

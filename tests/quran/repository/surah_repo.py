@@ -53,5 +53,5 @@ class SurahRepo:
 
     def find_by_revelation_type(self, type):
         for surah in self.data:
-            if surah['type'] == type:
+            if surah['revelation_type'] == type:
                 yield SurahDomain.from_dict(surah)

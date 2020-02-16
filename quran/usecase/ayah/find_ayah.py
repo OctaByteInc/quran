@@ -11,37 +11,47 @@ class FindAyah:
         self.find_audio = find_audio
         self.find_image = find_image
 
-    def by_id(self, ayah_id, edition_id='en', parts=None):
+    def by_id(self, ayah_id, edition_id=None, parts=None):
         ayah = self.ayah_repo.find_by_id(ayah_id)
         return self._ayah_response(ayah, edition_id, parts)
 
-    def by_number(self, ayah_number, edition_id='en', parts=None):
+    def by_surah_id(self, surah_id, edition_id=None, parts=None):
+        ayah_stream = self.ayah_repo.find_by_surah_id(surah_id)
+        for ayah in ayah_stream:
+            yield self._ayah_response(ayah, edition_id, parts)
+
+    def by_number(self, ayah_number, edition_id=None, parts=None):
         ayah = self.ayah_repo.find_by_number(ayah_number)
         return self._ayah_response(ayah, edition_id, parts)
 
-    def by_number_in_surah(self, number_in_surah, edition_id='en', parts=None):
+    def by_number_in_surah(self, number_in_surah, edition_id=None, parts=None):
         ayah = self.ayah_repo.find_by_number_in_surah(number_in_surah)
         return self._ayah_response(ayah, edition_id, parts)
 
-    def by_juz(self, juz, edition_id='en', parts=None):
-        ayah = self.ayah_repo.find_by_juz(juz)
-        return self._ayah_response(ayah, edition_id, parts)
+    def by_juz(self, juz, edition_id=None, parts=None):
+        ayah_stream = self.ayah_repo.find_by_juz(juz)
+        for ayah in ayah_stream:
+            yield self._ayah_response(ayah, edition_id, parts)
 
-    def by_manzil(self, manzil, edition_id='en', parts=None):
-        ayah = self.ayah_repo.find_by_manzil(manzil)
-        return self._ayah_response(ayah, edition_id, parts)
+    def by_manzil(self, manzil, edition_id=None, parts=None):
+        ayah_stream = self.ayah_repo.find_by_manzil(manzil)
+        for ayah in ayah_stream:
+            yield self._ayah_response(ayah, edition_id, parts)
 
-    def by_ruku(self, ruku, edition_id='en', parts=None):
-        ayah = self.ayah_repo.find_by_ruku(ruku)
-        return self._ayah_response(ayah, edition_id, parts)
+    def by_ruku(self, ruku, edition_id=None, parts=None):
+        ayah_stream = self.ayah_repo.find_by_ruku(ruku)
+        for ayah in ayah_stream:
+            yield self._ayah_response(ayah, edition_id, parts)
 
-    def by_hizb_quarter(self, hizb_quarter, edition_id='en', parts=None):
-        ayah = self.ayah_repo.find_by_hizb_quarter(hizb_quarter)
-        return self._ayah_response(ayah, edition_id, parts)
+    def by_hizb_quarter(self, hizb_quarter, edition_id=None, parts=None):
+        ayah_stream = self.ayah_repo.find_by_hizb_quarter(hizb_quarter)
+        for ayah in ayah_stream:
+            yield self._ayah_response(ayah, edition_id, parts)
 
-    def by_sajda(self, sajda, edition_id='en', parts=None):
-        ayah = self.ayah_repo.find_by_sajda(sajda)
-        return self._ayah_response(ayah, edition_id, parts)
+    def by_sajda(self, sajda, edition_id=None, parts=None):
+        ayah_stream = self.ayah_repo.find_by_sajda(sajda)
+        for ayah in ayah_stream:
+            yield self._ayah_response(ayah, edition_id, parts)
 
     def _ayah_response(self, ayah, edition_id, parts):
         response = Response()

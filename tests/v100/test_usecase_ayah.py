@@ -30,6 +30,15 @@ def test_find_ayah_by_id():
     assert response.ayah.id == 'ayah-id-1'
 
 
+def test_find_surah_ayah_by_id():
+    find_ayah = AyahFactory.find_ayah()
+    response_stream = find_ayah.by_surah_id('surah-id-1', 'edition-id-1',
+                           ['Translation', 'Surah', 'Edition', 'Arabic_Audio', 'Translation_Audio', 'Image'])
+    for response in response_stream:
+        assert response.ayah is not None
+        assert response.surah.id == 'surah-id-1'
+
+
 def test_find_ayah_by_number():
     find_ayah = AyahFactory.find_ayah()
     response = find_ayah.by_number(1)
@@ -48,41 +57,41 @@ def test_find_ayah_by_number_in_surah():
 def test_find_ayah_by_juz():
     find_ayah = AyahFactory.find_ayah()
     response_stream = find_ayah.by_juz(1)
-    ayah = next(response_stream.ayah)
+    response = next(response_stream)
 
-    assert ayah.juz == 1
+    assert response.ayah.juz == 1
 
 
 def test_find_ayah_by_manzil():
     find_ayah = AyahFactory.find_ayah()
     response_stream = find_ayah.by_manzil(1)
-    ayah = next(response_stream.ayah)
+    response = next(response_stream)
 
-    assert ayah.manzil == 1
+    assert response.ayah.manzil == 1
 
 
 def test_find_ayah_by_ruku():
     find_ayah = AyahFactory.find_ayah()
     response_stream = find_ayah.by_ruku(1)
-    ayah = next(response_stream.ayah)
+    response = next(response_stream)
 
-    assert ayah.ruku == 1
+    assert response.ayah.ruku == 1
 
 
 def test_find_ayah_by_hizb_quarter():
     find_ayah = AyahFactory.find_ayah()
     response_stream = find_ayah.by_hizb_quarter(1)
-    ayah = next(response_stream.ayah)
+    response = next(response_stream)
 
-    assert ayah.hizb_quarter == 1
+    assert response.ayah.hizb_quarter == 1
 
 
 def test_find_ayah_by_sajda():
     find_ayah = AyahFactory.find_ayah()
     response_stream = find_ayah.by_sajda(True)
-    ayah = next(response_stream.ayah)
+    response = next(response_stream)
 
-    assert ayah.sajda == True
+    assert response.ayah.sajda == True
 
 
 def test_find_ayah_parts_by_id():

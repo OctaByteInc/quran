@@ -64,6 +64,11 @@ class AyahRepo:
             if ayah['id'] == id:
                 return AyahDomain.from_dict(ayah)
 
+    def find_by_surah_id(self, surah_id):
+        for ayah in self.data:
+            if ayah['surah_id'] == surah_id:
+                yield AyahDomain.from_dict(ayah)
+
     def find_by_number(self, number):
         for ayah in self.data:
             if ayah['number'] == number:

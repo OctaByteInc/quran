@@ -15,6 +15,11 @@ class AyahRepo:
         ayah = Ayah.collection.get(key)
         return AyahDomain.from_dict(ayah.to_dict())
 
+    def find_by_surah_id(self, surah_id):
+        ayah_stream = Ayah.collection.filter(surah_id=surah_id).fetch()
+        for ayah in ayah_stream:
+            yield AyahDomain.from_dict(ayah.to_dict())
+
     def find_by_number(self, number):
         ayah = Ayah.collection.filter(number=number).get()
         return AyahDomain.from_dict(ayah.to_dict())

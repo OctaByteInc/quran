@@ -19,39 +19,39 @@ def test_audio_create():
 
 def test_find_audio_id():
     find_audio = AudioFactory.find_audio()
-    response = find_audio.by_id('audio-id-1')
+    audio = find_audio.by_id('audio-id-1')
 
-    assert response.audio.id == 'audio-id-1'
+    assert audio.id == 'audio-id-1'
 
 
 def test_find_audio_ayah_id():
     find_audio = AudioFactory.find_audio()
-    response = find_audio.by_ayah_id('ayah-id-1')
+    audio = find_audio.by_ayah_id('ayah-id-1')
 
-    assert response.audio.ayah_id == 'ayah-id-1'
+    assert audio.ayah_id == 'ayah-id-1'
 
 
 def test_find_audio_edition_id():
     find_audio = AudioFactory.find_audio()
-    response_stream = find_audio.by_edition_id('edition-id-1')
-    audio = next(response_stream.audio)
+    audio_stream = find_audio.by_edition_id('edition-id-1')
+    audio = next(audio_stream)
 
     assert audio.edition_id == 'edition-id-1'
 
 
 def test_filter_arabic_audio():
     find_audio = AudioFactory.find_audio()
-    response = find_audio.arabic_audio(ayah_id='ayah-id-1', edition_id='edition-id-1')
+    audio = find_audio.arabic_audio(ayah_id='ayah-id-1', edition_id='edition-id-1')
 
-    assert response.audio.ayah_id == 'ayah-id-1'
-    assert response.audio.edition_id == 'edition-id-1'
-    assert response.audio.type == 'Arabic'
+    assert audio.ayah_id == 'ayah-id-1'
+    assert audio.edition_id == 'edition-id-1'
+    assert audio.type == 'Arabic'
 
 
 def test_filter_translation_audio():
     find_audio = AudioFactory.find_audio()
-    response = find_audio.translation_audio(ayah_id='ayah-id-1', edition_id='edition-id-1')
+    audio = find_audio.translation_audio(ayah_id='ayah-id-1', edition_id='edition-id-1')
 
-    assert response.audio.ayah_id == 'ayah-id-1'
-    assert response.audio.edition_id == 'edition-id-1'
-    assert response.audio.type == 'Translation'
+    assert audio.ayah_id == 'ayah-id-1'
+    assert audio.edition_id == 'edition-id-1'
+    assert audio.type == 'Translation'

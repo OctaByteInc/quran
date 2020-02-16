@@ -18,30 +18,30 @@ def test_create_translation():
 
 def test_find_translation_by_id():
     find_translation = TranslationFactory.find_translation()
-    response = find_translation.by_id('trans-id-3')
+    translation = find_translation.by_id('trans-id-3')
 
-    assert response.translation.id == 'trans-id-3'
+    assert translation.id == 'trans-id-3'
 
 
 def test_find_translation_by_ayah_id():
     find_translation = TranslationFactory.find_translation()
-    response_stream = find_translation.by_ayah_id('ayah-id-2')
-    translation = next(response_stream.translation)
+    translation_stream = find_translation.by_ayah_id('ayah-id-2')
+    translation = next(translation_stream)
 
     assert translation.ayah_id == 'ayah-id-2'
 
 
 def test_find_translation_by_edition_id():
     find_translation = TranslationFactory.find_translation()
-    response_stream = find_translation.by_edition_id('edition-id-1')
-    translation = next(response_stream.translation)
+    translation_stream = find_translation.by_edition_id('edition-id-1')
+    translation = next(translation_stream)
 
     assert translation.edition_id == 'edition-id-1'
 
 
 def test_translation_filter():
     find_translation = TranslationFactory.find_translation()
-    response = find_translation.filter(ayah_id='ayah-id-2', edition_id='edition-id-1')
+    translation = find_translation.filter(ayah_id='ayah-id-2', edition_id='edition-id-1')
 
-    assert response.translation.ayah_id == 'ayah-id-2'
-    assert response.translation.edition_id == 'edition-id-1'
+    assert translation.ayah_id == 'ayah-id-2'
+    assert translation.edition_id == 'edition-id-1'

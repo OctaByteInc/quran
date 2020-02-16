@@ -21,35 +21,35 @@ def test_create_surah():
 
 def test_find_surah_by_id():
     find_surah = SurahFactory.find_surah()
-    response = find_surah.by_id('surah-id-1')
+    surah = find_surah.by_id('surah-id-1')
 
-    assert response.surah.id == 'surah-id-1'
+    assert surah.id == 'surah-id-1'
 
 
 def test_find_surah_by_number():
     find_surah = SurahFactory.find_surah()
-    response = find_surah.by_number(1)
+    surah = find_surah.by_number(1)
 
-    assert response.surah.number == 1
+    assert surah.number == 1
 
 
 def test_find_surah_by_name():
     find_surah = SurahFactory.find_surah()
-    response = find_surah.by_name('surah name')
+    surah = find_surah.by_name('surah name')
 
-    assert response.surah.name == 'surah name'
+    assert surah.name == 'surah name'
 
 
 def test_find_surah_by_english_name():
     find_surah = SurahFactory.find_surah()
-    response = find_surah.by_english_name('surah english name')
+    surah = find_surah.by_english_name('surah english name')
 
-    assert response.surah.english_name == 'surah english name'
+    assert surah.english_name == 'surah english name'
 
 
 def test_find_surah_by_revelation_type():
     find_surah = SurahFactory.find_surah()
-    response_stream = find_surah.by_revelation_type('type-1')
-    surah = next(response_stream.surah)
+    surah_stream = find_surah.by_revelation_type('type-1')
+    surah = next(surah_stream)
 
     assert surah.revelation_type == 'type-1'

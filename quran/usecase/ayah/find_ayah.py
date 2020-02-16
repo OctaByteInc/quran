@@ -57,23 +57,23 @@ class FindAyah:
         # parts = ['Translation', 'Surah', 'Edition', 'Arabic_Audio', 'Translation_Audio', 'Image']
 
         if 'Translation' in parts:
-            res = self.find_translation.filter(ayah_id=ayah_id, edition_id=edition_id)
-            response.translation = res.translation
+            translation = self.find_translation.filter(ayah_id=ayah_id, edition_id=edition_id)
+            response.translation = translation
         if 'Surah' in parts:
             if surah_id is None:
                 ayah = self.ayah_repo.find_by_id(ayah_id)
                 surah_id = ayah.surah_id
-            res = self.find_surah.by_id(surah_id)
-            response.surah = res.surah
+            surah = self.find_surah.by_id(surah_id)
+            response.surah = surah
         if 'Edition' in parts:
-            res = self.find_edition.by_id(edition_id)
-            response.edition = res.edition
+            edition = self.find_edition.by_id(edition_id)
+            response.edition = edition
         if 'Arabic_Audio' in parts:
-            arabic_res = self.find_audio.arabic_audio(ayah_id=ayah_id, edition_id=edition_id)
-            response.arabic_audio = arabic_res.audio
+            arabic_audio = self.find_audio.arabic_audio(ayah_id=ayah_id, edition_id=edition_id)
+            response.arabic_audio = arabic_audio
         if 'Translation_Audio' in parts:
-            translation_res = self.find_audio.translation_audio(ayah_id=ayah_id, edition_id=edition_id)
-            response.translation_audio = translation_res.audio
+            translation_audio = self.find_audio.translation_audio(ayah_id=ayah_id, edition_id=edition_id)
+            response.translation_audio = translation_audio
         if 'Image':
-            res = self.find_image.by_ayah_id(ayah_id)
-            response.ayah_image = res.image
+            image = self.find_image.by_ayah_id(ayah_id)
+            response.ayah_image = image

@@ -49,6 +49,10 @@ class EditionRepo:
         self.data.append(edition.to_dict())
         return EditionDomain.from_dict(edition.to_dict())
 
+    def get_all(self):
+        for edition in self.data:
+            yield EditionDomain.from_dict(edition)
+
     def find_by_id(self, id):
         for edition in self.data:
             if edition['id'] == id:

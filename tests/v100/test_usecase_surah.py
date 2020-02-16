@@ -19,6 +19,14 @@ def test_create_surah():
     assert surah.to_dict() == data
 
 
+def test_get_all_surah():
+    find_surah = SurahFactory.find_surah()
+    surah_stream = find_surah.get_all()
+    surah = next(surah_stream)
+
+    assert surah.id == 'surah-id-1'
+
+
 def test_find_surah_by_id():
     find_surah = SurahFactory.find_surah()
     surah = find_surah.by_id('surah-id-1')

@@ -19,6 +19,14 @@ def test_craete_edition():
     assert edition.to_dict() == data
 
 
+def test_get_all_edition():
+    find_edition = EditionFactory.find_edition()
+    edition_stream = find_edition.get_all()
+    edition = next(edition_stream)
+
+    assert edition.id == 'edition-id-1'
+
+
 def test_find_edition_by_id():
     find_edition = EditionFactory.find_edition()
     edition = find_edition.by_id('edition-id-4')

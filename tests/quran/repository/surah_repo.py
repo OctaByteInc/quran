@@ -31,6 +31,10 @@ class SurahRepo:
         self.data.append(surah.to_dict())
         return SurahDomain.from_dict(surah.to_dict())
 
+    def get_all(self):
+        for surah in self.data:
+            yield SurahDomain.from_dict(surah)
+
     def find_by_id(self, id):
         for surah in self.data:
             if surah['id'] == id:

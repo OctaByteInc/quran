@@ -135,3 +135,7 @@ main.py
 # ignore editor files and folder
 .idea
 .vscode
+
+
+api_descriptor.pb
+service-account-creds.json

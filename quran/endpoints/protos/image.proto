@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package quran;
+
+message ImageMessage {
+    string ayah_id = 1;
+    string image = 2;
+}
+
+service ImageService {
+    rpc CreateImage (ImageMessage) returns (ImageMessage) {}
+}

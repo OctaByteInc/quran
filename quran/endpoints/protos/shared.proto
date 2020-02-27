@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package quran;
+
+message AyahId {
+    string id = 1;
+}

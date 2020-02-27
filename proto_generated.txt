@@ -1,0 +1,24 @@
+python -m grpc.tools.protoc \
+    --include_imports \
+    --include_source_info \
+    --proto_path=quran/endpoints/protos \
+    --python_out=quran/endpoints/grpc \
+    --grpc_python_out=quran/endpoints/grpc \
+    --descriptor_set_out=api_descriptor.pb \
+    image.proto shared.proto
+
+
+python -m grpc.tools.protoc \
+    --include_imports \
+    --include_source_info \
+    --proto_path=project/endpoints/protos \
+    --python_out=project/endpoints/grpc \
+    --grpc_python_out=project/endpoints/grpc \
+    image.proto
+
+protoc --proto_path=quran/endpoints/protos  --python_out=quran/endpoints/grpc  quran/endpoints/protos/image.proto
+
+
+python3 -m grpc_tools.protoc -I proto --python_out=. --grpc_python_out=. quran/endpoints/protos/*.proto
+
+python3 -m grpc_tools.protoc --proto_path=quran/endpoints/protos --python_out=. --grpc_python_out=. quran/endpoints/protos/*.proto

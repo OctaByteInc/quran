@@ -1,12 +1,15 @@
 syntax = "proto3";
 
+import "shared.proto";
+
 package quran;
 
-message ImageMessage {
+message ImageEntity {
     string ayah_id = 1;
     string image = 2;
 }
 
-service ImageService {
-    rpc CreateImage (ImageMessage) returns (ImageMessage) {}
+service Image {
+    rpc CreateImage (ImageEntity) returns (ImageEntity) {}
+    rpc FindImageByAyahId (AyahId) returns (ImageEntity) {}
 }

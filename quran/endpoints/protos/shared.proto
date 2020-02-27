@@ -2,6 +2,16 @@ syntax = "proto3";
 
 package quran;
 
-message AyahId {
+message EmptyMessage {}
+
+message IDRequest {
     string id = 1;
+}
+
+message FilterRequest {
+    repeated StringFilter filter = 1;
+}
+
+message StringFilter {
+    string name = 1;
 }

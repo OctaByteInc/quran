@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package quran;
+
+enum AudioType {
+    AUDIO = 0;
+    TRANSLATION = 1;
+}
+
+message ImageEntity {
+    string ayah_id = 1;
+    string image = 2;
+}
+
+message AudioEntity {
+    string id = 1;
+    string ayah_id = 2;
+    string edition_id = 3;
+    AudioType type = 4;
+    string audio = 5;
+}
+
+message EditionEntity {
+    string id = 1;
+    string language = 2;
+    string name = 3;
+    string english_name = 4;
+    AudioType type = 5;
+    string format = 6;
+    string direction = 7;
+}

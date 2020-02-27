@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+import "shared.proto";
+import "entity.proto";
+
+package quran;
+
+message EditionList {
+    repeated EditionEntity editionEntity = 1;
+}
+
+service Edition {
+    rpc CreateEdition (EditionEntity) returns (EditionEntity) {}
+    rpc GetAll (EmptyMessage) returns (EditionList) {}
+    rpc FindById (IDRequest) returns (EditionEntity) {}
+    rpc FindByLanguage (StringFilter) returns (EditionList) {}
+    rpc FindByName (StringFilter) returns (EditionList) {}
+    rpc FindByEnglishName (StringFilter) returns (EditionList) {}
+    rpc FindByType (StringFilter) returns (EditionList) {}
+    rpc FindByFormat (StringFilter) returns (EditionList) {}
+}

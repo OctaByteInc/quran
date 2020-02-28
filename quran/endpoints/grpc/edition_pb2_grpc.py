@@ -33,27 +33,27 @@ class EditionStub(object):
         )
     self.FindByLanguage = channel.unary_unary(
         '/quran.Edition/FindByLanguage',
-        request_serializer=shared__pb2.StringFilter.SerializeToString,
+        request_serializer=shared__pb2.NameRequest.SerializeToString,
         response_deserializer=edition__pb2.EditionList.FromString,
         )
     self.FindByName = channel.unary_unary(
         '/quran.Edition/FindByName',
-        request_serializer=shared__pb2.StringFilter.SerializeToString,
+        request_serializer=shared__pb2.NameRequest.SerializeToString,
         response_deserializer=edition__pb2.EditionList.FromString,
         )
     self.FindByEnglishName = channel.unary_unary(
         '/quran.Edition/FindByEnglishName',
-        request_serializer=shared__pb2.StringFilter.SerializeToString,
+        request_serializer=shared__pb2.NameRequest.SerializeToString,
         response_deserializer=edition__pb2.EditionList.FromString,
         )
     self.FindByType = channel.unary_unary(
         '/quran.Edition/FindByType',
-        request_serializer=shared__pb2.StringFilter.SerializeToString,
+        request_serializer=shared__pb2.NameRequest.SerializeToString,
         response_deserializer=edition__pb2.EditionList.FromString,
         )
     self.FindByFormat = channel.unary_unary(
         '/quran.Edition/FindByFormat',
-        request_serializer=shared__pb2.StringFilter.SerializeToString,
+        request_serializer=shared__pb2.NameRequest.SerializeToString,
         response_deserializer=edition__pb2.EditionList.FromString,
         )
 
@@ -138,27 +138,27 @@ def add_EditionServicer_to_server(servicer, server):
       ),
       'FindByLanguage': grpc.unary_unary_rpc_method_handler(
           servicer.FindByLanguage,
-          request_deserializer=shared__pb2.StringFilter.FromString,
+          request_deserializer=shared__pb2.NameRequest.FromString,
           response_serializer=edition__pb2.EditionList.SerializeToString,
       ),
       'FindByName': grpc.unary_unary_rpc_method_handler(
           servicer.FindByName,
-          request_deserializer=shared__pb2.StringFilter.FromString,
+          request_deserializer=shared__pb2.NameRequest.FromString,
           response_serializer=edition__pb2.EditionList.SerializeToString,
       ),
       'FindByEnglishName': grpc.unary_unary_rpc_method_handler(
           servicer.FindByEnglishName,
-          request_deserializer=shared__pb2.StringFilter.FromString,
+          request_deserializer=shared__pb2.NameRequest.FromString,
           response_serializer=edition__pb2.EditionList.SerializeToString,
       ),
       'FindByType': grpc.unary_unary_rpc_method_handler(
           servicer.FindByType,
-          request_deserializer=shared__pb2.StringFilter.FromString,
+          request_deserializer=shared__pb2.NameRequest.FromString,
           response_serializer=edition__pb2.EditionList.SerializeToString,
       ),
       'FindByFormat': grpc.unary_unary_rpc_method_handler(
           servicer.FindByFormat,
-          request_deserializer=shared__pb2.StringFilter.FromString,
+          request_deserializer=shared__pb2.NameRequest.FromString,
           response_serializer=edition__pb2.EditionList.SerializeToString,
       ),
   }

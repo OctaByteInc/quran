@@ -18,7 +18,7 @@ service Surah {
     rpc GetAll (EmptyMessage) returns (SurahList) {}
     rpc FindSurahById (IDRequest) returns (SurahEntity) {}
     rpc FindSurahByNumber (NumberRequest) returns (SurahEntity) {}
-    rpc FindSurahByName (StringFilter) returns (SurahEntity) {}
-    rpc FindSurahByEnglishName (StringFilter) returns (SurahEntity) {}
+    rpc FindSurahByName (NameRequest) returns (SurahEntity) {}
+    rpc FindSurahByEnglishName (NameRequest) returns (SurahEntity) {}
     rpc FindSurahByRevelationType (RevelationRequest) returns (SurahList) {}
 }

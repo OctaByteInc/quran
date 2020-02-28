@@ -38,12 +38,12 @@ class SurahStub(object):
         )
     self.FindSurahByName = channel.unary_unary(
         '/quran.Surah/FindSurahByName',
-        request_serializer=shared__pb2.StringFilter.SerializeToString,
+        request_serializer=shared__pb2.NameRequest.SerializeToString,
         response_deserializer=entity__pb2.SurahEntity.FromString,
         )
     self.FindSurahByEnglishName = channel.unary_unary(
         '/quran.Surah/FindSurahByEnglishName',
-        request_serializer=shared__pb2.StringFilter.SerializeToString,
+        request_serializer=shared__pb2.NameRequest.SerializeToString,
         response_deserializer=entity__pb2.SurahEntity.FromString,
         )
     self.FindSurahByRevelationType = channel.unary_unary(
@@ -131,12 +131,12 @@ def add_SurahServicer_to_server(servicer, server):
       ),
       'FindSurahByName': grpc.unary_unary_rpc_method_handler(
           servicer.FindSurahByName,
-          request_deserializer=shared__pb2.StringFilter.FromString,
+          request_deserializer=shared__pb2.NameRequest.FromString,
           response_serializer=entity__pb2.SurahEntity.SerializeToString,
       ),
       'FindSurahByEnglishName': grpc.unary_unary_rpc_method_handler(
           servicer.FindSurahByEnglishName,
-          request_deserializer=shared__pb2.StringFilter.FromString,
+          request_deserializer=shared__pb2.NameRequest.FromString,
           response_serializer=entity__pb2.SurahEntity.SerializeToString,
       ),
       'FindSurahByRevelationType': grpc.unary_unary_rpc_method_handler(

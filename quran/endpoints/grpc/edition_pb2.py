@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='quran',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\redition.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\";\n\x0b\x45\x64itionList\x12,\n\x0e\x65\x64ition_entity\x18\x01 \x03(\x0b\x32\x14.quran.EditionEntity2\xdd\x03\n\x07\x45\x64ition\x12=\n\rCreateEdition\x12\x14.quran.EditionEntity\x1a\x14.quran.EditionEntity\"\x00\x12\x33\n\x06GetAll\x12\x13.quran.EmptyMessage\x1a\x12.quran.EditionList\"\x00\x12\x34\n\x08\x46indById\x12\x10.quran.IDRequest\x1a\x14.quran.EditionEntity\"\x00\x12;\n\x0e\x46indByLanguage\x12\x13.quran.StringFilter\x1a\x12.quran.EditionList\"\x00\x12\x37\n\nFindByName\x12\x13.quran.StringFilter\x1a\x12.quran.EditionList\"\x00\x12>\n\x11\x46indByEnglishName\x12\x13.quran.StringFilter\x1a\x12.quran.EditionList\"\x00\x12\x37\n\nFindByType\x12\x13.quran.StringFilter\x1a\x12.quran.EditionList\"\x00\x12\x39\n\x0c\x46indByFormat\x12\x13.quran.StringFilter\x1a\x12.quran.EditionList\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\redition.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\";\n\x0b\x45\x64itionList\x12,\n\x0e\x65\x64ition_entity\x18\x01 \x03(\x0b\x32\x14.quran.EditionEntity2\xd8\x03\n\x07\x45\x64ition\x12=\n\rCreateEdition\x12\x14.quran.EditionEntity\x1a\x14.quran.EditionEntity\"\x00\x12\x33\n\x06GetAll\x12\x13.quran.EmptyMessage\x1a\x12.quran.EditionList\"\x00\x12\x34\n\x08\x46indById\x12\x10.quran.IDRequest\x1a\x14.quran.EditionEntity\"\x00\x12:\n\x0e\x46indByLanguage\x12\x12.quran.NameRequest\x1a\x12.quran.EditionList\"\x00\x12\x36\n\nFindByName\x12\x12.quran.NameRequest\x1a\x12.quran.EditionList\"\x00\x12=\n\x11\x46indByEnglishName\x12\x12.quran.NameRequest\x1a\x12.quran.EditionList\"\x00\x12\x36\n\nFindByType\x12\x12.quran.NameRequest\x1a\x12.quran.EditionList\"\x00\x12\x38\n\x0c\x46indByFormat\x12\x12.quran.NameRequest\x1a\x12.quran.EditionList\"\x00\x62\x06proto3')
   ,
   dependencies=[shared__pb2.DESCRIPTOR,entity__pb2.DESCRIPTOR,])
 
@@ -79,7 +79,7 @@ _EDITION = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   serialized_start=114,
-  serialized_end=591,
+  serialized_end=586,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateEdition',
@@ -113,7 +113,7 @@ _EDITION = _descriptor.ServiceDescriptor(
     full_name='quran.Edition.FindByLanguage',
     index=3,
     containing_service=None,
-    input_type=shared__pb2._STRINGFILTER,
+    input_type=shared__pb2._NAMEREQUEST,
     output_type=_EDITIONLIST,
     serialized_options=None,
   ),
@@ -122,7 +122,7 @@ _EDITION = _descriptor.ServiceDescriptor(
     full_name='quran.Edition.FindByName',
     index=4,
     containing_service=None,
-    input_type=shared__pb2._STRINGFILTER,
+    input_type=shared__pb2._NAMEREQUEST,
     output_type=_EDITIONLIST,
     serialized_options=None,
   ),
@@ -131,7 +131,7 @@ _EDITION = _descriptor.ServiceDescriptor(
     full_name='quran.Edition.FindByEnglishName',
     index=5,
     containing_service=None,
-    input_type=shared__pb2._STRINGFILTER,
+    input_type=shared__pb2._NAMEREQUEST,
     output_type=_EDITIONLIST,
     serialized_options=None,
   ),
@@ -140,7 +140,7 @@ _EDITION = _descriptor.ServiceDescriptor(
     full_name='quran.Edition.FindByType',
     index=6,
     containing_service=None,
-    input_type=shared__pb2._STRINGFILTER,
+    input_type=shared__pb2._NAMEREQUEST,
     output_type=_EDITIONLIST,
     serialized_options=None,
   ),
@@ -149,7 +149,7 @@ _EDITION = _descriptor.ServiceDescriptor(
     full_name='quran.Edition.FindByFormat',
     index=7,
     containing_service=None,
-    input_type=shared__pb2._STRINGFILTER,
+    input_type=shared__pb2._NAMEREQUEST,
     output_type=_EDITIONLIST,
     serialized_options=None,
   ),

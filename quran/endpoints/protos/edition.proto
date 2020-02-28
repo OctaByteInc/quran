@@ -13,9 +13,9 @@ service Edition {
     rpc CreateEdition (EditionEntity) returns (EditionEntity) {}
     rpc GetAll (EmptyMessage) returns (EditionList) {}
     rpc FindById (IDRequest) returns (EditionEntity) {}
-    rpc FindByLanguage (StringFilter) returns (EditionList) {}
-    rpc FindByName (StringFilter) returns (EditionList) {}
-    rpc FindByEnglishName (StringFilter) returns (EditionList) {}
-    rpc FindByType (StringFilter) returns (EditionList) {}
-    rpc FindByFormat (StringFilter) returns (EditionList) {}
+    rpc FindByLanguage (NameRequest) returns (EditionList) {}
+    rpc FindByName (NameRequest) returns (EditionList) {}
+    rpc FindByEnglishName (NameRequest) returns (EditionList) {}
+    rpc FindByType (NameRequest) returns (EditionList) {}
+    rpc FindByFormat (NameRequest) returns (EditionList) {}
 }

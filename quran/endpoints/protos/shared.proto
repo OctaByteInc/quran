@@ -12,10 +12,15 @@ message NumberRequest {
     int32 number = 1;
 }
 
+message NameRequest {
+    string name = 1;
+}
+
 message FilterRequest {
     repeated StringFilter filter = 1;
 }
 
 message StringFilter {
     string name = 1;
+    string value = 2;
 }

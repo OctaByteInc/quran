@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+import "shared.proto";
+import "entity.proto";
+
+package quran;
+
+enum AyahParts {
+    TRANSLATION = 0;
+    SURAH = 1;
+    EDITION = 2;
+    ARABIC_AUDIO = 3;
+    TRANSLATION_AUDIO = 4;
+    IMAGE = 5;
+}
+
+message PartsRequest {
+    string edition_id = 1;
+    repeated AyahParts ayah_parts = 2;
+}
+
+message AyahIdRequest {
+    string id = 1;
+    PartsRequest ayah_parts = 2;
+}
+
+message AyahNumberRequest {
+    int32 number = 1;
+    PartsRequest ayah_parts = 2;
+}
+
+message AyahSajdaRequest {
+    bool sajda = 1;
+    PartsRequest ayah_parts = 2;
+}
+
+message AyahList {
+    repeated AyahEntity ayah_entity = 1;
+}
+
+service Ayah {
+    rpc CreateAyah (AyahEntity) returns (AyahEntity) {}
+    rpc FindAyahById (AyahIdRequest) returns (AyahEntity) {}
+    rpc FindAyahBySurahId (AyahIdRequest) returns (AyahList) {}
+    rpc FindAyahByNumber (AyahNumberRequest) returns (AyahEntity) {}
+    rpc FindAyahByNumberInSurah (AyahNumberRequest) returns (AyahEntity) {}
+    rpc FindAyahByJuz (AyahNumberRequest) returns (AyahList) {}
+    rpc FindAyahByManzil (AyahNumberRequest) returns (AyahList) {}
+    rpc FindAyahByRuku (AyahNumberRequest) returns (AyahList) {}
+    rpc FindAyahByHizbQuarter (AyahNumberRequest) returns (AyahList) {}
+    rpc FindAyahBySajda (AyahSajdaRequest) returns (AyahList) {}
+}

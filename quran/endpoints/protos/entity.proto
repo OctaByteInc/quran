@@ -7,6 +7,11 @@ enum AudioType {
     TRANSLATION = 1;
 }
 
+enum RevelationType {
+    MECCAN = 0;
+    MEDINAN = 1;
+}
+
 message ImageEntity {
     string ayah_id = 1;
     string image = 2;
@@ -28,4 +33,34 @@ message EditionEntity {
     AudioType type = 5;
     string format = 6;
     string direction = 7;
+}
+
+message TranslationEntity {
+    string id = 1;
+    string ayah_id = 2;
+    string edition_id = 3;
+    string text = 4;
+}
+
+message SurahEntity {
+    string id = 1;
+    string number = 2;
+    string name = 3;
+    string english_name = 4;
+    string english_name_translation = 5;
+    int32 number_of_ayahs = 6;
+    RevelationType revelation_type = 7;
+}
+
+message AyahEntity {
+    string id = 1;
+    string surah_id = 2;
+    int32 number = 3;
+    int32 number_in_surah = 4;
+    int32 juz = 5;
+    int32 manzil = 6;
+    int32 ruku = 7;
+    int32 hizb_quarter = 8;
+    bool sajda = 9;
+    string arabic = 10;
 }

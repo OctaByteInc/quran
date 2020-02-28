@@ -8,6 +8,10 @@ message IDRequest {
     string id = 1;
 }
 
+message NumberRequest {
+    int32 number = 1;
+}
+
 message FilterRequest {
     repeated StringFilter filter = 1;
 }

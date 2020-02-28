@@ -33,16 +33,25 @@ message AyahSajdaRequest {
     PartsRequest ayah_parts = 2;
 }
 
+message AyahResponse {
+    AyahEntity ayah_entity = 1;
+    TranslationEntity translation_entity = 2;
+    SurahEntity surah_entity = 3;
+    EditionEntity edition_entity = 4;
+    AudioEntity audio_entity = 5;
+    ImageEntity image_entity = 6;
+}
+
 message AyahList {
-    repeated AyahEntity ayah_entity = 1;
+    repeated AyahResponse ayah_response = 1;
 }
 
 service Ayah {
     rpc CreateAyah (AyahEntity) returns (AyahEntity) {}
-    rpc FindAyahById (AyahIdRequest) returns (AyahEntity) {}
+    rpc FindAyahById (AyahIdRequest) returns (AyahResponse) {}
     rpc FindAyahBySurahId (AyahIdRequest) returns (AyahList) {}
-    rpc FindAyahByNumber (AyahNumberRequest) returns (AyahEntity) {}
-    rpc FindAyahByNumberInSurah (AyahNumberRequest) returns (AyahEntity) {}
+    rpc FindAyahByNumber (AyahNumberRequest) returns (AyahResponse) {}
+    rpc FindAyahByNumberInSurah (AyahNumberRequest) returns (AyahResponse) {}
     rpc FindAyahByJuz (AyahNumberRequest) returns (AyahList) {}
     rpc FindAyahByManzil (AyahNumberRequest) returns (AyahList) {}
     rpc FindAyahByRuku (AyahNumberRequest) returns (AyahList) {}

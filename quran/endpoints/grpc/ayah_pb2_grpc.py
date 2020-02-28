@@ -23,7 +23,7 @@ class AyahStub(object):
     self.FindAyahById = channel.unary_unary(
         '/quran.Ayah/FindAyahById',
         request_serializer=ayah__pb2.AyahIdRequest.SerializeToString,
-        response_deserializer=entity__pb2.AyahEntity.FromString,
+        response_deserializer=ayah__pb2.AyahResponse.FromString,
         )
     self.FindAyahBySurahId = channel.unary_unary(
         '/quran.Ayah/FindAyahBySurahId',
@@ -33,12 +33,12 @@ class AyahStub(object):
     self.FindAyahByNumber = channel.unary_unary(
         '/quran.Ayah/FindAyahByNumber',
         request_serializer=ayah__pb2.AyahNumberRequest.SerializeToString,
-        response_deserializer=entity__pb2.AyahEntity.FromString,
+        response_deserializer=ayah__pb2.AyahResponse.FromString,
         )
     self.FindAyahByNumberInSurah = channel.unary_unary(
         '/quran.Ayah/FindAyahByNumberInSurah',
         request_serializer=ayah__pb2.AyahNumberRequest.SerializeToString,
-        response_deserializer=entity__pb2.AyahEntity.FromString,
+        response_deserializer=ayah__pb2.AyahResponse.FromString,
         )
     self.FindAyahByJuz = channel.unary_unary(
         '/quran.Ayah/FindAyahByJuz',
@@ -152,7 +152,7 @@ def add_AyahServicer_to_server(servicer, server):
       'FindAyahById': grpc.unary_unary_rpc_method_handler(
           servicer.FindAyahById,
           request_deserializer=ayah__pb2.AyahIdRequest.FromString,
-          response_serializer=entity__pb2.AyahEntity.SerializeToString,
+          response_serializer=ayah__pb2.AyahResponse.SerializeToString,
       ),
       'FindAyahBySurahId': grpc.unary_unary_rpc_method_handler(
           servicer.FindAyahBySurahId,
@@ -162,12 +162,12 @@ def add_AyahServicer_to_server(servicer, server):
       'FindAyahByNumber': grpc.unary_unary_rpc_method_handler(
           servicer.FindAyahByNumber,
           request_deserializer=ayah__pb2.AyahNumberRequest.FromString,
-          response_serializer=entity__pb2.AyahEntity.SerializeToString,
+          response_serializer=ayah__pb2.AyahResponse.SerializeToString,
       ),
       'FindAyahByNumberInSurah': grpc.unary_unary_rpc_method_handler(
           servicer.FindAyahByNumberInSurah,
           request_deserializer=ayah__pb2.AyahNumberRequest.FromString,
-          response_serializer=entity__pb2.AyahEntity.SerializeToString,
+          response_serializer=ayah__pb2.AyahResponse.SerializeToString,
       ),
       'FindAyahByJuz': grpc.unary_unary_rpc_method_handler(
           servicer.FindAyahByJuz,

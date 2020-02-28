@@ -3,8 +3,8 @@ syntax = "proto3";
 package quran;
 
 enum AudioType {
-    AUDIO = 0;
-    TRANSLATION = 1;
+    AUDIO_ARABIC = 0;
+    AUDIO_TRANSLATION = 1;
 }
 
 enum RevelationType {

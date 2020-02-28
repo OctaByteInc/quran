@@ -137,7 +137,7 @@ main.py
 .vscode
 
 # ingore proto generated classes
-quran/endpoints/grpc
+# quran/endpoints/grpc
 
 api_descriptor.pb
 service-account-creds.json

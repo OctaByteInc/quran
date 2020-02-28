@@ -1,6 +1,5 @@
 syntax = "proto3";
 
-import "shared.proto";
 import "entity.proto";
 
 package quran;

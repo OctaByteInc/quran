@@ -14,11 +14,17 @@ import quran.endpoints.grpc.shared_pb2 as shared_proto
 
 def run(host):
     channel = grpc.insecure_channel(host)
-    stub = ayah_rpc.AyahStub(channel)
-    response = stub.FindAyahById(shared_proto.IDRequest(id='id-123'))
+    stub = audio_rpc.AudioStub(channel)
+    audio_entity = entity_proto.AudioEntity(id='id', ayah_id='ayah-id', edition_id='edition-id',
+                                            type='AUDIO_TRANSLATION',
+                                            audio='audio')
+    response = stub.CreateAudio(audio_entity)
     print(response)
-    #response = stub.FindById(shared_proto.EmptyMessage())
-    #print(response)
+    # stub = ayah_rpc.AyahStub(channel)
+    # response = stub.FindAyahById(shared_proto.IDRequest(id='id-123'))
+    # print(response)
+    # response = stub.FindById(shared_proto.EmptyMessage())
+    # print(response)
     # stub = audio_rpc.AudioStub(channel)
     # filters = [
     #     shared_proto.StringFilter(name='ayah_id', value='ayah-id-123'),

@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='quran',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0bsurah.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"5\n\tSurahList\x12(\n\x0csurah_entity\x18\x01 \x03(\x0b\x32\x12.quran.SurahEntity\"C\n\x11RevelationRequest\x12.\n\x0frevelation_type\x18\x01 \x01(\x0e\x32\x15.quran.RevelationType2\xb9\x03\n\x05Surah\x12\x37\n\x0b\x43reateSurah\x12\x12.quran.SurahEntity\x1a\x12.quran.SurahEntity\"\x00\x12\x31\n\x06GetAll\x12\x13.quran.EmptyMessage\x1a\x10.quran.SurahList\"\x00\x12\x37\n\rFindSurahById\x12\x10.quran.IDRequest\x1a\x12.quran.SurahEntity\"\x00\x12?\n\x11\x46indSurahByNumber\x12\x14.quran.NumberRequest\x1a\x12.quran.SurahEntity\"\x00\x12;\n\x0f\x46indSurahByName\x12\x12.quran.NameRequest\x1a\x12.quran.SurahEntity\"\x00\x12\x42\n\x16\x46indSurahByEnglishName\x12\x12.quran.NameRequest\x1a\x12.quran.SurahEntity\"\x00\x12I\n\x19\x46indSurahByRevelationType\x12\x18.quran.RevelationRequest\x1a\x10.quran.SurahList\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0bsurah.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"5\n\tSurahList\x12(\n\x0csurah_entity\x18\x01 \x03(\x0b\x32\x12.quran.SurahEntity\",\n\x11RevelationRequest\x12\x17\n\x0frevelation_type\x18\x01 \x01(\t2\xb9\x03\n\x05Surah\x12\x37\n\x0b\x43reateSurah\x12\x12.quran.SurahEntity\x1a\x12.quran.SurahEntity\"\x00\x12\x31\n\x06GetAll\x12\x13.quran.EmptyMessage\x1a\x10.quran.SurahList\"\x00\x12\x37\n\rFindSurahById\x12\x10.quran.IDRequest\x1a\x12.quran.SurahEntity\"\x00\x12?\n\x11\x46indSurahByNumber\x12\x14.quran.NumberRequest\x1a\x12.quran.SurahEntity\"\x00\x12;\n\x0f\x46indSurahByName\x12\x12.quran.NameRequest\x1a\x12.quran.SurahEntity\"\x00\x12\x42\n\x16\x46indSurahByEnglishName\x12\x12.quran.NameRequest\x1a\x12.quran.SurahEntity\"\x00\x12I\n\x19\x46indSurahByRevelationType\x12\x18.quran.RevelationRequest\x1a\x10.quran.SurahList\"\x00\x62\x06proto3')
   ,
   dependencies=[shared__pb2.DESCRIPTOR,entity__pb2.DESCRIPTOR,])
 
@@ -69,8 +69,8 @@ _REVELATIONREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='revelation_type', full_name='quran.RevelationRequest.revelation_type', index=0,
-      number=1, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -87,11 +87,10 @@ _REVELATIONREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=105,
-  serialized_end=172,
+  serialized_end=149,
 )
 
 _SURAHLIST.fields_by_name['surah_entity'].message_type = entity__pb2._SURAHENTITY
-_REVELATIONREQUEST.fields_by_name['revelation_type'].enum_type = entity__pb2._REVELATIONTYPE
 DESCRIPTOR.message_types_by_name['SurahList'] = _SURAHLIST
 DESCRIPTOR.message_types_by_name['RevelationRequest'] = _REVELATIONREQUEST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -118,8 +117,8 @@ _SURAH = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=175,
-  serialized_end=616,
+  serialized_start=152,
+  serialized_end=593,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateSurah',

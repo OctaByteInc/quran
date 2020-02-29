@@ -4,18 +4,9 @@ import "entity.proto";
 
 package quran;
 
-enum AyahParts {
-    TRANSLATION = 0;
-    SURAH = 1;
-    EDITION = 2;
-    ARABIC_AUDIO = 3;
-    TRANSLATION_AUDIO = 4;
-    IMAGE = 5;
-}
-
 message PartsRequest {
     string edition_id = 1;
-    repeated AyahParts ayah_parts = 2;
+    repeated string ayah_parts = 2;
 }
 
 message AyahIdRequest {

@@ -10,7 +10,7 @@ message SurahList {
 }
 
 message RevelationRequest {
-    RevelationType revelation_type = 1;
+    string revelation_type = 1;
 }
 
 service Surah {

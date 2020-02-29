@@ -4,7 +4,6 @@
 
 import sys
 _b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
-from google.protobuf.internal import enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
@@ -21,59 +20,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='quran',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0c\x65ntity.proto\x12\x05quran\"-\n\x0bImageEntity\x12\x0f\n\x07\x61yah_id\x18\x01 \x01(\t\x12\r\n\x05image\x18\x02 \x01(\t\"m\n\x0b\x41udioEntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07\x61yah_id\x18\x02 \x01(\t\x12\x12\n\nedition_id\x18\x03 \x01(\t\x12\x1e\n\x04type\x18\x04 \x01(\x0e\x32\x10.quran.AudioType\x12\r\n\x05\x61udio\x18\x05 \x01(\t\"\x94\x01\n\rEditionEntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08language\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x14\n\x0c\x65nglish_name\x18\x04 \x01(\t\x12\x1e\n\x04type\x18\x05 \x01(\x0e\x32\x10.quran.AudioType\x12\x0e\n\x06\x66ormat\x18\x06 \x01(\t\x12\x11\n\tdirection\x18\x07 \x01(\t\"R\n\x11TranslationEntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07\x61yah_id\x18\x02 \x01(\t\x12\x12\n\nedition_id\x18\x03 \x01(\t\x12\x0c\n\x04text\x18\x04 \x01(\t\"\xb8\x01\n\x0bSurahEntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06number\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x14\n\x0c\x65nglish_name\x18\x04 \x01(\t\x12 \n\x18\x65nglish_name_translation\x18\x05 \x01(\t\x12\x17\n\x0fnumber_of_ayahs\x18\x06 \x01(\x05\x12.\n\x0frevelation_type\x18\x07 \x01(\x0e\x32\x15.quran.RevelationType\"\xb3\x01\n\nAyahEntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08surah_id\x18\x02 \x01(\t\x12\x0e\n\x06number\x18\x03 \x01(\x05\x12\x17\n\x0fnumber_in_surah\x18\x04 \x01(\x05\x12\x0b\n\x03juz\x18\x05 \x01(\x05\x12\x0e\n\x06manzil\x18\x06 \x01(\x05\x12\x0c\n\x04ruku\x18\x07 \x01(\x05\x12\x14\n\x0chizb_quarter\x18\x08 \x01(\x05\x12\r\n\x05sajda\x18\t \x01(\x08\x12\x0e\n\x06\x61rabic\x18\n \x01(\t*4\n\tAudioType\x12\x10\n\x0c\x41UDIO_ARABIC\x10\x00\x12\x15\n\x11\x41UDIO_TRANSLATION\x10\x01*)\n\x0eRevelationType\x12\n\n\x06MECCAN\x10\x00\x12\x0b\n\x07MEDINAN\x10\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x0c\x65ntity.proto\x12\x05quran\"-\n\x0bImageEntity\x12\x0f\n\x07\x61yah_id\x18\x01 \x01(\t\x12\r\n\x05image\x18\x02 \x01(\t\"[\n\x0b\x41udioEntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07\x61yah_id\x18\x02 \x01(\t\x12\x12\n\nedition_id\x18\x03 \x01(\t\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\r\n\x05\x61udio\x18\x05 \x01(\t\"\x82\x01\n\rEditionEntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08language\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x14\n\x0c\x65nglish_name\x18\x04 \x01(\t\x12\x0c\n\x04type\x18\x05 \x01(\t\x12\x0e\n\x06\x66ormat\x18\x06 \x01(\t\x12\x11\n\tdirection\x18\x07 \x01(\t\"R\n\x11TranslationEntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07\x61yah_id\x18\x02 \x01(\t\x12\x12\n\nedition_id\x18\x03 \x01(\t\x12\x0c\n\x04text\x18\x04 \x01(\t\"\xa1\x01\n\x0bSurahEntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06number\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x14\n\x0c\x65nglish_name\x18\x04 \x01(\t\x12 \n\x18\x65nglish_name_translation\x18\x05 \x01(\t\x12\x17\n\x0fnumber_of_ayahs\x18\x06 \x01(\x05\x12\x17\n\x0frevelation_type\x18\x07 \x01(\t\"\xb3\x01\n\nAyahEntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08surah_id\x18\x02 \x01(\t\x12\x0e\n\x06number\x18\x03 \x01(\x05\x12\x17\n\x0fnumber_in_surah\x18\x04 \x01(\x05\x12\x0b\n\x03juz\x18\x05 \x01(\x05\x12\x0e\n\x06manzil\x18\x06 \x01(\x05\x12\x0c\n\x04ruku\x18\x07 \x01(\x05\x12\x14\n\x0chizb_quarter\x18\x08 \x01(\x05\x12\r\n\x05sajda\x18\t \x01(\x08\x12\x0e\n\x06\x61rabic\x18\n \x01(\tb\x06proto3')
 )
 
-_AUDIOTYPE = _descriptor.EnumDescriptor(
-  name='AudioType',
-  full_name='quran.AudioType',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='AUDIO_ARABIC', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='AUDIO_TRANSLATION', index=1, number=1,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=785,
-  serialized_end=837,
-)
-_sym_db.RegisterEnumDescriptor(_AUDIOTYPE)
-
-AudioType = enum_type_wrapper.EnumTypeWrapper(_AUDIOTYPE)
-_REVELATIONTYPE = _descriptor.EnumDescriptor(
-  name='RevelationType',
-  full_name='quran.RevelationType',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='MECCAN', index=0, number=0,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='MEDINAN', index=1, number=1,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=839,
-  serialized_end=880,
-)
-_sym_db.RegisterEnumDescriptor(_REVELATIONTYPE)
-
-RevelationType = enum_type_wrapper.EnumTypeWrapper(_REVELATIONTYPE)
-AUDIO_ARABIC = 0
-AUDIO_TRANSLATION = 1
-MECCAN = 0
-MEDINAN = 1
 
 
 
@@ -145,8 +94,8 @@ _AUDIOENTITY = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='type', full_name='quran.AudioEntity.type', index=3,
-      number=4, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -170,7 +119,7 @@ _AUDIOENTITY = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=70,
-  serialized_end=179,
+  serialized_end=161,
 )
 
 
@@ -211,8 +160,8 @@ _EDITIONENTITY = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='type', full_name='quran.EditionEntity.type', index=4,
-      number=5, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -242,8 +191,8 @@ _EDITIONENTITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=182,
-  serialized_end=330,
+  serialized_start=164,
+  serialized_end=294,
 )
 
 
@@ -294,8 +243,8 @@ _TRANSLATIONENTITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=332,
-  serialized_end=414,
+  serialized_start=296,
+  serialized_end=378,
 )
 
 
@@ -350,8 +299,8 @@ _SURAHENTITY = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='revelation_type', full_name='quran.SurahEntity.revelation_type', index=6,
-      number=7, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -367,8 +316,8 @@ _SURAHENTITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=417,
-  serialized_end=601,
+  serialized_start=381,
+  serialized_end=542,
 )
 
 
@@ -461,21 +410,16 @@ _AYAHENTITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=604,
-  serialized_end=783,
+  serialized_start=545,
+  serialized_end=724,
 )
 
-_AUDIOENTITY.fields_by_name['type'].enum_type = _AUDIOTYPE
-_EDITIONENTITY.fields_by_name['type'].enum_type = _AUDIOTYPE
-_SURAHENTITY.fields_by_name['revelation_type'].enum_type = _REVELATIONTYPE
 DESCRIPTOR.message_types_by_name['ImageEntity'] = _IMAGEENTITY
 DESCRIPTOR.message_types_by_name['AudioEntity'] = _AUDIOENTITY
 DESCRIPTOR.message_types_by_name['EditionEntity'] = _EDITIONENTITY
 DESCRIPTOR.message_types_by_name['TranslationEntity'] = _TRANSLATIONENTITY
 DESCRIPTOR.message_types_by_name['SurahEntity'] = _SURAHENTITY
 DESCRIPTOR.message_types_by_name['AyahEntity'] = _AYAHENTITY
-DESCRIPTOR.enum_types_by_name['AudioType'] = _AUDIOTYPE
-DESCRIPTOR.enum_types_by_name['RevelationType'] = _REVELATIONTYPE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 ImageEntity = _reflection.GeneratedProtocolMessageType('ImageEntity', (_message.Message,), {

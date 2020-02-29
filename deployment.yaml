@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: quran-grpc
+spec:
+  ports:
+  - port: 80
+    targetPort: 9000
+    protocol: TCP
+    name: http
+  selector:
+    app: quran-grpc
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quran-grpc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quran-grpc
+  template:
+    metadata:
+      labels:
+        app: quran-grpc
+    spec:
+      containers:
+      - name: esp
+        image: gcr.io/endpoints-release/endpoints-runtime:1
+        args: [
+          "--http2_port=9000",
+          "--backend=grpc://127.0.0.1:50051",
+          "--service=quran.endpoints.octa-test-123.cloud.goog",
+          "--rollout_strategy=managed",
+        ]
+        ports:
+          - containerPort: 9000
+      - name: python-grpc-quran
+        image: gcr.io/octa-test-123/python-grpc-quran:1.0
+        ports:
+          - containerPort: 50051

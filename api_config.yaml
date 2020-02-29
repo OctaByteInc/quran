@@ -6,11 +6,16 @@ config_version: 3
 #
 # Name of the service configuration.
 #
-name: hellogrpc.endpoints.octa-test-123.cloud.goog
+name: quran.endpoints.octa-test-123.cloud.goog
 
 #
 # API title to appear in the user interface (Google Cloud Console).
 #
-title: Hello gRPC API
+title: Quran gRPC API
 apis:
-- name: helloworld.Greeter
+- name: quran.Audio
+- name: quran.Ayah
+- name: quran.Edition
+- name: quran.Image
+- name: quran.Surah
+- name: quran.Translation

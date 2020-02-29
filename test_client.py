@@ -35,6 +35,11 @@ def run(host):
     # for r in response.audio_entity:
     #     print(r.id, r.type)
 
+def run2(host):
+    channel = grpc.insecure_channel(host)
+    stub = audio_rpc.AudioStub(channel)
+    response = stub.FindAudioById(shared_proto.IDRequest(id='id'))
+    print(response)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
@@ -44,4 +49,4 @@ if __name__ == '__main__':
         '--host', default='localhost:50051', help='The server host.')
     args = parser.parse_args()
 
-    run(args.host)
+    run2(args.host)

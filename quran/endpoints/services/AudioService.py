@@ -10,7 +10,7 @@ class AudioService(audio_rpc.AudioServicer):
 
     def CreateAudio(self, request, context):
         audio = Audio.from_dict(ProtoConverter.proto_to_dict(request))
-        create_audio = AudioFactory.create_audio()
+        create_audio = AudioFactory.create()
         res = create_audio.exec(audio)
         return entity_proto.AudioEntity(**res.to_dict())
 

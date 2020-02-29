@@ -38,6 +38,6 @@ spec:
         ports:
           - containerPort: 9000
       - name: python-grpc-quran
-        image: gcr.io/octa-test-123/python-grpc-quran:1.0
+        image: gcr.io/octa-test-123/python-grpc-hello@sha256:4fa153be04fa1bbcb26a9a4e88b9e3240ed85938b1a9781876bc68c284fe3ae9
         ports:
           - containerPort: 50051

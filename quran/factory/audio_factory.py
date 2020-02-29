@@ -6,7 +6,7 @@ from quran.usecase.audio.find_audio import FindAudio
 class AudioFactory:
 
     @classmethod
-    def create_audio(cls):
+    def create(cls):
         audio_repo = AudioRepo()
         return CreateAudio(audio_repo)
 

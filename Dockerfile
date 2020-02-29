@@ -18,4 +18,4 @@ COPY . /app/
 
 ENTRYPOINT []
 
-CMD ["python", "/app/greeter_server.py"]
+CMD ["python", "/app/endpoint_server.py"]

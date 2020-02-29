@@ -20,7 +20,7 @@ message PartsRequest {
 
 message AyahIdRequest {
     string id = 1;
-    PartsRequest ayah_parts = 2;
+    PartsRequest parts_request = 2;
 }
 
 message AyahNumberRequest {
@@ -38,8 +38,9 @@ message AyahResponse {
     TranslationEntity translation_entity = 2;
     SurahEntity surah_entity = 3;
     EditionEntity edition_entity = 4;
-    AudioEntity audio_entity = 5;
-    ImageEntity image_entity = 6;
+    AudioEntity arabic_audio = 5;
+    AudioEntity translation_audio = 6;
+    ImageEntity image_entity = 7;
 }
 
 message AyahList {

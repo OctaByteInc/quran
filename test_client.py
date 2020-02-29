@@ -2,6 +2,8 @@ import argparse
 
 import grpc
 
+import quran.endpoints.grpc.ayah_pb2 as ayah_proto
+import quran.endpoints.grpc.ayah_pb2_grpc as ayah_rpc
 import quran.endpoints.grpc.edition_pb2 as edition_proto
 import quran.endpoints.grpc.edition_pb2_grpc as edition_rpc
 import quran.endpoints.grpc.image_pb2_grpc as image_rpc
@@ -12,10 +14,11 @@ import quran.endpoints.grpc.shared_pb2 as shared_proto
 
 def run(host):
     channel = grpc.insecure_channel(host)
-    stub = edition_rpc.EditionStub(channel)
-    response = stub.GetAll(shared_proto.EmptyMessage())
-    #response = stub.FindById(shared_proto.EmptyMessage())
+    stub = ayah_rpc.AyahStub(channel)
+    response = stub.FindAyahById(shared_proto.IDRequest(id='id-123'))
     print(response)
+    #response = stub.FindById(shared_proto.EmptyMessage())
+    #print(response)
     # stub = audio_rpc.AudioStub(channel)
     # filters = [
     #     shared_proto.StringFilter(name='ayah_id', value='ayah-id-123'),

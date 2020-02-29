@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='quran',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\nayah.proto\x12\x05quran\x1a\x0c\x65ntity.proto\"H\n\x0cPartsRequest\x12\x12\n\nedition_id\x18\x01 \x01(\t\x12$\n\nayah_parts\x18\x02 \x03(\x0e\x32\x10.quran.AyahParts\"D\n\rAyahIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\'\n\nayah_parts\x18\x02 \x01(\x0b\x32\x13.quran.PartsRequest\"L\n\x11\x41yahNumberRequest\x12\x0e\n\x06number\x18\x01 \x01(\x05\x12\'\n\nayah_parts\x18\x02 \x01(\x0b\x32\x13.quran.PartsRequest\"J\n\x10\x41yahSajdaRequest\x12\r\n\x05sajda\x18\x01 \x01(\x08\x12\'\n\nayah_parts\x18\x02 \x01(\x0b\x32\x13.quran.PartsRequest\"\x98\x02\n\x0c\x41yahResponse\x12&\n\x0b\x61yah_entity\x18\x01 \x01(\x0b\x32\x11.quran.AyahEntity\x12\x34\n\x12translation_entity\x18\x02 \x01(\x0b\x32\x18.quran.TranslationEntity\x12(\n\x0csurah_entity\x18\x03 \x01(\x0b\x32\x12.quran.SurahEntity\x12,\n\x0e\x65\x64ition_entity\x18\x04 \x01(\x0b\x32\x14.quran.EditionEntity\x12(\n\x0c\x61udio_entity\x18\x05 \x01(\x0b\x32\x12.quran.AudioEntity\x12(\n\x0cimage_entity\x18\x06 \x01(\x0b\x32\x12.quran.ImageEntity\"6\n\x08\x41yahList\x12*\n\rayah_response\x18\x01 \x03(\x0b\x32\x13.quran.AyahResponse*h\n\tAyahParts\x12\x0f\n\x0bTRANSLATION\x10\x00\x12\t\n\x05SURAH\x10\x01\x12\x0b\n\x07\x45\x44ITION\x10\x02\x12\x10\n\x0c\x41RABIC_AUDIO\x10\x03\x12\x15\n\x11TRANSLATION_AUDIO\x10\x04\x12\t\n\x05IMAGE\x10\x05\x32\x8b\x05\n\x04\x41yah\x12\x34\n\nCreateAyah\x12\x11.quran.AyahEntity\x1a\x11.quran.AyahEntity\"\x00\x12;\n\x0c\x46indAyahById\x12\x14.quran.AyahIdRequest\x1a\x13.quran.AyahResponse\"\x00\x12<\n\x11\x46indAyahBySurahId\x12\x14.quran.AyahIdRequest\x1a\x0f.quran.AyahList\"\x00\x12\x43\n\x10\x46indAyahByNumber\x12\x18.quran.AyahNumberRequest\x1a\x13.quran.AyahResponse\"\x00\x12J\n\x17\x46indAyahByNumberInSurah\x12\x18.quran.AyahNumberRequest\x1a\x13.quran.AyahResponse\"\x00\x12<\n\rFindAyahByJuz\x12\x18.quran.AyahNumberRequest\x1a\x0f.quran.AyahList\"\x00\x12?\n\x10\x46indAyahByManzil\x12\x18.quran.AyahNumberRequest\x1a\x0f.quran.AyahList\"\x00\x12=\n\x0e\x46indAyahByRuku\x12\x18.quran.AyahNumberRequest\x1a\x0f.quran.AyahList\"\x00\x12\x44\n\x15\x46indAyahByHizbQuarter\x12\x18.quran.AyahNumberRequest\x1a\x0f.quran.AyahList\"\x00\x12=\n\x0f\x46indAyahBySajda\x12\x17.quran.AyahSajdaRequest\x1a\x0f.quran.AyahList\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\nayah.proto\x12\x05quran\x1a\x0c\x65ntity.proto\"H\n\x0cPartsRequest\x12\x12\n\nedition_id\x18\x01 \x01(\t\x12$\n\nayah_parts\x18\x02 \x03(\x0e\x32\x10.quran.AyahParts\"G\n\rAyahIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12*\n\rparts_request\x18\x02 \x01(\x0b\x32\x13.quran.PartsRequest\"L\n\x11\x41yahNumberRequest\x12\x0e\n\x06number\x18\x01 \x01(\x05\x12\'\n\nayah_parts\x18\x02 \x01(\x0b\x32\x13.quran.PartsRequest\"J\n\x10\x41yahSajdaRequest\x12\r\n\x05sajda\x18\x01 \x01(\x08\x12\'\n\nayah_parts\x18\x02 \x01(\x0b\x32\x13.quran.PartsRequest\"\xc7\x02\n\x0c\x41yahResponse\x12&\n\x0b\x61yah_entity\x18\x01 \x01(\x0b\x32\x11.quran.AyahEntity\x12\x34\n\x12translation_entity\x18\x02 \x01(\x0b\x32\x18.quran.TranslationEntity\x12(\n\x0csurah_entity\x18\x03 \x01(\x0b\x32\x12.quran.SurahEntity\x12,\n\x0e\x65\x64ition_entity\x18\x04 \x01(\x0b\x32\x14.quran.EditionEntity\x12(\n\x0c\x61rabic_audio\x18\x05 \x01(\x0b\x32\x12.quran.AudioEntity\x12-\n\x11translation_audio\x18\x06 \x01(\x0b\x32\x12.quran.AudioEntity\x12(\n\x0cimage_entity\x18\x07 \x01(\x0b\x32\x12.quran.ImageEntity\"6\n\x08\x41yahList\x12*\n\rayah_response\x18\x01 \x03(\x0b\x32\x13.quran.AyahResponse*h\n\tAyahParts\x12\x0f\n\x0bTRANSLATION\x10\x00\x12\t\n\x05SURAH\x10\x01\x12\x0b\n\x07\x45\x44ITION\x10\x02\x12\x10\n\x0c\x41RABIC_AUDIO\x10\x03\x12\x15\n\x11TRANSLATION_AUDIO\x10\x04\x12\t\n\x05IMAGE\x10\x05\x32\x8b\x05\n\x04\x41yah\x12\x34\n\nCreateAyah\x12\x11.quran.AyahEntity\x1a\x11.quran.AyahEntity\"\x00\x12;\n\x0c\x46indAyahById\x12\x14.quran.AyahIdRequest\x1a\x13.quran.AyahResponse\"\x00\x12<\n\x11\x46indAyahBySurahId\x12\x14.quran.AyahIdRequest\x1a\x0f.quran.AyahList\"\x00\x12\x43\n\x10\x46indAyahByNumber\x12\x18.quran.AyahNumberRequest\x1a\x13.quran.AyahResponse\"\x00\x12J\n\x17\x46indAyahByNumberInSurah\x12\x18.quran.AyahNumberRequest\x1a\x13.quran.AyahResponse\"\x00\x12<\n\rFindAyahByJuz\x12\x18.quran.AyahNumberRequest\x1a\x0f.quran.AyahList\"\x00\x12?\n\x10\x46indAyahByManzil\x12\x18.quran.AyahNumberRequest\x1a\x0f.quran.AyahList\"\x00\x12=\n\x0e\x46indAyahByRuku\x12\x18.quran.AyahNumberRequest\x1a\x0f.quran.AyahList\"\x00\x12\x44\n\x15\x46indAyahByHizbQuarter\x12\x18.quran.AyahNumberRequest\x1a\x0f.quran.AyahList\"\x00\x12=\n\x0f\x46indAyahBySajda\x12\x17.quran.AyahSajdaRequest\x1a\x0f.quran.AyahList\"\x00\x62\x06proto3')
   ,
   dependencies=[entity__pb2.DESCRIPTOR,])
 
@@ -59,8 +59,8 @@ _AYAHPARTS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=672,
-  serialized_end=776,
+  serialized_start=722,
+  serialized_end=826,
 )
 _sym_db.RegisterEnumDescriptor(_AYAHPARTS)
 
@@ -127,7 +127,7 @@ _AYAHIDREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='ayah_parts', full_name='quran.AyahIdRequest.ayah_parts', index=1,
+      name='parts_request', full_name='quran.AyahIdRequest.parts_request', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -146,7 +146,7 @@ _AYAHIDREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=109,
-  serialized_end=177,
+  serialized_end=180,
 )
 
 
@@ -183,8 +183,8 @@ _AYAHNUMBERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=179,
-  serialized_end=255,
+  serialized_start=182,
+  serialized_end=258,
 )
 
 
@@ -221,8 +221,8 @@ _AYAHSAJDAREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=257,
-  serialized_end=331,
+  serialized_start=260,
+  serialized_end=334,
 )
 
 
@@ -262,15 +262,22 @@ _AYAHRESPONSE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='audio_entity', full_name='quran.AyahResponse.audio_entity', index=4,
+      name='arabic_audio', full_name='quran.AyahResponse.arabic_audio', index=4,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='image_entity', full_name='quran.AyahResponse.image_entity', index=5,
+      name='translation_audio', full_name='quran.AyahResponse.translation_audio', index=5,
       number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='image_entity', full_name='quran.AyahResponse.image_entity', index=6,
+      number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -287,8 +294,8 @@ _AYAHRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=334,
-  serialized_end=614,
+  serialized_start=337,
+  serialized_end=664,
 )
 
 
@@ -318,19 +325,20 @@ _AYAHLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=616,
-  serialized_end=670,
+  serialized_start=666,
+  serialized_end=720,
 )
 
 _PARTSREQUEST.fields_by_name['ayah_parts'].enum_type = _AYAHPARTS
-_AYAHIDREQUEST.fields_by_name['ayah_parts'].message_type = _PARTSREQUEST
+_AYAHIDREQUEST.fields_by_name['parts_request'].message_type = _PARTSREQUEST
 _AYAHNUMBERREQUEST.fields_by_name['ayah_parts'].message_type = _PARTSREQUEST
 _AYAHSAJDAREQUEST.fields_by_name['ayah_parts'].message_type = _PARTSREQUEST
 _AYAHRESPONSE.fields_by_name['ayah_entity'].message_type = entity__pb2._AYAHENTITY
 _AYAHRESPONSE.fields_by_name['translation_entity'].message_type = entity__pb2._TRANSLATIONENTITY
 _AYAHRESPONSE.fields_by_name['surah_entity'].message_type = entity__pb2._SURAHENTITY
 _AYAHRESPONSE.fields_by_name['edition_entity'].message_type = entity__pb2._EDITIONENTITY
-_AYAHRESPONSE.fields_by_name['audio_entity'].message_type = entity__pb2._AUDIOENTITY
+_AYAHRESPONSE.fields_by_name['arabic_audio'].message_type = entity__pb2._AUDIOENTITY
+_AYAHRESPONSE.fields_by_name['translation_audio'].message_type = entity__pb2._AUDIOENTITY
 _AYAHRESPONSE.fields_by_name['image_entity'].message_type = entity__pb2._IMAGEENTITY
 _AYAHLIST.fields_by_name['ayah_response'].message_type = _AYAHRESPONSE
 DESCRIPTOR.message_types_by_name['PartsRequest'] = _PARTSREQUEST
@@ -392,8 +400,8 @@ _AYAH = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=779,
-  serialized_end=1430,
+  serialized_start=829,
+  serialized_end=1480,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateAyah',

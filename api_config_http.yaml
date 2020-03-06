@@ -1,0 +1,99 @@
+# The configuration schema is defined by service.proto file
+# https://github.com/googleapis/googleapis/blob/master/google/api/service.proto
+type: google.api.Service
+config_version: 3
+
+name: quran.endpoints.utopian-button-227405.cloud.goog
+
+#
+# Http Transcoding.
+#
+# HTTP rules define translation from HTTP/REST/JSON to gRPC. With these rules
+# HTTP/REST/JSON clients will be able to call the Quran service.
+#
+
+http:
+  rules:
+    #
+    # Audio Service transcoding
+    #
+  - selector: quran.audio.Audio.CreateAudio
+    post: /v1/audios
+    body: audio
+
+  - selector: quran.audio.Audio.FindAudioById
+    get: /v1/audios/{id}
+
+#    - selector: quran.audio.Audio.FindAudioByAyahId
+#      get: /v1/audios/{id}
+#
+#    - selector: quran.audio.Audio.FindAudioByEditionId
+#      get: /v1/audios/{id}
+#
+#    - selector: quran.audio.Audio.FindArabicAudio
+#      get: /v1/audios/{filter}
+#
+#    - selector: quran.audio.Audio.FindTranslationAudio
+#      get: /v1/audios/{filter}
+#
+#    #
+#    # Ayah Service transcoding
+#    #
+#    - selector: quran.ayah.Ayah.CreateAyah
+#      post: /v1/ayahs
+#      body: ayah
+#
+#    - selector: quran.ayah.Ayah.FindAyahById
+#      get: /v1/ayahs/{id}
+#
+#    - selector: quran.ayah.Ayah.FindAyahBySurahId
+#      get: /v1/ayahs/{id}
+#
+#    - selector: quran.ayah.Ayah.FindAyahByNumber
+#      get: /v1/ayahs/{number}
+#
+#    - selector: quran.ayah.Ayah.FindAyahByNumberInSurah
+#      get: /v1/ayahs/{number}
+#
+#    - selector: quran.ayah.Ayah.FindAyahByJuz
+#      get: /v1/ayahs/{juz}
+#
+#    - selector: quran.ayah.Ayah.FindAyahByManzil
+#      get: /v1/ayahs/{manzil}
+#
+#    - selector: quran.ayah.Ayah.FindAyahByRuku
+#      get: /v1/ayahs/{ruku}
+#
+#    - selector: quran.ayah.Ayah.FindAyahByHizbQuarter
+#      get: /v1/ayahs/{number}
+#
+#    - selector: quran.ayah.Ayah.FindAyahBySajda
+#      get: /v1/ayahs/{sajda}
+#
+#    #
+#    # Ayah Service transcoding
+#    #
+#    - selector: quran.edition.Edition.CreateEdition
+#      post: /v1/editions
+#      body: edition
+#
+#    - selector: quran.edition.Edition.GetAll
+#      get: /v1/editions
+#
+#    - selector: quran.edition.Edition.FindById
+#      get: /v1/editions/{id}
+#
+#    - selector: quran.edition.Edition.FindByLanguage
+#      get: /v1/editions/{language}
+#
+#    - selector: quran.edition.Edition.FindByName
+#      get: /v1/editions/{name}
+#
+#    - selector: quran.edition.Edition.FindByEnglishName
+#      get: /v1/editions/{name}
+#
+#    - selector: quran.edition.Edition.FindByType
+#      get: /v1/editions/{type}
+#
+#    - selector: quran.edition.Edition.FindByFormat
+#      get: /v1/editions/{format}

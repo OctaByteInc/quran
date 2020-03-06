@@ -2,14 +2,7 @@
 # https://github.com/googleapis/googleapis/blob/master/google/api/service.proto
 type: google.api.Service
 config_version: 3
-#usage:
-#  rules:
-#  # All methods can be called without an API Key.
-#  - selector: "*"
-#    allow_unregistered_calls: true
-#
-# Name of the service configuration.
-#
+
 name: quran.endpoints.utopian-button-227405.cloud.goog
 
 #

@@ -12,13 +12,16 @@ import quran.endpoints.grpc.entity_pb2 as entity_proto
 import quran.endpoints.grpc.shared_pb2 as shared_proto
 
 
-def run(host):
+def run(host, api_key):
     channel = grpc.insecure_channel(host)
     stub = audio_rpc.AudioStub(channel)
-    audio_entity = entity_proto.AudioEntity(id='id', ayah_id='ayah-id', edition_id='edition-id',
+    audio_entity = entity_proto.AudioEntity(id='id-123', ayah_id='ayah-id', edition_id='edition-id',
                                             type='AUDIO_TRANSLATION',
                                             audio='audio')
-    response = stub.CreateAudio(audio_entity)
+    metadata = []
+    if api_key:
+        metadata.append(('x-api-key', api_key))
+    response = stub.CreateAudio(audio_entity, metadata=metadata)
     print(response)
     # stub = ayah_rpc.AyahStub(channel)
     # response = stub.FindAyahById(shared_proto.IDRequest(id='id-123'))
@@ -41,7 +44,7 @@ def run2(host, api_key):
     if api_key:
         metadata.append(('x-api-key', api_key))
     stub = audio_rpc.AudioStub(channel)
-    response = stub.FindAudioById(shared_proto.IDRequest(id='id'), metadata=metadata)
+    response = stub.FindAudioById(shared_proto.IDRequest(id='id-123'), metadata=metadata)
     print(response)
 
 if __name__ == '__main__':
@@ -52,6 +55,13 @@ if __name__ == '__main__':
         '--host', default='localhost:50051', help='The server host.')
     parser.add_argument(
         '--api_key', default=None, help='The API key to use for the call.')
+    parser.add_argument(
+        '--run', default='run1', help='Which method you want to run')
     args = parser.parse_args()
 
-    run2(args.host, args.api_key)
+    if args.run == 'run1':
+        run(args.host, args.api_key)
+    else:
+        run2(args.host, args.api_key)
+
+

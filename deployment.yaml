@@ -8,6 +8,10 @@ spec:
     targetPort: 9000
     protocol: TCP
     name: http
+  - port: 81
+    targetPort: 8080
+    protocol: TCP
+    name: http1
   selector:
     app: quran-grpc
   type: LoadBalancer
@@ -30,6 +34,7 @@ spec:
       - name: esp
         image: gcr.io/endpoints-release/endpoints-runtime:1
         args: [
+          "--http_port=8080",
           "--http2_port=9000",
           "--backend=grpc://127.0.0.1:50051",
           "--service=quran.endpoints.utopian-button-227405.cloud.goog",
@@ -37,6 +42,7 @@ spec:
         ]
         ports:
           - containerPort: 9000
+          - containerPort: 8080
       - name: python-grpc-quran
         image: gcr.io/utopian-button-227405/python-grpc-quran:1.0
         ports:

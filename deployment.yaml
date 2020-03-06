@@ -32,12 +32,12 @@ spec:
         args: [
           "--http2_port=9000",
           "--backend=grpc://127.0.0.1:50051",
-          "--service=quran.endpoints.octa-test-123.cloud.goog",
+          "--service=quran.endpoints.utopian-button-227405.cloud.goog",
           "--rollout_strategy=managed",
         ]
         ports:
           - containerPort: 9000
       - name: python-grpc-quran
-        image: gcr.io/octa-test-123/python-grpc-hello@sha256:4fa153be04fa1bbcb26a9a4e88b9e3240ed85938b1a9781876bc68c284fe3ae9
+        image: gcr.io/utopian-button-227405/python-grpc-quran:1.0
         ports:
           - containerPort: 50051

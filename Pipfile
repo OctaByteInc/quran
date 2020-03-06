@@ -9,6 +9,8 @@ pytest = "*"
 [packages]
 quran = {path = ".",editable = true}
 fireo = "*"
+grpcio = "*"
+grpcio-tools = "*"
 
 [requires]
 python_version = "3.7"

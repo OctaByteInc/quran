@@ -35,10 +35,13 @@ def run(host):
     # for r in response.audio_entity:
     #     print(r.id, r.type)
 
-def run2(host):
+def run2(host, api_key):
     channel = grpc.insecure_channel(host)
+    metadata = []
+    if api_key:
+        metadata.append(('x-api-key', api_key))
     stub = audio_rpc.AudioStub(channel)
-    response = stub.FindAudioById(shared_proto.IDRequest(id='id'))
+    response = stub.FindAudioById(shared_proto.IDRequest(id='id'), metadata=metadata)
     print(response)
 
 if __name__ == '__main__':
@@ -47,6 +50,8 @@ if __name__ == '__main__':
         formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument(
         '--host', default='localhost:50051', help='The server host.')
+    parser.add_argument(
+        '--api_key', default=None, help='The API key to use for the call.')
     args = parser.parse_args()
 
-    run2(args.host)
+    run2(args.host, args.api_key)

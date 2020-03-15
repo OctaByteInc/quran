@@ -16,13 +16,16 @@ class AyahService(ayah_rpc.AyahServicer):
 
     def FindAyahById(self, request, context):
         find_ayah = AyahFactory.find_ayah()
-        response = find_ayah.by_id(request.id, request.parts_request.edition_id, request.parts_request.ayah_parts)
+        edition_id = request.parts.edition_id
+        ayah_parts = request.parts.list.split(',')
+        response = find_ayah.by_id(request.id, edition_id, ayah_parts)
         return self._ayah_response(response)
 
     def FindAyahBySurahId(self, request, context):
         find_ayah = AyahFactory.find_ayah()
-        response_stream = find_ayah.by_surah_id(request.id, request.parts_request.edition_id,
-                                                request.parts_request.ayah_parts)
+        edition_id = request.parts.edition_id
+        ayah_parts = request.parts.list.split(',')
+        response_stream = find_ayah.by_surah_id(request.id, edition_id, ayah_parts)
         response_list = []
         for response in response_stream:
             response_list.append(self._ayah_response(response))
@@ -31,20 +34,23 @@ class AyahService(ayah_rpc.AyahServicer):
 
     def FindAyahByNumber(self, request, context):
         find_ayah = AyahFactory.find_ayah()
-        response = find_ayah.by_number(request.number, request.parts_request.edition_id,
-                                       request.parts_request.ayah_parts)
+        edition_id = request.parts.edition_id
+        ayah_parts = request.parts.list.split(',')
+        response = find_ayah.by_number(request.number, edition_id, ayah_parts)
         return self._ayah_response(response)
 
     def FindAyahByNumberInSurah(self, request, context):
         find_ayah = AyahFactory.find_ayah()
-        response = find_ayah.by_number_in_surah(request.number, request.parts_request.edition_id,
-                                                request.parts_request.ayah_parts)
+        edition_id = request.parts.edition_id
+        ayah_parts = request.parts.list.split(',')
+        response = find_ayah.by_number_in_surah(request.number, edition_id, ayah_parts)
         return self._ayah_response(response)
 
     def FindAyahByJuz(self, request, context):
         find_ayah = AyahFactory.find_ayah()
-        response_stream = find_ayah.by_juz(request.number, request.parts_request.edition_id,
-                                                request.parts_request.ayah_parts)
+        edition_id = request.parts.edition_id
+        ayah_parts = request.parts.list.split(',')
+        response_stream = find_ayah.by_juz(request.number, edition_id, ayah_parts)
         response_list = []
         for response in response_stream:
             response_list.append(self._ayah_response(response))
@@ -53,8 +59,9 @@ class AyahService(ayah_rpc.AyahServicer):
 
     def FindAyahByManzil(self, request, context):
         find_ayah = AyahFactory.find_ayah()
-        response_stream = find_ayah.by_manzil(request.number, request.parts_request.edition_id,
-                                           request.parts_request.ayah_parts)
+        edition_id = request.parts.edition_id
+        ayah_parts = request.parts.list.split(',')
+        response_stream = find_ayah.by_manzil(request.number, edition_id, ayah_parts)
         response_list = []
         for response in response_stream:
             response_list.append(self._ayah_response(response))
@@ -63,8 +70,9 @@ class AyahService(ayah_rpc.AyahServicer):
 
     def FindAyahByRuku(self, request, context):
         find_ayah = AyahFactory.find_ayah()
-        response_stream = find_ayah.by_ruku(request.number, request.parts_request.edition_id,
-                                           request.parts_request.ayah_parts)
+        edition_id = request.parts.edition_id
+        ayah_parts = request.parts.list.split(',')
+        response_stream = find_ayah.by_ruku(request.number, edition_id, ayah_parts)
         response_list = []
         for response in response_stream:
             response_list.append(self._ayah_response(response))
@@ -73,8 +81,9 @@ class AyahService(ayah_rpc.AyahServicer):
 
     def FindAyahByHizbQuarter(self, request, context):
         find_ayah = AyahFactory.find_ayah()
-        response_stream = find_ayah.by_hizb_quarter(request.number, request.parts_request.edition_id,
-                                           request.parts_request.ayah_parts)
+        edition_id = request.parts.edition_id
+        ayah_parts = request.parts.list.split(',')
+        response_stream = find_ayah.by_hizb_quarter(request.number, edition_id, ayah_parts)
         response_list = []
         for response in response_stream:
             response_list.append(self._ayah_response(response))
@@ -83,8 +92,9 @@ class AyahService(ayah_rpc.AyahServicer):
 
     def FindAyahBySajda(self, request, context):
         find_ayah = AyahFactory.find_ayah()
-        response_stream = find_ayah.by_sajda(request.sajda, request.parts_request.edition_id,
-                                           request.parts_request.ayah_parts)
+        edition_id = request.parts.edition_id
+        ayah_parts = request.parts.list.split(',')
+        response_stream = find_ayah.by_sajda(request.sajda, edition_id, ayah_parts)
         response_list = []
         for response in response_stream:
             response_list.append(self._ayah_response(response))

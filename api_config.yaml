@@ -5,6 +5,12 @@ config_version: 3
 
 name: quran.endpoints.utopian-button-227405.cloud.goog
 
+usage:
+  rules:
+  # Allow unregistered calls for all methods.
+  - selector: "*"
+    allow_unregistered_calls: true
+
 #
 # API title to appear in the user interface (Google Cloud Console).
 #

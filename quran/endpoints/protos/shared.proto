@@ -17,10 +17,6 @@ message NameRequest {
 }
 
 message FilterRequest {
-    repeated StringFilter filter = 1;
-}
-
-message StringFilter {
-    string name = 1;
-    string value = 2;
+    string ayah_id = 1;
+    string edition_id = 2;
 }

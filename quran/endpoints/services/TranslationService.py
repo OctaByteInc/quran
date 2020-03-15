@@ -38,10 +38,6 @@ class TranslationService(translation_rpc.TranslationServicer):
         return translation_proto.TranslationList(translation_entity=translations)
 
     def FilterTranslation(self, request, context):
-        filters = {}
-        for filter in request.filter:
-            filters[filter.name] = filter.value
-
         find_translation = TranslationFactory.find_translation()
-        translation = find_translation.filter(**filters)
+        translation = find_translation.filter(ayah_id=request.ayah_id, edition_id=request.edition_id)
         return entity_proto.TranslationEntity(**translation.to_dict())

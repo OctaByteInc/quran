@@ -34,19 +34,11 @@ class AudioService(audio_rpc.AudioServicer):
         return audio_proto.AudioList(audio_entity=audio_list)
 
     def FindArabicAudio(self, request, context):
-        filters = {}
-        for filter in request.filter:
-            filters[filter.name] = filter.value
-
         find_audio = AudioFactory.find_audio()
-        audio = find_audio.arabic_audio(**filters)
+        audio = find_audio.arabic_audio(ayah_id=request.ayah_id, edition_id=request.edition_id)
         return entity_proto.AudioEntity(**audio.to_dict())
 
     def FindTranslationAudio(self, request, context):
-        filters = {}
-        for filter in request.filter:
-            filters[filter.name] = filter.value
-
         find_audio = AudioFactory.find_audio()
-        audio = find_audio.translation_audio(**filters)
+        audio = find_audio.translation_audio(ayah_id=request.ayah_id, edition_id=request.edition_id)
         return entity_proto.AudioEntity(**audio.to_dict())

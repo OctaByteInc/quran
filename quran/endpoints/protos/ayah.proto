@@ -6,22 +6,22 @@ package quran;
 
 message PartsRequest {
     string edition_id = 1;
-    repeated string ayah_parts = 2;
+    string list = 2;
 }
 
 message AyahIdRequest {
     string id = 1;
-    PartsRequest parts_request = 2;
+    PartsRequest parts = 2;
 }
 
 message AyahNumberRequest {
     int32 number = 1;
-    PartsRequest ayah_parts = 2;
+    PartsRequest parts = 2;
 }
 
 message AyahSajdaRequest {
     bool sajda = 1;
-    PartsRequest ayah_parts = 2;
+    PartsRequest parts = 2;
 }
 
 message AyahResponse {

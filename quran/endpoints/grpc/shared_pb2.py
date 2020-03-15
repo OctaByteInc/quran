@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='quran',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0cshared.proto\x12\x05quran\"\x0e\n\x0c\x45mptyMessage\"\x17\n\tIDRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\x1f\n\rNumberRequest\x12\x0e\n\x06number\x18\x01 \x01(\x05\"\x1b\n\x0bNameRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"4\n\rFilterRequest\x12#\n\x06\x66ilter\x18\x01 \x03(\x0b\x32\x13.quran.StringFilter\"+\n\x0cStringFilter\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\tb\x06proto3')
+  serialized_pb=_b('\n\x0cshared.proto\x12\x05quran\"\x0e\n\x0c\x45mptyMessage\"\x17\n\tIDRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\x1f\n\rNumberRequest\x12\x0e\n\x06number\x18\x01 \x01(\x05\"\x1b\n\x0bNameRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"4\n\rFilterRequest\x12\x0f\n\x07\x61yah_id\x18\x01 \x01(\t\x12\x12\n\nedition_id\x18\x02 \x01(\tb\x06proto3')
 )
 
 
@@ -151,9 +151,16 @@ _FILTERREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='filter', full_name='quran.FilterRequest.filter', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
+      name='ayah_id', full_name='quran.FilterRequest.ayah_id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='edition_id', full_name='quran.FilterRequest.edition_id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -173,51 +180,11 @@ _FILTERREQUEST = _descriptor.Descriptor(
   serialized_end=178,
 )
 
-
-_STRINGFILTER = _descriptor.Descriptor(
-  name='StringFilter',
-  full_name='quran.StringFilter',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='quran.StringFilter.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='value', full_name='quran.StringFilter.value', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=180,
-  serialized_end=223,
-)
-
-_FILTERREQUEST.fields_by_name['filter'].message_type = _STRINGFILTER
 DESCRIPTOR.message_types_by_name['EmptyMessage'] = _EMPTYMESSAGE
 DESCRIPTOR.message_types_by_name['IDRequest'] = _IDREQUEST
 DESCRIPTOR.message_types_by_name['NumberRequest'] = _NUMBERREQUEST
 DESCRIPTOR.message_types_by_name['NameRequest'] = _NAMEREQUEST
 DESCRIPTOR.message_types_by_name['FilterRequest'] = _FILTERREQUEST
-DESCRIPTOR.message_types_by_name['StringFilter'] = _STRINGFILTER
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 EmptyMessage = _reflection.GeneratedProtocolMessageType('EmptyMessage', (_message.Message,), {
@@ -254,13 +221,6 @@ FilterRequest = _reflection.GeneratedProtocolMessageType('FilterRequest', (_mess
   # @@protoc_insertion_point(class_scope:quran.FilterRequest)
   })
 _sym_db.RegisterMessage(FilterRequest)
-
-StringFilter = _reflection.GeneratedProtocolMessageType('StringFilter', (_message.Message,), {
-  'DESCRIPTOR' : _STRINGFILTER,
-  '__module__' : 'shared_pb2'
-  # @@protoc_insertion_point(class_scope:quran.StringFilter)
-  })
-_sym_db.RegisterMessage(StringFilter)
 
 
 # @@protoc_insertion_point(module_scope)

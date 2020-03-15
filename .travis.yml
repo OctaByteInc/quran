@@ -4,8 +4,16 @@ sudo: false
 python:
   - '3.7'
 
+before_install:
+    - npm i -g firebase firebase-tools@7.6.1
+    - firebase setup:emulators:firestore
+    - firebase emulators:start --only firestore &
+
 install:
   - pip install -e .
+
+before_script:
+  - python endpoint_server.py
 
 script:
   - pytest

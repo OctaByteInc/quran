@@ -13,7 +13,7 @@ install:
   - pip install -e .
 
 before_script:
-  - python endpoint_server.py
+  - python endpoint_server.py &
 
 script:
   - pytest

@@ -9,6 +9,9 @@ before_install:
     - firebase setup:emulators:firestore
     - firebase emulators:start --only firestore &
 
+env:
+  - FIRESTORE_EMULATOR_HOST=localhost:8080
+
 install:
   - pip install -e .
 

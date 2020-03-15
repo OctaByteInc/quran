@@ -44,6 +44,6 @@ spec:
           - containerPort: 9000
           - containerPort: 8080
       - name: python-grpc-quran
-        image: gcr.io/utopian-button-227405/python-grpc-quran:1.0
+        image: gcr.io/utopian-button-227405/python-grpc-quran:2.0
         ports:
           - containerPort: 50051

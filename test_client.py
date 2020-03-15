@@ -14,15 +14,20 @@ import quran.endpoints.grpc.shared_pb2 as shared_proto
 
 def run(host, api_key):
     channel = grpc.insecure_channel(host)
-    stub = audio_rpc.AudioStub(channel)
-    audio_entity = entity_proto.AudioEntity(id='id-123', ayah_id='ayah-id', edition_id='edition-id',
-                                            type='AUDIO_TRANSLATION',
-                                            audio='audio')
-    metadata = []
-    if api_key:
-        metadata.append(('x-api-key', api_key))
-    response = stub.CreateAudio(audio_entity, metadata=metadata)
+    stub = image_rpc.ImageStub(channel)
+    image = entity_proto.ImageEntity(ayah_id='id-123', image='link to image')
+    print(image)
+    response = stub.CreateImage(image)
     print(response)
+    # stub = audio_rpc.AudioStub(channel)
+    # audio_entity = entity_proto.AudioEntity(id='id-123', ayah_id='ayah-id', edition_id='edition-id',
+    #                                         type='AUDIO_TRANSLATION',
+    #                                         audio='audio')
+    # metadata = []
+    # if api_key:
+    #     metadata.append(('x-api-key', api_key))
+    # response = stub.CreateAudio(audio_entity, metadata=metadata)
+    # print(response)
     # stub = ayah_rpc.AyahStub(channel)
     # response = stub.FindAyahById(shared_proto.IDRequest(id='id-123'))
     # print(response)

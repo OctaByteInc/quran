@@ -18,136 +18,136 @@ http:
   # Audio Service transcoding
   #
   - selector: quran.Audio.CreateAudio
-    post: /v1/audio
-    body: audio
+    post: '/v1/audio'
+    body: '*'
 
   - selector: quran.Audio.FindAudioById
-    get: /v1/audio/{id}
+    get: '/v1/audio/{id}'
 
   - selector: quran.Audio.FindAudioByAyahId
-    get: /v1/audio/ayah/{id}
+    get: '/v1/audio/ayah/{id}'
 
   - selector: quran.Audio.FindAudioByEditionId
-    get: /v1/audio/edition/{id}
+    get: '/v1/audio/edition/{id}'
 
   - selector: quran.Audio.FindArabicAudio
-    get: /v1/audio/arabic
+    get: '/v1/audio/arabic'
 
   - selector: quran.Audio.FindTranslationAudio
-    get: /v1/audio/translation
+    get: '/v1/audio/translation'
 
   #
   # Ayah Service transcoding
   #
   - selector: quran.Ayah.CreateAyah
-    post: /v1/ayah
-    body: ayah
+    post: '/v1/ayah'
+    body: '*'
 
   - selector: quran.Ayah.FindAyahById
-    get: /v1/ayah/{id}
+    get: '/v1/ayah/{id}'
 
   - selector: quran.Ayah.FindAyahBySurahId
-    get: /v1/ayah/surah/{id}
+    get: '/v1/ayah/surah/{id}'
 
   - selector: quran.Ayah.FindAyahByNumber
-    get: /v1/ayah/number/{number}
+    get: '/v1/ayah/number/{number}'
 
   - selector: quran.Ayah.FindAyahByNumberInSurah
-    get: /v1/ayah/number_in_surah/{number}
+    get: '/v1/ayah/number_in_surah/{number}'
 
   - selector: quran.Ayah.FindAyahByJuz
-    get: /v1/ayah/juz/{number}
+    get: '/v1/ayah/juz/{number}'
 
   - selector: quran.Ayah.FindAyahByManzil
-    get: /v1/ayah/manzil/{number}
+    get: '/v1/ayah/manzil/{number}'
 
   - selector: quran.Ayah.FindAyahByRuku
-    get: /v1/ayah/ruku/{number}
+    get: '/v1/ayah/ruku/{number}'
 
   - selector: quran.Ayah.FindAyahByHizbQuarter
-    get: /v1/ayah/hizb_quarter/{number}
+    get: '/v1/ayah/hizb_quarter/{number}'
 
   - selector: quran.Ayah.FindAyahBySajda
-    get: /v1/ayah/sajda/{sajda}
+    get: '/v1/ayah/sajda/{sajda}'
 
   #
   # Edition Service transcoding
   #
   - selector: quran.Edition.CreateEdition
     post: /v1/edition
-    body: edition
+    body: '*'
 
   - selector: quran.Edition.GetAll
-    get: /v1/edition
+    get: '/v1/edition'
 
   - selector: quran.Edition.FindById
-    get: /v1/edition/{id}
+    get: '/v1/edition/{id}'
 
   - selector: quran.Edition.FindByLanguage
-    get: /v1/edition/language/{name}
+    get: '/v1/edition/language/{name}'
 
   - selector: quran.Edition.FindByName
-    get: /v1/edition/name/{name}
+    get: '/v1/edition/name/{name}'
 
   - selector: quran.Edition.FindByEnglishName
-    get: /v1/edition/english_name/{name}
+    get: '/v1/edition/english_name/{name}'
 
   - selector: quran.Edition.FindByType
-    get: /v1/edition/type/{name}
+    get: '/v1/edition/type/{name}'
 
   - selector: quran.Edition.FindByFormat
-    get: /v1/edition/format/{name}
+    get: '/v1/edition/format/{name}'
 
   #
   # Image Service transcoding
   #
   - selector: quran.Image.CreateImage
-    post: /v1/image
-    body: image
+    post: '/v1/image'
+    body: '*'
 
   - selector: quran.Image.FindImageByAyahId
-    get: /v1/image/ayah/{id}
+    get: '/v1/image/ayah/{id}'
 
   #
   # Surah Service transcoding
   #
   - selector: quran.Surah.CreateSurah
-    post: /v1/surah
-    body: surah
+    post: '/v1/surah'
+    body: '*'
 
   - selector: quran.Surah.GetAll
-    get: /v1/surah
+    get: '/v1/surah'
 
   - selector: quran.Surah.FindSurahById
-    get: /v1/surah/{id}
+    get: '/v1/surah/{id}'
 
   - selector: quran.Surah.FindSurahByNumber
-    get: /v1/surah/number/{number}
+    get: '/v1/surah/number/{number}'
 
   - selector: quran.Surah.FindSurahByName
-    get: /v1/surah/name/{name}
+    get: '/v1/surah/name/{name}'
 
   - selector: quran.Surah.FindSurahByEnglishName
-    get: /v1/surah/english_name/{name}
+    get: '/v1/surah/english_name/{name}'
 
   - selector: quran.Surah.FindSurahByRevelationType
-    get: /v1/surah/type/{revelation_type}
+    get: '/v1/surah/type/{revelation_type}'
 
   #
   # Translation Service transcoding
   #
   - selector: quran.Translation.CreateTranslation
-    post: /v1/translation
-    body: translation
+    post: '/v1/translation'
+    body: '*'
 
   - selector: quran.Translation.FindTranslationById
-    get: /v1/translation/{id}
+    get: '/v1/translation/{id}'
 
   - selector: quran.Translation.FindTranslationByAyahId
-    get: /v1/translation/ayah/{id}
+    get: '/v1/translation/ayah/{id}'
 
   - selector: quran.Translation.FindTranslationByEditionId
-    get: /v1/translation/edition/{id}
+    get: '/v1/translation/edition/{id}'
 
   - selector: quran.Translation.FilterTranslation
-    get: /v1/translation/filter
+    get: '/v1/translation/filter'

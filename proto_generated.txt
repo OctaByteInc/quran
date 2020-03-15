@@ -6,3 +6,11 @@ python -m grpc.tools.protoc \
     --grpc_python_out=quran/endpoints/grpc \
     --descriptor_set_out=api_descriptor.pb \
     audio.proto ayah.proto edition.proto entity.proto image.proto shared.proto surah.proto translation.proto
+
+
+python -m grpc.tools.protoc \
+    --include_imports \
+    --include_source_info \
+    --proto_path=quran/endpoints/protos \
+    --descriptor_set_out=api_descriptor.pb \
+    audio.proto ayah.proto edition.proto entity.proto image.proto shared.proto surah.proto translation.proto

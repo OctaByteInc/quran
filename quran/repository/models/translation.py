@@ -3,7 +3,7 @@ from fireo.models import Model
 
 
 class Translation(Model):
-    id: IDField()
-    ayah_id: TextField()
-    edition_id: TextField()
-    text: TextField()
+    id = IDField()
+    ayah_id = TextField()
+    edition_id = TextField()
+    text = TextField()

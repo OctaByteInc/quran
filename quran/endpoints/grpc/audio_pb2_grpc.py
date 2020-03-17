@@ -29,7 +29,7 @@ class AudioStub(object):
     self.FindAudioByAyahId = channel.unary_unary(
         '/quran.Audio/FindAudioByAyahId',
         request_serializer=shared__pb2.IDRequest.SerializeToString,
-        response_deserializer=entity__pb2.AudioEntity.FromString,
+        response_deserializer=audio__pb2.AudioList.FromString,
         )
     self.FindAudioByEditionId = channel.unary_unary(
         '/quran.Audio/FindAudioByEditionId',
@@ -110,7 +110,7 @@ def add_AudioServicer_to_server(servicer, server):
       'FindAudioByAyahId': grpc.unary_unary_rpc_method_handler(
           servicer.FindAudioByAyahId,
           request_deserializer=shared__pb2.IDRequest.FromString,
-          response_serializer=entity__pb2.AudioEntity.SerializeToString,
+          response_serializer=audio__pb2.AudioList.SerializeToString,
       ),
       'FindAudioByEditionId': grpc.unary_unary_rpc_method_handler(
           servicer.FindAudioByEditionId,

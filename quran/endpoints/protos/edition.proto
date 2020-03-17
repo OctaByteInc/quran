@@ -12,10 +12,10 @@ message EditionList {
 service Edition {
     rpc CreateEdition (EditionEntity) returns (EditionEntity) {}
     rpc GetAll (EmptyMessage) returns (EditionList) {}
-    rpc FindById (IDRequest) returns (EditionEntity) {}
-    rpc FindByLanguage (NameRequest) returns (EditionList) {}
-    rpc FindByName (NameRequest) returns (EditionList) {}
-    rpc FindByEnglishName (NameRequest) returns (EditionList) {}
-    rpc FindByType (NameRequest) returns (EditionList) {}
-    rpc FindByFormat (NameRequest) returns (EditionList) {}
+    rpc FindEditionById (IDRequest) returns (EditionEntity) {}
+    rpc FindEditionByLanguage (NameRequest) returns (EditionList) {}
+    rpc FindEditionByName (NameRequest) returns (EditionList) {}
+    rpc FindEditionByEnglishName (NameRequest) returns (EditionList) {}
+    rpc FindEditionByType (NameRequest) returns (EditionList) {}
+    rpc FindEditionByFormat (NameRequest) returns (EditionList) {}
 }

@@ -9,7 +9,7 @@ stub = image_rpc.ImageStub(channel)
 
 
 def test_create_image():
-    image = entity_proto.ImageEntity(ayah_id='id-123', image='link to image')
+    image = entity_proto.ImageEntity(ayah_id='image-1', image='link to image')
     res = stub.CreateImage(image)
 
     assert res.ayah_id == image.ayah_id
@@ -17,7 +17,7 @@ def test_create_image():
 
 
 def test_find_image_by_ayah_id():
-    res = stub.FindImageByAyahId(shared_entity.IDRequest(id='id-123'))
+    res = stub.FindImageByAyahId(shared_entity.IDRequest(id='image-1'))
 
-    assert res.ayah_id == 'id-123'
+    assert res.ayah_id == 'image-1'
     assert res.image == 'link to image'

@@ -24,32 +24,52 @@ class EditionService(edition_rpc.EditionServicer):
 
         return edition_proto.EditionList(edition_entity=editions)
 
-    def FindById(self, request, context):
+    def FindEditionById(self, request, context):
         find_edition = EditionFactory.find_edition()
         edition = find_edition.by_id(request.id)
         return entity_proto.EditionEntity(**edition.to_dict())
 
-    def FindByLanguage(self, request, context):
+    def FindEditionByLanguage(self, request, context):
         find_edition = EditionFactory.find_edition()
-        edition = find_edition.by_language(request.name)
-        return entity_proto.EditionEntity(**edition.to_dict())
+        edition_stream = find_edition.by_language(request.name)
+        editions = []
+        for edition in edition_stream:
+            editions.append(entity_proto.EditionEntity(**edition.to_dict()))
 
-    def FindByName(self, request, context):
-        find_edition = EditionFactory.find_edition()
-        edition = find_edition.by_name(request.name)
-        return entity_proto.EditionEntity(**edition.to_dict())
+        return edition_proto.EditionList(edition_entity=editions)
 
-    def FindByEnglishName(self, request, context):
+    def FindEditionByName(self, request, context):
         find_edition = EditionFactory.find_edition()
-        edition = find_edition.by_english_name(request.name)
-        return entity_proto.EditionEntity(**edition.to_dict())
+        edition_stream = find_edition.by_name(request.name)
+        editions = []
+        for edition in edition_stream:
+            editions.append(entity_proto.EditionEntity(**edition.to_dict()))
 
-    def FindByFormat(self, request, context):
-        find_edition = EditionFactory.find_edition()
-        edition = find_edition.by_format(request.name)
-        return entity_proto.EditionEntity(**edition.to_dict())
+        return edition_proto.EditionList(edition_entity=editions)
 
-    def FindByType(self, request, context):
+    def FindEditionByEnglishName(self, request, context):
         find_edition = EditionFactory.find_edition()
-        edition = find_edition.by_type(request.name)
-        return entity_proto.EditionEntity(**edition.to_dict())
+        edition_stream = find_edition.by_english_name(request.name)
+        editions = []
+        for edition in edition_stream:
+            editions.append(entity_proto.EditionEntity(**edition.to_dict()))
+
+        return edition_proto.EditionList(edition_entity=editions)
+
+    def FindEditionByFormat(self, request, context):
+        find_edition = EditionFactory.find_edition()
+        edition_stream = find_edition.by_format(request.name)
+        editions = []
+        for edition in edition_stream:
+            editions.append(entity_proto.EditionEntity(**edition.to_dict()))
+
+        return edition_proto.EditionList(edition_entity=editions)
+
+    def FindEditionByType(self, request, context):
+        find_edition = EditionFactory.find_edition()
+        edition_stream = find_edition.by_type(request.name)
+        editions = []
+        for edition in edition_stream:
+            editions.append(entity_proto.EditionEntity(**edition.to_dict()))
+
+        return edition_proto.EditionList(edition_entity=editions)

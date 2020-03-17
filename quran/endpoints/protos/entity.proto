@@ -34,7 +34,7 @@ message TranslationEntity {
 
 message SurahEntity {
     string id = 1;
-    string number = 2;
+    int32 number = 2;
     string name = 3;
     string english_name = 4;
     string english_name_translation = 5;

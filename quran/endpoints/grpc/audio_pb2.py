@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='quran',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0b\x61udio.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"5\n\tAudioList\x12(\n\x0c\x61udio_entity\x18\x01 \x03(\x0b\x32\x12.quran.AudioEntity2\xf7\x02\n\x05\x41udio\x12\x37\n\x0b\x43reateAudio\x12\x12.quran.AudioEntity\x1a\x12.quran.AudioEntity\"\x00\x12\x37\n\rFindAudioById\x12\x10.quran.IDRequest\x1a\x12.quran.AudioEntity\"\x00\x12;\n\x11\x46indAudioByAyahId\x12\x10.quran.IDRequest\x1a\x12.quran.AudioEntity\"\x00\x12<\n\x14\x46indAudioByEditionId\x12\x10.quran.IDRequest\x1a\x10.quran.AudioList\"\x00\x12=\n\x0f\x46indArabicAudio\x12\x14.quran.FilterRequest\x1a\x12.quran.AudioEntity\"\x00\x12\x42\n\x14\x46indTranslationAudio\x12\x14.quran.FilterRequest\x1a\x12.quran.AudioEntity\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0b\x61udio.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"5\n\tAudioList\x12(\n\x0c\x61udio_entity\x18\x01 \x03(\x0b\x32\x12.quran.AudioEntity2\xf5\x02\n\x05\x41udio\x12\x37\n\x0b\x43reateAudio\x12\x12.quran.AudioEntity\x1a\x12.quran.AudioEntity\"\x00\x12\x37\n\rFindAudioById\x12\x10.quran.IDRequest\x1a\x12.quran.AudioEntity\"\x00\x12\x39\n\x11\x46indAudioByAyahId\x12\x10.quran.IDRequest\x1a\x10.quran.AudioList\"\x00\x12<\n\x14\x46indAudioByEditionId\x12\x10.quran.IDRequest\x1a\x10.quran.AudioList\"\x00\x12=\n\x0f\x46indArabicAudio\x12\x14.quran.FilterRequest\x1a\x12.quran.AudioEntity\"\x00\x12\x42\n\x14\x46indTranslationAudio\x12\x14.quran.FilterRequest\x1a\x12.quran.AudioEntity\"\x00\x62\x06proto3')
   ,
   dependencies=[shared__pb2.DESCRIPTOR,entity__pb2.DESCRIPTOR,])
 
@@ -79,7 +79,7 @@ _AUDIO = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   serialized_start=106,
-  serialized_end=481,
+  serialized_end=479,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateAudio',
@@ -105,7 +105,7 @@ _AUDIO = _descriptor.ServiceDescriptor(
     index=2,
     containing_service=None,
     input_type=shared__pb2._IDREQUEST,
-    output_type=entity__pb2._AUDIOENTITY,
+    output_type=_AUDIOLIST,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(

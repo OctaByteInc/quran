@@ -26,33 +26,33 @@ class EditionStub(object):
         request_serializer=shared__pb2.EmptyMessage.SerializeToString,
         response_deserializer=edition__pb2.EditionList.FromString,
         )
-    self.FindById = channel.unary_unary(
-        '/quran.Edition/FindById',
+    self.FindEditionById = channel.unary_unary(
+        '/quran.Edition/FindEditionById',
         request_serializer=shared__pb2.IDRequest.SerializeToString,
         response_deserializer=entity__pb2.EditionEntity.FromString,
         )
-    self.FindByLanguage = channel.unary_unary(
-        '/quran.Edition/FindByLanguage',
+    self.FindEditionByLanguage = channel.unary_unary(
+        '/quran.Edition/FindEditionByLanguage',
         request_serializer=shared__pb2.NameRequest.SerializeToString,
         response_deserializer=edition__pb2.EditionList.FromString,
         )
-    self.FindByName = channel.unary_unary(
-        '/quran.Edition/FindByName',
+    self.FindEditionByName = channel.unary_unary(
+        '/quran.Edition/FindEditionByName',
         request_serializer=shared__pb2.NameRequest.SerializeToString,
         response_deserializer=edition__pb2.EditionList.FromString,
         )
-    self.FindByEnglishName = channel.unary_unary(
-        '/quran.Edition/FindByEnglishName',
+    self.FindEditionByEnglishName = channel.unary_unary(
+        '/quran.Edition/FindEditionByEnglishName',
         request_serializer=shared__pb2.NameRequest.SerializeToString,
         response_deserializer=edition__pb2.EditionList.FromString,
         )
-    self.FindByType = channel.unary_unary(
-        '/quran.Edition/FindByType',
+    self.FindEditionByType = channel.unary_unary(
+        '/quran.Edition/FindEditionByType',
         request_serializer=shared__pb2.NameRequest.SerializeToString,
         response_deserializer=edition__pb2.EditionList.FromString,
         )
-    self.FindByFormat = channel.unary_unary(
-        '/quran.Edition/FindByFormat',
+    self.FindEditionByFormat = channel.unary_unary(
+        '/quran.Edition/FindEditionByFormat',
         request_serializer=shared__pb2.NameRequest.SerializeToString,
         response_deserializer=edition__pb2.EditionList.FromString,
         )
@@ -76,42 +76,42 @@ class EditionServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def FindById(self, request, context):
+  def FindEditionById(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def FindByLanguage(self, request, context):
+  def FindEditionByLanguage(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def FindByName(self, request, context):
+  def FindEditionByName(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def FindByEnglishName(self, request, context):
+  def FindEditionByEnglishName(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def FindByType(self, request, context):
+  def FindEditionByType(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def FindByFormat(self, request, context):
+  def FindEditionByFormat(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -131,33 +131,33 @@ def add_EditionServicer_to_server(servicer, server):
           request_deserializer=shared__pb2.EmptyMessage.FromString,
           response_serializer=edition__pb2.EditionList.SerializeToString,
       ),
-      'FindById': grpc.unary_unary_rpc_method_handler(
-          servicer.FindById,
+      'FindEditionById': grpc.unary_unary_rpc_method_handler(
+          servicer.FindEditionById,
           request_deserializer=shared__pb2.IDRequest.FromString,
           response_serializer=entity__pb2.EditionEntity.SerializeToString,
       ),
-      'FindByLanguage': grpc.unary_unary_rpc_method_handler(
-          servicer.FindByLanguage,
+      'FindEditionByLanguage': grpc.unary_unary_rpc_method_handler(
+          servicer.FindEditionByLanguage,
           request_deserializer=shared__pb2.NameRequest.FromString,
           response_serializer=edition__pb2.EditionList.SerializeToString,
       ),
-      'FindByName': grpc.unary_unary_rpc_method_handler(
-          servicer.FindByName,
+      'FindEditionByName': grpc.unary_unary_rpc_method_handler(
+          servicer.FindEditionByName,
           request_deserializer=shared__pb2.NameRequest.FromString,
           response_serializer=edition__pb2.EditionList.SerializeToString,
       ),
-      'FindByEnglishName': grpc.unary_unary_rpc_method_handler(
-          servicer.FindByEnglishName,
+      'FindEditionByEnglishName': grpc.unary_unary_rpc_method_handler(
+          servicer.FindEditionByEnglishName,
           request_deserializer=shared__pb2.NameRequest.FromString,
           response_serializer=edition__pb2.EditionList.SerializeToString,
       ),
-      'FindByType': grpc.unary_unary_rpc_method_handler(
-          servicer.FindByType,
+      'FindEditionByType': grpc.unary_unary_rpc_method_handler(
+          servicer.FindEditionByType,
           request_deserializer=shared__pb2.NameRequest.FromString,
           response_serializer=edition__pb2.EditionList.SerializeToString,
       ),
-      'FindByFormat': grpc.unary_unary_rpc_method_handler(
-          servicer.FindByFormat,
+      'FindEditionByFormat': grpc.unary_unary_rpc_method_handler(
+          servicer.FindEditionByFormat,
           request_deserializer=shared__pb2.NameRequest.FromString,
           response_serializer=edition__pb2.EditionList.SerializeToString,
       ),

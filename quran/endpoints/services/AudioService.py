@@ -21,15 +21,19 @@ class AudioService(audio_rpc.AudioServicer):
 
     def FindAudioByAyahId(self, request, context):
         find_audio = AudioFactory.find_audio()
-        audio = find_audio.by_ayah_id(request.id)
-        return entity_proto.AudioEntity(**audio.to_dict())
+        audio_list = []
+        audio_stream = find_audio.by_ayah_id(request.id)
+        for audio in audio_stream:
+            audio_list.append(entity_proto.AudioEntity(**audio.to_dict()))
+
+        return audio_proto.AudioList(audio_entity=audio_list)
 
     def FindAudioByEditionId(self, request, context):
         find_audio = AudioFactory.find_audio()
         audio_list = []
         audio_stream = find_audio.by_edition_id(request.id)
         for audio in audio_stream:
-            audio_list.append(audio)
+            audio_list.append(entity_proto.AudioEntity(**audio.to_dict()))
 
         return audio_proto.AudioList(audio_entity=audio_list)
 

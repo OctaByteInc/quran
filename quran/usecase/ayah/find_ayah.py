@@ -84,6 +84,6 @@ class FindAyah:
         if 'Translation_Audio' in parts:
             translation_audio = self.find_audio.translation_audio(ayah_id=ayah_id, edition_id=edition_id)
             response.translation_audio = translation_audio
-        if 'Image':
+        if 'Image' in parts:
             image = self.find_image.by_ayah_id(ayah_id)
             response.ayah_image = image

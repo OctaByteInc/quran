@@ -102,20 +102,21 @@ class AyahService(ayah_rpc.AyahServicer):
         return ayah_proto.AyahList(ayah_response=response_list)
 
     def _ayah_response(self, response):
-        ayah_response = ayah_proto.AyahResponse()
-        ayah_response.ayah_entity = entity_proto.AyahEntity(**response.ayah.to_dict())
+        ayah_response = ayah_proto.AyahResponse(ayah_entity=entity_proto.AyahEntity(**response.ayah.to_dict()))
+        #ayah_response.ayah_entity = entity_proto.AyahEntity(**response.ayah.to_dict())
 
         if response.translation:
-            ayah_response.translation_entity = entity_proto.TranslationEntity(**response.translation.to_dict())
+            #ayah_response.translation_entity = entity_proto.TranslationEntity(**response.translation.to_dict())
+            ayah_response.translation_entity.MergeFrom(entity_proto.TranslationEntity(**response.translation.to_dict()))
         if response.surah:
-            ayah_response.surah_entity = entity_proto.SurahEntity(**response.surah.to_dict())
+            ayah_response.surah_entity.MergeFrom(entity_proto.SurahEntity(**response.surah.to_dict()))
         if response.edition:
-            ayah_response.edition_entity = entity_proto.EditionEntity(**response.edition.to_dict())
+            ayah_response.edition_entity.MergeFrom(entity_proto.EditionEntity(**response.edition.to_dict()))
         if response.arabic_audio:
-            ayah_response.arabic_audio = entity_proto.AudioEntity(**response.arabic_audio.to_dict())
+            ayah_response.arabic_audio.MergeFrom(entity_proto.AudioEntity(**response.arabic_audio.to_dict()))
         if response.translation_audio:
-            ayah_response.translation_audio = entity_proto.AudioEntity(**response.translation_audio.to_dict())
+            ayah_response.translation_audio.MergeFrom(entity_proto.AudioEntity(**response.translation_audio.to_dict()))
         if response.ayah_image:
-            ayah_response.image_entity = entity_proto.ImageEntity(**response.ayah_image.to_dict())
+            ayah_response.image_entity.MergeFrom(entity_proto.ImageEntity(**response.ayah_image.to_dict()))
 
         return ayah_response

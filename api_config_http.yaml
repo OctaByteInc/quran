@@ -80,22 +80,22 @@ http:
   - selector: quran.Edition.GetAll
     get: '/v1/edition'
 
-  - selector: quran.Edition.FindById
+  - selector: quran.Edition.FindEditionById
     get: '/v1/edition/{id}'
 
-  - selector: quran.Edition.FindByLanguage
+  - selector: quran.Edition.FindEditionByLanguage
     get: '/v1/edition/language/{name}'
 
-  - selector: quran.Edition.FindByName
+  - selector: quran.Edition.FindEditionByName
     get: '/v1/edition/name/{name}'
 
-  - selector: quran.Edition.FindByEnglishName
+  - selector: quran.Edition.FindEditionByEnglishName
     get: '/v1/edition/english_name/{name}'
 
-  - selector: quran.Edition.FindByType
+  - selector: quran.Edition.FindEditionByType
     get: '/v1/edition/type/{name}'
 
-  - selector: quran.Edition.FindByFormat
+  - selector: quran.Edition.FindEditionByFormat
     get: '/v1/edition/format/{name}'
 
   #

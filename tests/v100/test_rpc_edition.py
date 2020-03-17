@@ -2,7 +2,6 @@ import grpc
 import quran.endpoints.grpc.entity_pb2 as entity_proto
 import quran.endpoints.grpc.shared_pb2 as shared_entity
 import quran.endpoints.grpc.edition_pb2_grpc as edition_rpc
-from quran.utils.proto_converter import ProtoConverter
 
 channel = grpc.insecure_channel("localhost:50051")
 stub = edition_rpc.EditionStub(channel)

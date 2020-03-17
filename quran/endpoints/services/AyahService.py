@@ -103,10 +103,8 @@ class AyahService(ayah_rpc.AyahServicer):
 
     def _ayah_response(self, response):
         ayah_response = ayah_proto.AyahResponse(ayah_entity=entity_proto.AyahEntity(**response.ayah.to_dict()))
-        #ayah_response.ayah_entity = entity_proto.AyahEntity(**response.ayah.to_dict())
 
         if response.translation:
-            #ayah_response.translation_entity = entity_proto.TranslationEntity(**response.translation.to_dict())
             ayah_response.translation_entity.MergeFrom(entity_proto.TranslationEntity(**response.translation.to_dict()))
         if response.surah:
             ayah_response.surah_entity.MergeFrom(entity_proto.SurahEntity(**response.surah.to_dict()))

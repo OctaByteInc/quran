@@ -16,9 +16,9 @@ usage:
 #
 title: Quran gRPC API
 apis:
-- name: quran.Audio
-- name: quran.Ayah
-- name: quran.Edition
-- name: quran.Image
-- name: quran.Surah
-- name: quran.Translation
+- name: quran.AudioSvc
+- name: quran.AyahSvc
+- name: quran.EditionSvc
+- name: quran.ImageSvc
+- name: quran.SurahSvc
+- name: quran.TranslationSvc

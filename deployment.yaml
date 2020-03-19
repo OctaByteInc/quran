@@ -7,11 +7,14 @@ spec:
   - port: 81
     targetPort: 9000
     protocol: TCP
-    name: http
+    name: rpc
   - port: 80
     targetPort: 8080
     protocol: TCP
-    name: http1
+    name: http
+  - port: 443
+    protocol: TCP
+    name: https
   selector:
     app: quran-grpc
   type: LoadBalancer
@@ -30,11 +33,16 @@ spec:
       labels:
         app: quran-grpc
     spec:
+      volumes:
+        - name: nginx-ssl
+          secret:
+            secretName: nginx-ssl
       containers:
       - name: esp
         image: gcr.io/endpoints-release/endpoints-runtime:1
         args: [
           "--http_port=8080",
+          "--ssl_port=443",
           "--http2_port=9000",
           "--backend=grpc://127.0.0.1:50051",
           "--service=quran.endpoints.utopian-button-227405.cloud.goog",
@@ -43,6 +51,11 @@ spec:
         ports:
           - containerPort: 9000
           - containerPort: 8080
+          - containerPort: 443
+        volumeMounts:
+          - mountPath: /etc/nginx/ssl
+            name: nginx-ssl
+            readOnly: true
       - name: python-grpc-quran
         image: gcr.io/utopian-button-227405/python-grpc-quran:3.0
         ports:

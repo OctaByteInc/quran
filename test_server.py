@@ -20,10 +20,10 @@ from quran.utils.proto_converter import ProtoConverter
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 
 
-class AyahService(ayah_rpc.AyahServicer):
+class AyahService(ayah_rpc.AyahSvcServicer):
 
     def FindAyahById(self, request, context):
-        ayah_entity1 = entity_proto.AyahEntity(id='12', surah_id='as', number=1, number_in_surah=2, juz=1, manzil=3,
+        ayah_entity1 = entity_proto.Ayah(id='12', surah_id='as', number=1, number_in_surah=2, juz=1, manzil=3,
                                               ruku=4, hizb_quarter=4, sajda=False)
         ayah_entity1.arabic = 'arabic-aksldn'
         return ayah_proto.AyahResponse(ayah_entity=ayah_entity1)
@@ -43,21 +43,21 @@ class AyahService(ayah_rpc.AyahServicer):
 #                                           type='AUDIO_TRANSLATION',
 #                                           format='s', direction='as')
 
-class AudioService(audio_rpc.AudioServicer):
+class AudioService(audio_rpc.AudioSvcServicer):
 
     def CreateAudio(self, request, context):
         audio = Audio.from_dict(ProtoConverter.proto_to_dict(request))
         print(audio)
         create_audio = AudioFactory.create_audio()
         res = create_audio.exec(audio)
-        return entity_proto.AudioEntity(**res.to_dict())
+        return entity_proto.Audio(**res.to_dict())
 
 
     def FindAudioByEditionId(self, request, context):
         find_audio = AudioFactory.find_audio()
-        audio1 = entity_proto.AudioEntity(id='id', ayah_id='ayah-id', edition_id='edition-id', type='AUDIO_TRANSLATION',
+        audio1 = entity_proto.Audio(id='id', ayah_id='ayah-id', edition_id='edition-id', type='AUDIO_TRANSLATION',
                                           audio='audio')
-        audio2 = entity_proto.AudioEntity(id='id', ayah_id='ayah-id', edition_id='edition-id', type='AUDIO_TRANSLATION',
+        audio2 = entity_proto.Audio(id='id', ayah_id='ayah-id', edition_id='edition-id', type='AUDIO_TRANSLATION',
                                           audio='audio')
         return audio_proto.AudioList(audio_entity=[audio1, audio2])
 
@@ -70,7 +70,7 @@ class AudioService(audio_rpc.AudioServicer):
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    audio_rpc.add_AudioServicer_to_server(AudioService(), server)
+    audio_rpc.add_AudioSvcServicer_to_server(AudioService(), server)
     #ayah_rpc.add_AyahServicer_to_server(AyahService(), server)
     server.add_insecure_port('[::]:50051')
     server.start()

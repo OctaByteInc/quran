@@ -5,7 +5,7 @@ import quran.endpoints.grpc.ayah_pb2 as ayah__pb2
 import quran.endpoints.grpc.entity_pb2 as entity__pb2
 
 
-class AyahStub(object):
+class AyahSvcStub(object):
   # missing associated documentation comment in .proto file
   pass
 
@@ -16,58 +16,58 @@ class AyahStub(object):
       channel: A grpc.Channel.
     """
     self.CreateAyah = channel.unary_unary(
-        '/quran.Ayah/CreateAyah',
-        request_serializer=entity__pb2.AyahEntity.SerializeToString,
-        response_deserializer=entity__pb2.AyahEntity.FromString,
+        '/quran.AyahSvc/CreateAyah',
+        request_serializer=entity__pb2.Ayah.SerializeToString,
+        response_deserializer=entity__pb2.Ayah.FromString,
         )
     self.FindAyahById = channel.unary_unary(
-        '/quran.Ayah/FindAyahById',
+        '/quran.AyahSvc/FindAyahById',
         request_serializer=ayah__pb2.AyahIdRequest.SerializeToString,
         response_deserializer=ayah__pb2.AyahResponse.FromString,
         )
     self.FindAyahBySurahId = channel.unary_unary(
-        '/quran.Ayah/FindAyahBySurahId',
+        '/quran.AyahSvc/FindAyahBySurahId',
         request_serializer=ayah__pb2.AyahIdRequest.SerializeToString,
         response_deserializer=ayah__pb2.AyahList.FromString,
         )
     self.FindAyahByNumber = channel.unary_unary(
-        '/quran.Ayah/FindAyahByNumber',
+        '/quran.AyahSvc/FindAyahByNumber',
         request_serializer=ayah__pb2.AyahNumberRequest.SerializeToString,
         response_deserializer=ayah__pb2.AyahResponse.FromString,
         )
     self.FindAyahByNumberInSurah = channel.unary_unary(
-        '/quran.Ayah/FindAyahByNumberInSurah',
+        '/quran.AyahSvc/FindAyahByNumberInSurah',
         request_serializer=ayah__pb2.AyahNumberRequest.SerializeToString,
         response_deserializer=ayah__pb2.AyahResponse.FromString,
         )
     self.FindAyahByJuz = channel.unary_unary(
-        '/quran.Ayah/FindAyahByJuz',
+        '/quran.AyahSvc/FindAyahByJuz',
         request_serializer=ayah__pb2.AyahNumberRequest.SerializeToString,
         response_deserializer=ayah__pb2.AyahList.FromString,
         )
     self.FindAyahByManzil = channel.unary_unary(
-        '/quran.Ayah/FindAyahByManzil',
+        '/quran.AyahSvc/FindAyahByManzil',
         request_serializer=ayah__pb2.AyahNumberRequest.SerializeToString,
         response_deserializer=ayah__pb2.AyahList.FromString,
         )
     self.FindAyahByRuku = channel.unary_unary(
-        '/quran.Ayah/FindAyahByRuku',
+        '/quran.AyahSvc/FindAyahByRuku',
         request_serializer=ayah__pb2.AyahNumberRequest.SerializeToString,
         response_deserializer=ayah__pb2.AyahList.FromString,
         )
     self.FindAyahByHizbQuarter = channel.unary_unary(
-        '/quran.Ayah/FindAyahByHizbQuarter',
+        '/quran.AyahSvc/FindAyahByHizbQuarter',
         request_serializer=ayah__pb2.AyahNumberRequest.SerializeToString,
         response_deserializer=ayah__pb2.AyahList.FromString,
         )
     self.FindAyahBySajda = channel.unary_unary(
-        '/quran.Ayah/FindAyahBySajda',
+        '/quran.AyahSvc/FindAyahBySajda',
         request_serializer=ayah__pb2.AyahSajdaRequest.SerializeToString,
         response_deserializer=ayah__pb2.AyahList.FromString,
         )
 
 
-class AyahServicer(object):
+class AyahSvcServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
@@ -142,12 +142,12 @@ class AyahServicer(object):
     raise NotImplementedError('Method not implemented!')
 
 
-def add_AyahServicer_to_server(servicer, server):
+def add_AyahSvcServicer_to_server(servicer, server):
   rpc_method_handlers = {
       'CreateAyah': grpc.unary_unary_rpc_method_handler(
           servicer.CreateAyah,
-          request_deserializer=entity__pb2.AyahEntity.FromString,
-          response_serializer=entity__pb2.AyahEntity.SerializeToString,
+          request_deserializer=entity__pb2.Ayah.FromString,
+          response_serializer=entity__pb2.Ayah.SerializeToString,
       ),
       'FindAyahById': grpc.unary_unary_rpc_method_handler(
           servicer.FindAyahById,
@@ -196,5 +196,5 @@ def add_AyahServicer_to_server(servicer, server):
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'quran.Ayah', rpc_method_handlers)
+      'quran.AyahSvc', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))

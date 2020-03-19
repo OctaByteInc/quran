@@ -6,14 +6,14 @@ import "entity.proto";
 package quran;
 
 message AudioList {
-    repeated AudioEntity audio_entity = 1;
+    repeated Audio audio_list = 1;
 }
 
-service Audio {
-    rpc CreateAudio (AudioEntity) returns (AudioEntity) {}
-    rpc FindAudioById (IDRequest) returns (AudioEntity) {}
+service AudioSvc {
+    rpc CreateAudio (Audio) returns (Audio) {}
+    rpc FindAudioById (IDRequest) returns (Audio) {}
     rpc FindAudioByAyahId (IDRequest) returns (AudioList) {}
     rpc FindAudioByEditionId (IDRequest) returns (AudioList) {}
-    rpc FindArabicAudio (FilterRequest) returns (AudioEntity) {}
-    rpc FindTranslationAudio (FilterRequest) returns (AudioEntity) {}
+    rpc FindArabicAudio (FilterRequest) returns (Audio) {}
+    rpc FindTranslationAudio (FilterRequest) returns (Audio) {}
 }

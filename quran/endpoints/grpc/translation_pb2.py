@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='quran',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x11translation.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"G\n\x0fTranslationList\x12\x34\n\x12translation_entity\x18\x01 \x03(\x0b\x32\x18.quran.TranslationEntity2\xf5\x02\n\x0bTranslation\x12I\n\x11\x43reateTranslation\x12\x18.quran.TranslationEntity\x1a\x18.quran.TranslationEntity\"\x00\x12\x43\n\x13\x46indTranslationById\x12\x10.quran.IDRequest\x1a\x18.quran.TranslationEntity\"\x00\x12\x45\n\x17\x46indTranslationByAyahId\x12\x10.quran.IDRequest\x1a\x16.quran.TranslationList\"\x00\x12H\n\x1a\x46indTranslationByEditionId\x12\x10.quran.IDRequest\x1a\x16.quran.TranslationList\"\x00\x12\x45\n\x11\x46ilterTranslation\x12\x14.quran.FilterRequest\x1a\x18.quran.TranslationEntity\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x11translation.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"?\n\x0fTranslationList\x12,\n\x10translation_list\x18\x01 \x03(\x0b\x32\x12.quran.Translation2\xe0\x02\n\x0eTranslationSvc\x12=\n\x11\x43reateTranslation\x12\x12.quran.Translation\x1a\x12.quran.Translation\"\x00\x12=\n\x13\x46indTranslationById\x12\x10.quran.IDRequest\x1a\x12.quran.Translation\"\x00\x12\x45\n\x17\x46indTranslationByAyahId\x12\x10.quran.IDRequest\x1a\x16.quran.TranslationList\"\x00\x12H\n\x1a\x46indTranslationByEditionId\x12\x10.quran.IDRequest\x1a\x16.quran.TranslationList\"\x00\x12?\n\x11\x46ilterTranslation\x12\x14.quran.FilterRequest\x1a\x12.quran.Translation\"\x00\x62\x06proto3')
   ,
   dependencies=[shared__pb2.DESCRIPTOR,entity__pb2.DESCRIPTOR,])
 
@@ -37,7 +37,7 @@ _TRANSLATIONLIST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='translation_entity', full_name='quran.TranslationList.translation_entity', index=0,
+      name='translation_list', full_name='quran.TranslationList.translation_list', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -56,10 +56,10 @@ _TRANSLATIONLIST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=56,
-  serialized_end=127,
+  serialized_end=119,
 )
 
-_TRANSLATIONLIST.fields_by_name['translation_entity'].message_type = entity__pb2._TRANSLATIONENTITY
+_TRANSLATIONLIST.fields_by_name['translation_list'].message_type = entity__pb2._TRANSLATION
 DESCRIPTOR.message_types_by_name['TranslationList'] = _TRANSLATIONLIST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -72,36 +72,36 @@ _sym_db.RegisterMessage(TranslationList)
 
 
 
-_TRANSLATION = _descriptor.ServiceDescriptor(
-  name='Translation',
-  full_name='quran.Translation',
+_TRANSLATIONSVC = _descriptor.ServiceDescriptor(
+  name='TranslationSvc',
+  full_name='quran.TranslationSvc',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=130,
-  serialized_end=503,
+  serialized_start=122,
+  serialized_end=474,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateTranslation',
-    full_name='quran.Translation.CreateTranslation',
+    full_name='quran.TranslationSvc.CreateTranslation',
     index=0,
     containing_service=None,
-    input_type=entity__pb2._TRANSLATIONENTITY,
-    output_type=entity__pb2._TRANSLATIONENTITY,
+    input_type=entity__pb2._TRANSLATION,
+    output_type=entity__pb2._TRANSLATION,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='FindTranslationById',
-    full_name='quran.Translation.FindTranslationById',
+    full_name='quran.TranslationSvc.FindTranslationById',
     index=1,
     containing_service=None,
     input_type=shared__pb2._IDREQUEST,
-    output_type=entity__pb2._TRANSLATIONENTITY,
+    output_type=entity__pb2._TRANSLATION,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='FindTranslationByAyahId',
-    full_name='quran.Translation.FindTranslationByAyahId',
+    full_name='quran.TranslationSvc.FindTranslationByAyahId',
     index=2,
     containing_service=None,
     input_type=shared__pb2._IDREQUEST,
@@ -110,7 +110,7 @@ _TRANSLATION = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='FindTranslationByEditionId',
-    full_name='quran.Translation.FindTranslationByEditionId',
+    full_name='quran.TranslationSvc.FindTranslationByEditionId',
     index=3,
     containing_service=None,
     input_type=shared__pb2._IDREQUEST,
@@ -119,16 +119,16 @@ _TRANSLATION = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='FilterTranslation',
-    full_name='quran.Translation.FilterTranslation',
+    full_name='quran.TranslationSvc.FilterTranslation',
     index=4,
     containing_service=None,
     input_type=shared__pb2._FILTERREQUEST,
-    output_type=entity__pb2._TRANSLATIONENTITY,
+    output_type=entity__pb2._TRANSLATION,
     serialized_options=None,
   ),
 ])
-_sym_db.RegisterServiceDescriptor(_TRANSLATION)
+_sym_db.RegisterServiceDescriptor(_TRANSLATIONSVC)
 
-DESCRIPTOR.services_by_name['Translation'] = _TRANSLATION
+DESCRIPTOR.services_by_name['TranslationSvc'] = _TRANSLATIONSVC
 
 # @@protoc_insertion_point(module_scope)

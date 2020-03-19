@@ -6,7 +6,7 @@ import quran.endpoints.grpc.shared_pb2 as shared__pb2
 import quran.endpoints.grpc.translation_pb2 as translation__pb2
 
 
-class TranslationStub(object):
+class TranslationSvcStub(object):
   # missing associated documentation comment in .proto file
   pass
 
@@ -17,33 +17,33 @@ class TranslationStub(object):
       channel: A grpc.Channel.
     """
     self.CreateTranslation = channel.unary_unary(
-        '/quran.Translation/CreateTranslation',
-        request_serializer=entity__pb2.TranslationEntity.SerializeToString,
-        response_deserializer=entity__pb2.TranslationEntity.FromString,
+        '/quran.TranslationSvc/CreateTranslation',
+        request_serializer=entity__pb2.Translation.SerializeToString,
+        response_deserializer=entity__pb2.Translation.FromString,
         )
     self.FindTranslationById = channel.unary_unary(
-        '/quran.Translation/FindTranslationById',
+        '/quran.TranslationSvc/FindTranslationById',
         request_serializer=shared__pb2.IDRequest.SerializeToString,
-        response_deserializer=entity__pb2.TranslationEntity.FromString,
+        response_deserializer=entity__pb2.Translation.FromString,
         )
     self.FindTranslationByAyahId = channel.unary_unary(
-        '/quran.Translation/FindTranslationByAyahId',
+        '/quran.TranslationSvc/FindTranslationByAyahId',
         request_serializer=shared__pb2.IDRequest.SerializeToString,
         response_deserializer=translation__pb2.TranslationList.FromString,
         )
     self.FindTranslationByEditionId = channel.unary_unary(
-        '/quran.Translation/FindTranslationByEditionId',
+        '/quran.TranslationSvc/FindTranslationByEditionId',
         request_serializer=shared__pb2.IDRequest.SerializeToString,
         response_deserializer=translation__pb2.TranslationList.FromString,
         )
     self.FilterTranslation = channel.unary_unary(
-        '/quran.Translation/FilterTranslation',
+        '/quran.TranslationSvc/FilterTranslation',
         request_serializer=shared__pb2.FilterRequest.SerializeToString,
-        response_deserializer=entity__pb2.TranslationEntity.FromString,
+        response_deserializer=entity__pb2.Translation.FromString,
         )
 
 
-class TranslationServicer(object):
+class TranslationSvcServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
@@ -83,17 +83,17 @@ class TranslationServicer(object):
     raise NotImplementedError('Method not implemented!')
 
 
-def add_TranslationServicer_to_server(servicer, server):
+def add_TranslationSvcServicer_to_server(servicer, server):
   rpc_method_handlers = {
       'CreateTranslation': grpc.unary_unary_rpc_method_handler(
           servicer.CreateTranslation,
-          request_deserializer=entity__pb2.TranslationEntity.FromString,
-          response_serializer=entity__pb2.TranslationEntity.SerializeToString,
+          request_deserializer=entity__pb2.Translation.FromString,
+          response_serializer=entity__pb2.Translation.SerializeToString,
       ),
       'FindTranslationById': grpc.unary_unary_rpc_method_handler(
           servicer.FindTranslationById,
           request_deserializer=shared__pb2.IDRequest.FromString,
-          response_serializer=entity__pb2.TranslationEntity.SerializeToString,
+          response_serializer=entity__pb2.Translation.SerializeToString,
       ),
       'FindTranslationByAyahId': grpc.unary_unary_rpc_method_handler(
           servicer.FindTranslationByAyahId,
@@ -108,9 +108,9 @@ def add_TranslationServicer_to_server(servicer, server):
       'FilterTranslation': grpc.unary_unary_rpc_method_handler(
           servicer.FilterTranslation,
           request_deserializer=shared__pb2.FilterRequest.FromString,
-          response_serializer=entity__pb2.TranslationEntity.SerializeToString,
+          response_serializer=entity__pb2.Translation.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'quran.Translation', rpc_method_handlers)
+      'quran.TranslationSvc', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))

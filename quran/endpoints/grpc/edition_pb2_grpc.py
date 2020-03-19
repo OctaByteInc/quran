@@ -6,7 +6,7 @@ import quran.endpoints.grpc.entity_pb2 as entity__pb2
 import quran.endpoints.grpc.shared_pb2 as shared__pb2
 
 
-class EditionStub(object):
+class EditionSvcStub(object):
   # missing associated documentation comment in .proto file
   pass
 
@@ -17,48 +17,48 @@ class EditionStub(object):
       channel: A grpc.Channel.
     """
     self.CreateEdition = channel.unary_unary(
-        '/quran.Edition/CreateEdition',
-        request_serializer=entity__pb2.EditionEntity.SerializeToString,
-        response_deserializer=entity__pb2.EditionEntity.FromString,
+        '/quran.EditionSvc/CreateEdition',
+        request_serializer=entity__pb2.Edition.SerializeToString,
+        response_deserializer=entity__pb2.Edition.FromString,
         )
     self.GetAll = channel.unary_unary(
-        '/quran.Edition/GetAll',
+        '/quran.EditionSvc/GetAll',
         request_serializer=shared__pb2.EmptyMessage.SerializeToString,
         response_deserializer=edition__pb2.EditionList.FromString,
         )
     self.FindEditionById = channel.unary_unary(
-        '/quran.Edition/FindEditionById',
+        '/quran.EditionSvc/FindEditionById',
         request_serializer=shared__pb2.IDRequest.SerializeToString,
-        response_deserializer=entity__pb2.EditionEntity.FromString,
+        response_deserializer=entity__pb2.Edition.FromString,
         )
     self.FindEditionByLanguage = channel.unary_unary(
-        '/quran.Edition/FindEditionByLanguage',
+        '/quran.EditionSvc/FindEditionByLanguage',
         request_serializer=shared__pb2.NameRequest.SerializeToString,
         response_deserializer=edition__pb2.EditionList.FromString,
         )
     self.FindEditionByName = channel.unary_unary(
-        '/quran.Edition/FindEditionByName',
+        '/quran.EditionSvc/FindEditionByName',
         request_serializer=shared__pb2.NameRequest.SerializeToString,
         response_deserializer=edition__pb2.EditionList.FromString,
         )
     self.FindEditionByEnglishName = channel.unary_unary(
-        '/quran.Edition/FindEditionByEnglishName',
+        '/quran.EditionSvc/FindEditionByEnglishName',
         request_serializer=shared__pb2.NameRequest.SerializeToString,
         response_deserializer=edition__pb2.EditionList.FromString,
         )
     self.FindEditionByType = channel.unary_unary(
-        '/quran.Edition/FindEditionByType',
+        '/quran.EditionSvc/FindEditionByType',
         request_serializer=shared__pb2.NameRequest.SerializeToString,
         response_deserializer=edition__pb2.EditionList.FromString,
         )
     self.FindEditionByFormat = channel.unary_unary(
-        '/quran.Edition/FindEditionByFormat',
+        '/quran.EditionSvc/FindEditionByFormat',
         request_serializer=shared__pb2.NameRequest.SerializeToString,
         response_deserializer=edition__pb2.EditionList.FromString,
         )
 
 
-class EditionServicer(object):
+class EditionSvcServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
@@ -119,12 +119,12 @@ class EditionServicer(object):
     raise NotImplementedError('Method not implemented!')
 
 
-def add_EditionServicer_to_server(servicer, server):
+def add_EditionSvcServicer_to_server(servicer, server):
   rpc_method_handlers = {
       'CreateEdition': grpc.unary_unary_rpc_method_handler(
           servicer.CreateEdition,
-          request_deserializer=entity__pb2.EditionEntity.FromString,
-          response_serializer=entity__pb2.EditionEntity.SerializeToString,
+          request_deserializer=entity__pb2.Edition.FromString,
+          response_serializer=entity__pb2.Edition.SerializeToString,
       ),
       'GetAll': grpc.unary_unary_rpc_method_handler(
           servicer.GetAll,
@@ -134,7 +134,7 @@ def add_EditionServicer_to_server(servicer, server):
       'FindEditionById': grpc.unary_unary_rpc_method_handler(
           servicer.FindEditionById,
           request_deserializer=shared__pb2.IDRequest.FromString,
-          response_serializer=entity__pb2.EditionEntity.SerializeToString,
+          response_serializer=entity__pb2.Edition.SerializeToString,
       ),
       'FindEditionByLanguage': grpc.unary_unary_rpc_method_handler(
           servicer.FindEditionByLanguage,
@@ -163,5 +163,5 @@ def add_EditionServicer_to_server(servicer, server):
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'quran.Edition', rpc_method_handlers)
+      'quran.EditionSvc', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))

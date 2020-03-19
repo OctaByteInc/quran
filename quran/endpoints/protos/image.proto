@@ -5,7 +5,7 @@ import "entity.proto";
 
 package quran;
 
-service Image {
-    rpc CreateImage (ImageEntity) returns (ImageEntity) {}
-    rpc FindImageByAyahId (IDRequest) returns (ImageEntity) {}
+service ImageSvc {
+    rpc CreateImage (Image) returns (Image) {}
+    rpc FindImageByAyahId (IDRequest) returns (Image) {}
 }

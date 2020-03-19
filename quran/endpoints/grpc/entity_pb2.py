@@ -20,28 +20,28 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='quran',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0c\x65ntity.proto\x12\x05quran\"-\n\x0bImageEntity\x12\x0f\n\x07\x61yah_id\x18\x01 \x01(\t\x12\r\n\x05image\x18\x02 \x01(\t\"[\n\x0b\x41udioEntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07\x61yah_id\x18\x02 \x01(\t\x12\x12\n\nedition_id\x18\x03 \x01(\t\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\r\n\x05\x61udio\x18\x05 \x01(\t\"\x82\x01\n\rEditionEntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08language\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x14\n\x0c\x65nglish_name\x18\x04 \x01(\t\x12\x0c\n\x04type\x18\x05 \x01(\t\x12\x0e\n\x06\x66ormat\x18\x06 \x01(\t\x12\x11\n\tdirection\x18\x07 \x01(\t\"R\n\x11TranslationEntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07\x61yah_id\x18\x02 \x01(\t\x12\x12\n\nedition_id\x18\x03 \x01(\t\x12\x0c\n\x04text\x18\x04 \x01(\t\"\xa1\x01\n\x0bSurahEntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06number\x18\x02 \x01(\x05\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x14\n\x0c\x65nglish_name\x18\x04 \x01(\t\x12 \n\x18\x65nglish_name_translation\x18\x05 \x01(\t\x12\x17\n\x0fnumber_of_ayahs\x18\x06 \x01(\x05\x12\x17\n\x0frevelation_type\x18\x07 \x01(\t\"\xb3\x01\n\nAyahEntity\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08surah_id\x18\x02 \x01(\t\x12\x0e\n\x06number\x18\x03 \x01(\x05\x12\x17\n\x0fnumber_in_surah\x18\x04 \x01(\x05\x12\x0b\n\x03juz\x18\x05 \x01(\x05\x12\x0e\n\x06manzil\x18\x06 \x01(\x05\x12\x0c\n\x04ruku\x18\x07 \x01(\x05\x12\x14\n\x0chizb_quarter\x18\x08 \x01(\x05\x12\r\n\x05sajda\x18\t \x01(\x08\x12\x0e\n\x06\x61rabic\x18\n \x01(\tb\x06proto3')
+  serialized_pb=_b('\n\x0c\x65ntity.proto\x12\x05quran\"\'\n\x05Image\x12\x0f\n\x07\x61yah_id\x18\x01 \x01(\t\x12\r\n\x05image\x18\x02 \x01(\t\"U\n\x05\x41udio\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07\x61yah_id\x18\x02 \x01(\t\x12\x12\n\nedition_id\x18\x03 \x01(\t\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\r\n\x05\x61udio\x18\x05 \x01(\t\"|\n\x07\x45\x64ition\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08language\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x14\n\x0c\x65nglish_name\x18\x04 \x01(\t\x12\x0c\n\x04type\x18\x05 \x01(\t\x12\x0e\n\x06\x66ormat\x18\x06 \x01(\t\x12\x11\n\tdirection\x18\x07 \x01(\t\"L\n\x0bTranslation\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07\x61yah_id\x18\x02 \x01(\t\x12\x12\n\nedition_id\x18\x03 \x01(\t\x12\x0c\n\x04text\x18\x04 \x01(\t\"\x9b\x01\n\x05Surah\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06number\x18\x02 \x01(\x05\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x14\n\x0c\x65nglish_name\x18\x04 \x01(\t\x12 \n\x18\x65nglish_name_translation\x18\x05 \x01(\t\x12\x17\n\x0fnumber_of_ayahs\x18\x06 \x01(\x05\x12\x17\n\x0frevelation_type\x18\x07 \x01(\t\"\xad\x01\n\x04\x41yah\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08surah_id\x18\x02 \x01(\t\x12\x0e\n\x06number\x18\x03 \x01(\x05\x12\x17\n\x0fnumber_in_surah\x18\x04 \x01(\x05\x12\x0b\n\x03juz\x18\x05 \x01(\x05\x12\x0e\n\x06manzil\x18\x06 \x01(\x05\x12\x0c\n\x04ruku\x18\x07 \x01(\x05\x12\x14\n\x0chizb_quarter\x18\x08 \x01(\x05\x12\r\n\x05sajda\x18\t \x01(\x08\x12\x0e\n\x06\x61rabic\x18\n \x01(\tb\x06proto3')
 )
 
 
 
 
-_IMAGEENTITY = _descriptor.Descriptor(
-  name='ImageEntity',
-  full_name='quran.ImageEntity',
+_IMAGE = _descriptor.Descriptor(
+  name='Image',
+  full_name='quran.Image',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='ayah_id', full_name='quran.ImageEntity.ayah_id', index=0,
+      name='ayah_id', full_name='quran.Image.ayah_id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='image', full_name='quran.ImageEntity.image', index=1,
+      name='image', full_name='quran.Image.image', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -60,47 +60,47 @@ _IMAGEENTITY = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=23,
-  serialized_end=68,
+  serialized_end=62,
 )
 
 
-_AUDIOENTITY = _descriptor.Descriptor(
-  name='AudioEntity',
-  full_name='quran.AudioEntity',
+_AUDIO = _descriptor.Descriptor(
+  name='Audio',
+  full_name='quran.Audio',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='quran.AudioEntity.id', index=0,
+      name='id', full_name='quran.Audio.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='ayah_id', full_name='quran.AudioEntity.ayah_id', index=1,
+      name='ayah_id', full_name='quran.Audio.ayah_id', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='edition_id', full_name='quran.AudioEntity.edition_id', index=2,
+      name='edition_id', full_name='quran.Audio.edition_id', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='type', full_name='quran.AudioEntity.type', index=3,
+      name='type', full_name='quran.Audio.type', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='audio', full_name='quran.AudioEntity.audio', index=4,
+      name='audio', full_name='quran.Audio.audio', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -118,62 +118,62 @@ _AUDIOENTITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=70,
-  serialized_end=161,
+  serialized_start=64,
+  serialized_end=149,
 )
 
 
-_EDITIONENTITY = _descriptor.Descriptor(
-  name='EditionEntity',
-  full_name='quran.EditionEntity',
+_EDITION = _descriptor.Descriptor(
+  name='Edition',
+  full_name='quran.Edition',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='quran.EditionEntity.id', index=0,
+      name='id', full_name='quran.Edition.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='language', full_name='quran.EditionEntity.language', index=1,
+      name='language', full_name='quran.Edition.language', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='name', full_name='quran.EditionEntity.name', index=2,
+      name='name', full_name='quran.Edition.name', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='english_name', full_name='quran.EditionEntity.english_name', index=3,
+      name='english_name', full_name='quran.Edition.english_name', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='type', full_name='quran.EditionEntity.type', index=4,
+      name='type', full_name='quran.Edition.type', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='format', full_name='quran.EditionEntity.format', index=5,
+      name='format', full_name='quran.Edition.format', index=5,
       number=6, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='direction', full_name='quran.EditionEntity.direction', index=6,
+      name='direction', full_name='quran.Edition.direction', index=6,
       number=7, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -191,41 +191,41 @@ _EDITIONENTITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=164,
-  serialized_end=294,
+  serialized_start=151,
+  serialized_end=275,
 )
 
 
-_TRANSLATIONENTITY = _descriptor.Descriptor(
-  name='TranslationEntity',
-  full_name='quran.TranslationEntity',
+_TRANSLATION = _descriptor.Descriptor(
+  name='Translation',
+  full_name='quran.Translation',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='quran.TranslationEntity.id', index=0,
+      name='id', full_name='quran.Translation.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='ayah_id', full_name='quran.TranslationEntity.ayah_id', index=1,
+      name='ayah_id', full_name='quran.Translation.ayah_id', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='edition_id', full_name='quran.TranslationEntity.edition_id', index=2,
+      name='edition_id', full_name='quran.Translation.edition_id', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='text', full_name='quran.TranslationEntity.text', index=3,
+      name='text', full_name='quran.Translation.text', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -243,62 +243,62 @@ _TRANSLATIONENTITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=296,
-  serialized_end=378,
+  serialized_start=277,
+  serialized_end=353,
 )
 
 
-_SURAHENTITY = _descriptor.Descriptor(
-  name='SurahEntity',
-  full_name='quran.SurahEntity',
+_SURAH = _descriptor.Descriptor(
+  name='Surah',
+  full_name='quran.Surah',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='quran.SurahEntity.id', index=0,
+      name='id', full_name='quran.Surah.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='number', full_name='quran.SurahEntity.number', index=1,
+      name='number', full_name='quran.Surah.number', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='name', full_name='quran.SurahEntity.name', index=2,
+      name='name', full_name='quran.Surah.name', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='english_name', full_name='quran.SurahEntity.english_name', index=3,
+      name='english_name', full_name='quran.Surah.english_name', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='english_name_translation', full_name='quran.SurahEntity.english_name_translation', index=4,
+      name='english_name_translation', full_name='quran.Surah.english_name_translation', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='number_of_ayahs', full_name='quran.SurahEntity.number_of_ayahs', index=5,
+      name='number_of_ayahs', full_name='quran.Surah.number_of_ayahs', index=5,
       number=6, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='revelation_type', full_name='quran.SurahEntity.revelation_type', index=6,
+      name='revelation_type', full_name='quran.Surah.revelation_type', index=6,
       number=7, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -316,83 +316,83 @@ _SURAHENTITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=381,
-  serialized_end=542,
+  serialized_start=356,
+  serialized_end=511,
 )
 
 
-_AYAHENTITY = _descriptor.Descriptor(
-  name='AyahEntity',
-  full_name='quran.AyahEntity',
+_AYAH = _descriptor.Descriptor(
+  name='Ayah',
+  full_name='quran.Ayah',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='quran.AyahEntity.id', index=0,
+      name='id', full_name='quran.Ayah.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='surah_id', full_name='quran.AyahEntity.surah_id', index=1,
+      name='surah_id', full_name='quran.Ayah.surah_id', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='number', full_name='quran.AyahEntity.number', index=2,
+      name='number', full_name='quran.Ayah.number', index=2,
       number=3, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='number_in_surah', full_name='quran.AyahEntity.number_in_surah', index=3,
+      name='number_in_surah', full_name='quran.Ayah.number_in_surah', index=3,
       number=4, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='juz', full_name='quran.AyahEntity.juz', index=4,
+      name='juz', full_name='quran.Ayah.juz', index=4,
       number=5, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='manzil', full_name='quran.AyahEntity.manzil', index=5,
+      name='manzil', full_name='quran.Ayah.manzil', index=5,
       number=6, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='ruku', full_name='quran.AyahEntity.ruku', index=6,
+      name='ruku', full_name='quran.Ayah.ruku', index=6,
       number=7, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='hizb_quarter', full_name='quran.AyahEntity.hizb_quarter', index=7,
+      name='hizb_quarter', full_name='quran.Ayah.hizb_quarter', index=7,
       number=8, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='sajda', full_name='quran.AyahEntity.sajda', index=8,
+      name='sajda', full_name='quran.Ayah.sajda', index=8,
       number=9, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='arabic', full_name='quran.AyahEntity.arabic', index=9,
+      name='arabic', full_name='quran.Ayah.arabic', index=9,
       number=10, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -410,59 +410,59 @@ _AYAHENTITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=545,
-  serialized_end=724,
+  serialized_start=514,
+  serialized_end=687,
 )
 
-DESCRIPTOR.message_types_by_name['ImageEntity'] = _IMAGEENTITY
-DESCRIPTOR.message_types_by_name['AudioEntity'] = _AUDIOENTITY
-DESCRIPTOR.message_types_by_name['EditionEntity'] = _EDITIONENTITY
-DESCRIPTOR.message_types_by_name['TranslationEntity'] = _TRANSLATIONENTITY
-DESCRIPTOR.message_types_by_name['SurahEntity'] = _SURAHENTITY
-DESCRIPTOR.message_types_by_name['AyahEntity'] = _AYAHENTITY
+DESCRIPTOR.message_types_by_name['Image'] = _IMAGE
+DESCRIPTOR.message_types_by_name['Audio'] = _AUDIO
+DESCRIPTOR.message_types_by_name['Edition'] = _EDITION
+DESCRIPTOR.message_types_by_name['Translation'] = _TRANSLATION
+DESCRIPTOR.message_types_by_name['Surah'] = _SURAH
+DESCRIPTOR.message_types_by_name['Ayah'] = _AYAH
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-ImageEntity = _reflection.GeneratedProtocolMessageType('ImageEntity', (_message.Message,), {
-  'DESCRIPTOR' : _IMAGEENTITY,
+Image = _reflection.GeneratedProtocolMessageType('Image', (_message.Message,), {
+  'DESCRIPTOR' : _IMAGE,
   '__module__' : 'entity_pb2'
-  # @@protoc_insertion_point(class_scope:quran.ImageEntity)
+  # @@protoc_insertion_point(class_scope:quran.Image)
   })
-_sym_db.RegisterMessage(ImageEntity)
+_sym_db.RegisterMessage(Image)
 
-AudioEntity = _reflection.GeneratedProtocolMessageType('AudioEntity', (_message.Message,), {
-  'DESCRIPTOR' : _AUDIOENTITY,
+Audio = _reflection.GeneratedProtocolMessageType('Audio', (_message.Message,), {
+  'DESCRIPTOR' : _AUDIO,
   '__module__' : 'entity_pb2'
-  # @@protoc_insertion_point(class_scope:quran.AudioEntity)
+  # @@protoc_insertion_point(class_scope:quran.Audio)
   })
-_sym_db.RegisterMessage(AudioEntity)
+_sym_db.RegisterMessage(Audio)
 
-EditionEntity = _reflection.GeneratedProtocolMessageType('EditionEntity', (_message.Message,), {
-  'DESCRIPTOR' : _EDITIONENTITY,
+Edition = _reflection.GeneratedProtocolMessageType('Edition', (_message.Message,), {
+  'DESCRIPTOR' : _EDITION,
   '__module__' : 'entity_pb2'
-  # @@protoc_insertion_point(class_scope:quran.EditionEntity)
+  # @@protoc_insertion_point(class_scope:quran.Edition)
   })
-_sym_db.RegisterMessage(EditionEntity)
+_sym_db.RegisterMessage(Edition)
 
-TranslationEntity = _reflection.GeneratedProtocolMessageType('TranslationEntity', (_message.Message,), {
-  'DESCRIPTOR' : _TRANSLATIONENTITY,
+Translation = _reflection.GeneratedProtocolMessageType('Translation', (_message.Message,), {
+  'DESCRIPTOR' : _TRANSLATION,
   '__module__' : 'entity_pb2'
-  # @@protoc_insertion_point(class_scope:quran.TranslationEntity)
+  # @@protoc_insertion_point(class_scope:quran.Translation)
   })
-_sym_db.RegisterMessage(TranslationEntity)
+_sym_db.RegisterMessage(Translation)
 
-SurahEntity = _reflection.GeneratedProtocolMessageType('SurahEntity', (_message.Message,), {
-  'DESCRIPTOR' : _SURAHENTITY,
+Surah = _reflection.GeneratedProtocolMessageType('Surah', (_message.Message,), {
+  'DESCRIPTOR' : _SURAH,
   '__module__' : 'entity_pb2'
-  # @@protoc_insertion_point(class_scope:quran.SurahEntity)
+  # @@protoc_insertion_point(class_scope:quran.Surah)
   })
-_sym_db.RegisterMessage(SurahEntity)
+_sym_db.RegisterMessage(Surah)
 
-AyahEntity = _reflection.GeneratedProtocolMessageType('AyahEntity', (_message.Message,), {
-  'DESCRIPTOR' : _AYAHENTITY,
+Ayah = _reflection.GeneratedProtocolMessageType('Ayah', (_message.Message,), {
+  'DESCRIPTOR' : _AYAH,
   '__module__' : 'entity_pb2'
-  # @@protoc_insertion_point(class_scope:quran.AyahEntity)
+  # @@protoc_insertion_point(class_scope:quran.Ayah)
   })
-_sym_db.RegisterMessage(AyahEntity)
+_sym_db.RegisterMessage(Ayah)
 
 
 # @@protoc_insertion_point(module_scope)

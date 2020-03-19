@@ -6,7 +6,7 @@ import quran.endpoints.grpc.shared_pb2 as shared__pb2
 import quran.endpoints.grpc.surah_pb2 as surah__pb2
 
 
-class SurahStub(object):
+class SurahSvcStub(object):
   # missing associated documentation comment in .proto file
   pass
 
@@ -17,43 +17,43 @@ class SurahStub(object):
       channel: A grpc.Channel.
     """
     self.CreateSurah = channel.unary_unary(
-        '/quran.Surah/CreateSurah',
-        request_serializer=entity__pb2.SurahEntity.SerializeToString,
-        response_deserializer=entity__pb2.SurahEntity.FromString,
+        '/quran.SurahSvc/CreateSurah',
+        request_serializer=entity__pb2.Surah.SerializeToString,
+        response_deserializer=entity__pb2.Surah.FromString,
         )
     self.GetAll = channel.unary_unary(
-        '/quran.Surah/GetAll',
+        '/quran.SurahSvc/GetAll',
         request_serializer=shared__pb2.EmptyMessage.SerializeToString,
         response_deserializer=surah__pb2.SurahList.FromString,
         )
     self.FindSurahById = channel.unary_unary(
-        '/quran.Surah/FindSurahById',
+        '/quran.SurahSvc/FindSurahById',
         request_serializer=shared__pb2.IDRequest.SerializeToString,
-        response_deserializer=entity__pb2.SurahEntity.FromString,
+        response_deserializer=entity__pb2.Surah.FromString,
         )
     self.FindSurahByNumber = channel.unary_unary(
-        '/quran.Surah/FindSurahByNumber',
+        '/quran.SurahSvc/FindSurahByNumber',
         request_serializer=shared__pb2.NumberRequest.SerializeToString,
-        response_deserializer=entity__pb2.SurahEntity.FromString,
+        response_deserializer=entity__pb2.Surah.FromString,
         )
     self.FindSurahByName = channel.unary_unary(
-        '/quran.Surah/FindSurahByName',
+        '/quran.SurahSvc/FindSurahByName',
         request_serializer=shared__pb2.NameRequest.SerializeToString,
-        response_deserializer=entity__pb2.SurahEntity.FromString,
+        response_deserializer=entity__pb2.Surah.FromString,
         )
     self.FindSurahByEnglishName = channel.unary_unary(
-        '/quran.Surah/FindSurahByEnglishName',
+        '/quran.SurahSvc/FindSurahByEnglishName',
         request_serializer=shared__pb2.NameRequest.SerializeToString,
-        response_deserializer=entity__pb2.SurahEntity.FromString,
+        response_deserializer=entity__pb2.Surah.FromString,
         )
     self.FindSurahByRevelationType = channel.unary_unary(
-        '/quran.Surah/FindSurahByRevelationType',
+        '/quran.SurahSvc/FindSurahByRevelationType',
         request_serializer=surah__pb2.RevelationRequest.SerializeToString,
         response_deserializer=surah__pb2.SurahList.FromString,
         )
 
 
-class SurahServicer(object):
+class SurahSvcServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
@@ -107,12 +107,12 @@ class SurahServicer(object):
     raise NotImplementedError('Method not implemented!')
 
 
-def add_SurahServicer_to_server(servicer, server):
+def add_SurahSvcServicer_to_server(servicer, server):
   rpc_method_handlers = {
       'CreateSurah': grpc.unary_unary_rpc_method_handler(
           servicer.CreateSurah,
-          request_deserializer=entity__pb2.SurahEntity.FromString,
-          response_serializer=entity__pb2.SurahEntity.SerializeToString,
+          request_deserializer=entity__pb2.Surah.FromString,
+          response_serializer=entity__pb2.Surah.SerializeToString,
       ),
       'GetAll': grpc.unary_unary_rpc_method_handler(
           servicer.GetAll,
@@ -122,22 +122,22 @@ def add_SurahServicer_to_server(servicer, server):
       'FindSurahById': grpc.unary_unary_rpc_method_handler(
           servicer.FindSurahById,
           request_deserializer=shared__pb2.IDRequest.FromString,
-          response_serializer=entity__pb2.SurahEntity.SerializeToString,
+          response_serializer=entity__pb2.Surah.SerializeToString,
       ),
       'FindSurahByNumber': grpc.unary_unary_rpc_method_handler(
           servicer.FindSurahByNumber,
           request_deserializer=shared__pb2.NumberRequest.FromString,
-          response_serializer=entity__pb2.SurahEntity.SerializeToString,
+          response_serializer=entity__pb2.Surah.SerializeToString,
       ),
       'FindSurahByName': grpc.unary_unary_rpc_method_handler(
           servicer.FindSurahByName,
           request_deserializer=shared__pb2.NameRequest.FromString,
-          response_serializer=entity__pb2.SurahEntity.SerializeToString,
+          response_serializer=entity__pb2.Surah.SerializeToString,
       ),
       'FindSurahByEnglishName': grpc.unary_unary_rpc_method_handler(
           servicer.FindSurahByEnglishName,
           request_deserializer=shared__pb2.NameRequest.FromString,
-          response_serializer=entity__pb2.SurahEntity.SerializeToString,
+          response_serializer=entity__pb2.Surah.SerializeToString,
       ),
       'FindSurahByRevelationType': grpc.unary_unary_rpc_method_handler(
           servicer.FindSurahByRevelationType,
@@ -146,5 +146,5 @@ def add_SurahServicer_to_server(servicer, server):
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'quran.Surah', rpc_method_handlers)
+      'quran.SurahSvc', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))

@@ -6,38 +6,38 @@ from quran.factory.translation_factory import TranslationFactory
 from quran.utils.proto_converter import ProtoConverter
 
 
-class TranslationService(translation_rpc.TranslationServicer):
+class TranslationService(translation_rpc.TranslationSvcServicer):
 
     def CreateTranslation(self, request, context):
         translation = Translation.from_dict(ProtoConverter.proto_to_dict(request))
         create_translation = TranslationFactory.create()
         res = create_translation.exec(translation)
-        return entity_proto.TranslationEntity(**res.to_dict())
+        return entity_proto.Translation(**res.to_dict())
 
     def FindTranslationById(self, request, context):
         find_translation = TranslationFactory.find_translation()
         translation = find_translation.by_id(request.id)
-        return entity_proto.TranslationEntity(**translation.to_dict())
+        return entity_proto.Translation(**translation.to_dict())
 
     def FindTranslationByAyahId(self, request, context):
         find_translation = TranslationFactory.find_translation()
         translation_stream = find_translation.by_ayah_id(request.id)
         translations = []
         for translation in translation_stream:
-            translations.append(entity_proto.TranslationEntity(**translation.to_dict()))
+            translations.append(entity_proto.Translation(**translation.to_dict()))
 
-        return translation_proto.TranslationList(translation_entity=translations)
+        return translation_proto.TranslationList(translation_list=translations)
 
     def FindTranslationByEditionId(self, request, context):
         find_translation = TranslationFactory.find_translation()
         translation_stream = find_translation.by_edition_id(request.id)
         translations = []
         for translation in translation_stream:
-            translations.append(entity_proto.TranslationEntity(**translation.to_dict()))
+            translations.append(entity_proto.Translation(**translation.to_dict()))
 
-        return translation_proto.TranslationList(translation_entity=translations)
+        return translation_proto.TranslationList(translation_list=translations)
 
     def FilterTranslation(self, request, context):
         find_translation = TranslationFactory.find_translation()
         translation = find_translation.filter(ayah_id=request.ayah_id, edition_id=request.edition_id)
-        return entity_proto.TranslationEntity(**translation.to_dict())
+        return entity_proto.Translation(**translation.to_dict())

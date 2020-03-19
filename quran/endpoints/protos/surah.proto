@@ -6,19 +6,19 @@ import "entity.proto";
 package quran;
 
 message SurahList {
-    repeated SurahEntity surah_entity = 1;
+    repeated Surah surah_list = 1;
 }
 
 message RevelationRequest {
     string revelation_type = 1;
 }
 
-service Surah {
-    rpc CreateSurah (SurahEntity) returns (SurahEntity) {}
+service SurahSvc {
+    rpc CreateSurah (Surah) returns (Surah) {}
     rpc GetAll (EmptyMessage) returns (SurahList) {}
-    rpc FindSurahById (IDRequest) returns (SurahEntity) {}
-    rpc FindSurahByNumber (NumberRequest) returns (SurahEntity) {}
-    rpc FindSurahByName (NameRequest) returns (SurahEntity) {}
-    rpc FindSurahByEnglishName (NameRequest) returns (SurahEntity) {}
+    rpc FindSurahById (IDRequest) returns (Surah) {}
+    rpc FindSurahByNumber (NumberRequest) returns (Surah) {}
+    rpc FindSurahByName (NameRequest) returns (Surah) {}
+    rpc FindSurahByEnglishName (NameRequest) returns (Surah) {}
     rpc FindSurahByRevelationType (RevelationRequest) returns (SurahList) {}
 }

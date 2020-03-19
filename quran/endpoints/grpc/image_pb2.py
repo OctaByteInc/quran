@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='quran',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0bimage.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto2}\n\x05Image\x12\x37\n\x0b\x43reateImage\x12\x12.quran.ImageEntity\x1a\x12.quran.ImageEntity\"\x00\x12;\n\x11\x46indImageByAyahId\x12\x10.quran.IDRequest\x1a\x12.quran.ImageEntity\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0bimage.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto2n\n\x08ImageSvc\x12+\n\x0b\x43reateImage\x12\x0c.quran.Image\x1a\x0c.quran.Image\"\x00\x12\x35\n\x11\x46indImageByAyahId\x12\x10.quran.IDRequest\x1a\x0c.quran.Image\"\x00\x62\x06proto3')
   ,
   dependencies=[shared__pb2.DESCRIPTOR,entity__pb2.DESCRIPTOR,])
 
@@ -32,36 +32,36 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
 
-_IMAGE = _descriptor.ServiceDescriptor(
-  name='Image',
-  full_name='quran.Image',
+_IMAGESVC = _descriptor.ServiceDescriptor(
+  name='ImageSvc',
+  full_name='quran.ImageSvc',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
   serialized_start=50,
-  serialized_end=175,
+  serialized_end=160,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateImage',
-    full_name='quran.Image.CreateImage',
+    full_name='quran.ImageSvc.CreateImage',
     index=0,
     containing_service=None,
-    input_type=entity__pb2._IMAGEENTITY,
-    output_type=entity__pb2._IMAGEENTITY,
+    input_type=entity__pb2._IMAGE,
+    output_type=entity__pb2._IMAGE,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='FindImageByAyahId',
-    full_name='quran.Image.FindImageByAyahId',
+    full_name='quran.ImageSvc.FindImageByAyahId',
     index=1,
     containing_service=None,
     input_type=shared__pb2._IDREQUEST,
-    output_type=entity__pb2._IMAGEENTITY,
+    output_type=entity__pb2._IMAGE,
     serialized_options=None,
   ),
 ])
-_sym_db.RegisterServiceDescriptor(_IMAGE)
+_sym_db.RegisterServiceDescriptor(_IMAGESVC)
 
-DESCRIPTOR.services_by_name['Image'] = _IMAGE
+DESCRIPTOR.services_by_name['ImageSvc'] = _IMAGESVC
 
 # @@protoc_insertion_point(module_scope)

@@ -5,7 +5,7 @@ import quran.endpoints.grpc.entity_pb2 as entity__pb2
 import quran.endpoints.grpc.shared_pb2 as shared__pb2
 
 
-class ImageStub(object):
+class ImageSvcStub(object):
   # missing associated documentation comment in .proto file
   pass
 
@@ -16,18 +16,18 @@ class ImageStub(object):
       channel: A grpc.Channel.
     """
     self.CreateImage = channel.unary_unary(
-        '/quran.Image/CreateImage',
-        request_serializer=entity__pb2.ImageEntity.SerializeToString,
-        response_deserializer=entity__pb2.ImageEntity.FromString,
+        '/quran.ImageSvc/CreateImage',
+        request_serializer=entity__pb2.Image.SerializeToString,
+        response_deserializer=entity__pb2.Image.FromString,
         )
     self.FindImageByAyahId = channel.unary_unary(
-        '/quran.Image/FindImageByAyahId',
+        '/quran.ImageSvc/FindImageByAyahId',
         request_serializer=shared__pb2.IDRequest.SerializeToString,
-        response_deserializer=entity__pb2.ImageEntity.FromString,
+        response_deserializer=entity__pb2.Image.FromString,
         )
 
 
-class ImageServicer(object):
+class ImageSvcServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
@@ -46,19 +46,19 @@ class ImageServicer(object):
     raise NotImplementedError('Method not implemented!')
 
 
-def add_ImageServicer_to_server(servicer, server):
+def add_ImageSvcServicer_to_server(servicer, server):
   rpc_method_handlers = {
       'CreateImage': grpc.unary_unary_rpc_method_handler(
           servicer.CreateImage,
-          request_deserializer=entity__pb2.ImageEntity.FromString,
-          response_serializer=entity__pb2.ImageEntity.SerializeToString,
+          request_deserializer=entity__pb2.Image.FromString,
+          response_serializer=entity__pb2.Image.SerializeToString,
       ),
       'FindImageByAyahId': grpc.unary_unary_rpc_method_handler(
           servicer.FindImageByAyahId,
           request_deserializer=shared__pb2.IDRequest.FromString,
-          response_serializer=entity__pb2.ImageEntity.SerializeToString,
+          response_serializer=entity__pb2.Image.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'quran.Image', rpc_method_handlers)
+      'quran.ImageSvc', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))

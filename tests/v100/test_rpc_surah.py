@@ -6,17 +6,17 @@ import quran.endpoints.grpc.surah_pb2 as surah_proto
 from quran.utils.proto_converter import ProtoConverter
 
 channel = grpc.insecure_channel("localhost:50051")
-stub = surah_rpc.SurahStub(channel)
+stub = surah_rpc.SurahSvcStub(channel)
 
 
 def test_create_surah():
-    surah = entity_proto.SurahEntity(id='surah-1', number=1, name='surah-name-1',
+    surah = entity_proto.Surah(id='surah-1', number=1, name='surah-name-1',
                                      english_name_translation='english-translation-name-1', number_of_ayahs=7,
                                      revelation_type='type-1')
     res = stub.CreateSurah(surah)
     assert ProtoConverter.proto_to_dict(res) == ProtoConverter.proto_to_dict(res)
 
-    surah = entity_proto.SurahEntity(id='surah-2', number=2, name='surah-name-2',
+    surah = entity_proto.Surah(id='surah-2', number=2, name='surah-name-2',
                                      english_name_translation='english-translation-name-2', number_of_ayahs=144,
                                      revelation_type='type-2')
     res = stub.CreateSurah(surah)
@@ -27,7 +27,7 @@ def test_get_all_surah():
     surah_stream = stub.GetAll(shared_entity.EmptyMessage())
 
     count = 0
-    for surah in surah_stream.surah_entity:
+    for surah in surah_stream.surah_list:
         count += 1
 
     assert count >= 2
@@ -60,5 +60,5 @@ def find_surah_by_english_translation_name():
 def find_surah_by_revelation_type():
     surah_stream = stub.FindSurahByRevelationType(surah_proto.RevelationRequest(revelation_type='type-1'))
 
-    for surah in surah_stream.surah_entity:
+    for surah in surah_stream.surah_list:
         assert surah.revelation_type == 'type-1'

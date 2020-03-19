@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='quran',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0bsurah.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"5\n\tSurahList\x12(\n\x0csurah_entity\x18\x01 \x03(\x0b\x32\x12.quran.SurahEntity\",\n\x11RevelationRequest\x12\x17\n\x0frevelation_type\x18\x01 \x01(\t2\xb9\x03\n\x05Surah\x12\x37\n\x0b\x43reateSurah\x12\x12.quran.SurahEntity\x1a\x12.quran.SurahEntity\"\x00\x12\x31\n\x06GetAll\x12\x13.quran.EmptyMessage\x1a\x10.quran.SurahList\"\x00\x12\x37\n\rFindSurahById\x12\x10.quran.IDRequest\x1a\x12.quran.SurahEntity\"\x00\x12?\n\x11\x46indSurahByNumber\x12\x14.quran.NumberRequest\x1a\x12.quran.SurahEntity\"\x00\x12;\n\x0f\x46indSurahByName\x12\x12.quran.NameRequest\x1a\x12.quran.SurahEntity\"\x00\x12\x42\n\x16\x46indSurahByEnglishName\x12\x12.quran.NameRequest\x1a\x12.quran.SurahEntity\"\x00\x12I\n\x19\x46indSurahByRevelationType\x12\x18.quran.RevelationRequest\x1a\x10.quran.SurahList\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0bsurah.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"-\n\tSurahList\x12 \n\nsurah_list\x18\x01 \x03(\x0b\x32\x0c.quran.Surah\",\n\x11RevelationRequest\x12\x17\n\x0frevelation_type\x18\x01 \x01(\t2\x98\x03\n\x08SurahSvc\x12+\n\x0b\x43reateSurah\x12\x0c.quran.Surah\x1a\x0c.quran.Surah\"\x00\x12\x31\n\x06GetAll\x12\x13.quran.EmptyMessage\x1a\x10.quran.SurahList\"\x00\x12\x31\n\rFindSurahById\x12\x10.quran.IDRequest\x1a\x0c.quran.Surah\"\x00\x12\x39\n\x11\x46indSurahByNumber\x12\x14.quran.NumberRequest\x1a\x0c.quran.Surah\"\x00\x12\x35\n\x0f\x46indSurahByName\x12\x12.quran.NameRequest\x1a\x0c.quran.Surah\"\x00\x12<\n\x16\x46indSurahByEnglishName\x12\x12.quran.NameRequest\x1a\x0c.quran.Surah\"\x00\x12I\n\x19\x46indSurahByRevelationType\x12\x18.quran.RevelationRequest\x1a\x10.quran.SurahList\"\x00\x62\x06proto3')
   ,
   dependencies=[shared__pb2.DESCRIPTOR,entity__pb2.DESCRIPTOR,])
 
@@ -37,7 +37,7 @@ _SURAHLIST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='surah_entity', full_name='quran.SurahList.surah_entity', index=0,
+      name='surah_list', full_name='quran.SurahList.surah_list', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -56,7 +56,7 @@ _SURAHLIST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=50,
-  serialized_end=103,
+  serialized_end=95,
 )
 
 
@@ -86,11 +86,11 @@ _REVELATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=105,
-  serialized_end=149,
+  serialized_start=97,
+  serialized_end=141,
 )
 
-_SURAHLIST.fields_by_name['surah_entity'].message_type = entity__pb2._SURAHENTITY
+_SURAHLIST.fields_by_name['surah_list'].message_type = entity__pb2._SURAH
 DESCRIPTOR.message_types_by_name['SurahList'] = _SURAHLIST
 DESCRIPTOR.message_types_by_name['RevelationRequest'] = _REVELATIONREQUEST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -111,27 +111,27 @@ _sym_db.RegisterMessage(RevelationRequest)
 
 
 
-_SURAH = _descriptor.ServiceDescriptor(
-  name='Surah',
-  full_name='quran.Surah',
+_SURAHSVC = _descriptor.ServiceDescriptor(
+  name='SurahSvc',
+  full_name='quran.SurahSvc',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=152,
-  serialized_end=593,
+  serialized_start=144,
+  serialized_end=552,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateSurah',
-    full_name='quran.Surah.CreateSurah',
+    full_name='quran.SurahSvc.CreateSurah',
     index=0,
     containing_service=None,
-    input_type=entity__pb2._SURAHENTITY,
-    output_type=entity__pb2._SURAHENTITY,
+    input_type=entity__pb2._SURAH,
+    output_type=entity__pb2._SURAH,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='GetAll',
-    full_name='quran.Surah.GetAll',
+    full_name='quran.SurahSvc.GetAll',
     index=1,
     containing_service=None,
     input_type=shared__pb2._EMPTYMESSAGE,
@@ -140,43 +140,43 @@ _SURAH = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='FindSurahById',
-    full_name='quran.Surah.FindSurahById',
+    full_name='quran.SurahSvc.FindSurahById',
     index=2,
     containing_service=None,
     input_type=shared__pb2._IDREQUEST,
-    output_type=entity__pb2._SURAHENTITY,
+    output_type=entity__pb2._SURAH,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='FindSurahByNumber',
-    full_name='quran.Surah.FindSurahByNumber',
+    full_name='quran.SurahSvc.FindSurahByNumber',
     index=3,
     containing_service=None,
     input_type=shared__pb2._NUMBERREQUEST,
-    output_type=entity__pb2._SURAHENTITY,
+    output_type=entity__pb2._SURAH,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='FindSurahByName',
-    full_name='quran.Surah.FindSurahByName',
+    full_name='quran.SurahSvc.FindSurahByName',
     index=4,
     containing_service=None,
     input_type=shared__pb2._NAMEREQUEST,
-    output_type=entity__pb2._SURAHENTITY,
+    output_type=entity__pb2._SURAH,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='FindSurahByEnglishName',
-    full_name='quran.Surah.FindSurahByEnglishName',
+    full_name='quran.SurahSvc.FindSurahByEnglishName',
     index=5,
     containing_service=None,
     input_type=shared__pb2._NAMEREQUEST,
-    output_type=entity__pb2._SURAHENTITY,
+    output_type=entity__pb2._SURAH,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='FindSurahByRevelationType',
-    full_name='quran.Surah.FindSurahByRevelationType',
+    full_name='quran.SurahSvc.FindSurahByRevelationType',
     index=6,
     containing_service=None,
     input_type=_REVELATIONREQUEST,
@@ -184,8 +184,8 @@ _SURAH = _descriptor.ServiceDescriptor(
     serialized_options=None,
   ),
 ])
-_sym_db.RegisterServiceDescriptor(_SURAH)
+_sym_db.RegisterServiceDescriptor(_SURAHSVC)
 
-DESCRIPTOR.services_by_name['Surah'] = _SURAH
+DESCRIPTOR.services_by_name['SurahSvc'] = _SURAHSVC
 
 # @@protoc_insertion_point(module_scope)

@@ -25,21 +25,21 @@ message AyahSajdaRequest {
 }
 
 message AyahResponse {
-    AyahEntity ayah_entity = 1;
-    TranslationEntity translation_entity = 2;
-    SurahEntity surah_entity = 3;
-    EditionEntity edition_entity = 4;
-    AudioEntity arabic_audio = 5;
-    AudioEntity translation_audio = 6;
-    ImageEntity image_entity = 7;
+    Ayah ayah = 1;
+    Translation translation = 2;
+    Surah surah = 3;
+    Edition edition = 4;
+    Audio arabic_audio = 5;
+    Audio translation_audio = 6;
+    Image image = 7;
 }
 
 message AyahList {
-    repeated AyahResponse ayah_response = 1;
+    repeated AyahResponse ayah_list = 1;
 }
 
-service Ayah {
-    rpc CreateAyah (AyahEntity) returns (AyahEntity) {}
+service AyahSvc {
+    rpc CreateAyah (Ayah) returns (Ayah) {}
     rpc FindAyahById (AyahIdRequest) returns (AyahResponse) {}
     rpc FindAyahBySurahId (AyahIdRequest) returns (AyahList) {}
     rpc FindAyahByNumber (AyahNumberRequest) returns (AyahResponse) {}

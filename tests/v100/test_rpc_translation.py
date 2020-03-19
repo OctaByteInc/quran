@@ -5,11 +5,11 @@ import quran.endpoints.grpc.translation_pb2_grpc as translation_rpc
 from quran.utils.proto_converter import ProtoConverter
 
 channel = grpc.insecure_channel("localhost:50051")
-stub = translation_rpc.TranslationStub(channel)
+stub = translation_rpc.TranslationSvcStub(channel)
 
 
 def test_create_translation():
-    translation = entity_proto.TranslationEntity(id='translation-1', ayah_id='ayah-1', edition_id='edition-1',
+    translation = entity_proto.Translation(id='translation-1', ayah_id='ayah-1', edition_id='edition-1',
                                                  text='translation text')
 
     res = stub.CreateTranslation(translation)
@@ -26,14 +26,14 @@ def test_find_translation_by_id():
 def test_find_translation_by_ayah_id():
     translation_stream = stub.FindTranslationByAyahId(shared_entity.IDRequest(id='ayah-1'))
 
-    for translation in translation_stream.translation_entity:
+    for translation in translation_stream.translation_list:
         assert translation.ayah_id == 'ayah-1'
 
 
 def test_find_translation_by_edition_id():
     translation_stream = stub.FindTranslationByEditionId(shared_entity.IDRequest(id='edition-1'))
 
-    for translation in translation_stream.translation_entity:
+    for translation in translation_stream.translation_list:
         assert translation.edition_id == 'edition-1'
 
 

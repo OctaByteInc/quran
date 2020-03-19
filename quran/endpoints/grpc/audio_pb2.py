@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='quran',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0b\x61udio.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"5\n\tAudioList\x12(\n\x0c\x61udio_entity\x18\x01 \x03(\x0b\x32\x12.quran.AudioEntity2\xf5\x02\n\x05\x41udio\x12\x37\n\x0b\x43reateAudio\x12\x12.quran.AudioEntity\x1a\x12.quran.AudioEntity\"\x00\x12\x37\n\rFindAudioById\x12\x10.quran.IDRequest\x1a\x12.quran.AudioEntity\"\x00\x12\x39\n\x11\x46indAudioByAyahId\x12\x10.quran.IDRequest\x1a\x10.quran.AudioList\"\x00\x12<\n\x14\x46indAudioByEditionId\x12\x10.quran.IDRequest\x1a\x10.quran.AudioList\"\x00\x12=\n\x0f\x46indArabicAudio\x12\x14.quran.FilterRequest\x1a\x12.quran.AudioEntity\"\x00\x12\x42\n\x14\x46indTranslationAudio\x12\x14.quran.FilterRequest\x1a\x12.quran.AudioEntity\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0b\x61udio.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"-\n\tAudioList\x12 \n\naudio_list\x18\x01 \x03(\x0b\x32\x0c.quran.Audio2\xda\x02\n\x08\x41udioSvc\x12+\n\x0b\x43reateAudio\x12\x0c.quran.Audio\x1a\x0c.quran.Audio\"\x00\x12\x31\n\rFindAudioById\x12\x10.quran.IDRequest\x1a\x0c.quran.Audio\"\x00\x12\x39\n\x11\x46indAudioByAyahId\x12\x10.quran.IDRequest\x1a\x10.quran.AudioList\"\x00\x12<\n\x14\x46indAudioByEditionId\x12\x10.quran.IDRequest\x1a\x10.quran.AudioList\"\x00\x12\x37\n\x0f\x46indArabicAudio\x12\x14.quran.FilterRequest\x1a\x0c.quran.Audio\"\x00\x12<\n\x14\x46indTranslationAudio\x12\x14.quran.FilterRequest\x1a\x0c.quran.Audio\"\x00\x62\x06proto3')
   ,
   dependencies=[shared__pb2.DESCRIPTOR,entity__pb2.DESCRIPTOR,])
 
@@ -37,7 +37,7 @@ _AUDIOLIST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='audio_entity', full_name='quran.AudioList.audio_entity', index=0,
+      name='audio_list', full_name='quran.AudioList.audio_list', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -56,10 +56,10 @@ _AUDIOLIST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=50,
-  serialized_end=103,
+  serialized_end=95,
 )
 
-_AUDIOLIST.fields_by_name['audio_entity'].message_type = entity__pb2._AUDIOENTITY
+_AUDIOLIST.fields_by_name['audio_list'].message_type = entity__pb2._AUDIO
 DESCRIPTOR.message_types_by_name['AudioList'] = _AUDIOLIST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -72,36 +72,36 @@ _sym_db.RegisterMessage(AudioList)
 
 
 
-_AUDIO = _descriptor.ServiceDescriptor(
-  name='Audio',
-  full_name='quran.Audio',
+_AUDIOSVC = _descriptor.ServiceDescriptor(
+  name='AudioSvc',
+  full_name='quran.AudioSvc',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=106,
-  serialized_end=479,
+  serialized_start=98,
+  serialized_end=444,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateAudio',
-    full_name='quran.Audio.CreateAudio',
+    full_name='quran.AudioSvc.CreateAudio',
     index=0,
     containing_service=None,
-    input_type=entity__pb2._AUDIOENTITY,
-    output_type=entity__pb2._AUDIOENTITY,
+    input_type=entity__pb2._AUDIO,
+    output_type=entity__pb2._AUDIO,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='FindAudioById',
-    full_name='quran.Audio.FindAudioById',
+    full_name='quran.AudioSvc.FindAudioById',
     index=1,
     containing_service=None,
     input_type=shared__pb2._IDREQUEST,
-    output_type=entity__pb2._AUDIOENTITY,
+    output_type=entity__pb2._AUDIO,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='FindAudioByAyahId',
-    full_name='quran.Audio.FindAudioByAyahId',
+    full_name='quran.AudioSvc.FindAudioByAyahId',
     index=2,
     containing_service=None,
     input_type=shared__pb2._IDREQUEST,
@@ -110,7 +110,7 @@ _AUDIO = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='FindAudioByEditionId',
-    full_name='quran.Audio.FindAudioByEditionId',
+    full_name='quran.AudioSvc.FindAudioByEditionId',
     index=3,
     containing_service=None,
     input_type=shared__pb2._IDREQUEST,
@@ -119,25 +119,25 @@ _AUDIO = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='FindArabicAudio',
-    full_name='quran.Audio.FindArabicAudio',
+    full_name='quran.AudioSvc.FindArabicAudio',
     index=4,
     containing_service=None,
     input_type=shared__pb2._FILTERREQUEST,
-    output_type=entity__pb2._AUDIOENTITY,
+    output_type=entity__pb2._AUDIO,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
     name='FindTranslationAudio',
-    full_name='quran.Audio.FindTranslationAudio',
+    full_name='quran.AudioSvc.FindTranslationAudio',
     index=5,
     containing_service=None,
     input_type=shared__pb2._FILTERREQUEST,
-    output_type=entity__pb2._AUDIOENTITY,
+    output_type=entity__pb2._AUDIO,
     serialized_options=None,
   ),
 ])
-_sym_db.RegisterServiceDescriptor(_AUDIO)
+_sym_db.RegisterServiceDescriptor(_AUDIOSVC)
 
-DESCRIPTOR.services_by_name['Audio'] = _AUDIO
+DESCRIPTOR.services_by_name['AudioSvc'] = _AUDIOSVC
 
 # @@protoc_insertion_point(module_scope)

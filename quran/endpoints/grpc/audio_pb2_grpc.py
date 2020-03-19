@@ -6,7 +6,7 @@ import quran.endpoints.grpc.entity_pb2 as entity__pb2
 import quran.endpoints.grpc.shared_pb2 as shared__pb2
 
 
-class AudioStub(object):
+class AudioSvcStub(object):
   # missing associated documentation comment in .proto file
   pass
 
@@ -17,38 +17,38 @@ class AudioStub(object):
       channel: A grpc.Channel.
     """
     self.CreateAudio = channel.unary_unary(
-        '/quran.Audio/CreateAudio',
-        request_serializer=entity__pb2.AudioEntity.SerializeToString,
-        response_deserializer=entity__pb2.AudioEntity.FromString,
+        '/quran.AudioSvc/CreateAudio',
+        request_serializer=entity__pb2.Audio.SerializeToString,
+        response_deserializer=entity__pb2.Audio.FromString,
         )
     self.FindAudioById = channel.unary_unary(
-        '/quran.Audio/FindAudioById',
+        '/quran.AudioSvc/FindAudioById',
         request_serializer=shared__pb2.IDRequest.SerializeToString,
-        response_deserializer=entity__pb2.AudioEntity.FromString,
+        response_deserializer=entity__pb2.Audio.FromString,
         )
     self.FindAudioByAyahId = channel.unary_unary(
-        '/quran.Audio/FindAudioByAyahId',
+        '/quran.AudioSvc/FindAudioByAyahId',
         request_serializer=shared__pb2.IDRequest.SerializeToString,
         response_deserializer=audio__pb2.AudioList.FromString,
         )
     self.FindAudioByEditionId = channel.unary_unary(
-        '/quran.Audio/FindAudioByEditionId',
+        '/quran.AudioSvc/FindAudioByEditionId',
         request_serializer=shared__pb2.IDRequest.SerializeToString,
         response_deserializer=audio__pb2.AudioList.FromString,
         )
     self.FindArabicAudio = channel.unary_unary(
-        '/quran.Audio/FindArabicAudio',
+        '/quran.AudioSvc/FindArabicAudio',
         request_serializer=shared__pb2.FilterRequest.SerializeToString,
-        response_deserializer=entity__pb2.AudioEntity.FromString,
+        response_deserializer=entity__pb2.Audio.FromString,
         )
     self.FindTranslationAudio = channel.unary_unary(
-        '/quran.Audio/FindTranslationAudio',
+        '/quran.AudioSvc/FindTranslationAudio',
         request_serializer=shared__pb2.FilterRequest.SerializeToString,
-        response_deserializer=entity__pb2.AudioEntity.FromString,
+        response_deserializer=entity__pb2.Audio.FromString,
         )
 
 
-class AudioServicer(object):
+class AudioSvcServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
@@ -95,17 +95,17 @@ class AudioServicer(object):
     raise NotImplementedError('Method not implemented!')
 
 
-def add_AudioServicer_to_server(servicer, server):
+def add_AudioSvcServicer_to_server(servicer, server):
   rpc_method_handlers = {
       'CreateAudio': grpc.unary_unary_rpc_method_handler(
           servicer.CreateAudio,
-          request_deserializer=entity__pb2.AudioEntity.FromString,
-          response_serializer=entity__pb2.AudioEntity.SerializeToString,
+          request_deserializer=entity__pb2.Audio.FromString,
+          response_serializer=entity__pb2.Audio.SerializeToString,
       ),
       'FindAudioById': grpc.unary_unary_rpc_method_handler(
           servicer.FindAudioById,
           request_deserializer=shared__pb2.IDRequest.FromString,
-          response_serializer=entity__pb2.AudioEntity.SerializeToString,
+          response_serializer=entity__pb2.Audio.SerializeToString,
       ),
       'FindAudioByAyahId': grpc.unary_unary_rpc_method_handler(
           servicer.FindAudioByAyahId,
@@ -120,14 +120,14 @@ def add_AudioServicer_to_server(servicer, server):
       'FindArabicAudio': grpc.unary_unary_rpc_method_handler(
           servicer.FindArabicAudio,
           request_deserializer=shared__pb2.FilterRequest.FromString,
-          response_serializer=entity__pb2.AudioEntity.SerializeToString,
+          response_serializer=entity__pb2.Audio.SerializeToString,
       ),
       'FindTranslationAudio': grpc.unary_unary_rpc_method_handler(
           servicer.FindTranslationAudio,
           request_deserializer=shared__pb2.FilterRequest.FromString,
-          response_serializer=entity__pb2.AudioEntity.SerializeToString,
+          response_serializer=entity__pb2.Audio.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'quran.Audio', rpc_method_handlers)
+      'quran.AudioSvc', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))

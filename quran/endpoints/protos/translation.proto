@@ -6,13 +6,13 @@ import "entity.proto";
 package quran;
 
 message TranslationList {
-    repeated TranslationEntity translation_entity = 1;
+    repeated Translation translation_list = 1;
 }
 
-service Translation {
-    rpc CreateTranslation (TranslationEntity) returns (TranslationEntity) {}
-    rpc FindTranslationById (IDRequest) returns (TranslationEntity) {}
+service TranslationSvc {
+    rpc CreateTranslation (Translation) returns (Translation) {}
+    rpc FindTranslationById (IDRequest) returns (Translation) {}
     rpc FindTranslationByAyahId (IDRequest) returns (TranslationList) {}
     rpc FindTranslationByEditionId (IDRequest) returns (TranslationList) {}
-    rpc FilterTranslation (FilterRequest) returns (TranslationEntity) {}
+    rpc FilterTranslation (FilterRequest) returns (Translation) {}
 }

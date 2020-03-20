@@ -141,9 +141,3 @@ main.py
 
 api_descriptor.pb
 service-account-creds.json
-
-# ignore mock file
-main_client.py
-main_server.py
-test_client.py
-test_server.py

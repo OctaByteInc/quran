@@ -30,7 +30,7 @@ class AyahService(ayah_rpc.AyahServicer):
         for response in response_stream:
             response_list.append(self._ayah_response(response))
 
-        return ayah_proto.AyahList(ayah_response=response_list)
+        return ayah_proto.AyahList(ayah_list=response_list)
 
     def FindAyahByNumber(self, request, context):
         find_ayah = AyahFactory.find_ayah()
@@ -55,7 +55,7 @@ class AyahService(ayah_rpc.AyahServicer):
         for response in response_stream:
             response_list.append(self._ayah_response(response))
 
-        return ayah_proto.AyahList(ayah_response=response_list)
+        return ayah_proto.AyahList(ayah_list=response_list)
 
     def FindAyahByManzil(self, request, context):
         find_ayah = AyahFactory.find_ayah()
@@ -66,7 +66,7 @@ class AyahService(ayah_rpc.AyahServicer):
         for response in response_stream:
             response_list.append(self._ayah_response(response))
 
-        return ayah_proto.AyahList(ayah_response=response_list)
+        return ayah_proto.AyahList(ayah_list=response_list)
 
     def FindAyahByRuku(self, request, context):
         find_ayah = AyahFactory.find_ayah()
@@ -77,7 +77,7 @@ class AyahService(ayah_rpc.AyahServicer):
         for response in response_stream:
             response_list.append(self._ayah_response(response))
 
-        return ayah_proto.AyahList(ayah_response=response_list)
+        return ayah_proto.AyahList(ayah_list=response_list)
 
     def FindAyahByHizbQuarter(self, request, context):
         find_ayah = AyahFactory.find_ayah()
@@ -88,7 +88,7 @@ class AyahService(ayah_rpc.AyahServicer):
         for response in response_stream:
             response_list.append(self._ayah_response(response))
 
-        return ayah_proto.AyahList(ayah_response=response_list)
+        return ayah_proto.AyahList(ayah_list=response_list)
 
     def FindAyahBySajda(self, request, context):
         find_ayah = AyahFactory.find_ayah()
@@ -99,22 +99,22 @@ class AyahService(ayah_rpc.AyahServicer):
         for response in response_stream:
             response_list.append(self._ayah_response(response))
 
-        return ayah_proto.AyahList(ayah_response=response_list)
+        return ayah_proto.AyahList(ayah_list=response_list)
 
     def _ayah_response(self, response):
-        ayah_response = ayah_proto.AyahResponse(ayah_entity=entity_proto.AyahEntity(**response.ayah.to_dict()))
+        ayah_response = ayah_proto.AyahResponse(ayah=entity_proto.AyahEntity(**response.ayah.to_dict()))
 
         if response.translation:
-            ayah_response.translation_entity.MergeFrom(entity_proto.TranslationEntity(**response.translation.to_dict()))
+            ayah_response.translation.MergeFrom(entity_proto.TranslationEntity(**response.translation.to_dict()))
         if response.surah:
-            ayah_response.surah_entity.MergeFrom(entity_proto.SurahEntity(**response.surah.to_dict()))
+            ayah_response.surah.MergeFrom(entity_proto.SurahEntity(**response.surah.to_dict()))
         if response.edition:
-            ayah_response.edition_entity.MergeFrom(entity_proto.EditionEntity(**response.edition.to_dict()))
+            ayah_response.edition.MergeFrom(entity_proto.EditionEntity(**response.edition.to_dict()))
         if response.arabic_audio:
             ayah_response.arabic_audio.MergeFrom(entity_proto.AudioEntity(**response.arabic_audio.to_dict()))
         if response.translation_audio:
             ayah_response.translation_audio.MergeFrom(entity_proto.AudioEntity(**response.translation_audio.to_dict()))
         if response.ayah_image:
-            ayah_response.image_entity.MergeFrom(entity_proto.ImageEntity(**response.ayah_image.to_dict()))
+            ayah_response.image.MergeFrom(entity_proto.ImageEntity(**response.ayah_image.to_dict()))
 
         return ayah_response

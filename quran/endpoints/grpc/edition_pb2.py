@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='quran',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\redition.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\";\n\x0b\x45\x64itionList\x12,\n\x0e\x65\x64ition_entity\x18\x01 \x03(\x0b\x32\x14.quran.EditionEntity2\x82\x04\n\x07\x45\x64ition\x12=\n\rCreateEdition\x12\x14.quran.EditionEntity\x1a\x14.quran.EditionEntity\"\x00\x12\x33\n\x06GetAll\x12\x13.quran.EmptyMessage\x1a\x12.quran.EditionList\"\x00\x12;\n\x0f\x46indEditionById\x12\x10.quran.IDRequest\x1a\x14.quran.EditionEntity\"\x00\x12\x41\n\x15\x46indEditionByLanguage\x12\x12.quran.NameRequest\x1a\x12.quran.EditionList\"\x00\x12=\n\x11\x46indEditionByName\x12\x12.quran.NameRequest\x1a\x12.quran.EditionList\"\x00\x12\x44\n\x18\x46indEditionByEnglishName\x12\x12.quran.NameRequest\x1a\x12.quran.EditionList\"\x00\x12=\n\x11\x46indEditionByType\x12\x12.quran.NameRequest\x1a\x12.quran.EditionList\"\x00\x12?\n\x13\x46indEditionByFormat\x12\x12.quran.NameRequest\x1a\x12.quran.EditionList\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\redition.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"9\n\x0b\x45\x64itionList\x12*\n\x0c\x65\x64ition_list\x18\x01 \x03(\x0b\x32\x14.quran.EditionEntity2\x82\x04\n\x07\x45\x64ition\x12=\n\rCreateEdition\x12\x14.quran.EditionEntity\x1a\x14.quran.EditionEntity\"\x00\x12\x33\n\x06GetAll\x12\x13.quran.EmptyMessage\x1a\x12.quran.EditionList\"\x00\x12;\n\x0f\x46indEditionById\x12\x10.quran.IDRequest\x1a\x14.quran.EditionEntity\"\x00\x12\x41\n\x15\x46indEditionByLanguage\x12\x12.quran.NameRequest\x1a\x12.quran.EditionList\"\x00\x12=\n\x11\x46indEditionByName\x12\x12.quran.NameRequest\x1a\x12.quran.EditionList\"\x00\x12\x44\n\x18\x46indEditionByEnglishName\x12\x12.quran.NameRequest\x1a\x12.quran.EditionList\"\x00\x12=\n\x11\x46indEditionByType\x12\x12.quran.NameRequest\x1a\x12.quran.EditionList\"\x00\x12?\n\x13\x46indEditionByFormat\x12\x12.quran.NameRequest\x1a\x12.quran.EditionList\"\x00\x62\x06proto3')
   ,
   dependencies=[shared__pb2.DESCRIPTOR,entity__pb2.DESCRIPTOR,])
 
@@ -37,7 +37,7 @@ _EDITIONLIST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='edition_entity', full_name='quran.EditionList.edition_entity', index=0,
+      name='edition_list', full_name='quran.EditionList.edition_list', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -56,10 +56,10 @@ _EDITIONLIST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=52,
-  serialized_end=111,
+  serialized_end=109,
 )
 
-_EDITIONLIST.fields_by_name['edition_entity'].message_type = entity__pb2._EDITIONENTITY
+_EDITIONLIST.fields_by_name['edition_list'].message_type = entity__pb2._EDITIONENTITY
 DESCRIPTOR.message_types_by_name['EditionList'] = _EDITIONLIST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -78,8 +78,8 @@ _EDITION = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=114,
-  serialized_end=628,
+  serialized_start=112,
+  serialized_end=626,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateEdition',

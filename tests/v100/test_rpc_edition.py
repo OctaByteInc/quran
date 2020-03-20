@@ -51,7 +51,7 @@ def test_get_all_edition():
     edition_stream = stub.GetAll(shared_entity.EmptyMessage())
 
     count = 0
-    for edition in edition_stream.edition_entity:
+    for edition in edition_stream.edition_list:
         assert edition.language in ['en']
         count = count + 1
 
@@ -68,33 +68,33 @@ def test_find_edition_by_id():
 def test_find_edition_by_language():
     edition_stream = stub.FindEditionByLanguage(shared_entity.NameRequest(name='en'))
 
-    for edition in edition_stream.edition_entity:
+    for edition in edition_stream.edition_list:
         assert edition.language == 'en'
 
 
 def test_find_edition_by_name():
     edition_stream = stub.FindEditionByName(shared_entity.NameRequest(name='edition-name-1'))
 
-    for edition in edition_stream.edition_entity:
+    for edition in edition_stream.edition_list:
         assert edition.name == 'edition-name-1'
 
 
 def test_find_edition_by_english_name():
     edition_stream = stub.FindEditionByEnglishName(shared_entity.NameRequest(name='edition-english-name-1'))
 
-    for edition in edition_stream.edition_entity:
+    for edition in edition_stream.edition_list:
         assert edition.english_name == 'edition-english-name-1'
 
 
 def test_find_edition_by_type():
     edition_stream = stub.FindEditionByType(shared_entity.NameRequest(name='Arabic'))
 
-    for edition in edition_stream.edition_entity:
+    for edition in edition_stream.edition_list:
         assert edition.type == 'arabic'
 
 
 def test_find_edition_by_format():
     edition_stream = stub.FindEditionByFormat(shared_entity.NameRequest(name='format-1'))
 
-    for edition in edition_stream.edition_entity:
+    for edition in edition_stream.edition_list:
         assert edition.format == 'format-1'

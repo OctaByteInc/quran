@@ -29,26 +29,26 @@ class AyahRepo:
         return AyahDomain.from_dict(ayah.to_dict())
 
     def find_by_juz(self, juz):
-        ayah_stream = Ayah.collection.filter(juz=juz).filter()
+        ayah_stream = Ayah.collection.filter(juz=juz).fetch()
         for ayah in ayah_stream:
             yield AyahDomain.from_dict(ayah.to_dict())
 
     def find_by_manzil(self, manzil):
-        ayah_stream = Ayah.collection.filter(manzil=manzil).filter()
+        ayah_stream = Ayah.collection.filter(manzil=manzil).fetch()
         for ayah in ayah_stream:
             yield AyahDomain.from_dict(ayah.to_dict())
 
     def find_by_ruku(self, ruku):
-        ayah_stream = Ayah.collection.filter(ruku=ruku).filter()
+        ayah_stream = Ayah.collection.filter(ruku=ruku).fetch()
         for ayah in ayah_stream:
             yield AyahDomain.from_dict(ayah.to_dict())
 
     def find_by_hizb_quarter(self, hizb_quarter):
-        ayah_stream = Ayah.collection.filter(hizb_quarter=hizb_quarter).filter()
+        ayah_stream = Ayah.collection.filter(hizb_quarter=hizb_quarter).fetch()
         for ayah in ayah_stream:
             yield AyahDomain.from_dict(ayah.to_dict())
 
     def find_by_sajda(self, sajda):
-        ayah_stream = Ayah.collection.filter(sajda=sajda).filter()
+        ayah_stream = Ayah.collection.filter(sajda=sajda).fetch()
         for ayah in ayah_stream:
             yield AyahDomain.from_dict(ayah.to_dict())

@@ -1,3 +1,3 @@
-fireo==1.1.5
+fireo==1.1.6
 grpcio==1.26.0
 grpcio-tools==1.26.0

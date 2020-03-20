@@ -26,7 +26,7 @@ class TranslationService(translation_rpc.TranslationServicer):
         for translation in translation_stream:
             translations.append(entity_proto.TranslationEntity(**translation.to_dict()))
 
-        return translation_proto.TranslationList(translation_entity=translations)
+        return translation_proto.TranslationList(translation_list=translations)
 
     def FindTranslationByEditionId(self, request, context):
         find_translation = TranslationFactory.find_translation()
@@ -35,7 +35,7 @@ class TranslationService(translation_rpc.TranslationServicer):
         for translation in translation_stream:
             translations.append(entity_proto.TranslationEntity(**translation.to_dict()))
 
-        return translation_proto.TranslationList(translation_entity=translations)
+        return translation_proto.TranslationList(translation_list=translations)
 
     def FilterTranslation(self, request, context):
         find_translation = TranslationFactory.find_translation()

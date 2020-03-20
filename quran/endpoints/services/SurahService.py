@@ -21,7 +21,7 @@ class SurahService(surah_rpc.SurahServicer):
         for surah in surah_stream:
             surah_list.append(entity_proto.SurahEntity(**surah.to_dict()))
 
-        return surah_proto.SurahList(surah_entity=surah_list)
+        return surah_proto.SurahList(surah_list=surah_list)
 
     def FindSurahById(self, request, context):
         find_surah = SurahFactory.find_surah()
@@ -50,4 +50,4 @@ class SurahService(surah_rpc.SurahServicer):
         for surah in surah_stream:
             surah_list.append(entity_proto.SurahEntity(**surah.to_dict()))
 
-        return surah_proto.SurahList(surah_entity=surah_list)
+        return surah_proto.SurahList(surah_list=surah_list)

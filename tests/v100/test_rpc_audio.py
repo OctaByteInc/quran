@@ -26,14 +26,14 @@ def test_find_audio_by_id():
 def test_find_audio_by_ayah_id():
     res_stream = stub.FindAudioByAyahId(shared_entity.IDRequest(id='ayah-1'))
 
-    for res in res_stream.audio_entity:
+    for res in res_stream.audio_list:
         assert res.ayah_id == 'ayah-1'
 
 
 def test_find_audio_by_edition_id():
     res_stream = stub.FindAudioByEditionId(shared_entity.IDRequest(id='edition-1'))
 
-    for res in res_stream.audio_entity:
+    for res in res_stream.audio_list:
         assert res.edition_id == 'edition-1'
 
 

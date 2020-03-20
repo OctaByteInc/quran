@@ -22,7 +22,7 @@ class EditionService(edition_rpc.EditionServicer):
         for edition in edition_stream:
             editions.append(entity_proto.EditionEntity(**edition.to_dict()))
 
-        return edition_proto.EditionList(edition_entity=editions)
+        return edition_proto.EditionList(edition_list=editions)
 
     def FindEditionById(self, request, context):
         find_edition = EditionFactory.find_edition()
@@ -36,7 +36,7 @@ class EditionService(edition_rpc.EditionServicer):
         for edition in edition_stream:
             editions.append(entity_proto.EditionEntity(**edition.to_dict()))
 
-        return edition_proto.EditionList(edition_entity=editions)
+        return edition_proto.EditionList(edition_list=editions)
 
     def FindEditionByName(self, request, context):
         find_edition = EditionFactory.find_edition()
@@ -45,7 +45,7 @@ class EditionService(edition_rpc.EditionServicer):
         for edition in edition_stream:
             editions.append(entity_proto.EditionEntity(**edition.to_dict()))
 
-        return edition_proto.EditionList(edition_entity=editions)
+        return edition_proto.EditionList(edition_list=editions)
 
     def FindEditionByEnglishName(self, request, context):
         find_edition = EditionFactory.find_edition()
@@ -54,7 +54,7 @@ class EditionService(edition_rpc.EditionServicer):
         for edition in edition_stream:
             editions.append(entity_proto.EditionEntity(**edition.to_dict()))
 
-        return edition_proto.EditionList(edition_entity=editions)
+        return edition_proto.EditionList(edition_list=editions)
 
     def FindEditionByFormat(self, request, context):
         find_edition = EditionFactory.find_edition()
@@ -63,7 +63,7 @@ class EditionService(edition_rpc.EditionServicer):
         for edition in edition_stream:
             editions.append(entity_proto.EditionEntity(**edition.to_dict()))
 
-        return edition_proto.EditionList(edition_entity=editions)
+        return edition_proto.EditionList(edition_list=editions)
 
     def FindEditionByType(self, request, context):
         find_edition = EditionFactory.find_edition()
@@ -72,4 +72,4 @@ class EditionService(edition_rpc.EditionServicer):
         for edition in edition_stream:
             editions.append(entity_proto.EditionEntity(**edition.to_dict()))
 
-        return edition_proto.EditionList(edition_entity=editions)
+        return edition_proto.EditionList(edition_list=editions)

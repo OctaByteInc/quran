@@ -6,7 +6,7 @@ import "entity.proto";
 package quran;
 
 message SurahList {
-    repeated SurahEntity surah_entity = 1;
+    repeated SurahEntity surah_list = 1;
 }
 
 message RevelationRequest {

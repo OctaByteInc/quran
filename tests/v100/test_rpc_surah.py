@@ -27,7 +27,7 @@ def test_get_all_surah():
     surah_stream = stub.GetAll(shared_entity.EmptyMessage())
 
     count = 0
-    for surah in surah_stream.surah_entity:
+    for surah in surah_stream.surah_list:
         count += 1
 
     assert count >= 2
@@ -60,5 +60,5 @@ def find_surah_by_english_translation_name():
 def find_surah_by_revelation_type():
     surah_stream = stub.FindSurahByRevelationType(surah_proto.RevelationRequest(revelation_type='type-1'))
 
-    for surah in surah_stream.surah_entity:
+    for surah in surah_stream.surah_list:
         assert surah.revelation_type == 'type-1'

@@ -6,7 +6,7 @@ import "entity.proto";
 package quran;
 
 message TranslationList {
-    repeated TranslationEntity translation_entity = 1;
+    repeated TranslationEntity translation_list = 1;
 }
 
 service Translation {

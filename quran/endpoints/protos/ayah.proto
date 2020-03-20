@@ -25,17 +25,17 @@ message AyahSajdaRequest {
 }
 
 message AyahResponse {
-    AyahEntity ayah_entity = 1;
-    TranslationEntity translation_entity = 2;
-    SurahEntity surah_entity = 3;
-    EditionEntity edition_entity = 4;
+    AyahEntity ayah = 1;
+    TranslationEntity translation = 2;
+    SurahEntity surah = 3;
+    EditionEntity edition = 4;
     AudioEntity arabic_audio = 5;
     AudioEntity translation_audio = 6;
-    ImageEntity image_entity = 7;
+    ImageEntity image = 7;
 }
 
 message AyahList {
-    repeated AyahResponse ayah_response = 1;
+    repeated AyahResponse ayah_list = 1;
 }
 
 service Ayah {

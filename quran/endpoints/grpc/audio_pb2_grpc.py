@@ -19,32 +19,32 @@ class AudioStub(object):
     self.CreateAudio = channel.unary_unary(
         '/quran.Audio/CreateAudio',
         request_serializer=entity__pb2.AudioEntity.SerializeToString,
-        response_deserializer=entity__pb2.AudioEntity.FromString,
+        response_deserializer=audio__pb2.AudioSingleResponse.FromString,
         )
     self.FindAudioById = channel.unary_unary(
         '/quran.Audio/FindAudioById',
         request_serializer=shared__pb2.IDRequest.SerializeToString,
-        response_deserializer=entity__pb2.AudioEntity.FromString,
+        response_deserializer=audio__pb2.AudioSingleResponse.FromString,
         )
     self.FindAudioByAyahId = channel.unary_unary(
         '/quran.Audio/FindAudioByAyahId',
         request_serializer=shared__pb2.IDRequest.SerializeToString,
-        response_deserializer=audio__pb2.AudioList.FromString,
+        response_deserializer=audio__pb2.AudioMultiResponse.FromString,
         )
     self.FindAudioByEditionId = channel.unary_unary(
         '/quran.Audio/FindAudioByEditionId',
         request_serializer=shared__pb2.IDRequest.SerializeToString,
-        response_deserializer=audio__pb2.AudioList.FromString,
+        response_deserializer=audio__pb2.AudioMultiResponse.FromString,
         )
     self.FindArabicAudio = channel.unary_unary(
         '/quran.Audio/FindArabicAudio',
         request_serializer=shared__pb2.FilterRequest.SerializeToString,
-        response_deserializer=entity__pb2.AudioEntity.FromString,
+        response_deserializer=audio__pb2.AudioSingleResponse.FromString,
         )
     self.FindTranslationAudio = channel.unary_unary(
         '/quran.Audio/FindTranslationAudio',
         request_serializer=shared__pb2.FilterRequest.SerializeToString,
-        response_deserializer=entity__pb2.AudioEntity.FromString,
+        response_deserializer=audio__pb2.AudioSingleResponse.FromString,
         )
 
 
@@ -100,32 +100,32 @@ def add_AudioServicer_to_server(servicer, server):
       'CreateAudio': grpc.unary_unary_rpc_method_handler(
           servicer.CreateAudio,
           request_deserializer=entity__pb2.AudioEntity.FromString,
-          response_serializer=entity__pb2.AudioEntity.SerializeToString,
+          response_serializer=audio__pb2.AudioSingleResponse.SerializeToString,
       ),
       'FindAudioById': grpc.unary_unary_rpc_method_handler(
           servicer.FindAudioById,
           request_deserializer=shared__pb2.IDRequest.FromString,
-          response_serializer=entity__pb2.AudioEntity.SerializeToString,
+          response_serializer=audio__pb2.AudioSingleResponse.SerializeToString,
       ),
       'FindAudioByAyahId': grpc.unary_unary_rpc_method_handler(
           servicer.FindAudioByAyahId,
           request_deserializer=shared__pb2.IDRequest.FromString,
-          response_serializer=audio__pb2.AudioList.SerializeToString,
+          response_serializer=audio__pb2.AudioMultiResponse.SerializeToString,
       ),
       'FindAudioByEditionId': grpc.unary_unary_rpc_method_handler(
           servicer.FindAudioByEditionId,
           request_deserializer=shared__pb2.IDRequest.FromString,
-          response_serializer=audio__pb2.AudioList.SerializeToString,
+          response_serializer=audio__pb2.AudioMultiResponse.SerializeToString,
       ),
       'FindArabicAudio': grpc.unary_unary_rpc_method_handler(
           servicer.FindArabicAudio,
           request_deserializer=shared__pb2.FilterRequest.FromString,
-          response_serializer=entity__pb2.AudioEntity.SerializeToString,
+          response_serializer=audio__pb2.AudioSingleResponse.SerializeToString,
       ),
       'FindTranslationAudio': grpc.unary_unary_rpc_method_handler(
           servicer.FindTranslationAudio,
           request_deserializer=shared__pb2.FilterRequest.FromString,
-          response_serializer=entity__pb2.AudioEntity.SerializeToString,
+          response_serializer=audio__pb2.AudioSingleResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

@@ -22,24 +22,38 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='quran',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0b\x61udio.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"3\n\tAudioList\x12&\n\naudio_list\x18\x01 \x03(\x0b\x32\x12.quran.AudioEntity2\xf5\x02\n\x05\x41udio\x12\x37\n\x0b\x43reateAudio\x12\x12.quran.AudioEntity\x1a\x12.quran.AudioEntity\"\x00\x12\x37\n\rFindAudioById\x12\x10.quran.IDRequest\x1a\x12.quran.AudioEntity\"\x00\x12\x39\n\x11\x46indAudioByAyahId\x12\x10.quran.IDRequest\x1a\x10.quran.AudioList\"\x00\x12<\n\x14\x46indAudioByEditionId\x12\x10.quran.IDRequest\x1a\x10.quran.AudioList\"\x00\x12=\n\x0f\x46indArabicAudio\x12\x14.quran.FilterRequest\x1a\x12.quran.AudioEntity\"\x00\x12\x42\n\x14\x46indTranslationAudio\x12\x14.quran.FilterRequest\x1a\x12.quran.AudioEntity\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0b\x61udio.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"U\n\x13\x41udioSingleResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\t\x12 \n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x12.quran.AudioEntity\"T\n\x12\x41udioMultiResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\t\x12 \n\x04\x64\x61ta\x18\x03 \x03(\x0b\x32\x12.quran.AudioEntity2\xa7\x03\n\x05\x41udio\x12?\n\x0b\x43reateAudio\x12\x12.quran.AudioEntity\x1a\x1a.quran.AudioSingleResponse\"\x00\x12?\n\rFindAudioById\x12\x10.quran.IDRequest\x1a\x1a.quran.AudioSingleResponse\"\x00\x12\x42\n\x11\x46indAudioByAyahId\x12\x10.quran.IDRequest\x1a\x19.quran.AudioMultiResponse\"\x00\x12\x45\n\x14\x46indAudioByEditionId\x12\x10.quran.IDRequest\x1a\x19.quran.AudioMultiResponse\"\x00\x12\x45\n\x0f\x46indArabicAudio\x12\x14.quran.FilterRequest\x1a\x1a.quran.AudioSingleResponse\"\x00\x12J\n\x14\x46indTranslationAudio\x12\x14.quran.FilterRequest\x1a\x1a.quran.AudioSingleResponse\"\x00\x62\x06proto3')
   ,
   dependencies=[shared__pb2.DESCRIPTOR,entity__pb2.DESCRIPTOR,])
 
 
 
 
-_AUDIOLIST = _descriptor.Descriptor(
-  name='AudioList',
-  full_name='quran.AudioList',
+_AUDIOSINGLERESPONSE = _descriptor.Descriptor(
+  name='AudioSingleResponse',
+  full_name='quran.AudioSingleResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='audio_list', full_name='quran.AudioList.audio_list', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
+      name='code', full_name='quran.AudioSingleResponse.code', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='status', full_name='quran.AudioSingleResponse.status', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='data', full_name='quran.AudioSingleResponse.data', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -56,19 +70,73 @@ _AUDIOLIST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=50,
-  serialized_end=101,
+  serialized_end=135,
 )
 
-_AUDIOLIST.fields_by_name['audio_list'].message_type = entity__pb2._AUDIOENTITY
-DESCRIPTOR.message_types_by_name['AudioList'] = _AUDIOLIST
+
+_AUDIOMULTIRESPONSE = _descriptor.Descriptor(
+  name='AudioMultiResponse',
+  full_name='quran.AudioMultiResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='quran.AudioMultiResponse.code', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='status', full_name='quran.AudioMultiResponse.status', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='data', full_name='quran.AudioMultiResponse.data', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=137,
+  serialized_end=221,
+)
+
+_AUDIOSINGLERESPONSE.fields_by_name['data'].message_type = entity__pb2._AUDIOENTITY
+_AUDIOMULTIRESPONSE.fields_by_name['data'].message_type = entity__pb2._AUDIOENTITY
+DESCRIPTOR.message_types_by_name['AudioSingleResponse'] = _AUDIOSINGLERESPONSE
+DESCRIPTOR.message_types_by_name['AudioMultiResponse'] = _AUDIOMULTIRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-AudioList = _reflection.GeneratedProtocolMessageType('AudioList', (_message.Message,), {
-  'DESCRIPTOR' : _AUDIOLIST,
+AudioSingleResponse = _reflection.GeneratedProtocolMessageType('AudioSingleResponse', (_message.Message,), {
+  'DESCRIPTOR' : _AUDIOSINGLERESPONSE,
   '__module__' : 'audio_pb2'
-  # @@protoc_insertion_point(class_scope:quran.AudioList)
+  # @@protoc_insertion_point(class_scope:quran.AudioSingleResponse)
   })
-_sym_db.RegisterMessage(AudioList)
+_sym_db.RegisterMessage(AudioSingleResponse)
+
+AudioMultiResponse = _reflection.GeneratedProtocolMessageType('AudioMultiResponse', (_message.Message,), {
+  'DESCRIPTOR' : _AUDIOMULTIRESPONSE,
+  '__module__' : 'audio_pb2'
+  # @@protoc_insertion_point(class_scope:quran.AudioMultiResponse)
+  })
+_sym_db.RegisterMessage(AudioMultiResponse)
 
 
 
@@ -78,8 +146,8 @@ _AUDIO = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=104,
-  serialized_end=477,
+  serialized_start=224,
+  serialized_end=647,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateAudio',
@@ -87,7 +155,7 @@ _AUDIO = _descriptor.ServiceDescriptor(
     index=0,
     containing_service=None,
     input_type=entity__pb2._AUDIOENTITY,
-    output_type=entity__pb2._AUDIOENTITY,
+    output_type=_AUDIOSINGLERESPONSE,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -96,7 +164,7 @@ _AUDIO = _descriptor.ServiceDescriptor(
     index=1,
     containing_service=None,
     input_type=shared__pb2._IDREQUEST,
-    output_type=entity__pb2._AUDIOENTITY,
+    output_type=_AUDIOSINGLERESPONSE,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -105,7 +173,7 @@ _AUDIO = _descriptor.ServiceDescriptor(
     index=2,
     containing_service=None,
     input_type=shared__pb2._IDREQUEST,
-    output_type=_AUDIOLIST,
+    output_type=_AUDIOMULTIRESPONSE,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -114,7 +182,7 @@ _AUDIO = _descriptor.ServiceDescriptor(
     index=3,
     containing_service=None,
     input_type=shared__pb2._IDREQUEST,
-    output_type=_AUDIOLIST,
+    output_type=_AUDIOMULTIRESPONSE,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -123,7 +191,7 @@ _AUDIO = _descriptor.ServiceDescriptor(
     index=4,
     containing_service=None,
     input_type=shared__pb2._FILTERREQUEST,
-    output_type=entity__pb2._AUDIOENTITY,
+    output_type=_AUDIOSINGLERESPONSE,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -132,7 +200,7 @@ _AUDIO = _descriptor.ServiceDescriptor(
     index=5,
     containing_service=None,
     input_type=shared__pb2._FILTERREQUEST,
-    output_type=entity__pb2._AUDIOENTITY,
+    output_type=_AUDIOSINGLERESPONSE,
     serialized_options=None,
   ),
 ])

@@ -5,7 +5,13 @@ import "entity.proto";
 
 package quran;
 
+message ImageSingleResponse {
+    int32 code = 1;
+    string status = 2;
+    ImageEntity data = 3;
+}
+
 service Image {
-    rpc CreateImage (ImageEntity) returns (ImageEntity) {}
-    rpc FindImageByAyahId (IDRequest) returns (ImageEntity) {}
+    rpc CreateImage (ImageEntity) returns (ImageSingleResponse) {}
+    rpc FindImageByAyahId (IDRequest) returns (ImageSingleResponse) {}
 }

@@ -2,6 +2,7 @@
 import grpc
 
 import quran.endpoints.grpc.entity_pb2 as entity__pb2
+import quran.endpoints.grpc.image_pb2 as image__pb2
 import quran.endpoints.grpc.shared_pb2 as shared__pb2
 
 
@@ -18,12 +19,12 @@ class ImageStub(object):
     self.CreateImage = channel.unary_unary(
         '/quran.Image/CreateImage',
         request_serializer=entity__pb2.ImageEntity.SerializeToString,
-        response_deserializer=entity__pb2.ImageEntity.FromString,
+        response_deserializer=image__pb2.ImageSingleResponse.FromString,
         )
     self.FindImageByAyahId = channel.unary_unary(
         '/quran.Image/FindImageByAyahId',
         request_serializer=shared__pb2.IDRequest.SerializeToString,
-        response_deserializer=entity__pb2.ImageEntity.FromString,
+        response_deserializer=image__pb2.ImageSingleResponse.FromString,
         )
 
 
@@ -51,12 +52,12 @@ def add_ImageServicer_to_server(servicer, server):
       'CreateImage': grpc.unary_unary_rpc_method_handler(
           servicer.CreateImage,
           request_deserializer=entity__pb2.ImageEntity.FromString,
-          response_serializer=entity__pb2.ImageEntity.SerializeToString,
+          response_serializer=image__pb2.ImageSingleResponse.SerializeToString,
       ),
       'FindImageByAyahId': grpc.unary_unary_rpc_method_handler(
           servicer.FindImageByAyahId,
           request_deserializer=shared__pb2.IDRequest.FromString,
-          response_serializer=entity__pb2.ImageEntity.SerializeToString,
+          response_serializer=image__pb2.ImageSingleResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

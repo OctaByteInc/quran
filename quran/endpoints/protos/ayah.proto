@@ -34,19 +34,33 @@ message AyahResponse {
     ImageEntity image = 7;
 }
 
-message AyahList {
-    repeated AyahResponse ayah_list = 1;
+message AyahEntityResponse {
+    int32 code = 1;
+    string status = 2;
+    AyahEntity data = 3;
+}
+
+message AyahSingleResponse {
+    int32 code = 1;
+    string status = 2;
+    AyahResponse data = 3;
+}
+
+message AyahMultiResponse {
+    int32 code = 1;
+    string status = 2;
+    repeated AyahResponse data = 3;
 }
 
 service Ayah {
-    rpc CreateAyah (AyahEntity) returns (AyahEntity) {}
-    rpc FindAyahById (AyahIdRequest) returns (AyahResponse) {}
-    rpc FindAyahBySurahId (AyahIdRequest) returns (AyahList) {}
-    rpc FindAyahByNumber (AyahNumberRequest) returns (AyahResponse) {}
-    rpc FindAyahByNumberInSurah (AyahNumberRequest) returns (AyahResponse) {}
-    rpc FindAyahByJuz (AyahNumberRequest) returns (AyahList) {}
-    rpc FindAyahByManzil (AyahNumberRequest) returns (AyahList) {}
-    rpc FindAyahByRuku (AyahNumberRequest) returns (AyahList) {}
-    rpc FindAyahByHizbQuarter (AyahNumberRequest) returns (AyahList) {}
-    rpc FindAyahBySajda (AyahSajdaRequest) returns (AyahList) {}
+    rpc CreateAyah (AyahEntity) returns (AyahEntityResponse) {}
+    rpc FindAyahById (AyahIdRequest) returns (AyahSingleResponse) {}
+    rpc FindAyahBySurahId (AyahIdRequest) returns (AyahMultiResponse) {}
+    rpc FindAyahByNumber (AyahNumberRequest) returns (AyahSingleResponse) {}
+    rpc FindAyahByNumberInSurah (AyahNumberRequest) returns (AyahSingleResponse) {}
+    rpc FindAyahByJuz (AyahNumberRequest) returns (AyahMultiResponse) {}
+    rpc FindAyahByManzil (AyahNumberRequest) returns (AyahMultiResponse) {}
+    rpc FindAyahByRuku (AyahNumberRequest) returns (AyahMultiResponse) {}
+    rpc FindAyahByHizbQuarter (AyahNumberRequest) returns (AyahMultiResponse) {}
+    rpc FindAyahBySajda (AyahSajdaRequest) returns (AyahMultiResponse) {}
 }

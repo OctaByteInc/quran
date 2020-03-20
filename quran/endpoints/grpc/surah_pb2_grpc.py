@@ -19,37 +19,37 @@ class SurahStub(object):
     self.CreateSurah = channel.unary_unary(
         '/quran.Surah/CreateSurah',
         request_serializer=entity__pb2.SurahEntity.SerializeToString,
-        response_deserializer=entity__pb2.SurahEntity.FromString,
+        response_deserializer=surah__pb2.SurahSingleResponse.FromString,
         )
     self.GetAll = channel.unary_unary(
         '/quran.Surah/GetAll',
         request_serializer=shared__pb2.EmptyMessage.SerializeToString,
-        response_deserializer=surah__pb2.SurahList.FromString,
+        response_deserializer=surah__pb2.SurahMultiResponse.FromString,
         )
     self.FindSurahById = channel.unary_unary(
         '/quran.Surah/FindSurahById',
         request_serializer=shared__pb2.IDRequest.SerializeToString,
-        response_deserializer=entity__pb2.SurahEntity.FromString,
+        response_deserializer=surah__pb2.SurahSingleResponse.FromString,
         )
     self.FindSurahByNumber = channel.unary_unary(
         '/quran.Surah/FindSurahByNumber',
         request_serializer=shared__pb2.NumberRequest.SerializeToString,
-        response_deserializer=entity__pb2.SurahEntity.FromString,
+        response_deserializer=surah__pb2.SurahSingleResponse.FromString,
         )
     self.FindSurahByName = channel.unary_unary(
         '/quran.Surah/FindSurahByName',
         request_serializer=shared__pb2.NameRequest.SerializeToString,
-        response_deserializer=entity__pb2.SurahEntity.FromString,
+        response_deserializer=surah__pb2.SurahSingleResponse.FromString,
         )
     self.FindSurahByEnglishName = channel.unary_unary(
         '/quran.Surah/FindSurahByEnglishName',
         request_serializer=shared__pb2.NameRequest.SerializeToString,
-        response_deserializer=entity__pb2.SurahEntity.FromString,
+        response_deserializer=surah__pb2.SurahSingleResponse.FromString,
         )
     self.FindSurahByRevelationType = channel.unary_unary(
         '/quran.Surah/FindSurahByRevelationType',
         request_serializer=surah__pb2.RevelationRequest.SerializeToString,
-        response_deserializer=surah__pb2.SurahList.FromString,
+        response_deserializer=surah__pb2.SurahMultiResponse.FromString,
         )
 
 
@@ -112,37 +112,37 @@ def add_SurahServicer_to_server(servicer, server):
       'CreateSurah': grpc.unary_unary_rpc_method_handler(
           servicer.CreateSurah,
           request_deserializer=entity__pb2.SurahEntity.FromString,
-          response_serializer=entity__pb2.SurahEntity.SerializeToString,
+          response_serializer=surah__pb2.SurahSingleResponse.SerializeToString,
       ),
       'GetAll': grpc.unary_unary_rpc_method_handler(
           servicer.GetAll,
           request_deserializer=shared__pb2.EmptyMessage.FromString,
-          response_serializer=surah__pb2.SurahList.SerializeToString,
+          response_serializer=surah__pb2.SurahMultiResponse.SerializeToString,
       ),
       'FindSurahById': grpc.unary_unary_rpc_method_handler(
           servicer.FindSurahById,
           request_deserializer=shared__pb2.IDRequest.FromString,
-          response_serializer=entity__pb2.SurahEntity.SerializeToString,
+          response_serializer=surah__pb2.SurahSingleResponse.SerializeToString,
       ),
       'FindSurahByNumber': grpc.unary_unary_rpc_method_handler(
           servicer.FindSurahByNumber,
           request_deserializer=shared__pb2.NumberRequest.FromString,
-          response_serializer=entity__pb2.SurahEntity.SerializeToString,
+          response_serializer=surah__pb2.SurahSingleResponse.SerializeToString,
       ),
       'FindSurahByName': grpc.unary_unary_rpc_method_handler(
           servicer.FindSurahByName,
           request_deserializer=shared__pb2.NameRequest.FromString,
-          response_serializer=entity__pb2.SurahEntity.SerializeToString,
+          response_serializer=surah__pb2.SurahSingleResponse.SerializeToString,
       ),
       'FindSurahByEnglishName': grpc.unary_unary_rpc_method_handler(
           servicer.FindSurahByEnglishName,
           request_deserializer=shared__pb2.NameRequest.FromString,
-          response_serializer=entity__pb2.SurahEntity.SerializeToString,
+          response_serializer=surah__pb2.SurahSingleResponse.SerializeToString,
       ),
       'FindSurahByRevelationType': grpc.unary_unary_rpc_method_handler(
           servicer.FindSurahByRevelationType,
           request_deserializer=surah__pb2.RevelationRequest.FromString,
-          response_serializer=surah__pb2.SurahList.SerializeToString,
+          response_serializer=surah__pb2.SurahMultiResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

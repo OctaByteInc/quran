@@ -19,27 +19,27 @@ class TranslationStub(object):
     self.CreateTranslation = channel.unary_unary(
         '/quran.Translation/CreateTranslation',
         request_serializer=entity__pb2.TranslationEntity.SerializeToString,
-        response_deserializer=entity__pb2.TranslationEntity.FromString,
+        response_deserializer=translation__pb2.TranslationSingleResponse.FromString,
         )
     self.FindTranslationById = channel.unary_unary(
         '/quran.Translation/FindTranslationById',
         request_serializer=shared__pb2.IDRequest.SerializeToString,
-        response_deserializer=entity__pb2.TranslationEntity.FromString,
+        response_deserializer=translation__pb2.TranslationSingleResponse.FromString,
         )
     self.FindTranslationByAyahId = channel.unary_unary(
         '/quran.Translation/FindTranslationByAyahId',
         request_serializer=shared__pb2.IDRequest.SerializeToString,
-        response_deserializer=translation__pb2.TranslationList.FromString,
+        response_deserializer=translation__pb2.TranslationMultiResponse.FromString,
         )
     self.FindTranslationByEditionId = channel.unary_unary(
         '/quran.Translation/FindTranslationByEditionId',
         request_serializer=shared__pb2.IDRequest.SerializeToString,
-        response_deserializer=translation__pb2.TranslationList.FromString,
+        response_deserializer=translation__pb2.TranslationMultiResponse.FromString,
         )
     self.FilterTranslation = channel.unary_unary(
         '/quran.Translation/FilterTranslation',
         request_serializer=shared__pb2.FilterRequest.SerializeToString,
-        response_deserializer=entity__pb2.TranslationEntity.FromString,
+        response_deserializer=translation__pb2.TranslationSingleResponse.FromString,
         )
 
 
@@ -88,27 +88,27 @@ def add_TranslationServicer_to_server(servicer, server):
       'CreateTranslation': grpc.unary_unary_rpc_method_handler(
           servicer.CreateTranslation,
           request_deserializer=entity__pb2.TranslationEntity.FromString,
-          response_serializer=entity__pb2.TranslationEntity.SerializeToString,
+          response_serializer=translation__pb2.TranslationSingleResponse.SerializeToString,
       ),
       'FindTranslationById': grpc.unary_unary_rpc_method_handler(
           servicer.FindTranslationById,
           request_deserializer=shared__pb2.IDRequest.FromString,
-          response_serializer=entity__pb2.TranslationEntity.SerializeToString,
+          response_serializer=translation__pb2.TranslationSingleResponse.SerializeToString,
       ),
       'FindTranslationByAyahId': grpc.unary_unary_rpc_method_handler(
           servicer.FindTranslationByAyahId,
           request_deserializer=shared__pb2.IDRequest.FromString,
-          response_serializer=translation__pb2.TranslationList.SerializeToString,
+          response_serializer=translation__pb2.TranslationMultiResponse.SerializeToString,
       ),
       'FindTranslationByEditionId': grpc.unary_unary_rpc_method_handler(
           servicer.FindTranslationByEditionId,
           request_deserializer=shared__pb2.IDRequest.FromString,
-          response_serializer=translation__pb2.TranslationList.SerializeToString,
+          response_serializer=translation__pb2.TranslationMultiResponse.SerializeToString,
       ),
       'FilterTranslation': grpc.unary_unary_rpc_method_handler(
           servicer.FilterTranslation,
           request_deserializer=shared__pb2.FilterRequest.FromString,
-          response_serializer=entity__pb2.TranslationEntity.SerializeToString,
+          response_serializer=translation__pb2.TranslationSingleResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

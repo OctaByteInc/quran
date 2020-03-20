@@ -18,52 +18,52 @@ class AyahStub(object):
     self.CreateAyah = channel.unary_unary(
         '/quran.Ayah/CreateAyah',
         request_serializer=entity__pb2.AyahEntity.SerializeToString,
-        response_deserializer=entity__pb2.AyahEntity.FromString,
+        response_deserializer=ayah__pb2.AyahEntityResponse.FromString,
         )
     self.FindAyahById = channel.unary_unary(
         '/quran.Ayah/FindAyahById',
         request_serializer=ayah__pb2.AyahIdRequest.SerializeToString,
-        response_deserializer=ayah__pb2.AyahResponse.FromString,
+        response_deserializer=ayah__pb2.AyahSingleResponse.FromString,
         )
     self.FindAyahBySurahId = channel.unary_unary(
         '/quran.Ayah/FindAyahBySurahId',
         request_serializer=ayah__pb2.AyahIdRequest.SerializeToString,
-        response_deserializer=ayah__pb2.AyahList.FromString,
+        response_deserializer=ayah__pb2.AyahMultiResponse.FromString,
         )
     self.FindAyahByNumber = channel.unary_unary(
         '/quran.Ayah/FindAyahByNumber',
         request_serializer=ayah__pb2.AyahNumberRequest.SerializeToString,
-        response_deserializer=ayah__pb2.AyahResponse.FromString,
+        response_deserializer=ayah__pb2.AyahSingleResponse.FromString,
         )
     self.FindAyahByNumberInSurah = channel.unary_unary(
         '/quran.Ayah/FindAyahByNumberInSurah',
         request_serializer=ayah__pb2.AyahNumberRequest.SerializeToString,
-        response_deserializer=ayah__pb2.AyahResponse.FromString,
+        response_deserializer=ayah__pb2.AyahSingleResponse.FromString,
         )
     self.FindAyahByJuz = channel.unary_unary(
         '/quran.Ayah/FindAyahByJuz',
         request_serializer=ayah__pb2.AyahNumberRequest.SerializeToString,
-        response_deserializer=ayah__pb2.AyahList.FromString,
+        response_deserializer=ayah__pb2.AyahMultiResponse.FromString,
         )
     self.FindAyahByManzil = channel.unary_unary(
         '/quran.Ayah/FindAyahByManzil',
         request_serializer=ayah__pb2.AyahNumberRequest.SerializeToString,
-        response_deserializer=ayah__pb2.AyahList.FromString,
+        response_deserializer=ayah__pb2.AyahMultiResponse.FromString,
         )
     self.FindAyahByRuku = channel.unary_unary(
         '/quran.Ayah/FindAyahByRuku',
         request_serializer=ayah__pb2.AyahNumberRequest.SerializeToString,
-        response_deserializer=ayah__pb2.AyahList.FromString,
+        response_deserializer=ayah__pb2.AyahMultiResponse.FromString,
         )
     self.FindAyahByHizbQuarter = channel.unary_unary(
         '/quran.Ayah/FindAyahByHizbQuarter',
         request_serializer=ayah__pb2.AyahNumberRequest.SerializeToString,
-        response_deserializer=ayah__pb2.AyahList.FromString,
+        response_deserializer=ayah__pb2.AyahMultiResponse.FromString,
         )
     self.FindAyahBySajda = channel.unary_unary(
         '/quran.Ayah/FindAyahBySajda',
         request_serializer=ayah__pb2.AyahSajdaRequest.SerializeToString,
-        response_deserializer=ayah__pb2.AyahList.FromString,
+        response_deserializer=ayah__pb2.AyahMultiResponse.FromString,
         )
 
 
@@ -147,52 +147,52 @@ def add_AyahServicer_to_server(servicer, server):
       'CreateAyah': grpc.unary_unary_rpc_method_handler(
           servicer.CreateAyah,
           request_deserializer=entity__pb2.AyahEntity.FromString,
-          response_serializer=entity__pb2.AyahEntity.SerializeToString,
+          response_serializer=ayah__pb2.AyahEntityResponse.SerializeToString,
       ),
       'FindAyahById': grpc.unary_unary_rpc_method_handler(
           servicer.FindAyahById,
           request_deserializer=ayah__pb2.AyahIdRequest.FromString,
-          response_serializer=ayah__pb2.AyahResponse.SerializeToString,
+          response_serializer=ayah__pb2.AyahSingleResponse.SerializeToString,
       ),
       'FindAyahBySurahId': grpc.unary_unary_rpc_method_handler(
           servicer.FindAyahBySurahId,
           request_deserializer=ayah__pb2.AyahIdRequest.FromString,
-          response_serializer=ayah__pb2.AyahList.SerializeToString,
+          response_serializer=ayah__pb2.AyahMultiResponse.SerializeToString,
       ),
       'FindAyahByNumber': grpc.unary_unary_rpc_method_handler(
           servicer.FindAyahByNumber,
           request_deserializer=ayah__pb2.AyahNumberRequest.FromString,
-          response_serializer=ayah__pb2.AyahResponse.SerializeToString,
+          response_serializer=ayah__pb2.AyahSingleResponse.SerializeToString,
       ),
       'FindAyahByNumberInSurah': grpc.unary_unary_rpc_method_handler(
           servicer.FindAyahByNumberInSurah,
           request_deserializer=ayah__pb2.AyahNumberRequest.FromString,
-          response_serializer=ayah__pb2.AyahResponse.SerializeToString,
+          response_serializer=ayah__pb2.AyahSingleResponse.SerializeToString,
       ),
       'FindAyahByJuz': grpc.unary_unary_rpc_method_handler(
           servicer.FindAyahByJuz,
           request_deserializer=ayah__pb2.AyahNumberRequest.FromString,
-          response_serializer=ayah__pb2.AyahList.SerializeToString,
+          response_serializer=ayah__pb2.AyahMultiResponse.SerializeToString,
       ),
       'FindAyahByManzil': grpc.unary_unary_rpc_method_handler(
           servicer.FindAyahByManzil,
           request_deserializer=ayah__pb2.AyahNumberRequest.FromString,
-          response_serializer=ayah__pb2.AyahList.SerializeToString,
+          response_serializer=ayah__pb2.AyahMultiResponse.SerializeToString,
       ),
       'FindAyahByRuku': grpc.unary_unary_rpc_method_handler(
           servicer.FindAyahByRuku,
           request_deserializer=ayah__pb2.AyahNumberRequest.FromString,
-          response_serializer=ayah__pb2.AyahList.SerializeToString,
+          response_serializer=ayah__pb2.AyahMultiResponse.SerializeToString,
       ),
       'FindAyahByHizbQuarter': grpc.unary_unary_rpc_method_handler(
           servicer.FindAyahByHizbQuarter,
           request_deserializer=ayah__pb2.AyahNumberRequest.FromString,
-          response_serializer=ayah__pb2.AyahList.SerializeToString,
+          response_serializer=ayah__pb2.AyahMultiResponse.SerializeToString,
       ),
       'FindAyahBySajda': grpc.unary_unary_rpc_method_handler(
           servicer.FindAyahBySajda,
           request_deserializer=ayah__pb2.AyahSajdaRequest.FromString,
-          response_serializer=ayah__pb2.AyahList.SerializeToString,
+          response_serializer=ayah__pb2.AyahMultiResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

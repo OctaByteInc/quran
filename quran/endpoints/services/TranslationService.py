@@ -12,12 +12,18 @@ class TranslationService(translation_rpc.TranslationServicer):
         translation = Translation.from_dict(ProtoConverter.proto_to_dict(request))
         create_translation = TranslationFactory.create()
         res = create_translation.exec(translation)
-        return entity_proto.TranslationEntity(**res.to_dict())
+        trans_entity = entity_proto.TranslationEntity(**res.to_dict())
+        return translation_proto.TranslationSingleResponse(code=200, status='OK', data=trans_entity)
 
     def FindTranslationById(self, request, context):
         find_translation = TranslationFactory.find_translation()
         translation = find_translation.by_id(request.id)
-        return entity_proto.TranslationEntity(**translation.to_dict())
+
+        if not translation:
+            return translation_proto.TranslationSingleResponse(code=404, status='Not Found')
+
+        trans_entity = entity_proto.TranslationEntity(**translation.to_dict())
+        return translation_proto.TranslationSingleResponse(code=200, status='OK', data=trans_entity)
 
     def FindTranslationByAyahId(self, request, context):
         find_translation = TranslationFactory.find_translation()
@@ -26,7 +32,10 @@ class TranslationService(translation_rpc.TranslationServicer):
         for translation in translation_stream:
             translations.append(entity_proto.TranslationEntity(**translation.to_dict()))
 
-        return translation_proto.TranslationList(translation_list=translations)
+        if len(translations) == 0:
+            return translation_proto.TranslationMultiResponse(code=200, status='Not Found')
+
+        return translation_proto.TranslationMultiResponse(code=200, status='OK', data=translations)
 
     def FindTranslationByEditionId(self, request, context):
         find_translation = TranslationFactory.find_translation()
@@ -35,7 +44,10 @@ class TranslationService(translation_rpc.TranslationServicer):
         for translation in translation_stream:
             translations.append(entity_proto.TranslationEntity(**translation.to_dict()))
 
-        return translation_proto.TranslationList(translation_list=translations)
+        if len(translations) == 0:
+            return translation_proto.TranslationMultiResponse(code=200, status='Not Found')
+
+        return translation_proto.TranslationMultiResponse(code=200, status='OK', data=translations)
 
     def FilterTranslation(self, request, context):
         find_translation = TranslationFactory.find_translation()

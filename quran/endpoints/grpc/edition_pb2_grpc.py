@@ -19,42 +19,42 @@ class EditionStub(object):
     self.CreateEdition = channel.unary_unary(
         '/quran.Edition/CreateEdition',
         request_serializer=entity__pb2.EditionEntity.SerializeToString,
-        response_deserializer=entity__pb2.EditionEntity.FromString,
+        response_deserializer=edition__pb2.EditionSingleResponse.FromString,
         )
     self.GetAll = channel.unary_unary(
         '/quran.Edition/GetAll',
         request_serializer=shared__pb2.EmptyMessage.SerializeToString,
-        response_deserializer=edition__pb2.EditionList.FromString,
+        response_deserializer=edition__pb2.EditionMultiResponse.FromString,
         )
     self.FindEditionById = channel.unary_unary(
         '/quran.Edition/FindEditionById',
         request_serializer=shared__pb2.IDRequest.SerializeToString,
-        response_deserializer=entity__pb2.EditionEntity.FromString,
+        response_deserializer=edition__pb2.EditionSingleResponse.FromString,
         )
     self.FindEditionByLanguage = channel.unary_unary(
         '/quran.Edition/FindEditionByLanguage',
         request_serializer=shared__pb2.NameRequest.SerializeToString,
-        response_deserializer=edition__pb2.EditionList.FromString,
+        response_deserializer=edition__pb2.EditionMultiResponse.FromString,
         )
     self.FindEditionByName = channel.unary_unary(
         '/quran.Edition/FindEditionByName',
         request_serializer=shared__pb2.NameRequest.SerializeToString,
-        response_deserializer=edition__pb2.EditionList.FromString,
+        response_deserializer=edition__pb2.EditionMultiResponse.FromString,
         )
     self.FindEditionByEnglishName = channel.unary_unary(
         '/quran.Edition/FindEditionByEnglishName',
         request_serializer=shared__pb2.NameRequest.SerializeToString,
-        response_deserializer=edition__pb2.EditionList.FromString,
+        response_deserializer=edition__pb2.EditionMultiResponse.FromString,
         )
     self.FindEditionByType = channel.unary_unary(
         '/quran.Edition/FindEditionByType',
         request_serializer=shared__pb2.NameRequest.SerializeToString,
-        response_deserializer=edition__pb2.EditionList.FromString,
+        response_deserializer=edition__pb2.EditionMultiResponse.FromString,
         )
     self.FindEditionByFormat = channel.unary_unary(
         '/quran.Edition/FindEditionByFormat',
         request_serializer=shared__pb2.NameRequest.SerializeToString,
-        response_deserializer=edition__pb2.EditionList.FromString,
+        response_deserializer=edition__pb2.EditionMultiResponse.FromString,
         )
 
 
@@ -124,42 +124,42 @@ def add_EditionServicer_to_server(servicer, server):
       'CreateEdition': grpc.unary_unary_rpc_method_handler(
           servicer.CreateEdition,
           request_deserializer=entity__pb2.EditionEntity.FromString,
-          response_serializer=entity__pb2.EditionEntity.SerializeToString,
+          response_serializer=edition__pb2.EditionSingleResponse.SerializeToString,
       ),
       'GetAll': grpc.unary_unary_rpc_method_handler(
           servicer.GetAll,
           request_deserializer=shared__pb2.EmptyMessage.FromString,
-          response_serializer=edition__pb2.EditionList.SerializeToString,
+          response_serializer=edition__pb2.EditionMultiResponse.SerializeToString,
       ),
       'FindEditionById': grpc.unary_unary_rpc_method_handler(
           servicer.FindEditionById,
           request_deserializer=shared__pb2.IDRequest.FromString,
-          response_serializer=entity__pb2.EditionEntity.SerializeToString,
+          response_serializer=edition__pb2.EditionSingleResponse.SerializeToString,
       ),
       'FindEditionByLanguage': grpc.unary_unary_rpc_method_handler(
           servicer.FindEditionByLanguage,
           request_deserializer=shared__pb2.NameRequest.FromString,
-          response_serializer=edition__pb2.EditionList.SerializeToString,
+          response_serializer=edition__pb2.EditionMultiResponse.SerializeToString,
       ),
       'FindEditionByName': grpc.unary_unary_rpc_method_handler(
           servicer.FindEditionByName,
           request_deserializer=shared__pb2.NameRequest.FromString,
-          response_serializer=edition__pb2.EditionList.SerializeToString,
+          response_serializer=edition__pb2.EditionMultiResponse.SerializeToString,
       ),
       'FindEditionByEnglishName': grpc.unary_unary_rpc_method_handler(
           servicer.FindEditionByEnglishName,
           request_deserializer=shared__pb2.NameRequest.FromString,
-          response_serializer=edition__pb2.EditionList.SerializeToString,
+          response_serializer=edition__pb2.EditionMultiResponse.SerializeToString,
       ),
       'FindEditionByType': grpc.unary_unary_rpc_method_handler(
           servicer.FindEditionByType,
           request_deserializer=shared__pb2.NameRequest.FromString,
-          response_serializer=edition__pb2.EditionList.SerializeToString,
+          response_serializer=edition__pb2.EditionMultiResponse.SerializeToString,
       ),
       'FindEditionByFormat': grpc.unary_unary_rpc_method_handler(
           servicer.FindEditionByFormat,
           request_deserializer=shared__pb2.NameRequest.FromString,
-          response_serializer=edition__pb2.EditionList.SerializeToString,
+          response_serializer=edition__pb2.EditionMultiResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

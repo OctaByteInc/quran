@@ -12,7 +12,8 @@ class SurahService(surah_rpc.SurahServicer):
         surah = Surah.from_dict(ProtoConverter.proto_to_dict(request))
         create_surah = SurahFactory.create()
         res = create_surah.exec(surah)
-        return entity_proto.SurahEntity(**res.to_dict())
+        surah_entity = entity_proto.SurahEntity(**res.to_dict())
+        return surah_proto.SurahSingleResponse(code=200, status='OK', data=surah_entity)
 
     def GetAll(self, request, context):
         find_surah = SurahFactory.find_surah()
@@ -21,27 +22,50 @@ class SurahService(surah_rpc.SurahServicer):
         for surah in surah_stream:
             surah_list.append(entity_proto.SurahEntity(**surah.to_dict()))
 
-        return surah_proto.SurahList(surah_list=surah_list)
+        if len(surah_list) == 0:
+            return surah_proto.SurahMultiResponse(code=404, status='Not Found')
+
+        return surah_proto.SurahMultiResponse(code=200, status='OK', data=surah_list)
 
     def FindSurahById(self, request, context):
         find_surah = SurahFactory.find_surah()
         surah = find_surah.by_id(request.id)
-        return entity_proto.SurahEntity(**surah.to_dict())
+
+        if not surah:
+            return surah_proto.SurahSingleResponse(code=404, status='Not Found')
+
+        surah_entity = entity_proto.SurahEntity(**surah.to_dict())
+        return surah_proto.SurahSingleResponse(code=200, status='OK', data=surah_entity)
 
     def FindSurahByNumber(self, request, context):
         find_surah = SurahFactory.find_surah()
         surah = find_surah.by_number(request.number)
-        return entity_proto.SurahEntity(**surah.to_dict())
+
+        if not surah:
+            return surah_proto.SurahSingleResponse(code=404, status='Not Found')
+
+        surah_entity = entity_proto.SurahEntity(**surah.to_dict())
+        return surah_proto.SurahSingleResponse(code=200, status='OK', data=surah_entity)
 
     def FindSurahByName(self, request, context):
         find_surah = SurahFactory.find_surah()
         surah = find_surah.by_name(request.name)
-        return entity_proto.SurahEntity(**surah.to_dict())
+
+        if not surah:
+            return surah_proto.SurahSingleResponse(code=404, status='Not Found')
+
+        surah_entity = entity_proto.SurahEntity(**surah.to_dict())
+        return surah_proto.SurahSingleResponse(code=200, status='OK', data=surah_entity)
 
     def FindSurahByEnglishName(self, request, context):
         find_surah = SurahFactory.find_surah()
         surah = find_surah.by_english_name(request.name)
-        return entity_proto.SurahEntity(**surah.to_dict())
+
+        if not surah:
+            return surah_proto.SurahSingleResponse(code=404, status='Not Found')
+
+        surah_entity = entity_proto.SurahEntity(**surah.to_dict())
+        return surah_proto.SurahSingleResponse(code=200, status='OK', data=surah_entity)
 
     def FindSurahByRevelationType(self, request, context):
         find_surah = SurahFactory.find_surah()
@@ -50,4 +74,7 @@ class SurahService(surah_rpc.SurahServicer):
         for surah in surah_stream:
             surah_list.append(entity_proto.SurahEntity(**surah.to_dict()))
 
-        return surah_proto.SurahList(surah_list=surah_list)
+        if len(surah_list) == 0:
+            return surah_proto.SurahMultiResponse(code=404, status='Not Found')
+
+        return surah_proto.SurahMultiResponse(code=200, status='OK', data=surah_list)

@@ -22,24 +22,38 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='quran',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\redition.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"9\n\x0b\x45\x64itionList\x12*\n\x0c\x65\x64ition_list\x18\x01 \x03(\x0b\x32\x14.quran.EditionEntity2\x82\x04\n\x07\x45\x64ition\x12=\n\rCreateEdition\x12\x14.quran.EditionEntity\x1a\x14.quran.EditionEntity\"\x00\x12\x33\n\x06GetAll\x12\x13.quran.EmptyMessage\x1a\x12.quran.EditionList\"\x00\x12;\n\x0f\x46indEditionById\x12\x10.quran.IDRequest\x1a\x14.quran.EditionEntity\"\x00\x12\x41\n\x15\x46indEditionByLanguage\x12\x12.quran.NameRequest\x1a\x12.quran.EditionList\"\x00\x12=\n\x11\x46indEditionByName\x12\x12.quran.NameRequest\x1a\x12.quran.EditionList\"\x00\x12\x44\n\x18\x46indEditionByEnglishName\x12\x12.quran.NameRequest\x1a\x12.quran.EditionList\"\x00\x12=\n\x11\x46indEditionByType\x12\x12.quran.NameRequest\x1a\x12.quran.EditionList\"\x00\x12?\n\x13\x46indEditionByFormat\x12\x12.quran.NameRequest\x1a\x12.quran.EditionList\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\redition.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"Y\n\x15\x45\x64itionSingleResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\t\x12\"\n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x14.quran.EditionEntity\"X\n\x14\x45\x64itionMultiResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\t\x12\"\n\x04\x64\x61ta\x18\x03 \x03(\x0b\x32\x14.quran.EditionEntity2\xc8\x04\n\x07\x45\x64ition\x12\x45\n\rCreateEdition\x12\x14.quran.EditionEntity\x1a\x1c.quran.EditionSingleResponse\"\x00\x12<\n\x06GetAll\x12\x13.quran.EmptyMessage\x1a\x1b.quran.EditionMultiResponse\"\x00\x12\x43\n\x0f\x46indEditionById\x12\x10.quran.IDRequest\x1a\x1c.quran.EditionSingleResponse\"\x00\x12J\n\x15\x46indEditionByLanguage\x12\x12.quran.NameRequest\x1a\x1b.quran.EditionMultiResponse\"\x00\x12\x46\n\x11\x46indEditionByName\x12\x12.quran.NameRequest\x1a\x1b.quran.EditionMultiResponse\"\x00\x12M\n\x18\x46indEditionByEnglishName\x12\x12.quran.NameRequest\x1a\x1b.quran.EditionMultiResponse\"\x00\x12\x46\n\x11\x46indEditionByType\x12\x12.quran.NameRequest\x1a\x1b.quran.EditionMultiResponse\"\x00\x12H\n\x13\x46indEditionByFormat\x12\x12.quran.NameRequest\x1a\x1b.quran.EditionMultiResponse\"\x00\x62\x06proto3')
   ,
   dependencies=[shared__pb2.DESCRIPTOR,entity__pb2.DESCRIPTOR,])
 
 
 
 
-_EDITIONLIST = _descriptor.Descriptor(
-  name='EditionList',
-  full_name='quran.EditionList',
+_EDITIONSINGLERESPONSE = _descriptor.Descriptor(
+  name='EditionSingleResponse',
+  full_name='quran.EditionSingleResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='edition_list', full_name='quran.EditionList.edition_list', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
+      name='code', full_name='quran.EditionSingleResponse.code', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='status', full_name='quran.EditionSingleResponse.status', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='data', full_name='quran.EditionSingleResponse.data', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -56,19 +70,73 @@ _EDITIONLIST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=52,
-  serialized_end=109,
+  serialized_end=141,
 )
 
-_EDITIONLIST.fields_by_name['edition_list'].message_type = entity__pb2._EDITIONENTITY
-DESCRIPTOR.message_types_by_name['EditionList'] = _EDITIONLIST
+
+_EDITIONMULTIRESPONSE = _descriptor.Descriptor(
+  name='EditionMultiResponse',
+  full_name='quran.EditionMultiResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='quran.EditionMultiResponse.code', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='status', full_name='quran.EditionMultiResponse.status', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='data', full_name='quran.EditionMultiResponse.data', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=143,
+  serialized_end=231,
+)
+
+_EDITIONSINGLERESPONSE.fields_by_name['data'].message_type = entity__pb2._EDITIONENTITY
+_EDITIONMULTIRESPONSE.fields_by_name['data'].message_type = entity__pb2._EDITIONENTITY
+DESCRIPTOR.message_types_by_name['EditionSingleResponse'] = _EDITIONSINGLERESPONSE
+DESCRIPTOR.message_types_by_name['EditionMultiResponse'] = _EDITIONMULTIRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-EditionList = _reflection.GeneratedProtocolMessageType('EditionList', (_message.Message,), {
-  'DESCRIPTOR' : _EDITIONLIST,
+EditionSingleResponse = _reflection.GeneratedProtocolMessageType('EditionSingleResponse', (_message.Message,), {
+  'DESCRIPTOR' : _EDITIONSINGLERESPONSE,
   '__module__' : 'edition_pb2'
-  # @@protoc_insertion_point(class_scope:quran.EditionList)
+  # @@protoc_insertion_point(class_scope:quran.EditionSingleResponse)
   })
-_sym_db.RegisterMessage(EditionList)
+_sym_db.RegisterMessage(EditionSingleResponse)
+
+EditionMultiResponse = _reflection.GeneratedProtocolMessageType('EditionMultiResponse', (_message.Message,), {
+  'DESCRIPTOR' : _EDITIONMULTIRESPONSE,
+  '__module__' : 'edition_pb2'
+  # @@protoc_insertion_point(class_scope:quran.EditionMultiResponse)
+  })
+_sym_db.RegisterMessage(EditionMultiResponse)
 
 
 
@@ -78,8 +146,8 @@ _EDITION = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=112,
-  serialized_end=626,
+  serialized_start=234,
+  serialized_end=818,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateEdition',
@@ -87,7 +155,7 @@ _EDITION = _descriptor.ServiceDescriptor(
     index=0,
     containing_service=None,
     input_type=entity__pb2._EDITIONENTITY,
-    output_type=entity__pb2._EDITIONENTITY,
+    output_type=_EDITIONSINGLERESPONSE,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -96,7 +164,7 @@ _EDITION = _descriptor.ServiceDescriptor(
     index=1,
     containing_service=None,
     input_type=shared__pb2._EMPTYMESSAGE,
-    output_type=_EDITIONLIST,
+    output_type=_EDITIONMULTIRESPONSE,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -105,7 +173,7 @@ _EDITION = _descriptor.ServiceDescriptor(
     index=2,
     containing_service=None,
     input_type=shared__pb2._IDREQUEST,
-    output_type=entity__pb2._EDITIONENTITY,
+    output_type=_EDITIONSINGLERESPONSE,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -114,7 +182,7 @@ _EDITION = _descriptor.ServiceDescriptor(
     index=3,
     containing_service=None,
     input_type=shared__pb2._NAMEREQUEST,
-    output_type=_EDITIONLIST,
+    output_type=_EDITIONMULTIRESPONSE,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -123,7 +191,7 @@ _EDITION = _descriptor.ServiceDescriptor(
     index=4,
     containing_service=None,
     input_type=shared__pb2._NAMEREQUEST,
-    output_type=_EDITIONLIST,
+    output_type=_EDITIONMULTIRESPONSE,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -132,7 +200,7 @@ _EDITION = _descriptor.ServiceDescriptor(
     index=5,
     containing_service=None,
     input_type=shared__pb2._NAMEREQUEST,
-    output_type=_EDITIONLIST,
+    output_type=_EDITIONMULTIRESPONSE,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -141,7 +209,7 @@ _EDITION = _descriptor.ServiceDescriptor(
     index=6,
     containing_service=None,
     input_type=shared__pb2._NAMEREQUEST,
-    output_type=_EDITIONLIST,
+    output_type=_EDITIONMULTIRESPONSE,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -150,7 +218,7 @@ _EDITION = _descriptor.ServiceDescriptor(
     index=7,
     containing_service=None,
     input_type=shared__pb2._NAMEREQUEST,
-    output_type=_EDITIONLIST,
+    output_type=_EDITIONMULTIRESPONSE,
     serialized_options=None,
   ),
 ])

@@ -12,12 +12,18 @@ class AudioService(audio_rpc.AudioServicer):
         audio = Audio.from_dict(ProtoConverter.proto_to_dict(request))
         create_audio = AudioFactory.create()
         res = create_audio.exec(audio)
-        return entity_proto.AudioEntity(**res.to_dict())
+        audio_entity = entity_proto.AudioEntity(**res.to_dict())
+        return audio_proto.AudioSingleResponse(code=200, status='OK', data=audio_entity)
 
     def FindAudioById(self, request, context):
         find_audio = AudioFactory.find_audio()
         audio = find_audio.by_id(request.id)
-        return entity_proto.AudioEntity(**audio.to_dict())
+
+        if not audio:
+            return audio_proto.AudioSingleResponse(code=404, status='Not Found')
+
+        audio_entity = entity_proto.AudioEntity(**audio.to_dict())
+        return audio_proto.AudioSingleResponse(code=200, status='OK', data=audio_entity)
 
     def FindAudioByAyahId(self, request, context):
         find_audio = AudioFactory.find_audio()
@@ -26,7 +32,10 @@ class AudioService(audio_rpc.AudioServicer):
         for audio in audio_stream:
             audio_list.append(entity_proto.AudioEntity(**audio.to_dict()))
 
-        return audio_proto.AudioList(audio_list=audio_list)
+        if len(audio_list) == 0:
+            return audio_proto.AudioMultiResponse(code=404, status='Not Found')
+
+        return audio_proto.AudioMultiResponse(code=200, status='OK', data=audio_list)
 
     def FindAudioByEditionId(self, request, context):
         find_audio = AudioFactory.find_audio()
@@ -35,14 +44,27 @@ class AudioService(audio_rpc.AudioServicer):
         for audio in audio_stream:
             audio_list.append(entity_proto.AudioEntity(**audio.to_dict()))
 
-        return audio_proto.AudioList(audio_list=audio_list)
+        if len(audio_list) == 0:
+            return audio_proto.AudioMultiResponse(code=404, status='Not Found')
+
+        return audio_proto.AudioMultiResponse(code=200, status='OK', data=audio_list)
 
     def FindArabicAudio(self, request, context):
         find_audio = AudioFactory.find_audio()
         audio = find_audio.arabic_audio(ayah_id=request.ayah_id, edition_id=request.edition_id)
-        return entity_proto.AudioEntity(**audio.to_dict())
+
+        if not audio:
+            return audio_proto.AudioSingleResponse(code=404, status='Not Found')
+
+        audio_entity = entity_proto.AudioEntity(**audio.to_dict())
+        audio_proto.AudioSingleResponse(code=200, status='OK', data=audio_entity)
 
     def FindTranslationAudio(self, request, context):
         find_audio = AudioFactory.find_audio()
         audio = find_audio.translation_audio(ayah_id=request.ayah_id, edition_id=request.edition_id)
-        return entity_proto.AudioEntity(**audio.to_dict())
+
+        if not audio:
+            return audio_proto.AudioSingleResponse(code=404, status='Not Found')
+
+        audio_entity = entity_proto.AudioEntity(**audio.to_dict())
+        return audio_proto.AudioSingleResponse(code=200, status='OK', data=audio_entity)

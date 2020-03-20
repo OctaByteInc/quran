@@ -22,42 +22,11 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='quran',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0bsurah.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"3\n\tSurahList\x12&\n\nsurah_list\x18\x01 \x03(\x0b\x32\x12.quran.SurahEntity\",\n\x11RevelationRequest\x12\x17\n\x0frevelation_type\x18\x01 \x01(\t2\xb9\x03\n\x05Surah\x12\x37\n\x0b\x43reateSurah\x12\x12.quran.SurahEntity\x1a\x12.quran.SurahEntity\"\x00\x12\x31\n\x06GetAll\x12\x13.quran.EmptyMessage\x1a\x10.quran.SurahList\"\x00\x12\x37\n\rFindSurahById\x12\x10.quran.IDRequest\x1a\x12.quran.SurahEntity\"\x00\x12?\n\x11\x46indSurahByNumber\x12\x14.quran.NumberRequest\x1a\x12.quran.SurahEntity\"\x00\x12;\n\x0f\x46indSurahByName\x12\x12.quran.NameRequest\x1a\x12.quran.SurahEntity\"\x00\x12\x42\n\x16\x46indSurahByEnglishName\x12\x12.quran.NameRequest\x1a\x12.quran.SurahEntity\"\x00\x12I\n\x19\x46indSurahByRevelationType\x12\x18.quran.RevelationRequest\x1a\x10.quran.SurahList\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0bsurah.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\",\n\x11RevelationRequest\x12\x17\n\x0frevelation_type\x18\x01 \x01(\t\"f\n\x13SurahSingleResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\t\x12 \n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x12.quran.SurahEntity\x12\x0f\n\x07message\x18\x04 \x01(\t\"T\n\x12SurahMultiResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\t\x12 \n\x04\x64\x61ta\x18\x03 \x03(\x0b\x32\x12.quran.SurahEntity2\xf3\x03\n\x05Surah\x12?\n\x0b\x43reateSurah\x12\x12.quran.SurahEntity\x1a\x1a.quran.SurahSingleResponse\"\x00\x12:\n\x06GetAll\x12\x13.quran.EmptyMessage\x1a\x19.quran.SurahMultiResponse\"\x00\x12?\n\rFindSurahById\x12\x10.quran.IDRequest\x1a\x1a.quran.SurahSingleResponse\"\x00\x12G\n\x11\x46indSurahByNumber\x12\x14.quran.NumberRequest\x1a\x1a.quran.SurahSingleResponse\"\x00\x12\x43\n\x0f\x46indSurahByName\x12\x12.quran.NameRequest\x1a\x1a.quran.SurahSingleResponse\"\x00\x12J\n\x16\x46indSurahByEnglishName\x12\x12.quran.NameRequest\x1a\x1a.quran.SurahSingleResponse\"\x00\x12R\n\x19\x46indSurahByRevelationType\x12\x18.quran.RevelationRequest\x1a\x19.quran.SurahMultiResponse\"\x00\x62\x06proto3')
   ,
   dependencies=[shared__pb2.DESCRIPTOR,entity__pb2.DESCRIPTOR,])
 
 
-
-
-_SURAHLIST = _descriptor.Descriptor(
-  name='SurahList',
-  full_name='quran.SurahList',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='surah_list', full_name='quran.SurahList.surah_list', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=50,
-  serialized_end=101,
-)
 
 
 _REVELATIONREQUEST = _descriptor.Descriptor(
@@ -86,21 +55,113 @@ _REVELATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=103,
-  serialized_end=147,
+  serialized_start=50,
+  serialized_end=94,
 )
 
-_SURAHLIST.fields_by_name['surah_list'].message_type = entity__pb2._SURAHENTITY
-DESCRIPTOR.message_types_by_name['SurahList'] = _SURAHLIST
-DESCRIPTOR.message_types_by_name['RevelationRequest'] = _REVELATIONREQUEST
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-SurahList = _reflection.GeneratedProtocolMessageType('SurahList', (_message.Message,), {
-  'DESCRIPTOR' : _SURAHLIST,
-  '__module__' : 'surah_pb2'
-  # @@protoc_insertion_point(class_scope:quran.SurahList)
-  })
-_sym_db.RegisterMessage(SurahList)
+_SURAHSINGLERESPONSE = _descriptor.Descriptor(
+  name='SurahSingleResponse',
+  full_name='quran.SurahSingleResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='quran.SurahSingleResponse.code', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='status', full_name='quran.SurahSingleResponse.status', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='data', full_name='quran.SurahSingleResponse.data', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='message', full_name='quran.SurahSingleResponse.message', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=96,
+  serialized_end=198,
+)
+
+
+_SURAHMULTIRESPONSE = _descriptor.Descriptor(
+  name='SurahMultiResponse',
+  full_name='quran.SurahMultiResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='quran.SurahMultiResponse.code', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='status', full_name='quran.SurahMultiResponse.status', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='data', full_name='quran.SurahMultiResponse.data', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=200,
+  serialized_end=284,
+)
+
+_SURAHSINGLERESPONSE.fields_by_name['data'].message_type = entity__pb2._SURAHENTITY
+_SURAHMULTIRESPONSE.fields_by_name['data'].message_type = entity__pb2._SURAHENTITY
+DESCRIPTOR.message_types_by_name['RevelationRequest'] = _REVELATIONREQUEST
+DESCRIPTOR.message_types_by_name['SurahSingleResponse'] = _SURAHSINGLERESPONSE
+DESCRIPTOR.message_types_by_name['SurahMultiResponse'] = _SURAHMULTIRESPONSE
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 RevelationRequest = _reflection.GeneratedProtocolMessageType('RevelationRequest', (_message.Message,), {
   'DESCRIPTOR' : _REVELATIONREQUEST,
@@ -108,6 +169,20 @@ RevelationRequest = _reflection.GeneratedProtocolMessageType('RevelationRequest'
   # @@protoc_insertion_point(class_scope:quran.RevelationRequest)
   })
 _sym_db.RegisterMessage(RevelationRequest)
+
+SurahSingleResponse = _reflection.GeneratedProtocolMessageType('SurahSingleResponse', (_message.Message,), {
+  'DESCRIPTOR' : _SURAHSINGLERESPONSE,
+  '__module__' : 'surah_pb2'
+  # @@protoc_insertion_point(class_scope:quran.SurahSingleResponse)
+  })
+_sym_db.RegisterMessage(SurahSingleResponse)
+
+SurahMultiResponse = _reflection.GeneratedProtocolMessageType('SurahMultiResponse', (_message.Message,), {
+  'DESCRIPTOR' : _SURAHMULTIRESPONSE,
+  '__module__' : 'surah_pb2'
+  # @@protoc_insertion_point(class_scope:quran.SurahMultiResponse)
+  })
+_sym_db.RegisterMessage(SurahMultiResponse)
 
 
 
@@ -117,8 +192,8 @@ _SURAH = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=150,
-  serialized_end=591,
+  serialized_start=287,
+  serialized_end=786,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateSurah',
@@ -126,7 +201,7 @@ _SURAH = _descriptor.ServiceDescriptor(
     index=0,
     containing_service=None,
     input_type=entity__pb2._SURAHENTITY,
-    output_type=entity__pb2._SURAHENTITY,
+    output_type=_SURAHSINGLERESPONSE,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -135,7 +210,7 @@ _SURAH = _descriptor.ServiceDescriptor(
     index=1,
     containing_service=None,
     input_type=shared__pb2._EMPTYMESSAGE,
-    output_type=_SURAHLIST,
+    output_type=_SURAHMULTIRESPONSE,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -144,7 +219,7 @@ _SURAH = _descriptor.ServiceDescriptor(
     index=2,
     containing_service=None,
     input_type=shared__pb2._IDREQUEST,
-    output_type=entity__pb2._SURAHENTITY,
+    output_type=_SURAHSINGLERESPONSE,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -153,7 +228,7 @@ _SURAH = _descriptor.ServiceDescriptor(
     index=3,
     containing_service=None,
     input_type=shared__pb2._NUMBERREQUEST,
-    output_type=entity__pb2._SURAHENTITY,
+    output_type=_SURAHSINGLERESPONSE,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -162,7 +237,7 @@ _SURAH = _descriptor.ServiceDescriptor(
     index=4,
     containing_service=None,
     input_type=shared__pb2._NAMEREQUEST,
-    output_type=entity__pb2._SURAHENTITY,
+    output_type=_SURAHSINGLERESPONSE,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -171,7 +246,7 @@ _SURAH = _descriptor.ServiceDescriptor(
     index=5,
     containing_service=None,
     input_type=shared__pb2._NAMEREQUEST,
-    output_type=entity__pb2._SURAHENTITY,
+    output_type=_SURAHSINGLERESPONSE,
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
@@ -180,7 +255,7 @@ _SURAH = _descriptor.ServiceDescriptor(
     index=6,
     containing_service=None,
     input_type=_REVELATIONREQUEST,
-    output_type=_SURAHLIST,
+    output_type=_SURAHMULTIRESPONSE,
     serialized_options=None,
   ),
 ])

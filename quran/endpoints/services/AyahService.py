@@ -12,14 +12,21 @@ class AyahService(ayah_rpc.AyahServicer):
         ayah = Ayah.from_dict(ProtoConverter.proto_to_dict(request))
         create_ayah = AyahFactory.create()
         res = create_ayah.exec(ayah)
-        return entity_proto.AyahEntity(**res.to_dict())
+        ayah_entity = entity_proto.AyahEntity(**res.to_dict())
+
+        return ayah_proto.AyahEntityResponse(code=200, status='OK', data=ayah_entity)
 
     def FindAyahById(self, request, context):
         find_ayah = AyahFactory.find_ayah()
         edition_id = request.parts.edition_id
         ayah_parts = request.parts.list.split(',')
         response = find_ayah.by_id(request.id, edition_id, ayah_parts)
-        return self._ayah_response(response)
+
+        if not response.ayah:
+            return ayah_proto.AyahSingleResponse(code=404, status='Not Found')
+
+        ayah_response = self._ayah_response(response)
+        return ayah_proto.AyahSingleResponse(code=200, status='OK', data=ayah_response)
 
     def FindAyahBySurahId(self, request, context):
         find_ayah = AyahFactory.find_ayah()
@@ -30,21 +37,32 @@ class AyahService(ayah_rpc.AyahServicer):
         for response in response_stream:
             response_list.append(self._ayah_response(response))
 
-        return ayah_proto.AyahList(ayah_list=response_list)
+        if len(response_list) == 0:
+            return ayah_proto.AyahMultiResponse(code=404, status='Not Found')
+
+        return ayah_proto.AyahMultiResponse(code=200, status='OK', data=response_list)
 
     def FindAyahByNumber(self, request, context):
         find_ayah = AyahFactory.find_ayah()
         edition_id = request.parts.edition_id
         ayah_parts = request.parts.list.split(',')
         response = find_ayah.by_number(request.number, edition_id, ayah_parts)
-        return self._ayah_response(response)
+        if not response.ayah:
+            return ayah_proto.AyahSingleResponse(code=404, status='Not Found')
+
+        ayah_response = self._ayah_response(response)
+        return ayah_proto.AyahSingleResponse(code=200, status='OK', data=ayah_response)
 
     def FindAyahByNumberInSurah(self, request, context):
         find_ayah = AyahFactory.find_ayah()
         edition_id = request.parts.edition_id
         ayah_parts = request.parts.list.split(',')
         response = find_ayah.by_number_in_surah(request.number, edition_id, ayah_parts)
-        return self._ayah_response(response)
+        if not response.ayah:
+            return ayah_proto.AyahSingleResponse(code=404, status='Not Found')
+
+        ayah_response = self._ayah_response(response)
+        return ayah_proto.AyahSingleResponse(code=200, status='OK', data=ayah_response)
 
     def FindAyahByJuz(self, request, context):
         find_ayah = AyahFactory.find_ayah()
@@ -55,7 +73,10 @@ class AyahService(ayah_rpc.AyahServicer):
         for response in response_stream:
             response_list.append(self._ayah_response(response))
 
-        return ayah_proto.AyahList(ayah_list=response_list)
+        if len(response_list) == 0:
+            return ayah_proto.AyahMultiResponse(code=404, status='Not Found')
+
+        return ayah_proto.AyahMultiResponse(code=200, status='OK', data=response_list)
 
     def FindAyahByManzil(self, request, context):
         find_ayah = AyahFactory.find_ayah()
@@ -66,7 +87,10 @@ class AyahService(ayah_rpc.AyahServicer):
         for response in response_stream:
             response_list.append(self._ayah_response(response))
 
-        return ayah_proto.AyahList(ayah_list=response_list)
+        if len(response_list) == 0:
+            return ayah_proto.AyahMultiResponse(code=404, status='Not Found')
+
+        return ayah_proto.AyahMultiResponse(code=200, status='OK', data=response_list)
 
     def FindAyahByRuku(self, request, context):
         find_ayah = AyahFactory.find_ayah()
@@ -77,7 +101,10 @@ class AyahService(ayah_rpc.AyahServicer):
         for response in response_stream:
             response_list.append(self._ayah_response(response))
 
-        return ayah_proto.AyahList(ayah_list=response_list)
+        if len(response_list) == 0:
+            return ayah_proto.AyahMultiResponse(code=404, status='Not Found')
+
+        return ayah_proto.AyahMultiResponse(code=200, status='OK', data=response_list)
 
     def FindAyahByHizbQuarter(self, request, context):
         find_ayah = AyahFactory.find_ayah()
@@ -88,7 +115,10 @@ class AyahService(ayah_rpc.AyahServicer):
         for response in response_stream:
             response_list.append(self._ayah_response(response))
 
-        return ayah_proto.AyahList(ayah_list=response_list)
+        if len(response_list) == 0:
+            return ayah_proto.AyahMultiResponse(code=404, status='Not Found')
+
+        return ayah_proto.AyahMultiResponse(code=200, status='OK', data=response_list)
 
     def FindAyahBySajda(self, request, context):
         find_ayah = AyahFactory.find_ayah()
@@ -99,7 +129,10 @@ class AyahService(ayah_rpc.AyahServicer):
         for response in response_stream:
             response_list.append(self._ayah_response(response))
 
-        return ayah_proto.AyahList(ayah_list=response_list)
+        if len(response_list) == 0:
+            return ayah_proto.AyahMultiResponse(code=404, status='Not Found')
+
+        return ayah_proto.AyahMultiResponse(code=200, status='OK', data=response_list)
 
     def _ayah_response(self, response):
         ayah_response = ayah_proto.AyahResponse(ayah=entity_proto.AyahEntity(**response.ayah.to_dict()))

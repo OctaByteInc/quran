@@ -5,14 +5,23 @@ import "entity.proto";
 
 package quran;
 
-message TranslationList {
-    repeated TranslationEntity translation_list = 1;
+message TranslationSingleResponse {
+    int32 code = 1;
+    string status = 2;
+    TranslationEntity data = 3;
+    string message = 4;
+}
+
+message TranslationMultiResponse {
+    int32 code = 1;
+    string status = 2;
+    repeated TranslationEntity data = 3;
 }
 
 service Translation {
-    rpc CreateTranslation (TranslationEntity) returns (TranslationEntity) {}
-    rpc FindTranslationById (IDRequest) returns (TranslationEntity) {}
-    rpc FindTranslationByAyahId (IDRequest) returns (TranslationList) {}
-    rpc FindTranslationByEditionId (IDRequest) returns (TranslationList) {}
-    rpc FilterTranslation (FilterRequest) returns (TranslationEntity) {}
+    rpc CreateTranslation (TranslationEntity) returns (TranslationSingleResponse) {}
+    rpc FindTranslationById (IDRequest) returns (TranslationSingleResponse) {}
+    rpc FindTranslationByAyahId (IDRequest) returns (TranslationMultiResponse) {}
+    rpc FindTranslationByEditionId (IDRequest) returns (TranslationMultiResponse) {}
+    rpc FilterTranslation (FilterRequest) returns (TranslationSingleResponse) {}
 }

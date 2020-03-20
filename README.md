@@ -14,12 +14,12 @@
 
 gcloud container clusters get-credentials NAME --zone ZONE
 
-gcloud endpoints services deploy api_descriptor.pb api_config.yaml
+gcloud endpoints services deploy api_descriptor.pb api_config.yaml api_config_http.yaml
 
 # Set your project ID as a variable to make commands easier:
-GCLOUD_PROJECT=<Your Project ID>
+GCLOUD_PROJECT=utopian-button-227405
 
-gcloud container builds submit --tag gcr.io/${GCLOUD_PROJECT}/python-grpc-hello:1.0 .
+gcloud builds submit --tag gcr.io/${GCLOUD_PROJECT}/python-grpc-quran:4.0 .
 
 
 https://cloud.google.com/endpoints/docs/grpc-service-config/reference/rpc/google.api#grpc-transcoding

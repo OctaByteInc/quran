@@ -13,7 +13,8 @@ class EditionService(edition_rpc.EditionServicer):
         create_edition = EditionFactory.create()
         res = create_edition.exec(edition)
 
-        return entity_proto.EditionEntity(**res.to_dict())
+        edition_entity = entity_proto.EditionEntity(**res.to_dict())
+        return edition_proto.EditionSingleResponse(code=200, status='OK', data=edition_entity)
 
     def GetAll(self, request, context):
         find_edition = EditionFactory.find_edition()
@@ -22,12 +23,20 @@ class EditionService(edition_rpc.EditionServicer):
         for edition in edition_stream:
             editions.append(entity_proto.EditionEntity(**edition.to_dict()))
 
-        return edition_proto.EditionList(edition_list=editions)
+        if len(editions) == 0:
+            return edition_proto.EditionMultiResponse(code=404, status='Not Found')
+
+        return edition_proto.EditionMultiResponse(code=200, status='OK', data=editions)
 
     def FindEditionById(self, request, context):
         find_edition = EditionFactory.find_edition()
         edition = find_edition.by_id(request.id)
-        return entity_proto.EditionEntity(**edition.to_dict())
+
+        if not edition:
+            return edition_proto.EditionSingleResponse(code=404, status='Not Found')
+
+        edition_entity = entity_proto.EditionEntity(**edition.to_dict())
+        return edition_proto.EditionSingleResponse(code=200, status='OK', data=edition_entity)
 
     def FindEditionByLanguage(self, request, context):
         find_edition = EditionFactory.find_edition()
@@ -36,7 +45,10 @@ class EditionService(edition_rpc.EditionServicer):
         for edition in edition_stream:
             editions.append(entity_proto.EditionEntity(**edition.to_dict()))
 
-        return edition_proto.EditionList(edition_list=editions)
+        if len(editions) == 0:
+            return edition_proto.EditionMultiResponse(code=404, status='Not Found')
+
+        return edition_proto.EditionMultiResponse(code=200, status='OK', data=editions)
 
     def FindEditionByName(self, request, context):
         find_edition = EditionFactory.find_edition()
@@ -45,7 +57,10 @@ class EditionService(edition_rpc.EditionServicer):
         for edition in edition_stream:
             editions.append(entity_proto.EditionEntity(**edition.to_dict()))
 
-        return edition_proto.EditionList(edition_list=editions)
+        if len(editions) == 0:
+            return edition_proto.EditionMultiResponse(code=404, status='Not Found')
+
+        return edition_proto.EditionMultiResponse(code=200, status='OK', data=editions)
 
     def FindEditionByEnglishName(self, request, context):
         find_edition = EditionFactory.find_edition()
@@ -54,7 +69,10 @@ class EditionService(edition_rpc.EditionServicer):
         for edition in edition_stream:
             editions.append(entity_proto.EditionEntity(**edition.to_dict()))
 
-        return edition_proto.EditionList(edition_list=editions)
+        if len(editions) == 0:
+            return edition_proto.EditionMultiResponse(code=404, status='Not Found')
+
+        return edition_proto.EditionMultiResponse(code=200, status='OK', data=editions)
 
     def FindEditionByFormat(self, request, context):
         find_edition = EditionFactory.find_edition()
@@ -63,7 +81,10 @@ class EditionService(edition_rpc.EditionServicer):
         for edition in edition_stream:
             editions.append(entity_proto.EditionEntity(**edition.to_dict()))
 
-        return edition_proto.EditionList(edition_list=editions)
+        if len(editions) == 0:
+            return edition_proto.EditionMultiResponse(code=404, status='Not Found')
+
+        return edition_proto.EditionMultiResponse(code=200, status='OK', data=editions)
 
     def FindEditionByType(self, request, context):
         find_edition = EditionFactory.find_edition()
@@ -72,4 +93,7 @@ class EditionService(edition_rpc.EditionServicer):
         for edition in edition_stream:
             editions.append(entity_proto.EditionEntity(**edition.to_dict()))
 
-        return edition_proto.EditionList(edition_list=editions)
+        if len(editions) == 0:
+            return edition_proto.EditionMultiResponse(code=404, status='Not Found')
+
+        return edition_proto.EditionMultiResponse(code=200, status='OK', data=editions)

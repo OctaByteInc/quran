@@ -8,7 +8,7 @@ class Edition(Entity):
     id: str
     language: str
     name: str
-    english_name: str
+    translator: str
     type: str
     format: str
     direction: str

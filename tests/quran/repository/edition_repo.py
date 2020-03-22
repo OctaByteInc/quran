@@ -11,7 +11,7 @@ class EditionRepo:
                 'id': 'edition-id-1',
                 'language': 'en',
                 'name': 'Edition Name',
-                'english_name': 'Edition English Name',
+                'translator': 'Edition English Name',
                 'type': 'Audio',
                 'format': 'format-1',
                 'direction': 'ltr'
@@ -20,7 +20,7 @@ class EditionRepo:
                 'id': 'edition-id-2',
                 'language': 'en',
                 'name': 'Edition Name',
-                'english_name': 'Edition English Name',
+                'translator': 'Edition English Name',
                 'type': 'Translation',
                 'format': 'format-1',
                 'direction': 'ltr'
@@ -29,7 +29,7 @@ class EditionRepo:
                 'id': 'edition-id-3',
                 'language': 'ur',
                 'name': 'Edition Name',
-                'english_name': 'Edition English Name',
+                'translator': 'Edition English Name',
                 'type': 'Audio',
                 'format': 'format-3',
                 'direction': 'rtl'
@@ -38,7 +38,7 @@ class EditionRepo:
                 'id': 'edition-id-4',
                 'language': 'ur',
                 'name': 'Edition Name',
-                'english_name': 'Edition English Name',
+                'translator': 'Edition English Name',
                 'type': 'Translation',
                 'format': 'format-4',
                 'direction': 'rtl'
@@ -68,9 +68,9 @@ class EditionRepo:
             if edition['name'] == name:
                 yield EditionDomain.from_dict(edition)
 
-    def find_by_english_name(self, name):
+    def find_by_translator(self, name):
         for edition in self.data:
-            if edition['english_name'] == name:
+            if edition['translator'] == name:
                 yield EditionDomain.from_dict(edition)
 
     def find_by_type(self, type):

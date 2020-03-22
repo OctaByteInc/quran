@@ -41,8 +41,8 @@ class EditionStub(object):
         request_serializer=shared__pb2.NameRequest.SerializeToString,
         response_deserializer=edition__pb2.EditionMultiResponse.FromString,
         )
-    self.FindEditionByEnglishName = channel.unary_unary(
-        '/quran.Edition/FindEditionByEnglishName',
+    self.FindEditionByTranslator = channel.unary_unary(
+        '/quran.Edition/FindEditionByTranslator',
         request_serializer=shared__pb2.NameRequest.SerializeToString,
         response_deserializer=edition__pb2.EditionMultiResponse.FromString,
         )
@@ -97,7 +97,7 @@ class EditionServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def FindEditionByEnglishName(self, request, context):
+  def FindEditionByTranslator(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -146,8 +146,8 @@ def add_EditionServicer_to_server(servicer, server):
           request_deserializer=shared__pb2.NameRequest.FromString,
           response_serializer=edition__pb2.EditionMultiResponse.SerializeToString,
       ),
-      'FindEditionByEnglishName': grpc.unary_unary_rpc_method_handler(
-          servicer.FindEditionByEnglishName,
+      'FindEditionByTranslator': grpc.unary_unary_rpc_method_handler(
+          servicer.FindEditionByTranslator,
           request_deserializer=shared__pb2.NameRequest.FromString,
           response_serializer=edition__pb2.EditionMultiResponse.SerializeToString,
       ),

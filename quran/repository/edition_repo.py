@@ -30,8 +30,8 @@ class EditionRepo:
         for edition in edition_stream:
             yield EditionDomain.from_dict(edition.to_dict())
 
-    def find_by_english_name(self, name):
-        edition_stream = Edition.collection.filter(english_name=name).fetch()
+    def find_by_translator(self, translator):
+        edition_stream = Edition.collection.filter(translator=translator).fetch()
         for edition in edition_stream:
             yield EditionDomain.from_dict(edition.to_dict())
 

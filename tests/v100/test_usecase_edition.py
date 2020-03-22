@@ -7,7 +7,7 @@ def test_craete_edition():
         'id': 'edition-id-5',
         'language': 'ur',
         'name': 'Edition Name',
-        'english_name': 'Edition English Name',
+        'translator': 'Edition English Name',
         'type': 'Translation',
         'format': 'format-5',
         'direction': 'rtl'
@@ -53,10 +53,10 @@ def test_find_edition_by_name():
 
 def test_find_edition_by_english_name():
     find_edition = EditionFactory.find_edition()
-    edition_stream = find_edition.by_english_name('Edition English Name')
+    edition_stream = find_edition.by_translator('Edition English Name')
     edition = next(edition_stream)
 
-    assert edition.english_name == 'Edition English Name'
+    assert edition.translator == 'Edition English Name'
 
 
 def test_find_edition_by_type():

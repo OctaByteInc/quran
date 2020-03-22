@@ -15,8 +15,8 @@ class FindEdition:
     def by_name(self, name):
         return self.edition_repo.find_by_name(name)
 
-    def by_english_name(self, english_name):
-        return self.edition_repo.find_by_english_name(english_name)
+    def by_translator(self, translator):
+        return self.edition_repo.find_by_translator(translator)
 
     def by_type(self, type):
         return self.edition_repo.find_by_type(type)

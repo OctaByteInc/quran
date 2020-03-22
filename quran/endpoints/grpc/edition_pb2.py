@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='quran',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\redition.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"Y\n\x15\x45\x64itionSingleResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\t\x12\"\n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x14.quran.EditionEntity\"X\n\x14\x45\x64itionMultiResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\t\x12\"\n\x04\x64\x61ta\x18\x03 \x03(\x0b\x32\x14.quran.EditionEntity2\xc8\x04\n\x07\x45\x64ition\x12\x45\n\rCreateEdition\x12\x14.quran.EditionEntity\x1a\x1c.quran.EditionSingleResponse\"\x00\x12<\n\x06GetAll\x12\x13.quran.EmptyMessage\x1a\x1b.quran.EditionMultiResponse\"\x00\x12\x43\n\x0f\x46indEditionById\x12\x10.quran.IDRequest\x1a\x1c.quran.EditionSingleResponse\"\x00\x12J\n\x15\x46indEditionByLanguage\x12\x12.quran.NameRequest\x1a\x1b.quran.EditionMultiResponse\"\x00\x12\x46\n\x11\x46indEditionByName\x12\x12.quran.NameRequest\x1a\x1b.quran.EditionMultiResponse\"\x00\x12M\n\x18\x46indEditionByEnglishName\x12\x12.quran.NameRequest\x1a\x1b.quran.EditionMultiResponse\"\x00\x12\x46\n\x11\x46indEditionByType\x12\x12.quran.NameRequest\x1a\x1b.quran.EditionMultiResponse\"\x00\x12H\n\x13\x46indEditionByFormat\x12\x12.quran.NameRequest\x1a\x1b.quran.EditionMultiResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\redition.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"Y\n\x15\x45\x64itionSingleResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\t\x12\"\n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x14.quran.EditionEntity\"X\n\x14\x45\x64itionMultiResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\t\x12\"\n\x04\x64\x61ta\x18\x03 \x03(\x0b\x32\x14.quran.EditionEntity2\xc7\x04\n\x07\x45\x64ition\x12\x45\n\rCreateEdition\x12\x14.quran.EditionEntity\x1a\x1c.quran.EditionSingleResponse\"\x00\x12<\n\x06GetAll\x12\x13.quran.EmptyMessage\x1a\x1b.quran.EditionMultiResponse\"\x00\x12\x43\n\x0f\x46indEditionById\x12\x10.quran.IDRequest\x1a\x1c.quran.EditionSingleResponse\"\x00\x12J\n\x15\x46indEditionByLanguage\x12\x12.quran.NameRequest\x1a\x1b.quran.EditionMultiResponse\"\x00\x12\x46\n\x11\x46indEditionByName\x12\x12.quran.NameRequest\x1a\x1b.quran.EditionMultiResponse\"\x00\x12L\n\x17\x46indEditionByTranslator\x12\x12.quran.NameRequest\x1a\x1b.quran.EditionMultiResponse\"\x00\x12\x46\n\x11\x46indEditionByType\x12\x12.quran.NameRequest\x1a\x1b.quran.EditionMultiResponse\"\x00\x12H\n\x13\x46indEditionByFormat\x12\x12.quran.NameRequest\x1a\x1b.quran.EditionMultiResponse\"\x00\x62\x06proto3')
   ,
   dependencies=[shared__pb2.DESCRIPTOR,entity__pb2.DESCRIPTOR,])
 
@@ -147,7 +147,7 @@ _EDITION = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   serialized_start=234,
-  serialized_end=818,
+  serialized_end=817,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateEdition',
@@ -195,8 +195,8 @@ _EDITION = _descriptor.ServiceDescriptor(
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
-    name='FindEditionByEnglishName',
-    full_name='quran.Edition.FindEditionByEnglishName',
+    name='FindEditionByTranslator',
+    full_name='quran.Edition.FindEditionByTranslator',
     index=5,
     containing_service=None,
     input_type=shared__pb2._NAMEREQUEST,

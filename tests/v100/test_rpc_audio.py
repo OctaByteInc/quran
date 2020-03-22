@@ -13,36 +13,36 @@ def test_create_audio():
                                      audio='audio link for arabic 1')
     res = stub.CreateAudio(audio)
 
-    assert ProtoConverter.proto_to_dict(res) == ProtoConverter.proto_to_dict(audio)
+    assert ProtoConverter.proto_to_dict(res.data) == ProtoConverter.proto_to_dict(audio)
 
 
 def test_find_audio_by_id():
     res = stub.FindAudioById(shared_entity.IDRequest(id='audio-1'))
 
-    assert res.id == 'audio-1'
-    assert res.ayah_id == 'ayah-1'
+    assert res.data.id == 'audio-1'
+    assert res.data.ayah_id == 'ayah-1'
 
 
 def test_find_audio_by_ayah_id():
     res_stream = stub.FindAudioByAyahId(shared_entity.IDRequest(id='ayah-1'))
 
-    for res in res_stream.audio_list:
+    for res in res_stream.data:
         assert res.ayah_id == 'ayah-1'
 
 
 def test_find_audio_by_edition_id():
     res_stream = stub.FindAudioByEditionId(shared_entity.IDRequest(id='edition-1'))
 
-    for res in res_stream.audio_list:
+    for res in res_stream.data:
         assert res.edition_id == 'edition-1'
 
 
 def test_find_arabic_audio():
     res = stub.FindArabicAudio(shared_entity.FilterRequest(ayah_id='ayah-1', edition_id='edition-1'))
 
-    assert res.ayah_id == 'ayah-1'
-    assert res.edition_id == 'edition-1'
-    assert res.type == 'Arabic'
+    assert res.data.ayah_id == 'ayah-1'
+    assert res.data.edition_id == 'edition-1'
+    assert res.data.type == 'Arabic'
 
 
 def test_find_translation_audio():
@@ -52,6 +52,6 @@ def test_find_translation_audio():
 
     res = stub.FindTranslationAudio(shared_entity.FilterRequest(ayah_id='ayah-1', edition_id='edition-1'))
 
-    assert res.ayah_id == 'ayah-1'
-    assert res.edition_id == 'edition-1'
-    assert res.type == 'Translation'
+    assert res.data.ayah_id == 'ayah-1'
+    assert res.data.edition_id == 'edition-1'
+    assert res.data.type == 'Translation'

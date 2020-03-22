@@ -5,11 +5,11 @@ from fireo.models import Model
 class Surah(Model):
     id = IDField()
     number = NumberField(int_only=True)
-    name = TextField()
-    english_name = TextField()
-    english_name_translation = TextField()
+    name = TextField(format='title')
+    english_name = TextField(format='title')
+    english_name_translation = TextField(format='title')
     number_of_ayahs = NumberField(int_only=True)
-    revelation_type = TextField()
+    revelation_type = TextField(format='capitalize')
 
     class Meta:
         to_lowercase = True

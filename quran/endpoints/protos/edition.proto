@@ -23,7 +23,7 @@ service Edition {
     rpc FindEditionById (IDRequest) returns (EditionSingleResponse) {}
     rpc FindEditionByLanguage (NameRequest) returns (EditionMultiResponse) {}
     rpc FindEditionByName (NameRequest) returns (EditionMultiResponse) {}
-    rpc FindEditionByEnglishName (NameRequest) returns (EditionMultiResponse) {}
+    rpc FindEditionByTranslator (NameRequest) returns (EditionMultiResponse) {}
     rpc FindEditionByType (NameRequest) returns (EditionMultiResponse) {}
     rpc FindEditionByFormat (NameRequest) returns (EditionMultiResponse) {}
 }

@@ -19,7 +19,7 @@ message EditionEntity {
     string id = 1;
     string language = 2;
     string name = 3;
-    string english_name = 4;
+    string translator = 4;
     string type = 5;
     string format = 6;
     string direction = 7;

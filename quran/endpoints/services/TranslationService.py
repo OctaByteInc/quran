@@ -52,4 +52,9 @@ class TranslationService(translation_rpc.TranslationServicer):
     def FilterTranslation(self, request, context):
         find_translation = TranslationFactory.find_translation()
         translation = find_translation.filter(ayah_id=request.ayah_id, edition_id=request.edition_id)
-        return entity_proto.TranslationEntity(**translation.to_dict())
+        
+        if not translation:
+            return translation_proto.TranslationSingleResponse(code=404, status='Not Found')
+
+        trans_entity = entity_proto.TranslationEntity(**translation.to_dict())
+        return translation_proto.TranslationSingleResponse(code=200, status='OK', data=trans_entity)

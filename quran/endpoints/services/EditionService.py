@@ -62,9 +62,9 @@ class EditionService(edition_rpc.EditionServicer):
 
         return edition_proto.EditionMultiResponse(code=200, status='OK', data=editions)
 
-    def FindEditionByEnglishName(self, request, context):
+    def FindEditionByTranslator(self, request, context):
         find_edition = EditionFactory.find_edition()
-        edition_stream = find_edition.by_english_name(request.name)
+        edition_stream = find_edition.by_translator(request.name)
         editions = []
         for edition in edition_stream:
             editions.append(entity_proto.EditionEntity(**edition.to_dict()))

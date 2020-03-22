@@ -52,12 +52,11 @@ class AudioService(audio_rpc.AudioServicer):
     def FindArabicAudio(self, request, context):
         find_audio = AudioFactory.find_audio()
         audio = find_audio.arabic_audio(ayah_id=request.ayah_id, edition_id=request.edition_id)
-
         if not audio:
             return audio_proto.AudioSingleResponse(code=404, status='Not Found')
 
         audio_entity = entity_proto.AudioEntity(**audio.to_dict())
-        audio_proto.AudioSingleResponse(code=200, status='OK', data=audio_entity)
+        return audio_proto.AudioSingleResponse(code=200, status='OK', data=audio_entity)
 
     def FindTranslationAudio(self, request, context):
         find_audio = AudioFactory.find_audio()

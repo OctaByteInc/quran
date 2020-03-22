@@ -2,12 +2,12 @@ syntax = "proto3";
 
 package quran;
 
-message Image {
+message ImageEntity {
     string ayah_id = 1;
     string image = 2;
 }
 
-message Audio {
+message AudioEntity {
     string id = 1;
     string ayah_id = 2;
     string edition_id = 3;
@@ -15,7 +15,7 @@ message Audio {
     string audio = 5;
 }
 
-message Edition {
+message EditionEntity {
     string id = 1;
     string language = 2;
     string name = 3;
@@ -25,14 +25,14 @@ message Edition {
     string direction = 7;
 }
 
-message Translation {
+message TranslationEntity {
     string id = 1;
     string ayah_id = 2;
     string edition_id = 3;
     string text = 4;
 }
 
-message Surah {
+message SurahEntity {
     string id = 1;
     int32 number = 2;
     string name = 3;
@@ -42,7 +42,7 @@ message Surah {
     string revelation_type = 7;
 }
 
-message Ayah {
+message AyahEntity {
     string id = 1;
     string surah_id = 2;
     int32 number = 3;

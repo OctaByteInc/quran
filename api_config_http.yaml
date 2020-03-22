@@ -17,137 +17,137 @@ http:
   #
   # Audio Service transcoding
   #
-  - selector: quran.AudioSvc.CreateAudio
+  - selector: quran.Audio.CreateAudio
     post: '/v1/audio'
     body: '*'
 
-  - selector: quran.AudioSvc.FindAudioById
+  - selector: quran.Audio.FindAudioById
     get: '/v1/audio/{id}'
 
-  - selector: quran.AudioSvc.FindAudioByAyahId
+  - selector: quran.Audio.FindAudioByAyahId
     get: '/v1/audio/ayah/{id}'
 
-  - selector: quran.AudioSvc.FindAudioByEditionId
+  - selector: quran.Audio.FindAudioByEditionId
     get: '/v1/audio/edition/{id}'
 
-  - selector: quran.AudioSvc.FindArabicAudio
+  - selector: quran.Audio.FindArabicAudio
     get: '/v1/audio/arabic'
 
-  - selector: quran.AudioSvc.FindTranslationAudio
+  - selector: quran.Audio.FindTranslationAudio
     get: '/v1/audio/translation'
 
   #
   # Ayah Service transcoding
   #
-  - selector: quran.AyahSvc.CreateAyah
+  - selector: quran.Ayah.CreateAyah
     post: '/v1/ayah'
     body: '*'
 
-  - selector: quran.AyahSvc.FindAyahById
+  - selector: quran.Ayah.FindAyahById
     get: '/v1/ayah/{id}'
 
-  - selector: quran.AyahSvc.FindAyahBySurahId
+  - selector: quran.Ayah.FindAyahBySurahId
     get: '/v1/ayah/surah/{id}'
 
-  - selector: quran.AyahSvc.FindAyahByNumber
+  - selector: quran.Ayah.FindAyahByNumber
     get: '/v1/ayah/number/{number}'
 
-  - selector: quran.AyahSvc.FindAyahByNumberInSurah
+  - selector: quran.Ayah.FindAyahByNumberInSurah
     get: '/v1/ayah/number_in_surah/{number}'
 
-  - selector: quran.AyahSvc.FindAyahByJuz
+  - selector: quran.Ayah.FindAyahByJuz
     get: '/v1/ayah/juz/{number}'
 
-  - selector: quran.AyahSvc.FindAyahByManzil
+  - selector: quran.Ayah.FindAyahByManzil
     get: '/v1/ayah/manzil/{number}'
 
-  - selector: quran.AyahSvc.FindAyahByRuku
+  - selector: quran.Ayah.FindAyahByRuku
     get: '/v1/ayah/ruku/{number}'
 
-  - selector: quran.AyahSvc.FindAyahByHizbQuarter
+  - selector: quran.Ayah.FindAyahByHizbQuarter
     get: '/v1/ayah/hizb_quarter/{number}'
 
-  - selector: quran.AyahSvc.FindAyahBySajda
+  - selector: quran.Ayah.FindAyahBySajda
     get: '/v1/ayah/sajda/{sajda}'
 
   #
   # Edition Service transcoding
   #
-  - selector: quran.EditionSvc.CreateEdition
+  - selector: quran.Edition.CreateEdition
     post: /v1/edition
     body: '*'
 
-  - selector: quran.EditionSvc.GetAll
+  - selector: quran.Edition.GetAll
     get: '/v1/edition'
 
-  - selector: quran.EditionSvc.FindEditionById
+  - selector: quran.Edition.FindEditionById
     get: '/v1/edition/{id}'
 
-  - selector: quran.EditionSvc.FindEditionByLanguage
+  - selector: quran.Edition.FindEditionByLanguage
     get: '/v1/edition/language/{name}'
 
-  - selector: quran.EditionSvc.FindEditionByName
+  - selector: quran.Edition.FindEditionByName
     get: '/v1/edition/name/{name}'
 
-  - selector: quran.EditionSvc.FindEditionByEnglishName
+  - selector: quran.Edition.FindEditionByEnglishName
     get: '/v1/edition/english_name/{name}'
 
-  - selector: quran.EditionSvc.FindEditionByType
+  - selector: quran.Edition.FindEditionByType
     get: '/v1/edition/type/{name}'
 
-  - selector: quran.EditionSvc.FindEditionByFormat
+  - selector: quran.Edition.FindEditionByFormat
     get: '/v1/edition/format/{name}'
 
   #
   # Image Service transcoding
   #
-  - selector: quran.ImageSvc.CreateImage
+  - selector: quran.Image.CreateImage
     post: '/v1/image'
     body: '*'
 
-  - selector: quran.ImageSvc.FindImageByAyahId
+  - selector: quran.Image.FindImageByAyahId
     get: '/v1/image/ayah/{id}'
 
   #
   # Surah Service transcoding
   #
-  - selector: quran.SurahSvc.CreateSurah
+  - selector: quran.Surah.CreateSurah
     post: '/v1/surah'
     body: '*'
 
-  - selector: quran.SurahSvc.GetAll
+  - selector: quran.Surah.GetAll
     get: '/v1/surah'
 
-  - selector: quran.SurahSvc.FindSurahById
+  - selector: quran.Surah.FindSurahById
     get: '/v1/surah/{id}'
 
-  - selector: quran.SurahSvc.FindSurahByNumber
+  - selector: quran.Surah.FindSurahByNumber
     get: '/v1/surah/number/{number}'
 
-  - selector: quran.SurahSvc.FindSurahByName
+  - selector: quran.Surah.FindSurahByName
     get: '/v1/surah/name/{name}'
 
-  - selector: quran.SurahSvc.FindSurahByEnglishName
+  - selector: quran.Surah.FindSurahByEnglishName
     get: '/v1/surah/english_name/{name}'
 
-  - selector: quran.SurahSvc.FindSurahByRevelationType
+  - selector: quran.Surah.FindSurahByRevelationType
     get: '/v1/surah/type/{revelation_type}'
 
   #
   # Translation Service transcoding
   #
-  - selector: quran.TranslationSvc.CreateTranslation
+  - selector: quran.Translation.CreateTranslation
     post: '/v1/translation'
     body: '*'
 
-  - selector: quran.TranslationSvc.FindTranslationById
+  - selector: quran.Translation.FindTranslationById
     get: '/v1/translation/{id}'
 
-  - selector: quran.TranslationSvc.FindTranslationByAyahId
+  - selector: quran.Translation.FindTranslationByAyahId
     get: '/v1/translation/ayah/{id}'
 
-  - selector: quran.TranslationSvc.FindTranslationByEditionId
+  - selector: quran.Translation.FindTranslationByEditionId
     get: '/v1/translation/edition/{id}'
 
-  - selector: quran.TranslationSvc.FilterTranslation
+  - selector: quran.Translation.FilterTranslation
     get: '/v1/translation/filter'

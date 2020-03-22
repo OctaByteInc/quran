@@ -23,12 +23,12 @@ _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
 
-    audio_rpc.add_AudioSvcServicer_to_server(AudioService(), server)
-    ayah_rpc.add_AyahSvcServicer_to_server(AyahService(), server)
-    edition_rpc.add_EditionSvcServicer_to_server(EditionService(), server)
-    image_rpc.add_ImageSvcServicer_to_server(ImageService(), server)
-    surah_rpc.add_SurahSvcServicer_to_server(SurahService(), server)
-    translation_rpc.add_TranslationSvcServicer_to_server(TranslationService(), server)
+    audio_rpc.add_AudioServicer_to_server(AudioService(), server)
+    ayah_rpc.add_AyahServicer_to_server(AyahService(), server)
+    edition_rpc.add_EditionServicer_to_server(EditionService(), server)
+    image_rpc.add_ImageServicer_to_server(ImageService(), server)
+    surah_rpc.add_SurahServicer_to_server(SurahService(), server)
+    translation_rpc.add_TranslationServicer_to_server(TranslationService(), server)
 
     server.add_insecure_port('[::]:50051')
     server.start()

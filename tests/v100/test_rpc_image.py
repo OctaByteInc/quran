@@ -5,11 +5,11 @@ import quran.endpoints.grpc.image_pb2_grpc as image_rpc
 
 
 channel = grpc.insecure_channel("localhost:50051")
-stub = image_rpc.ImageStub(channel)
+stub = image_rpc.ImageSvcStub(channel)
 
 
 def test_create_image():
-    image = entity_proto.ImageEntity(ayah_id='ayah-1', image='link to image')
+    image = entity_proto.Image(ayah_id='ayah-1', image='link to image')
     res = stub.CreateImage(image)
 
     assert res.data.ayah_id == image.ayah_id

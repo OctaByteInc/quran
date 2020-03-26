@@ -21,7 +21,7 @@ class AudioRepo:
             yield AudioDomain.from_dict(audio.to_dict())
 
     def find_by_edition_id(self, id):
-        audio_stream = Audio.collection.filter(edition_id=id).fetch()
+        audio_stream = Audio.collection.filter(edition_id=id).order('ayah_number').fetch()
         for audio in audio_stream:
             yield AudioDomain.from_dict(audio.to_dict())
 

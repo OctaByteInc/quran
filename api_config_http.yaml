@@ -78,7 +78,7 @@ http:
     body: '*'
 
   - selector: quran.Edition.GetAll
-    get: '/v1/edition'
+    get: '/v1/edition/all'
 
   - selector: quran.Edition.FindEditionById
     get: '/v1/edition/{id}'
@@ -116,7 +116,7 @@ http:
     body: '*'
 
   - selector: quran.Surah.GetAll
-    get: '/v1/surah'
+    get: '/v1/surah/all'
 
   - selector: quran.Surah.FindSurahById
     get: '/v1/surah/{id}'

@@ -21,7 +21,7 @@ class TranslationRepo:
             yield TranslationDomain.from_dict(translation.to_dict())
 
     def find_by_edition_id(self, edition_id):
-        translation_steam = Translation.collection.filter(edition_id=edition_id).fetch()
+        translation_steam = Translation.collection.filter(edition_id=edition_id).order('ayah_number').fetch()
         for translation in translation_steam:
             yield TranslationDomain.from_dict(translation.to_dict())
 

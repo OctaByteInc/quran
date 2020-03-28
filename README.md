@@ -26,4 +26,4 @@ https://cloud.google.com/endpoints/docs/grpc-service-config/reference/rpc/google
 
 
 # ERRORS
-3. Surah and Edition must be root in Ayah
+1. Surah and Edition must be root in Ayah --- leave it

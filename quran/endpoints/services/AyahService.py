@@ -31,7 +31,7 @@ class AyahService(ayah_rpc.AyahServicer):
     def FindAyahBySurahId(self, request, context):
         find_ayah = AyahFactory.find_ayah()
         edition_id = request.parts.edition_id
-        ayah_parts = request.parts.list.split(',')
+        ayah_parts = [part.title().strip() for part in request.parts.list.split(',')]
         response_stream = find_ayah.by_surah_id(request.id, edition_id, ayah_parts)
         response_list = []
         for response in response_stream:

@@ -13,7 +13,9 @@ class AyahRepo:
     def find_by_id(self, id):
         key = generate_key(Ayah, id)
         ayah = Ayah.collection.get(key)
-        return AyahDomain.from_dict(ayah.to_dict())
+        if ayah:
+            return AyahDomain.from_dict(ayah.to_dict())
+        return None
 
     def find_by_surah_id(self, surah_id):
         ayah_stream = Ayah.collection.filter(surah_id=surah_id).fetch()
@@ -22,11 +24,15 @@ class AyahRepo:
 
     def find_by_number(self, number):
         ayah = Ayah.collection.filter(number=number).get()
-        return AyahDomain.from_dict(ayah.to_dict())
+        if ayah:
+            return AyahDomain.from_dict(ayah.to_dict())
+        return None
 
     def find_by_number_in_surah(self, number):
         ayah = Ayah.collection.filter(number_in_surah=number).get()
-        return AyahDomain.from_dict(ayah.to_dict())
+        if ayah:
+            return AyahDomain.from_dict(ayah.to_dict())
+        return None
 
     def find_by_juz(self, juz):
         ayah_stream = Ayah.collection.filter(juz=juz).fetch()

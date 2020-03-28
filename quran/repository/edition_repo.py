@@ -18,7 +18,9 @@ class EditionRepo:
     def find_by_id(self, id):
         key = generate_key(Edition, id)
         edition = Edition.collection.get(key)
-        return EditionDomain.from_dict(edition.to_dict())
+        if edition:
+            return EditionDomain.from_dict(edition.to_dict())
+        return None
 
     def find_by_language(self, language):
         edition_stream = Edition.collection.filter(language=language).fetch()

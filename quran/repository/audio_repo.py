@@ -13,7 +13,9 @@ class AudioRepo:
     def find_by_id(self, id):
         key = generate_key(Audio, id)
         audio = Audio.collection.get(key)
-        return AudioDomain.from_dict(audio.to_dict())
+        if audio:
+            return AudioDomain.from_dict(audio.to_dict())
+        return None
 
     def find_by_ayah_id(self, id):
         audio_stream = Audio.collection.filter(ayah_id=id).fetch()
@@ -27,8 +29,12 @@ class AudioRepo:
 
     def find_arabic_audio(self, **kwargs):
         audio = Audio.collection.filter(**kwargs).filter(type='Arabic').get()
-        return AudioDomain.from_dict(audio.to_dict())
+        if audio:
+            return AudioDomain.from_dict(audio.to_dict())
+        return None
 
     def find_translation_audio(self, **kwargs):
         audio = Audio.collection.filter(**kwargs).filter(type='Translation').get()
-        return AudioDomain.from_dict(audio.to_dict())
+        if audio:
+            return AudioDomain.from_dict(audio.to_dict())
+        return None

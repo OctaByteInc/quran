@@ -15,6 +15,7 @@ def test_create_surah():
     res = stub.CreateSurah(surah)
     assert res.data.id == surah.id
     assert res.data.number == surah.number
+    assert res.data.english_name_translation == surah.english_name_translation.title()
     assert res.data.name == surah.name.title()
 
     surah = entity_proto.SurahEntity(id='surah-2', number=2, name='surah-name-2',
@@ -23,6 +24,7 @@ def test_create_surah():
     res = stub.CreateSurah(surah)
     assert res.data.id == surah.id
     assert res.data.number == surah.number
+    assert res.data.english_name_translation == surah.english_name_translation.title()
     assert res.data.name == surah.name.title()
 
 

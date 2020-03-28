@@ -13,7 +13,9 @@ class TranslationRepo:
     def find_by_id(self, id):
         key = generate_key(Translation, id)
         translation = Translation.collection.get(key)
-        return TranslationDomain.from_dict(translation.to_dict())
+        if translation:
+            return TranslationDomain.from_dict(translation.to_dict())
+        return None
 
     def find_by_ayah_id(self, ayah_id):
         translation_stream = Translation.collection.filter(ayah_id=ayah_id).fetch()
@@ -27,4 +29,6 @@ class TranslationRepo:
 
     def filter(self, **kwargs):
         translation = Translation.collection.filter(**kwargs).get()
-        return TranslationDomain.from_dict(translation.to_dict())
+        if translation:
+            return TranslationDomain.from_dict(translation.to_dict())
+        return None

@@ -23,19 +23,27 @@ class SurahRepo:
     def find_by_id(self, id):
         key = generate_key(Surah, id)
         surah = Surah.collection.get(key)
-        return SurahDomain.from_dict(surah.to_dict())
+        if surah:
+            return SurahDomain.from_dict(surah.to_dict())
+        return None
 
     def find_by_number(self, number):
         surah = Surah.collection.filter(number=number).get()
-        return SurahDomain.from_dict(surah.to_dict())
+        if surah:
+            return SurahDomain.from_dict(surah.to_dict())
+        return None
 
     def find_by_name(self, name):
         surah = Surah.collection.filter(name=name).get()
-        return SurahDomain.from_dict(surah.to_dict())
+        if surah:
+            return SurahDomain.from_dict(surah.to_dict())
+        return None
 
-    def find_by_english_name(self, english_name):
-        surah = Surah.collection.filter(english_name=english_name).get()
-        return SurahDomain.from_dict(surah.to_dict())
+    def find_by_english_name(self, english_name_translation):
+        surah = Surah.collection.filter(english_name_translation=english_name_translation).get()
+        if surah:
+            return SurahDomain.from_dict(surah.to_dict())
+        return None
 
     def find_by_revelation_type(self, type):
         surah_stream = Surah.collection.filter(revelation_type=type).fetch()

@@ -13,4 +13,6 @@ class ImageRepo:
     def find_by_ayah_id(self, ayah_id):
         key = generate_key(Image, ayah_id)
         image = Image.collection.get(key)
-        return ImageDomain.from_dict(image.to_dict())
+        if image:
+            return ImageDomain.from_dict(image.to_dict())
+        return None

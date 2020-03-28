@@ -26,6 +26,4 @@ https://cloud.google.com/endpoints/docs/grpc-service-config/reference/rpc/google
 
 
 # ERRORS
-1. NoneType object has no attribute to_dict()
-2. Error in parsing to serialize
 3. Surah and Edition must be root in Ayah

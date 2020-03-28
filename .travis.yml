@@ -1,16 +1,30 @@
 language: python
-sudo: false
+sudo: required
+
+services:
+  - docker
 
 python:
   - '3.7'
 
 before_install:
-    - npm i -g firebase firebase-tools@7.6.1
-    - firebase setup:emulators:firestore
-    - firebase emulators:start --only firestore &
+  - openssl aes-256-cbc -K $encrypted_9f3b5599b056_key -iv $encrypted_9f3b5599b056_iv -in service-account.json.enc -out service-account.json -d
+  - curl https://sdk.cloud.google.com | bash > /dev/null;
+  - source $HOME/google-cloud-sdk/path.bash.inc
+  - gcloud components update kubectl
+  - gcloud auth active-serviec-account --key-file service-account.json
+  - gcloud config set project utopian-button-227405
+  - gcloud config set compute/zone us-central1-c
+  - gcloud container clusters get-credentials cluster-2
+  - npm i -g firebase firebase-tools@7.6.1
+  - firebase setup:emulators:firestore
+  - firebase emulators:start --only firestore &
 
 env:
   - FIRESTORE_EMULATOR_HOST=localhost:8080
+  global:
+    - SHA=$(git rev-parse HEAD)
+    - CLOUDSDK_CORE_DISABLE_PROMPTS=1
 
 install:
   - pip install -e .
@@ -20,3 +34,9 @@ before_script:
 
 script:
   - pytest
+
+deploy:
+  provider: script
+  script: bash ./deploy.sh
+  on:
+    branch: master

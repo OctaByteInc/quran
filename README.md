@@ -19,7 +19,13 @@ gcloud endpoints services deploy api_descriptor.pb api_config.yaml api_config_ht
 # Set your project ID as a variable to make commands easier:
 GCLOUD_PROJECT=utopian-button-227405
 
-gcloud builds submit --tag gcr.io/${GCLOUD_PROJECT}/python-grpc-quran:4.0 .
+gcloud builds submit --tag gcr.io/${GCLOUD_PROJECT}/python-grpc-quran:5.0 .
 
 
 https://cloud.google.com/endpoints/docs/grpc-service-config/reference/rpc/google.api#grpc-transcoding
+
+
+# ERRORS
+1. NoneType object has no attribute to_dict()
+2. Error in parsing to serialize
+3. Surah and Edition must be root in Ayah

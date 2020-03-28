@@ -38,6 +38,6 @@ class SurahRepo:
         return SurahDomain.from_dict(surah.to_dict())
 
     def find_by_revelation_type(self, type):
-        surah_stream = Surah.collection.filter(type=type).fetch()
+        surah_stream = Surah.collection.filter(revelation_type=type).fetch()
         for surah in surah_stream:
             yield SurahDomain.from_dict(surah.to_dict())

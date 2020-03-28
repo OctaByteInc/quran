@@ -89,8 +89,8 @@ http:
   - selector: quran.Edition.FindEditionByName
     get: '/v1/edition/name/{name}'
 
-  - selector: quran.Edition.FindEditionByEnglishName
-    get: '/v1/edition/english_name/{name}'
+  - selector: quran.Edition.FindEditionByTranslator
+    get: '/v1/edition/translator/{name}'
 
   - selector: quran.Edition.FindEditionByType
     get: '/v1/edition/type/{name}'
@@ -131,7 +131,7 @@ http:
     get: '/v1/surah/english_name/{name}'
 
   - selector: quran.Surah.FindSurahByRevelationType
-    get: '/v1/surah/type/{revelation_type}'
+    get: '/v1/surah/revelation_type/{revelation_type}'
 
   #
   # Translation Service transcoding

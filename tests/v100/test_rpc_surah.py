@@ -48,19 +48,19 @@ def test_find_surah_by_number():
     assert surah.data.number == 1
 
 
-def find_surah_by_name():
+def test_find_surah_by_name():
     surah = stub.FindSurahByName(shared_entity.NameRequest(name='surah-name-1'))
 
     assert surah.data.name == 'Surah-Name-1'
 
 
-def find_surah_by_english_translation_name():
+def test_find_surah_by_english_translation_name():
     surah = stub.FindSurahByEnglishName(shared_entity.NameRequest(name='english-translation-name-2'))
 
     assert surah.data.english_name_translation == 'English-Translation-Name-2'
 
 
-def find_surah_by_revelation_type():
+def test_find_surah_by_revelation_type():
     surah_stream = stub.FindSurahByRevelationType(surah_proto.RevelationRequest(revelation_type='type-1'))
 
     for surah in surah_stream.data:

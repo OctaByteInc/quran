@@ -18,8 +18,8 @@ before_install:
   - firebase emulators:start --only firestore &
 
 env:
-  - FIRESTORE_EMULATOR_HOST=localhost:8080
   global:
+    - FIRESTORE_EMULATOR_HOST=localhost:8080
     - SHA=$(git rev-parse HEAD)
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1
 

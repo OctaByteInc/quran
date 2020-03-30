@@ -10,9 +10,10 @@ message ImageEntity {
 message AudioEntity {
     string id = 1;
     string ayah_id = 2;
-    string edition_id = 3;
-    string type = 4;
-    string audio = 5;
+    int32 ayah_number = 3;
+    string edition_id = 4;
+    string type = 5;
+    string audio = 6;
 }
 
 message EditionEntity {
@@ -28,8 +29,9 @@ message EditionEntity {
 message TranslationEntity {
     string id = 1;
     string ayah_id = 2;
-    string edition_id = 3;
-    string text = 4;
+    int32 ayah_number = 3;
+    string edition_id = 4;
+    string text = 5;
 }
 
 message SurahEntity {

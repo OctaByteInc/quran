@@ -9,11 +9,11 @@ class FindAudio:
     def by_id(self, id):
         return self.audio_repo.find_by_id(id)
 
-    def by_ayah_id(self, ayah_id):
-        return self.audio_repo.find_by_ayah_id(ayah_id)
+    def by_ayah_id(self, ayah_id, limit=None, cursor=None):
+        return self.audio_repo.find_by_ayah_id(ayah_id, limit=limit, cursor=cursor)
 
-    def by_edition_id(self, edition_id):
-        return self.audio_repo.find_by_edition_id(edition_id)
+    def by_edition_id(self, edition_id, limit=None, cursor=None):
+        return self.audio_repo.find_by_edition_id(edition_id, limit=limit, cursor=cursor)
 
     @allowed_filters(include=['ayah_id', 'edition_id'])
     def arabic_audio(self, **kwargs):

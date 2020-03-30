@@ -6,6 +6,8 @@ message EmptyMessage {}
 
 message IDRequest {
     string id = 1;
+    int32 limit = 2;
+    string cursor = 3;
 }
 
 message NumberRequest {

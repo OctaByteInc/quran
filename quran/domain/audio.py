@@ -7,6 +7,7 @@ from quran.domain.entity import Entity
 class Audio(Entity):
     id: str
     ayah_id: str
+    ayah_number: int
     edition_id: str
     type: str  # Translation or Arabic
     audio: str

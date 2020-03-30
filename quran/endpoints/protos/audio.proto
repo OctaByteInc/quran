@@ -8,13 +8,25 @@ package quran;
 message AudioSingleResponse {
     int32 code = 1;
     string status = 2;
-    AudioEntity data = 3;
+    AudioSingleData data = 3;
 }
 
 message AudioMultiResponse {
     int32 code = 1;
     string status = 2;
-    repeated AudioEntity data = 3;
+    AudioMultiData data = 3;
+}
+
+message AudioSingleData {
+    AudioEntity audio = 1;
+    int32 number_of_results = 2;
+    string cursor = 3;
+}
+
+message AudioMultiData {
+    repeated AudioEntity audio = 1;
+    int32 number_of_results = 2;
+    string cursor = 3;
 }
 
 service Audio {

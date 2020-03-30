@@ -24,7 +24,7 @@ class AudioService(audio_rpc.AudioServicer):
             return audio_proto.AudioSingleResponse(code=404, status='Not Found')
 
         audio_entity = entity_proto.AudioEntity(**res.audio.to_dict())
-        audio_data = audio_proto.AudioSingleData(audio=audio_entity, number_of_results=1)
+        audio_data = audio_proto.AudioSingleData(audio=audio_entity, number_of_results=res.number_of_results)
         return audio_proto.AudioSingleResponse(code=200, status='OK', data=audio_data)
 
     def FindAudioByAyahId(self, request, context):
@@ -62,7 +62,7 @@ class AudioService(audio_rpc.AudioServicer):
             return audio_proto.AudioSingleResponse(code=404, status='Not Found')
 
         audio_entity = entity_proto.AudioEntity(**res.audio.to_dict())
-        audio_data = audio_proto.AudioSingleData(audio=audio_entity, number_of_results=1)
+        audio_data = audio_proto.AudioSingleData(audio=audio_entity, number_of_results=res.number_of_results)
         return audio_proto.AudioSingleResponse(code=200, status='OK', data=audio_data)
 
     def FindTranslationAudio(self, request, context):
@@ -73,5 +73,5 @@ class AudioService(audio_rpc.AudioServicer):
             return audio_proto.AudioSingleResponse(code=404, status='Not Found')
 
         audio_entity = entity_proto.AudioEntity(**res.audio.to_dict())
-        audio_data = audio_proto.AudioSingleData(audio=audio_entity, number_of_results=1)
+        audio_data = audio_proto.AudioSingleData(audio=audio_entity, number_of_results=res.number_of_results)
         return audio_proto.AudioSingleResponse(code=200, status='OK', data=audio_data)

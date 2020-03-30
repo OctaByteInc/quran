@@ -12,15 +12,17 @@ class ImageService(image_rpc.ImageServicer):
         image = Image.from_dict(ProtoConverter.proto_to_dict(request))
         create_image = ImageFactory.create()
         res = create_image.exec(image)
-        image_entity = entity_proto.ImageEntity(**res.to_dict())
-        return image_proto.ImageSingleResponse(code=200, status='Ok', data=image_entity)
+        image_entity = entity_proto.ImageEntity(**res.image.to_dict())
+        image_data = image_proto.ImageSingleData(image=image_entity, number_of_results=res.number_of_results)
+        return image_proto.ImageSingleResponse(code=200, status='Ok', data=image_data)
 
     def FindImageByAyahId(self, request, context):
         find_image = ImageFactory.find_image()
-        image = find_image.by_ayah_id(request.id)
+        res = find_image.by_ayah_id(request.id)
 
-        if not image:
+        if not res.image:
             return image_proto.ImageSingleResponse(code=404, status='Not Found')
 
-        image_entity = entity_proto.ImageEntity(**image.to_dict())
-        return image_proto.ImageSingleResponse(code=200, status='Ok', data=image_entity)
+        image_entity = entity_proto.ImageEntity(**res.image.to_dict())
+        image_data = image_proto.ImageSingleData(image=image_entity, number_of_results=res.number_of_results)
+        return image_proto.ImageSingleResponse(code=200, status='Ok', data=image_data)

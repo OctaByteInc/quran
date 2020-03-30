@@ -13,57 +13,57 @@ def test_create_surah():
                                      english_name_translation='english-translation-name-1', number_of_ayahs=7,
                                      revelation_type='type-1')
     res = stub.CreateSurah(surah)
-    assert res.data.id == surah.id
-    assert res.data.number == surah.number
-    assert res.data.english_name_translation == surah.english_name_translation.title()
-    assert res.data.name == surah.name.title()
+    assert res.surah.data.id == surah.id
+    assert res.surah.data.number == surah.number
+    assert res.surah.data.english_name_translation == surah.english_name_translation.title()
+    assert res.surah.data.name == surah.name.title()
 
     surah = entity_proto.SurahEntity(id='surah-2', number=2, name='surah-name-2',
                                      english_name_translation='english-translation-name-2', number_of_ayahs=144,
                                      revelation_type='type-2')
     res = stub.CreateSurah(surah)
-    assert res.data.id == surah.id
-    assert res.data.number == surah.number
-    assert res.data.english_name_translation == surah.english_name_translation.title()
-    assert res.data.name == surah.name.title()
+    assert res.surah.data.id == surah.id
+    assert res.surah.data.number == surah.number
+    assert res.surah.data.english_name_translation == surah.english_name_translation.title()
+    assert res.surah.data.name == surah.name.title()
 
 
 def test_get_all_surah():
     surah_stream = stub.GetAll(shared_entity.EmptyMessage())
 
     count = 0
-    for surah in surah_stream.data:
+    for surah in surah_stream.data.surah_list:
         count += 1
 
     assert count >= 2
 
 
 def test_find_surah_by_id():
-    surah = stub.FindSurahById(shared_entity.IDRequest(id='surah-1'))
+    res = stub.FindSurahById(shared_entity.IDRequest(id='surah-1'))
 
-    assert surah.data.id == 'surah-1'
+    assert res.data.surah.id == 'surah-1'
 
 
 def test_find_surah_by_number():
-    surah = stub.FindSurahByNumber(shared_entity.NumberRequest(number=1))
+    res = stub.FindSurahByNumber(shared_entity.NumberRequest(number=1))
 
-    assert surah.data.number == 1
+    assert res.data.surah.number == 1
 
 
 def test_find_surah_by_name():
-    surah = stub.FindSurahByName(shared_entity.NameRequest(name='surah-name-1'))
+    res = stub.FindSurahByName(shared_entity.NameRequest(name='surah-name-1'))
 
-    assert surah.data.name == 'Surah-Name-1'
+    assert res.data.surah.name == 'Surah-Name-1'
 
 
 def test_find_surah_by_english_translation_name():
-    surah = stub.FindSurahByEnglishName(shared_entity.NameRequest(name='english-translation-name-2'))
+    res = stub.FindSurahByEnglishName(shared_entity.NameRequest(name='english-translation-name-2'))
 
-    assert surah.data.english_name_translation == 'English-Translation-Name-2'
+    assert res.data.surah.english_name_translation == 'English-Translation-Name-2'
 
 
 def test_find_surah_by_revelation_type():
     surah_stream = stub.FindSurahByRevelationType(surah_proto.RevelationRequest(revelation_type='type-1'))
 
-    for surah in surah_stream.data:
+    for surah in surah_stream.data.surah_list:
         assert surah.revelation_type == 'Type-1'

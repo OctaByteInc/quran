@@ -18,15 +18,14 @@ message EditionMultiResponse {
 }
 
 message AudioSingleData {
-    int32 number_of_results = 1;
-    string cursor = 2;
-    EditionEntity edition = 3;
+    EditionEntity edition = 1;
+    int32 number_of_results = 2;
 }
 
 message AudioMultiData {
-    int32 number_of_results = 1;
-    string cursor = 2;
-    repeated EditionEntity edition = 3;
+    repeated EditionEntity edition = 1;
+    int32 number_of_results = 2;
+    string cursor = 3;
 }
 
 service Edition {

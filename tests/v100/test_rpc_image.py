@@ -12,12 +12,12 @@ def test_create_image():
     image = entity_proto.ImageEntity(ayah_id='ayah-1', image='link to image')
     res = stub.CreateImage(image)
 
-    assert res.data.ayah_id == image.ayah_id
-    assert res.data.image == image.image
+    assert res.data.image.ayah_id == image.ayah_id
+    assert res.data.image.image == image.image
 
 
 def test_find_image_by_ayah_id():
     res = stub.FindImageByAyahId(shared_entity.IDRequest(id='ayah-1'))
 
-    assert res.data.ayah_id == 'ayah-1'
-    assert res.data.image == 'link to image'
+    assert res.data.image.ayah_id == 'ayah-1'
+    assert res.data.image.image == 'link to image'

@@ -8,14 +8,24 @@ package quran;
 message TranslationSingleResponse {
     int32 code = 1;
     string status = 2;
-    TranslationEntity data = 3;
-    string message = 4;
+    TranslationSingleData data = 3;
 }
 
 message TranslationMultiResponse {
     int32 code = 1;
     string status = 2;
-    repeated TranslationEntity data = 3;
+    TranslationMultiData data = 3;
+}
+
+message TranslationSingleData {
+    TranslationEntity translation = 1;
+    int32 number_of_results = 2;
+}
+
+message TranslationMultiData {
+    repeated TranslationEntity translation = 1;
+    int32 number_of_results = 2;
+    string cursor = 3;
 }
 
 service Translation {

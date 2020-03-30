@@ -3,8 +3,8 @@ class FindSurah:
     def __init__(self, surah_repo):
         self.surah_repo = surah_repo
 
-    def get_all(self):
-        return self.surah_repo.get_all()
+    def get_all(self, limit=None, cursor=None):
+        return self.surah_repo.get_all(limit=limit, cursor=cursor)
 
     def by_id(self, id):
         return self.surah_repo.find_by_id(id)
@@ -18,5 +18,5 @@ class FindSurah:
     def by_english_name(self, english_name):
         return self.surah_repo.find_by_english_name(english_name)
 
-    def by_revelation_type(self, revelation_type):
-        return self.surah_repo.find_by_revelation_type(revelation_type)
+    def by_revelation_type(self, revelation_type, limit=None, cursor=None):
+        return self.surah_repo.find_by_revelation_type(revelation_type, limit=limit, cursor=cursor)

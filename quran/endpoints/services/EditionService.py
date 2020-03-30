@@ -14,7 +14,7 @@ class EditionService(edition_rpc.EditionServicer):
         res = create_edition.exec(edition)
 
         edition_entity = entity_proto.EditionEntity(**res.audio.to_dict())
-        edition_data = edition_proto.EditionSingleData(edition=edition_entity, number_of_results=1)
+        edition_data = edition_proto.EditionSingleData(edition=edition_entity, number_of_results=res.number_of_results)
         return edition_proto.EditionSingleResponse(code=200, status='OK', data=edition_data)
 
     def GetAll(self, request, context):
@@ -27,7 +27,8 @@ class EditionService(edition_rpc.EditionServicer):
         if len(editions) == 0:
             return edition_proto.EditionMultiResponse(code=404, status='Not Found')
 
-        edition_data = edition_proto.EditionMultiData(edition=editions, number_of_results=len(editions),
+        edition_data = edition_proto.EditionMultiData(edition=editions,
+                                                      number_of_results=edition_stream.number_of_results,
                                                       cursor=edition_stream.cursor)
         return edition_proto.EditionMultiResponse(code=200, status='OK', data=edition_data)
 
@@ -35,11 +36,11 @@ class EditionService(edition_rpc.EditionServicer):
         find_edition = EditionFactory.find_edition()
         res = find_edition.by_id(request.id)
 
-        if not res:
+        if not res.edition:
             return edition_proto.EditionSingleResponse(code=404, status='Not Found')
 
         edition_entity = entity_proto.EditionEntity(**res.edition.to_dict())
-        edition_data = edition_proto.EditionSingleData(edition=edition_entity, number_of_results=1)
+        edition_data = edition_proto.EditionSingleData(edition=edition_entity, number_of_results=res.number_of_results)
         return edition_proto.EditionSingleResponse(code=200, status='OK', data=edition_data)
 
     def FindEditionByLanguage(self, request, context):
@@ -52,7 +53,8 @@ class EditionService(edition_rpc.EditionServicer):
         if len(editions) == 0:
             return edition_proto.EditionMultiResponse(code=404, status='Not Found')
 
-        edition_data = edition_proto.EditionMultiData(edition=editions, number_of_results=len(editions),
+        edition_data = edition_proto.EditionMultiData(edition=editions,
+                                                      number_of_results=edition_stream.number_of_results,
                                                       cursor=edition_stream.cursor)
         return edition_proto.EditionMultiResponse(code=200, status='OK', data=edition_data)
 
@@ -66,7 +68,8 @@ class EditionService(edition_rpc.EditionServicer):
         if len(editions) == 0:
             return edition_proto.EditionMultiResponse(code=404, status='Not Found')
 
-        edition_data = edition_proto.EditionMultiData(edition=editions, number_of_results=len(editions),
+        edition_data = edition_proto.EditionMultiData(edition=editions,
+                                                      number_of_results=edition_stream.number_of_results,
                                                       cursor=edition_stream.cursor)
         return edition_proto.EditionMultiResponse(code=200, status='OK', data=edition_data)
 
@@ -80,7 +83,8 @@ class EditionService(edition_rpc.EditionServicer):
         if len(editions) == 0:
             return edition_proto.EditionMultiResponse(code=404, status='Not Found')
 
-        edition_data = edition_proto.EditionMultiData(edition=editions, number_of_results=len(editions),
+        edition_data = edition_proto.EditionMultiData(edition=editions,
+                                                      number_of_results=edition_stream.number_of_results,
                                                       cursor=edition_stream.cursor)
         return edition_proto.EditionMultiResponse(code=200, status='OK', data=edition_data)
 
@@ -94,7 +98,8 @@ class EditionService(edition_rpc.EditionServicer):
         if len(editions) == 0:
             return edition_proto.EditionMultiResponse(code=404, status='Not Found')
 
-        edition_data = edition_proto.EditionMultiData(edition=editions, number_of_results=len(editions),
+        edition_data = edition_proto.EditionMultiData(edition=editions,
+                                                      number_of_results=edition_stream.number_of_results,
                                                       cursor=edition_stream.cursor)
         return edition_proto.EditionMultiResponse(code=200, status='OK', data=edition_data)
 
@@ -108,6 +113,7 @@ class EditionService(edition_rpc.EditionServicer):
         if len(editions) == 0:
             return edition_proto.EditionMultiResponse(code=404, status='Not Found')
 
-        edition_data = edition_proto.EditionMultiData(edition=editions, number_of_results=len(editions),
+        edition_data = edition_proto.EditionMultiData(edition=editions,
+                                                      number_of_results=edition_stream.number_of_results,
                                                       cursor=edition_stream.cursor)
         return edition_proto.EditionMultiResponse(code=200, status='OK', data=edition_data)

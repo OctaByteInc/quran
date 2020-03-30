@@ -11,6 +11,11 @@ message ImageSingleResponse {
     ImageEntity data = 3;
 }
 
+message ImageSingleData {
+    ImageEntity image = 1;
+    int32 number_of_results = 2;
+}
+
 service Image {
     rpc CreateImage (ImageEntity) returns (ImageSingleResponse) {}
     rpc FindImageByAyahId (IDRequest) returns (ImageSingleResponse) {}

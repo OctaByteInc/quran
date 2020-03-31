@@ -109,3 +109,38 @@ def test_find_ayah_by_sajda():
 
     for response in response_stream.data.ayah_response:
         assert response.ayah.sajda == False
+
+
+def test_find_ayah_by_juz_with_limit_and_cursor():
+    # Create some dummy data
+    ayah = entity_proto.AyahEntity(id='ayah-2', surah_id='surah-1', number=1, number_in_surah=1, juz=1, manzil=1,
+                                   ruku=1, hizb_quarter=1, sajda=False, arabic='Arabic content for ayah 2')
+    res = stub.CreateAyah(ayah)
+    ayah = entity_proto.AyahEntity(id='ayah-3', surah_id='surah-1', number=1, number_in_surah=1, juz=1, manzil=1,
+                                   ruku=1, hizb_quarter=1, sajda=False, arabic='Arabic content for ayah 3')
+    res = stub.CreateAyah(ayah)
+    ayah = entity_proto.AyahEntity(id='ayah-4', surah_id='surah-1', number=1, number_in_surah=1, juz=1, manzil=1,
+                                   ruku=1, hizb_quarter=1, sajda=False, arabic='Arabic content for ayah 4')
+    res = stub.CreateAyah(ayah)
+    # End creation data
+
+    response_stream = stub.FindAyahByJuz(ayah_proto.AyahNumberRequest(number=1, limit=2))
+
+    cursor = response_stream.data.cursor
+    assert cursor is not None
+
+    count = 0
+    for response in response_stream.data.ayah_response:
+        assert response.ayah.juz == 1
+        count += 1
+
+    assert count == 2
+
+    response_stream = stub.FindAyahByJuz(ayah_proto.AyahNumberRequest(cursor=cursor))
+
+    count = 0
+    for response in response_stream.data.ayah_response:
+        assert response.ayah.juz == 1
+        count += 1
+
+    assert count == 2

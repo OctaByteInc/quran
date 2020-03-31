@@ -12,16 +12,22 @@ message PartsRequest {
 message AyahIdRequest {
     string id = 1;
     PartsRequest parts = 2;
+    int32 limit = 3;
+    string cursor = 4;
 }
 
 message AyahNumberRequest {
     int32 number = 1;
     PartsRequest parts = 2;
+    int32 limit = 3;
+    string cursor = 4;
 }
 
 message AyahSajdaRequest {
     bool sajda = 1;
     PartsRequest parts = 2;
+    int32 limit = 3;
+    string cursor = 4;
 }
 
 message AyahResponse {
@@ -37,19 +43,35 @@ message AyahResponse {
 message AyahEntityResponse {
     int32 code = 1;
     string status = 2;
-    AyahEntity data = 3;
+    AyahEntityData data = 3;
+}
+
+message AyahEntityData {
+    AyahEntity ayah_response = 1;
+    int32 number_of_results = 2;
 }
 
 message AyahSingleResponse {
     int32 code = 1;
     string status = 2;
-    AyahResponse data = 3;
+    AyahSingleData data = 3;
 }
 
 message AyahMultiResponse {
     int32 code = 1;
     string status = 2;
-    repeated AyahResponse data = 3;
+    AyahMultiData data = 3;
+}
+
+message AyahSingleData {
+    AyahResponse ayah_response = 1;
+    int32 number_of_results = 2;
+}
+
+message AyahMultiData {
+    repeated AyahResponse ayah_response = 1;
+    int32 number_of_results = 2;
+    string cursor = 3;
 }
 
 service Ayah {

@@ -14,31 +14,31 @@ def test_create_translation():
 
     res = stub.CreateTranslation(translation)
 
-    assert ProtoConverter.proto_to_dict(res.data) == ProtoConverter.proto_to_dict(translation)
+    assert ProtoConverter.proto_to_dict(res.data.translation) == ProtoConverter.proto_to_dict(translation)
 
 
 def test_find_translation_by_id():
-    translation = stub.FindTranslationById(shared_entity.IDRequest(id='translation-1'))
+    res = stub.FindTranslationById(shared_entity.IDRequest(id='translation-1'))
 
-    assert translation.data.id == 'translation-1'
+    assert res.data.translation.id == 'translation-1'
 
 
 def test_find_translation_by_ayah_id():
     translation_stream = stub.FindTranslationByAyahId(shared_entity.IDRequest(id='ayah-1'))
 
-    for translation in translation_stream.data:
+    for translation in translation_stream.data.translation:
         assert translation.ayah_id == 'ayah-1'
 
 
 def test_find_translation_by_edition_id():
     translation_stream = stub.FindTranslationByEditionId(shared_entity.IDRequest(id='edition-1'))
 
-    for translation in translation_stream.data:
+    for translation in translation_stream.data.translation:
         assert translation.edition_id == 'edition-1'
 
 
 def test_filter_translation():
-    translation = stub.FilterTranslation(shared_entity.FilterRequest(ayah_id='ayah-1', edition_id='edition-1'))
+    res = stub.FilterTranslation(shared_entity.FilterRequest(ayah_id='ayah-1', edition_id='edition-1'))
 
-    assert translation.data.ayah_id == 'ayah-1'
-    assert translation.data.edition_id == 'edition-1'
+    assert res.data.translation.ayah_id == 'ayah-1'
+    assert res.data.translation.edition_id == 'edition-1'

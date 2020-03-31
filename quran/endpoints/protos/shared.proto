@@ -2,18 +2,27 @@ syntax = "proto3";
 
 package quran;
 
-message EmptyMessage {}
+message EmptyMessage {
+    int32 limit = 1;
+    string cursor = 2;
+}
 
 message IDRequest {
     string id = 1;
+    int32 limit = 2;
+    string cursor = 3;
 }
 
 message NumberRequest {
     int32 number = 1;
+    int32 limit = 2;
+    string cursor = 3;
 }
 
 message NameRequest {
     string name = 1;
+    int32 limit = 2;
+    string cursor = 3;
 }
 
 message FilterRequest {

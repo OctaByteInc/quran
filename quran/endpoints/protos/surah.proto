@@ -7,19 +7,31 @@ package quran;
 
 message RevelationRequest {
     string revelation_type = 1;
+    int32 limit = 2;
+    string cursor = 3;
 }
 
 message SurahSingleResponse {
     int32 code = 1;
     string status = 2;
-    SurahEntity data = 3;
-    string message = 4;
+    SurahSingleData data = 3;
 }
 
 message SurahMultiResponse {
     int32 code = 1;
     string status = 2;
-    repeated SurahEntity data = 3;
+    SurahMultiData data = 3;
+}
+
+message SurahSingleData {
+    SurahEntity surah = 1;
+    int32 number_of_results = 2;
+}
+
+message SurahMultiData {
+    repeated SurahEntity surah = 1;
+    int32 number_of_results = 2;
+    string cursor = 3;
 }
 
 service Surah {

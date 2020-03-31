@@ -13,87 +13,107 @@ class EditionService(edition_rpc.EditionServicer):
         create_edition = EditionFactory.create()
         res = create_edition.exec(edition)
 
-        edition_entity = entity_proto.EditionEntity(**res.to_dict())
-        return edition_proto.EditionSingleResponse(code=200, status='OK', data=edition_entity)
+        edition_entity = entity_proto.EditionEntity(**res.edition.to_dict())
+        edition_data = edition_proto.EditionSingleData(edition=edition_entity, number_of_results=res.number_of_results)
+        return edition_proto.EditionSingleResponse(code=200, status='OK', data=edition_data)
 
     def GetAll(self, request, context):
         find_edition = EditionFactory.find_edition()
-        edition_stream = find_edition.get_all()
+        edition_stream = find_edition.get_all(request.limit, request.cursor)
         editions = []
-        for edition in edition_stream:
+        for edition in edition_stream.edition_list:
             editions.append(entity_proto.EditionEntity(**edition.to_dict()))
 
         if len(editions) == 0:
             return edition_proto.EditionMultiResponse(code=404, status='Not Found')
 
-        return edition_proto.EditionMultiResponse(code=200, status='OK', data=editions)
+        edition_data = edition_proto.EditionMultiData(edition=editions,
+                                                      number_of_results=edition_stream.number_of_results,
+                                                      cursor=edition_stream.cursor)
+        return edition_proto.EditionMultiResponse(code=200, status='OK', data=edition_data)
 
     def FindEditionById(self, request, context):
         find_edition = EditionFactory.find_edition()
-        edition = find_edition.by_id(request.id)
+        res = find_edition.by_id(request.id)
 
-        if not edition:
+        if not res.edition:
             return edition_proto.EditionSingleResponse(code=404, status='Not Found')
 
-        edition_entity = entity_proto.EditionEntity(**edition.to_dict())
-        return edition_proto.EditionSingleResponse(code=200, status='OK', data=edition_entity)
+        edition_entity = entity_proto.EditionEntity(**res.edition.to_dict())
+        edition_data = edition_proto.EditionSingleData(edition=edition_entity, number_of_results=res.number_of_results)
+        return edition_proto.EditionSingleResponse(code=200, status='OK', data=edition_data)
 
     def FindEditionByLanguage(self, request, context):
         find_edition = EditionFactory.find_edition()
-        edition_stream = find_edition.by_language(request.name)
+        edition_stream = find_edition.by_language(request.name, request.limit, request.cursor)
         editions = []
-        for edition in edition_stream:
+        for edition in edition_stream.edition_list:
             editions.append(entity_proto.EditionEntity(**edition.to_dict()))
 
         if len(editions) == 0:
             return edition_proto.EditionMultiResponse(code=404, status='Not Found')
 
-        return edition_proto.EditionMultiResponse(code=200, status='OK', data=editions)
+        edition_data = edition_proto.EditionMultiData(edition=editions,
+                                                      number_of_results=edition_stream.number_of_results,
+                                                      cursor=edition_stream.cursor)
+        return edition_proto.EditionMultiResponse(code=200, status='OK', data=edition_data)
 
     def FindEditionByName(self, request, context):
         find_edition = EditionFactory.find_edition()
-        edition_stream = find_edition.by_name(request.name)
+        edition_stream = find_edition.by_name(request.name, request.limit, request.cursor)
         editions = []
-        for edition in edition_stream:
+        for edition in edition_stream.edition_list:
             editions.append(entity_proto.EditionEntity(**edition.to_dict()))
 
         if len(editions) == 0:
             return edition_proto.EditionMultiResponse(code=404, status='Not Found')
 
-        return edition_proto.EditionMultiResponse(code=200, status='OK', data=editions)
+        edition_data = edition_proto.EditionMultiData(edition=editions,
+                                                      number_of_results=edition_stream.number_of_results,
+                                                      cursor=edition_stream.cursor)
+        return edition_proto.EditionMultiResponse(code=200, status='OK', data=edition_data)
 
     def FindEditionByTranslator(self, request, context):
         find_edition = EditionFactory.find_edition()
-        edition_stream = find_edition.by_translator(request.name)
+        edition_stream = find_edition.by_translator(request.name, request.limit, request.cursor)
         editions = []
-        for edition in edition_stream:
+        for edition in edition_stream.edition_list:
             editions.append(entity_proto.EditionEntity(**edition.to_dict()))
 
         if len(editions) == 0:
             return edition_proto.EditionMultiResponse(code=404, status='Not Found')
 
-        return edition_proto.EditionMultiResponse(code=200, status='OK', data=editions)
+        edition_data = edition_proto.EditionMultiData(edition=editions,
+                                                      number_of_results=edition_stream.number_of_results,
+                                                      cursor=edition_stream.cursor)
+        return edition_proto.EditionMultiResponse(code=200, status='OK', data=edition_data)
 
     def FindEditionByFormat(self, request, context):
         find_edition = EditionFactory.find_edition()
-        edition_stream = find_edition.by_format(request.name)
+        edition_stream = find_edition.by_format(request.name, request.limit, request.cursor)
         editions = []
-        for edition in edition_stream:
+        for edition in edition_stream.edition_list:
             editions.append(entity_proto.EditionEntity(**edition.to_dict()))
 
         if len(editions) == 0:
             return edition_proto.EditionMultiResponse(code=404, status='Not Found')
 
-        return edition_proto.EditionMultiResponse(code=200, status='OK', data=editions)
+        edition_data = edition_proto.EditionMultiData(edition=editions,
+                                                      number_of_results=edition_stream.number_of_results,
+                                                      cursor=edition_stream.cursor)
+        return edition_proto.EditionMultiResponse(code=200, status='OK', data=edition_data)
 
     def FindEditionByType(self, request, context):
         find_edition = EditionFactory.find_edition()
-        edition_stream = find_edition.by_type(request.name)
+        edition_stream = find_edition.by_type(request.name, request.limit, request.cursor)
         editions = []
-        for edition in edition_stream:
+        for edition in edition_stream.edition_list:
             editions.append(entity_proto.EditionEntity(**edition.to_dict()))
 
         if len(editions) == 0:
             return edition_proto.EditionMultiResponse(code=404, status='Not Found')
 
-        return edition_proto.EditionMultiResponse(code=200, status='OK', data=editions)
+        edition_data = edition_proto.EditionMultiData(edition=editions,
+                                                      number_of_results=edition_stream.number_of_results,
+                                                      cursor=edition_stream.cursor)
+        return edition_proto.EditionMultiResponse(code=200, status='OK', data=edition_data)

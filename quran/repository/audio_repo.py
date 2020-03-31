@@ -40,7 +40,7 @@ class AudioRepo:
         for audio in audio_stream:
             audio_list.append(AudioDomain.from_dict(audio.to_dict()))
 
-        AudioResponse(audio_list=audio_list, number_of_results=len(audio_list), cursor=audio_stream.cursor)
+        return AudioResponse(audio_list=audio_list, number_of_results=len(audio_list), cursor=audio_stream.cursor)
 
     def find_arabic_audio(self, **kwargs):
         audio = Audio.collection.filter(**kwargs).filter(type='Arabic').get()

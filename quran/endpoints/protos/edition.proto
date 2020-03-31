@@ -8,21 +8,21 @@ package quran;
 message EditionSingleResponse {
     int32 code = 1;
     string status = 2;
-    AudioSingleData data = 3;
+    EditionSingleData data = 3;
 }
 
 message EditionMultiResponse {
     int32 code = 1;
     string status = 2;
-    AudioMultiData data = 3;
+    EditionMultiData data = 3;
 }
 
-message AudioSingleData {
+message EditionSingleData {
     EditionEntity edition = 1;
     int32 number_of_results = 2;
 }
 
-message AudioMultiData {
+message EditionMultiData {
     repeated EditionEntity edition = 1;
     int32 number_of_results = 2;
     string cursor = 3;

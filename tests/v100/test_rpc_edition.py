@@ -51,7 +51,7 @@ def test_get_all_edition():
     edition_stream = stub.GetAll(shared_entity.EmptyMessage())
 
     count = 0
-    for edition in edition_stream.data.edition_list:
+    for edition in edition_stream.data.edition:
         assert edition.language in ['en']
         count = count + 1
 
@@ -61,40 +61,40 @@ def test_get_all_edition():
 def test_find_edition_by_id():
     res = stub.FindEditionById(shared_entity.IDRequest(id='edition-1'))
 
-    assert res.data.editino.id == 'edition-1'
-    assert res.data.editino.name == 'Edition-Name-1'
+    assert res.data.edition.id == 'edition-1'
+    assert res.data.edition.name == 'Edition-Name-1'
 
 
 def test_find_edition_by_language():
     edition_stream = stub.FindEditionByLanguage(shared_entity.NameRequest(name='en'))
 
-    for edition in edition_stream.data.edition_list:
+    for edition in edition_stream.data.edition:
         assert edition.language == 'en'
 
 
 def test_find_edition_by_name():
     edition_stream = stub.FindEditionByName(shared_entity.NameRequest(name='edition-name-1'))
 
-    for edition in edition_stream.data.edition_list:
+    for edition in edition_stream.data.edition:
         assert edition.name == 'Edition-Name-1'
 
 
 def test_find_edition_by_translator():
     edition_stream = stub.FindEditionByTranslator(shared_entity.NameRequest(name='edition-english-name-1'))
 
-    for edition in edition_stream.data.edition_list:
+    for edition in edition_stream.data.edition:
         assert edition.translator == 'Edition-English-Name-1'
 
 
 def test_find_edition_by_type():
     edition_stream = stub.FindEditionByType(shared_entity.NameRequest(name='Arabic'))
 
-    for edition in edition_stream.data.edition_list:
+    for edition in edition_stream.data.edition:
         assert edition.type == 'Arabic'
 
 
 def test_find_edition_by_format():
     edition_stream = stub.FindEditionByFormat(shared_entity.NameRequest(name='format-1'))
 
-    for edition in edition_stream.data.edition_list:
+    for edition in edition_stream.data.edition:
         assert edition.format == 'Format-1'

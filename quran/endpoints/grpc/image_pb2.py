@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='quran',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0bimage.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"U\n\x13ImageSingleResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\t\x12 \n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x12.quran.ImageEntity2\x8d\x01\n\x05Image\x12?\n\x0b\x43reateImage\x12\x12.quran.ImageEntity\x1a\x1a.quran.ImageSingleResponse\"\x00\x12\x43\n\x11\x46indImageByAyahId\x12\x10.quran.IDRequest\x1a\x1a.quran.ImageSingleResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0bimage.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"Y\n\x13ImageSingleResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\t\x12$\n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x16.quran.ImageSingleData\"O\n\x0fImageSingleData\x12!\n\x05image\x18\x01 \x01(\x0b\x32\x12.quran.ImageEntity\x12\x19\n\x11number_of_results\x18\x02 \x01(\x05\x32\x8d\x01\n\x05Image\x12?\n\x0b\x43reateImage\x12\x12.quran.ImageEntity\x1a\x1a.quran.ImageSingleResponse\"\x00\x12\x43\n\x11\x46indImageByAyahId\x12\x10.quran.IDRequest\x1a\x1a.quran.ImageSingleResponse\"\x00\x62\x06proto3')
   ,
   dependencies=[shared__pb2.DESCRIPTOR,entity__pb2.DESCRIPTOR,])
 
@@ -70,11 +70,51 @@ _IMAGESINGLERESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=50,
-  serialized_end=135,
+  serialized_end=139,
 )
 
-_IMAGESINGLERESPONSE.fields_by_name['data'].message_type = entity__pb2._IMAGEENTITY
+
+_IMAGESINGLEDATA = _descriptor.Descriptor(
+  name='ImageSingleData',
+  full_name='quran.ImageSingleData',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='image', full_name='quran.ImageSingleData.image', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='number_of_results', full_name='quran.ImageSingleData.number_of_results', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=141,
+  serialized_end=220,
+)
+
+_IMAGESINGLERESPONSE.fields_by_name['data'].message_type = _IMAGESINGLEDATA
+_IMAGESINGLEDATA.fields_by_name['image'].message_type = entity__pb2._IMAGEENTITY
 DESCRIPTOR.message_types_by_name['ImageSingleResponse'] = _IMAGESINGLERESPONSE
+DESCRIPTOR.message_types_by_name['ImageSingleData'] = _IMAGESINGLEDATA
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 ImageSingleResponse = _reflection.GeneratedProtocolMessageType('ImageSingleResponse', (_message.Message,), {
@@ -84,6 +124,13 @@ ImageSingleResponse = _reflection.GeneratedProtocolMessageType('ImageSingleRespo
   })
 _sym_db.RegisterMessage(ImageSingleResponse)
 
+ImageSingleData = _reflection.GeneratedProtocolMessageType('ImageSingleData', (_message.Message,), {
+  'DESCRIPTOR' : _IMAGESINGLEDATA,
+  '__module__' : 'image_pb2'
+  # @@protoc_insertion_point(class_scope:quran.ImageSingleData)
+  })
+_sym_db.RegisterMessage(ImageSingleData)
+
 
 
 _IMAGE = _descriptor.ServiceDescriptor(
@@ -92,8 +139,8 @@ _IMAGE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=138,
-  serialized_end=279,
+  serialized_start=223,
+  serialized_end=364,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateImage',

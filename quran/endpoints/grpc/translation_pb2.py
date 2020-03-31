@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='quran',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x11translation.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"r\n\x19TranslationSingleResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\t\x12&\n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x18.quran.TranslationEntity\x12\x0f\n\x07message\x18\x04 \x01(\t\"`\n\x18TranslationMultiResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\t\x12&\n\x04\x64\x61ta\x18\x03 \x03(\x0b\x32\x18.quran.TranslationEntity2\x9f\x03\n\x0bTranslation\x12Q\n\x11\x43reateTranslation\x12\x18.quran.TranslationEntity\x1a .quran.TranslationSingleResponse\"\x00\x12K\n\x13\x46indTranslationById\x12\x10.quran.IDRequest\x1a .quran.TranslationSingleResponse\"\x00\x12N\n\x17\x46indTranslationByAyahId\x12\x10.quran.IDRequest\x1a\x1f.quran.TranslationMultiResponse\"\x00\x12Q\n\x1a\x46indTranslationByEditionId\x12\x10.quran.IDRequest\x1a\x1f.quran.TranslationMultiResponse\"\x00\x12M\n\x11\x46ilterTranslation\x12\x14.quran.FilterRequest\x1a .quran.TranslationSingleResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x11translation.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"e\n\x19TranslationSingleResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\t\x12*\n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x1c.quran.TranslationSingleData\"c\n\x18TranslationMultiResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\t\x12)\n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x1b.quran.TranslationMultiData\"a\n\x15TranslationSingleData\x12-\n\x0btranslation\x18\x01 \x01(\x0b\x32\x18.quran.TranslationEntity\x12\x19\n\x11number_of_results\x18\x02 \x01(\x05\"p\n\x14TranslationMultiData\x12-\n\x0btranslation\x18\x01 \x03(\x0b\x32\x18.quran.TranslationEntity\x12\x19\n\x11number_of_results\x18\x02 \x01(\x05\x12\x0e\n\x06\x63ursor\x18\x03 \x01(\t2\x9f\x03\n\x0bTranslation\x12Q\n\x11\x43reateTranslation\x12\x18.quran.TranslationEntity\x1a .quran.TranslationSingleResponse\"\x00\x12K\n\x13\x46indTranslationById\x12\x10.quran.IDRequest\x1a .quran.TranslationSingleResponse\"\x00\x12N\n\x17\x46indTranslationByAyahId\x12\x10.quran.IDRequest\x1a\x1f.quran.TranslationMultiResponse\"\x00\x12Q\n\x1a\x46indTranslationByEditionId\x12\x10.quran.IDRequest\x1a\x1f.quran.TranslationMultiResponse\"\x00\x12M\n\x11\x46ilterTranslation\x12\x14.quran.FilterRequest\x1a .quran.TranslationSingleResponse\"\x00\x62\x06proto3')
   ,
   dependencies=[shared__pb2.DESCRIPTOR,entity__pb2.DESCRIPTOR,])
 
@@ -57,13 +57,6 @@ _TRANSLATIONSINGLERESPONSE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='message', full_name='quran.TranslationSingleResponse.message', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -77,7 +70,7 @@ _TRANSLATIONSINGLERESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=56,
-  serialized_end=170,
+  serialized_end=157,
 )
 
 
@@ -104,8 +97,8 @@ _TRANSLATIONMULTIRESPONSE = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='data', full_name='quran.TranslationMultiResponse.data', index=2,
-      number=3, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -121,14 +114,101 @@ _TRANSLATIONMULTIRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=172,
-  serialized_end=268,
+  serialized_start=159,
+  serialized_end=258,
 )
 
-_TRANSLATIONSINGLERESPONSE.fields_by_name['data'].message_type = entity__pb2._TRANSLATIONENTITY
-_TRANSLATIONMULTIRESPONSE.fields_by_name['data'].message_type = entity__pb2._TRANSLATIONENTITY
+
+_TRANSLATIONSINGLEDATA = _descriptor.Descriptor(
+  name='TranslationSingleData',
+  full_name='quran.TranslationSingleData',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='translation', full_name='quran.TranslationSingleData.translation', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='number_of_results', full_name='quran.TranslationSingleData.number_of_results', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=260,
+  serialized_end=357,
+)
+
+
+_TRANSLATIONMULTIDATA = _descriptor.Descriptor(
+  name='TranslationMultiData',
+  full_name='quran.TranslationMultiData',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='translation', full_name='quran.TranslationMultiData.translation', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='number_of_results', full_name='quran.TranslationMultiData.number_of_results', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='cursor', full_name='quran.TranslationMultiData.cursor', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=359,
+  serialized_end=471,
+)
+
+_TRANSLATIONSINGLERESPONSE.fields_by_name['data'].message_type = _TRANSLATIONSINGLEDATA
+_TRANSLATIONMULTIRESPONSE.fields_by_name['data'].message_type = _TRANSLATIONMULTIDATA
+_TRANSLATIONSINGLEDATA.fields_by_name['translation'].message_type = entity__pb2._TRANSLATIONENTITY
+_TRANSLATIONMULTIDATA.fields_by_name['translation'].message_type = entity__pb2._TRANSLATIONENTITY
 DESCRIPTOR.message_types_by_name['TranslationSingleResponse'] = _TRANSLATIONSINGLERESPONSE
 DESCRIPTOR.message_types_by_name['TranslationMultiResponse'] = _TRANSLATIONMULTIRESPONSE
+DESCRIPTOR.message_types_by_name['TranslationSingleData'] = _TRANSLATIONSINGLEDATA
+DESCRIPTOR.message_types_by_name['TranslationMultiData'] = _TRANSLATIONMULTIDATA
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 TranslationSingleResponse = _reflection.GeneratedProtocolMessageType('TranslationSingleResponse', (_message.Message,), {
@@ -145,6 +225,20 @@ TranslationMultiResponse = _reflection.GeneratedProtocolMessageType('Translation
   })
 _sym_db.RegisterMessage(TranslationMultiResponse)
 
+TranslationSingleData = _reflection.GeneratedProtocolMessageType('TranslationSingleData', (_message.Message,), {
+  'DESCRIPTOR' : _TRANSLATIONSINGLEDATA,
+  '__module__' : 'translation_pb2'
+  # @@protoc_insertion_point(class_scope:quran.TranslationSingleData)
+  })
+_sym_db.RegisterMessage(TranslationSingleData)
+
+TranslationMultiData = _reflection.GeneratedProtocolMessageType('TranslationMultiData', (_message.Message,), {
+  'DESCRIPTOR' : _TRANSLATIONMULTIDATA,
+  '__module__' : 'translation_pb2'
+  # @@protoc_insertion_point(class_scope:quran.TranslationMultiData)
+  })
+_sym_db.RegisterMessage(TranslationMultiData)
+
 
 
 _TRANSLATION = _descriptor.ServiceDescriptor(
@@ -153,8 +247,8 @@ _TRANSLATION = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=271,
-  serialized_end=686,
+  serialized_start=474,
+  serialized_end=889,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateTranslation',

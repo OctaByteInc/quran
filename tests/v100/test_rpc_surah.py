@@ -13,26 +13,26 @@ def test_create_surah():
                                      english_name_translation='english-translation-name-1', number_of_ayahs=7,
                                      revelation_type='type-1')
     res = stub.CreateSurah(surah)
-    assert res.surah.data.id == surah.id
-    assert res.surah.data.number == surah.number
-    assert res.surah.data.english_name_translation == surah.english_name_translation.title()
-    assert res.surah.data.name == surah.name.title()
+    assert res.data.surah.id == surah.id
+    assert res.data.surah.number == surah.number
+    assert res.data.surah.english_name_translation == surah.english_name_translation.title()
+    assert res.data.surah.name == surah.name.title()
 
     surah = entity_proto.SurahEntity(id='surah-2', number=2, name='surah-name-2',
                                      english_name_translation='english-translation-name-2', number_of_ayahs=144,
                                      revelation_type='type-2')
     res = stub.CreateSurah(surah)
-    assert res.surah.data.id == surah.id
-    assert res.surah.data.number == surah.number
-    assert res.surah.data.english_name_translation == surah.english_name_translation.title()
-    assert res.surah.data.name == surah.name.title()
+    assert res.data.surah.id == surah.id
+    assert res.data.surah.number == surah.number
+    assert res.data.surah.english_name_translation == surah.english_name_translation.title()
+    assert res.data.surah.name == surah.name.title()
 
 
 def test_get_all_surah():
     surah_stream = stub.GetAll(shared_entity.EmptyMessage())
 
     count = 0
-    for surah in surah_stream.data.surah_list:
+    for surah in surah_stream.data.surah:
         count += 1
 
     assert count >= 2
@@ -65,5 +65,5 @@ def test_find_surah_by_english_translation_name():
 def test_find_surah_by_revelation_type():
     surah_stream = stub.FindSurahByRevelationType(surah_proto.RevelationRequest(revelation_type='type-1'))
 
-    for surah in surah_stream.data.surah_list:
+    for surah in surah_stream.data.surah:
         assert surah.revelation_type == 'Type-1'

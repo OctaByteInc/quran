@@ -7,6 +7,15 @@ class AudioResponse:
         self.cursor = cursor
 
 
+class AyahResponse:
+
+    def __init__(self, ayah=None, ayah_list=None, number_of_results=None, cursor=None):
+        self.ayah = ayah
+        self.ayah_list = ayah_list
+        self.number_of_results = number_of_results
+        self.cursor = cursor
+
+
 class EditionResponse:
 
     def __init__(self, edition=None, edition_list=None, number_of_results=None, cursor=None):

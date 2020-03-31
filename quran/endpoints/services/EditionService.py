@@ -13,7 +13,7 @@ class EditionService(edition_rpc.EditionServicer):
         create_edition = EditionFactory.create()
         res = create_edition.exec(edition)
 
-        edition_entity = entity_proto.EditionEntity(**res.audio.to_dict())
+        edition_entity = entity_proto.EditionEntity(**res.edition.to_dict())
         edition_data = edition_proto.EditionSingleData(edition=edition_entity, number_of_results=res.number_of_results)
         return edition_proto.EditionSingleResponse(code=200, status='OK', data=edition_data)
 

@@ -48,7 +48,7 @@ class TranslationService(translation_rpc.TranslationServicer):
         find_translation = TranslationFactory.find_translation()
         translation_stream = find_translation.by_edition_id(request.id, request.limit, request.cursor)
         translations = []
-        for translation in translation_stream:
+        for translation in translation_stream.translation_list:
             translations.append(entity_proto.TranslationEntity(**translation.to_dict()))
 
         if len(translations) == 0:

@@ -8,7 +8,7 @@ package quran;
 message ImageSingleResponse {
     int32 code = 1;
     string status = 2;
-    ImageEntity data = 3;
+    ImageSingleData data = 3;
 }
 
 message ImageSingleData {

@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='quran',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0cshared.proto\x12\x05quran\"\x0e\n\x0c\x45mptyMessage\"6\n\tIDRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05limit\x18\x02 \x01(\x05\x12\x0e\n\x06\x63ursor\x18\x03 \x01(\t\"\x1f\n\rNumberRequest\x12\x0e\n\x06number\x18\x01 \x01(\x05\"\x1b\n\x0bNameRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"4\n\rFilterRequest\x12\x0f\n\x07\x61yah_id\x18\x01 \x01(\t\x12\x12\n\nedition_id\x18\x02 \x01(\tb\x06proto3')
+  serialized_pb=_b('\n\x0cshared.proto\x12\x05quran\"-\n\x0c\x45mptyMessage\x12\r\n\x05limit\x18\x01 \x01(\x05\x12\x0e\n\x06\x63ursor\x18\x02 \x01(\t\"6\n\tIDRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05limit\x18\x02 \x01(\x05\x12\x0e\n\x06\x63ursor\x18\x03 \x01(\t\">\n\rNumberRequest\x12\x0e\n\x06number\x18\x01 \x01(\x05\x12\r\n\x05limit\x18\x02 \x01(\x05\x12\x0e\n\x06\x63ursor\x18\x03 \x01(\t\":\n\x0bNameRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05limit\x18\x02 \x01(\x05\x12\x0e\n\x06\x63ursor\x18\x03 \x01(\t\"4\n\rFilterRequest\x12\x0f\n\x07\x61yah_id\x18\x01 \x01(\t\x12\x12\n\nedition_id\x18\x02 \x01(\tb\x06proto3')
 )
 
 
@@ -33,6 +33,20 @@ _EMPTYMESSAGE = _descriptor.Descriptor(
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='limit', full_name='quran.EmptyMessage.limit', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='cursor', full_name='quran.EmptyMessage.cursor', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -46,7 +60,7 @@ _EMPTYMESSAGE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=23,
-  serialized_end=37,
+  serialized_end=68,
 )
 
 
@@ -90,8 +104,8 @@ _IDREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=39,
-  serialized_end=93,
+  serialized_start=70,
+  serialized_end=124,
 )
 
 
@@ -109,6 +123,20 @@ _NUMBERREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='limit', full_name='quran.NumberRequest.limit', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='cursor', full_name='quran.NumberRequest.cursor', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -121,8 +149,8 @@ _NUMBERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=95,
-  serialized_end=126,
+  serialized_start=126,
+  serialized_end=188,
 )
 
 
@@ -140,6 +168,20 @@ _NAMEREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='limit', full_name='quran.NameRequest.limit', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='cursor', full_name='quran.NameRequest.cursor', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -152,8 +194,8 @@ _NAMEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=128,
-  serialized_end=155,
+  serialized_start=190,
+  serialized_end=248,
 )
 
 
@@ -190,8 +232,8 @@ _FILTERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=157,
-  serialized_end=209,
+  serialized_start=250,
+  serialized_end=302,
 )
 
 DESCRIPTOR.message_types_by_name['EmptyMessage'] = _EMPTYMESSAGE

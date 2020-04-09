@@ -57,6 +57,6 @@ spec:
             name: nginx-ssl
             readOnly: true
       - name: python-grpc-quran
-        image: gcr.io/utopian-button-227405/python-grpc-quran:5.0
+        image: gcr.io/utopian-button-227405/python-grpc-quran
         ports:
           - containerPort: 50051

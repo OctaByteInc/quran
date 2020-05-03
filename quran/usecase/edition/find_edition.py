@@ -4,7 +4,7 @@ class FindEdition:
         self.edition_repo = edition_repo
 
     def get_all(self, limit=None, cursor=None):
-        return self.edition_repo.get_all(limit=limit, cursor=limit)
+        return self.edition_repo.get_all(limit=limit, cursor=cursor)
 
     def by_id(self, id):
         return self.edition_repo.find_by_id(id)

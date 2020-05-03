@@ -130,6 +130,9 @@ http:
   - selector: quran.Surah.FindSurahByEnglishName
     get: '/v1/surah/english_name/{name}'
 
+  - selector: quran.Surah.FindSurahByEnglishNameTranslation
+    get: '/v1/surah/english_name_translation/{name}'
+
   - selector: quran.Surah.FindSurahByRevelationType
     get: '/v1/surah/revelation_type/{revelation_type}'
 

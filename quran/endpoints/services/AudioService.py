@@ -20,7 +20,7 @@ class AudioService(audio_rpc.AudioServicer):
         find_audio = AudioFactory.find_audio()
         res = find_audio.by_id(request.id)
 
-        if not res.audio:
+        if res is None:
             return audio_proto.AudioSingleResponse(code=404, status='Not Found')
 
         audio_entity = entity_proto.AudioEntity(**res.audio.to_dict())
@@ -58,7 +58,7 @@ class AudioService(audio_rpc.AudioServicer):
     def FindArabicAudio(self, request, context):
         find_audio = AudioFactory.find_audio()
         res = find_audio.arabic_audio(ayah_id=request.ayah_id, edition_id=request.edition_id)
-        if not res.audio:
+        if res is None:
             return audio_proto.AudioSingleResponse(code=404, status='Not Found')
 
         audio_entity = entity_proto.AudioEntity(**res.audio.to_dict())
@@ -69,7 +69,7 @@ class AudioService(audio_rpc.AudioServicer):
         find_audio = AudioFactory.find_audio()
         res = find_audio.translation_audio(ayah_id=request.ayah_id, edition_id=request.edition_id)
 
-        if not res.audio:
+        if res is None:
             return audio_proto.AudioSingleResponse(code=404, status='Not Found')
 
         audio_entity = entity_proto.AudioEntity(**res.audio.to_dict())

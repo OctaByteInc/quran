@@ -91,7 +91,7 @@ class FindAyah:
 
         return response
 
-    def _get_ayah_parts(self, response, parts, ayah_id, edition_id='edition-id-1', surah_id=None):
+    def _get_ayah_parts(self, response, parts, ayah_id, edition_id='edition-1', surah_id=None):
         # parts = ['Translation', 'Surah', 'Edition', 'Arabic_Audio', 'Translation_Audio', 'Image']
 
         if 'Translation' in parts:

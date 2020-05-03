@@ -41,5 +41,6 @@ service Surah {
     rpc FindSurahByNumber (NumberRequest) returns (SurahSingleResponse) {}
     rpc FindSurahByName (NameRequest) returns (SurahSingleResponse) {}
     rpc FindSurahByEnglishName (NameRequest) returns (SurahSingleResponse) {}
+    rpc FindSurahByEnglishNameTranslation (NameRequest) returns (SurahSingleResponse) {}
     rpc FindSurahByRevelationType (RevelationRequest) returns (SurahMultiResponse) {}
 }

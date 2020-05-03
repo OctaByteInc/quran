@@ -21,7 +21,7 @@ class TranslationService(translation_rpc.TranslationServicer):
         find_translation = TranslationFactory.find_translation()
         res = find_translation.by_id(request.id)
 
-        if not res.translation:
+        if res is None:
             return translation_proto.TranslationSingleResponse(code=404, status='Not Found')
 
         trans_entity = entity_proto.TranslationEntity(**res.translation.to_dict())
@@ -63,7 +63,7 @@ class TranslationService(translation_rpc.TranslationServicer):
         find_translation = TranslationFactory.find_translation()
         res = find_translation.filter(ayah_id=request.ayah_id, edition_id=request.edition_id)
 
-        if not res.translation:
+        if res is None:
             return translation_proto.TranslationSingleResponse(code=404, status='Not Found')
 
         trans_entity = entity_proto.TranslationEntity(**res.translation.to_dict())

@@ -36,7 +36,7 @@ class EditionService(edition_rpc.EditionServicer):
         find_edition = EditionFactory.find_edition()
         res = find_edition.by_id(request.id)
 
-        if not res.edition:
+        if res is None:
             return edition_proto.EditionSingleResponse(code=404, status='Not Found')
 
         edition_entity = entity_proto.EditionEntity(**res.edition.to_dict())

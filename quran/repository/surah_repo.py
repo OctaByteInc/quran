@@ -42,7 +42,13 @@ class SurahRepo:
             return SurahResponse(surah=SurahDomain.from_dict(surah.to_dict()), number_of_results=1)
         return None
 
-    def find_by_english_name(self, english_name_translation):
+    def find_by_english_name(self, english_name):
+        surah = Surah.collection.filter(english_name=english_name).get()
+        if surah:
+            return SurahResponse(surah=SurahDomain.from_dict(surah.to_dict()), number_of_results=1)
+        return None
+
+    def find_by_english_name_translation(self, english_name_translation):
         surah = Surah.collection.filter(english_name_translation=english_name_translation).get()
         if surah:
             return SurahResponse(surah=SurahDomain.from_dict(surah.to_dict()), number_of_results=1)

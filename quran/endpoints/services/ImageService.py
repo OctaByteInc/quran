@@ -20,7 +20,7 @@ class ImageService(image_rpc.ImageServicer):
         find_image = ImageFactory.find_image()
         res = find_image.by_ayah_id(request.id)
 
-        if not res.image:
+        if res is None:
             return image_proto.ImageSingleResponse(code=404, status='Not Found')
 
         image_entity = entity_proto.ImageEntity(**res.image.to_dict())

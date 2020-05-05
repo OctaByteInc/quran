@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='quran',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0bsurah.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"K\n\x11RevelationRequest\x12\x17\n\x0frevelation_type\x18\x01 \x01(\t\x12\r\n\x05limit\x18\x02 \x01(\x05\x12\x0e\n\x06\x63ursor\x18\x03 \x01(\t\"Y\n\x13SurahSingleResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\t\x12$\n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x16.quran.SurahSingleData\"W\n\x12SurahMultiResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\t\x12#\n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x15.quran.SurahMultiData\"O\n\x0fSurahSingleData\x12!\n\x05surah\x18\x01 \x01(\x0b\x32\x12.quran.SurahEntity\x12\x19\n\x11number_of_results\x18\x02 \x01(\x05\"^\n\x0eSurahMultiData\x12!\n\x05surah\x18\x01 \x03(\x0b\x32\x12.quran.SurahEntity\x12\x19\n\x11number_of_results\x18\x02 \x01(\x05\x12\x0e\n\x06\x63ursor\x18\x03 \x01(\t2\xf3\x03\n\x05Surah\x12?\n\x0b\x43reateSurah\x12\x12.quran.SurahEntity\x1a\x1a.quran.SurahSingleResponse\"\x00\x12:\n\x06GetAll\x12\x13.quran.EmptyMessage\x1a\x19.quran.SurahMultiResponse\"\x00\x12?\n\rFindSurahById\x12\x10.quran.IDRequest\x1a\x1a.quran.SurahSingleResponse\"\x00\x12G\n\x11\x46indSurahByNumber\x12\x14.quran.NumberRequest\x1a\x1a.quran.SurahSingleResponse\"\x00\x12\x43\n\x0f\x46indSurahByName\x12\x12.quran.NameRequest\x1a\x1a.quran.SurahSingleResponse\"\x00\x12J\n\x16\x46indSurahByEnglishName\x12\x12.quran.NameRequest\x1a\x1a.quran.SurahSingleResponse\"\x00\x12R\n\x19\x46indSurahByRevelationType\x12\x18.quran.RevelationRequest\x1a\x19.quran.SurahMultiResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0bsurah.proto\x12\x05quran\x1a\x0cshared.proto\x1a\x0c\x65ntity.proto\"K\n\x11RevelationRequest\x12\x17\n\x0frevelation_type\x18\x01 \x01(\t\x12\r\n\x05limit\x18\x02 \x01(\x05\x12\x0e\n\x06\x63ursor\x18\x03 \x01(\t\"Y\n\x13SurahSingleResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\t\x12$\n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x16.quran.SurahSingleData\"W\n\x12SurahMultiResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0e\n\x06status\x18\x02 \x01(\t\x12#\n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x15.quran.SurahMultiData\"O\n\x0fSurahSingleData\x12!\n\x05surah\x18\x01 \x01(\x0b\x32\x12.quran.SurahEntity\x12\x19\n\x11number_of_results\x18\x02 \x01(\x05\"^\n\x0eSurahMultiData\x12!\n\x05surah\x18\x01 \x03(\x0b\x32\x12.quran.SurahEntity\x12\x19\n\x11number_of_results\x18\x02 \x01(\x05\x12\x0e\n\x06\x63ursor\x18\x03 \x01(\t2\xca\x04\n\x05Surah\x12?\n\x0b\x43reateSurah\x12\x12.quran.SurahEntity\x1a\x1a.quran.SurahSingleResponse\"\x00\x12:\n\x06GetAll\x12\x13.quran.EmptyMessage\x1a\x19.quran.SurahMultiResponse\"\x00\x12?\n\rFindSurahById\x12\x10.quran.IDRequest\x1a\x1a.quran.SurahSingleResponse\"\x00\x12G\n\x11\x46indSurahByNumber\x12\x14.quran.NumberRequest\x1a\x1a.quran.SurahSingleResponse\"\x00\x12\x43\n\x0f\x46indSurahByName\x12\x12.quran.NameRequest\x1a\x1a.quran.SurahSingleResponse\"\x00\x12J\n\x16\x46indSurahByEnglishName\x12\x12.quran.NameRequest\x1a\x1a.quran.SurahSingleResponse\"\x00\x12U\n!FindSurahByEnglishNameTranslation\x12\x12.quran.NameRequest\x1a\x1a.quran.SurahSingleResponse\"\x00\x12R\n\x19\x46indSurahByRevelationType\x12\x18.quran.RevelationRequest\x1a\x19.quran.SurahMultiResponse\"\x00\x62\x06proto3')
   ,
   dependencies=[shared__pb2.DESCRIPTOR,entity__pb2.DESCRIPTOR,])
 
@@ -301,7 +301,7 @@ _SURAH = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   serialized_start=485,
-  serialized_end=984,
+  serialized_end=1071,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateSurah',
@@ -358,9 +358,18 @@ _SURAH = _descriptor.ServiceDescriptor(
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
+    name='FindSurahByEnglishNameTranslation',
+    full_name='quran.Surah.FindSurahByEnglishNameTranslation',
+    index=6,
+    containing_service=None,
+    input_type=shared__pb2._NAMEREQUEST,
+    output_type=_SURAHSINGLERESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
     name='FindSurahByRevelationType',
     full_name='quran.Surah.FindSurahByRevelationType',
-    index=6,
+    index=7,
     containing_service=None,
     input_type=_REVELATIONREQUEST,
     output_type=_SURAHMULTIRESPONSE,

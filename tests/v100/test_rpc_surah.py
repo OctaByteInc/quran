@@ -9,7 +9,7 @@ stub = surah_rpc.SurahStub(channel)
 
 
 def test_create_surah():
-    surah = entity_proto.SurahEntity(id='surah-1', number=1, name='surah-name-1',
+    surah = entity_proto.SurahEntity(id='surah-1', number=1, name='surah-name-1', english_name='english-name-1',
                                      english_name_translation='english-translation-name-1', number_of_ayahs=7,
                                      revelation_type='type-1')
     res = stub.CreateSurah(surah)
@@ -18,7 +18,7 @@ def test_create_surah():
     assert res.data.surah.english_name_translation == surah.english_name_translation.title()
     assert res.data.surah.name == surah.name.title()
 
-    surah = entity_proto.SurahEntity(id='surah-2', number=2, name='surah-name-2',
+    surah = entity_proto.SurahEntity(id='surah-2', number=2, name='surah-name-2', english_name='english-name-2',
                                      english_name_translation='english-translation-name-2', number_of_ayahs=144,
                                      revelation_type='type-2')
     res = stub.CreateSurah(surah)
@@ -55,9 +55,13 @@ def test_find_surah_by_name():
 
     assert res.data.surah.name == 'Surah-Name-1'
 
+def test_find_surah_by_english_name():
+    res = stub.FindSurahByEnglishName(shared_entity.NameRequest(name='english-name-2'))
+
+    assert res.data.surah.english_name == 'English-Name-2'
 
 def test_find_surah_by_english_translation_name():
-    res = stub.FindSurahByEnglishName(shared_entity.NameRequest(name='english-translation-name-2'))
+    res = stub.FindSurahByEnglishNameTranslation(shared_entity.NameRequest(name='english-translation-name-2'))
 
     assert res.data.surah.english_name_translation == 'English-Translation-Name-2'
 

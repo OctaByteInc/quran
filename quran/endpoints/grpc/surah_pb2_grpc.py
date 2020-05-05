@@ -46,6 +46,11 @@ class SurahStub(object):
         request_serializer=shared__pb2.NameRequest.SerializeToString,
         response_deserializer=surah__pb2.SurahSingleResponse.FromString,
         )
+    self.FindSurahByEnglishNameTranslation = channel.unary_unary(
+        '/quran.Surah/FindSurahByEnglishNameTranslation',
+        request_serializer=shared__pb2.NameRequest.SerializeToString,
+        response_deserializer=surah__pb2.SurahSingleResponse.FromString,
+        )
     self.FindSurahByRevelationType = channel.unary_unary(
         '/quran.Surah/FindSurahByRevelationType',
         request_serializer=surah__pb2.RevelationRequest.SerializeToString,
@@ -99,6 +104,13 @@ class SurahServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def FindSurahByEnglishNameTranslation(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
   def FindSurahByRevelationType(self, request, context):
     # missing associated documentation comment in .proto file
     pass
@@ -136,6 +148,11 @@ def add_SurahServicer_to_server(servicer, server):
       ),
       'FindSurahByEnglishName': grpc.unary_unary_rpc_method_handler(
           servicer.FindSurahByEnglishName,
+          request_deserializer=shared__pb2.NameRequest.FromString,
+          response_serializer=surah__pb2.SurahSingleResponse.SerializeToString,
+      ),
+      'FindSurahByEnglishNameTranslation': grpc.unary_unary_rpc_method_handler(
+          servicer.FindSurahByEnglishNameTranslation,
           request_deserializer=shared__pb2.NameRequest.FromString,
           response_serializer=surah__pb2.SurahSingleResponse.SerializeToString,
       ),

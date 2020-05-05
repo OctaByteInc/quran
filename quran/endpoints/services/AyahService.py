@@ -39,7 +39,7 @@ class AyahService(ayah_rpc.AyahServicer):
         if request.parts.edition_id:
             edition_id = request.parts.edition_id
         ayah_parts = [part.title().strip() for part in request.parts.list.split(',')]
-        response_stream = find_ayah.by_surah_id(request.id, edition_id, ayah_parts)
+        response_stream = find_ayah.by_surah_id(request.id, edition_id, ayah_parts, request.limit, request.cursor)
         response_list = []
         for response in response_stream.ayah_list:
             response_list.append(self._ayah_response(response))

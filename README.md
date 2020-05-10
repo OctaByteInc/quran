@@ -111,3 +111,93 @@ Here are some endpoints you can use to get **Audios**
 
     const res = await Audio.translationAudio('ayah-id', 'edition-id');
     ```
+
+## Edition
+There are many **edition** you can use to fetch different data according to these **editions**
+If you does not specifiy and **edition** then by default edition `edition-en` will be applied. 
+
+- ### Get All Editions [Try it Now]()
+
+    Gel all available editions. 
+
+    [https://quran-api.octabyte.io/v1/edition/all]()
+
+    You can also apply `limit` and `cursor` like **Aduio**
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Edition} = require("quran-client");
+
+    const res = await Edition.getAll();
+    ```
+
+- ### Find Edition by id [Try it Now]()
+
+    [https://quran-api.octabyte.io/v1/edition/edition-id]()
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Edition} = require("quran-client");
+
+    const res = await Edition.byId('edition-id');
+    ```
+
+- ### Find Edition by Language [Try it Now]()
+
+    Get edition by specific *language*. 
+
+    [https://quran-api.octabyte.io/v1/edition/language/en]()
+
+    You can also apply `limit` and `cursor`.
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Edition} = require("quran-client");
+
+    const res = await Edition.byLanguage('en');
+    ```
+
+- ### Find Edition by Name [Try it Now]()
+
+    Get edition by specific *name*. 
+
+    [https://quran-api.octabyte.io/v1/edition/name/NAME]()
+
+    You can also apply `limit` and `cursor`.
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Edition} = require("quran-client");
+
+    const res = await Edition.byName('name');
+    ```
+
+- ### Find Edition by Translator [Try it Now]()
+
+    Get edition by specific *Translator*. 
+
+    [https://quran-api.octabyte.io/v1/edition/translator/NAME]()
+
+    You can also apply `limit` and `cursor`.
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Edition} = require("quran-client");
+
+    const res = await Edition.byTranslatior('name');
+    ```
+
+- ### Find Edition by Type [Try it Now]()
+
+    There are two kind of the **types** one is *Arabic* second is *Translation*
+
+    [https://quran-api.octabyte.io/v1/edition/type/TYPE]()
+
+    You can also apply `limit` and `cursor`.
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Edition} = require("quran-client");
+
+    const res = await Edition.byType('type');
+    ```

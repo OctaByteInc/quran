@@ -8,13 +8,13 @@ from quran.utils.proto_converter import ProtoConverter
 
 class SurahService(surah_rpc.SurahServicer):
 
-    def CreateSurah(self, request, context):
-        surah = Surah.from_dict(ProtoConverter.proto_to_dict(request))
-        create_surah = SurahFactory.create()
-        res = create_surah.exec(surah)
-        surah_entity = entity_proto.SurahEntity(**res.surah.to_dict())
-        surah_data = surah_proto.SurahSingleData(surah=surah_entity, number_of_results=res.number_of_results)
-        return surah_proto.SurahSingleResponse(code=200, status='OK', data=surah_data)
+    # def CreateSurah(self, request, context):
+    #     surah = Surah.from_dict(ProtoConverter.proto_to_dict(request))
+    #     create_surah = SurahFactory.create()
+    #     res = create_surah.exec(surah)
+    #     surah_entity = entity_proto.SurahEntity(**res.surah.to_dict())
+    #     surah_data = surah_proto.SurahSingleData(surah=surah_entity, number_of_results=res.number_of_results)
+    #     return surah_proto.SurahSingleResponse(code=200, status='OK', data=surah_data)
 
     def GetAll(self, request, context):
         find_surah = SurahFactory.find_surah()

@@ -8,13 +8,13 @@ from quran.utils.proto_converter import ProtoConverter
 
 class AudioService(audio_rpc.AudioServicer):
 
-    def CreateAudio(self, request, context):
-        audio = Audio.from_dict(ProtoConverter.proto_to_dict(request))
-        create_audio = AudioFactory.create()
-        res = create_audio.exec(audio)
-        audio_entity = entity_proto.AudioEntity(**res.audio.to_dict())
-        audio_data = audio_proto.AudioSingleData(audio=audio_entity, number_of_results=1)
-        return audio_proto.AudioSingleResponse(code=200, status='OK', data=audio_data)
+    # def CreateAudio(self, request, context):
+    #     audio = Audio.from_dict(ProtoConverter.proto_to_dict(request))
+    #     create_audio = AudioFactory.create()
+    #     res = create_audio.exec(audio)
+    #     audio_entity = entity_proto.AudioEntity(**res.audio.to_dict())
+    #     audio_data = audio_proto.AudioSingleData(audio=audio_entity, number_of_results=1)
+    #     return audio_proto.AudioSingleResponse(code=200, status='OK', data=audio_data)
 
     def FindAudioById(self, request, context):
         find_audio = AudioFactory.find_audio()

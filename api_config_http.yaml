@@ -17,9 +17,10 @@ http:
   #
   # Audio Service transcoding
   #
-  - selector: quran.Audio.CreateAudio
-    post: '/v1/audio'
-    body: '*'
+
+  # - selector: quran.Audio.CreateAudio
+  #   post: '/v1/audio'
+  #   body: '*'
 
   - selector: quran.Audio.FindAudioById
     get: '/v1/audio/{id}'
@@ -39,9 +40,10 @@ http:
   #
   # Ayah Service transcoding
   #
-  - selector: quran.Ayah.CreateAyah
-    post: '/v1/ayah'
-    body: '*'
+
+  # - selector: quran.Ayah.CreateAyah
+  #   post: '/v1/ayah'
+  #   body: '*'
 
   - selector: quran.Ayah.FindAyahById
     get: '/v1/ayah/{id}'
@@ -73,9 +75,10 @@ http:
   #
   # Edition Service transcoding
   #
-  - selector: quran.Edition.CreateEdition
-    post: /v1/edition
-    body: '*'
+
+  # - selector: quran.Edition.CreateEdition
+  #   post: /v1/edition
+  #   body: '*'
 
   - selector: quran.Edition.GetAll
     get: '/v1/edition/all'
@@ -101,9 +104,10 @@ http:
   #
   # Image Service transcoding
   #
-  - selector: quran.Image.CreateImage
-    post: '/v1/image'
-    body: '*'
+
+  # - selector: quran.Image.CreateImage
+  #   post: '/v1/image'
+  #   body: '*'
 
   - selector: quran.Image.FindImageByAyahId
     get: '/v1/image/ayah/{id}'
@@ -111,9 +115,10 @@ http:
   #
   # Surah Service transcoding
   #
-  - selector: quran.Surah.CreateSurah
-    post: '/v1/surah'
-    body: '*'
+
+  # - selector: quran.Surah.CreateSurah
+  #   post: '/v1/surah'
+  #   body: '*'
 
   - selector: quran.Surah.GetAll
     get: '/v1/surah/all'
@@ -139,9 +144,10 @@ http:
   #
   # Translation Service transcoding
   #
-  - selector: quran.Translation.CreateTranslation
-    post: '/v1/translation'
-    body: '*'
+
+  # - selector: quran.Translation.CreateTranslation
+  #   post: '/v1/translation'
+  #   body: '*'
 
   - selector: quran.Translation.FindTranslationById
     get: '/v1/translation/{id}'

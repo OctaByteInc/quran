@@ -5,6 +5,10 @@ config_version: 3
 
 name: quran.endpoints.utopian-button-227405.cloud.goog
 
+endpoints:
+- name: quran.endpoints.utopian-button-227405.cloud.goog
+  target: "34.71.56.199"
+
 usage:
   rules:
   # Allow unregistered calls for all methods.

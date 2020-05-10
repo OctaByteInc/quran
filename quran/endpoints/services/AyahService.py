@@ -9,14 +9,14 @@ default_edition_id = 'edition-1'
 
 class AyahService(ayah_rpc.AyahServicer):
 
-    def CreateAyah(self, request, context):
-        ayah = Ayah.from_dict(ProtoConverter.proto_to_dict(request))
-        create_ayah = AyahFactory.create()
-        res = create_ayah.exec(ayah)
-        ayah_entity = entity_proto.AyahEntity(**res.ayah.to_dict())
-        ayah_data = ayah_proto.AyahEntityData(ayah_response=ayah_entity, number_of_results=res.number_of_results)
+    # def CreateAyah(self, request, context):
+    #     ayah = Ayah.from_dict(ProtoConverter.proto_to_dict(request))
+    #     create_ayah = AyahFactory.create()
+    #     res = create_ayah.exec(ayah)
+    #     ayah_entity = entity_proto.AyahEntity(**res.ayah.to_dict())
+    #     ayah_data = ayah_proto.AyahEntityData(ayah_response=ayah_entity, number_of_results=res.number_of_results)
 
-        return ayah_proto.AyahEntityResponse(code=200, status='OK', data=ayah_data)
+    #     return ayah_proto.AyahEntityResponse(code=200, status='OK', data=ayah_data)
 
     def FindAyahById(self, request, context):
         find_ayah = AyahFactory.find_ayah()

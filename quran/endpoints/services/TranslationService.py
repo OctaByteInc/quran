@@ -8,14 +8,14 @@ from quran.utils.proto_converter import ProtoConverter
 
 class TranslationService(translation_rpc.TranslationServicer):
 
-    def CreateTranslation(self, request, context):
-        translation = Translation.from_dict(ProtoConverter.proto_to_dict(request))
-        create_translation = TranslationFactory.create()
-        res = create_translation.exec(translation)
-        trans_entity = entity_proto.TranslationEntity(**res.translation.to_dict())
-        trans_data = translation_proto.TranslationSingleData(translation=trans_entity,
-                                                             number_of_results=res.number_of_results)
-        return translation_proto.TranslationSingleResponse(code=200, status='OK', data=trans_data)
+    # def CreateTranslation(self, request, context):
+    #     translation = Translation.from_dict(ProtoConverter.proto_to_dict(request))
+    #     create_translation = TranslationFactory.create()
+    #     res = create_translation.exec(translation)
+    #     trans_entity = entity_proto.TranslationEntity(**res.translation.to_dict())
+    #     trans_data = translation_proto.TranslationSingleData(translation=trans_entity,
+    #                                                          number_of_results=res.number_of_results)
+    #     return translation_proto.TranslationSingleResponse(code=200, status='OK', data=trans_data)
 
     def FindTranslationById(self, request, context):
         find_translation = TranslationFactory.find_translation()

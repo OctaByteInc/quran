@@ -8,14 +8,14 @@ from quran.utils.proto_converter import ProtoConverter
 
 class EditionService(edition_rpc.EditionServicer):
 
-    def CreateEdition(self, request, context):
-        edition = Edition.from_dict(ProtoConverter.proto_to_dict(request))
-        create_edition = EditionFactory.create()
-        res = create_edition.exec(edition)
+    # def CreateEdition(self, request, context):
+    #     edition = Edition.from_dict(ProtoConverter.proto_to_dict(request))
+    #     create_edition = EditionFactory.create()
+    #     res = create_edition.exec(edition)
 
-        edition_entity = entity_proto.EditionEntity(**res.edition.to_dict())
-        edition_data = edition_proto.EditionSingleData(edition=edition_entity, number_of_results=res.number_of_results)
-        return edition_proto.EditionSingleResponse(code=200, status='OK', data=edition_data)
+    #     edition_entity = entity_proto.EditionEntity(**res.edition.to_dict())
+    #     edition_data = edition_proto.EditionSingleData(edition=edition_entity, number_of_results=res.number_of_results)
+    #     return edition_proto.EditionSingleResponse(code=200, status='OK', data=edition_data)
 
     def GetAll(self, request, context):
         find_edition = EditionFactory.find_edition()

@@ -9,7 +9,7 @@ Here are some endpoints you can use to get **Audios**
 
     Provide a single **Audio** based on the `id`
 
-    [quran-api.octabyte.io/v1/audio/audio-id-123]()
+    [https://quran-api.octabyte.io/v1/audio/audio-id-123]()
 
     **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
     ```nodejs
@@ -21,17 +21,21 @@ Here are some endpoints you can use to get **Audios**
 - ### Find Audio by Ayah id [Try it Now]()  
 
     Multiple **Audios** will return in this case, These **Audio** can be *Arabic* and *Translation*.
-    [quran-api.octabyte.io/v1/audio/ayah/ayah-id-123]()
+    
+    [https://quran-api.octabyte.io/v1/audio/ayah/ayah-id-123]()
 
     You can also `limit` the number of results.
-    [quran-api.octabyte.io/v1/audio/ayah/ayah-id-123?limit=10]()
+
+    [https://quran-api.octabyte.io/v1/audio/ayah/ayah-id-123?limit=10]()
 
     `Cursor` can used for fetching next results.  
     Fetching the next 10 results. 
-    [quran-api.octabyte.io/v1/audio/ayah/ayah-id-123?cursor=CURSOR_STRING_FROM_PREVIOUS_RESULTS]()
+
+    [https://quran-api.octabyte.io/v1/audio/ayah/ayah-id-123?cursor=CURSOR_STRING_FROM_PREVIOUS_RESULTS]()
 
     You can also `limit` the `cursor` if you want. For example fetch the next 5 resutls.
-    [quran-api.octabyte.io/v1/audio/ayah/ayah-id-123?limit=5&cursor=CURSOR_STRING_FROM_PREVIOUS_RESULTS]()
+
+    [https://quran-api.octabyte.io/v1/audio/ayah/ayah-id-123?limit=5&cursor=CURSOR_STRING_FROM_PREVIOUS_RESULTS]()
 
     **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
     ```nodejs
@@ -51,17 +55,21 @@ Here are some endpoints you can use to get **Audios**
 - ### Find Audio by Edition id [Try it Now]()  
 
     Multiple **Audios** will return in this case, These **Audio** can be *Arabic* and *Translation*.
-    [quran-api.octabyte.io/v1/audio/edition/edition-id]()
+    
+    [https://quran-api.octabyte.io/v1/audio/edition/edition-id]()
 
     You can also `limit` the number of results.
-    [quran-api.octabyte.io/v1/audio/edition/edition-id?limit=10]()
+
+    [https://quran-api.octabyte.io/v1/audio/edition/edition-id?limit=10]()
 
     `Cursor` can used for fetching next results.  
     Fetching the next 10 results. 
-    [quran-api.octabyte.io/v1/audio/edition/edition-id?cursor=CURSOR_STRING_FROM_PREVIOUS_RESULTS]()
+
+    [https://quran-api.octabyte.io/v1/audio/edition/edition-id?cursor=CURSOR_STRING_FROM_PREVIOUS_RESULTS]()
 
     You can also `limit` the `cursor` if you want. For example fetch the next 5 resutls.
-    [quran-api.octabyte.io/v1/audio/edition/edition-id?limit=5&cursor=CURSOR_STRING_FROM_PREVIOUS_RESULTS]()
+
+    [https://quran-api.octabyte.io/v1/audio/edition/edition-id?limit=5&cursor=CURSOR_STRING_FROM_PREVIOUS_RESULTS]()
 
     **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
     ```nodejs
@@ -82,7 +90,7 @@ Here are some endpoints you can use to get **Audios**
 
     Provide a single **Audio** based on the `edition-id` and `ayah-id`
 
-    [quran-api.octabyte.io/v1/audio/audio/arabic?ayah_id=ayah-id&edition_id=edition-id]()
+    [https://quran-api.octabyte.io/v1/audio/audio/arabic?ayah_id=ayah-id&edition_id=edition-id]()
 
     **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
     ```nodejs
@@ -95,7 +103,7 @@ Here are some endpoints you can use to get **Audios**
 
     Provide a single **Audio** based on the `edition-id` and `ayah-id`
 
-    [quran-api.octabyte.io/v1/audio/audio/translation?ayah_id=ayah-id&edition_id=edition-id]()
+    [https://quran-api.octabyte.io/v1/audio/audio/translation?ayah_id=ayah-id&edition_id=edition-id]()
 
     **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
     ```nodejs

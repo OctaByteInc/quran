@@ -201,3 +201,156 @@ If you does not specifiy and **edition** then by default edition `edition-en` wi
 
     const res = await Edition.byType('type');
     ```
+
+## Image
+Get image of the **ayah**
+
+- ### Find image by Ayah Id [Try it Now]()
+
+    [https://quran-api.octabyte.io/v1/image/ayah/AYAH-ID]()
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Image} = require("quran-client");
+
+    const res = await Image.byAyahId('AYAH-ID');
+    ```
+
+## Surah
+
+- ### Get All Surahs [Try it Now]()
+
+    Gel all available surahs. 
+
+    [https://quran-api.octabyte.io/v1/surah/all]()
+
+    You can also apply `limit` and `cursor`
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Surah} = require("quran-client");
+
+    const res = await Surah.getAll();
+    ```
+
+- ### Find surah by id [Try it Now]()
+
+    [https://quran-api.octabyte.io/v1/surah/SURAH-ID]()
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Surah} = require("quran-client");
+
+    const res = await Surah.byId('SURAH-ID');
+    ```
+
+- ### Find surah by number [Try it Now]()
+
+    [https://quran-api.octabyte.io/v1/surah/number/SURAH-NUMBER]()
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Surah} = require("quran-client");
+
+    const res = await Surah.byNumber('SURAH-NUMBER');
+    ```
+
+- ### Find surah by name [Try it Now]()
+
+    [https://quran-api.octabyte.io/v1/surah/name/SURAH-NAME]()
+
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Surah} = require("quran-client");
+
+    const res = await Surah.byName('SURAH-NAME');
+    ```
+
+- ### Find Surah by English Name [Try it Now]()
+
+    [https://quran-api.octabyte.io/v1/surah/english_name/SURAH-ENGLISH-NAME]()
+
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Surah} = require("quran-client");
+
+    const res = await Surah.byEnglishName('SURAH-ENGLISH-NAME');
+    ```
+
+- ### Find Surah by English Name Translation [Try it Now]()
+
+    [https://quran-api.octabyte.io/v1/surah/english_name_translation/ENGLISH-NAME-TRANSLATION]()
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Surah} = require("quran-client");
+
+    const res = await Surah.byEnglishNameTranslation('ENGLISH-NAME-TRANSLATION');
+    ```
+
+- ### Find surah by Revelation Type [Try it Now]()
+
+    [https://quran-api.octabyte.io/v1/surah/revelation_type/TYPE]()
+
+    You can also apply `limit` and `cursor`
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Surah} = require("quran-client");
+
+    const res = await Surah.byRevelationType();
+    ```
+
+## Translation
+
+- ### Find Translation by id [Try it Now]()
+
+    [https://quran-api.octabyte.io/v1/translation/ID]()
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Translation} = require("quran-client");
+
+    const res = await Translation.byId();
+    ```
+
+- ### Find Translation by Ayah id [Try it Now]()
+
+    [https://quran-api.octabyte.io/v1/translation/ayah/AYAH-ID]()
+
+    You can also apply `limit` and `cursor`
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Translation} = require("quran-client");
+
+    const res = await Translation.byAyahId('AYAH-ID');
+    ```
+
+- ### Find Translation by Edition id [Try it Now]()
+
+    [https://quran-api.octabyte.io/v1/translation/edition/EDITION-ID]()
+
+    You can also apply `limit` and `cursor`
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Translation} = require("quran-client");
+
+    const res = await Translation.byEditionId('EDITION-ID');
+    ```
+
+- ### Filter translation [Try it Now]()
+
+    Filter translation by `ayah-id` and `edition-id`
+
+    [https://quran-api.octabyte.io/v1/translation/filter?ayah_id=AYAH-ID&edition_id=EDITION-ID]()
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Translation} = require("quran-client");
+
+    const res = await Translation.filter('AYAH-ID', 'EDITION-ID');
+    ```

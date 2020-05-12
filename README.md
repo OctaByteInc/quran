@@ -1,6 +1,17 @@
 # Quran API [![Build Status](https://travis-ci.org/octabytes/quran.svg?branch=master)](https://travis-ci.org/octabytes/quran)
 ---
 
+**Possible Endpoints**
+
+- [Audio](#audio)
+- [Ayah](#ayah)
+- [Edition](#edition)
+- [Image](#image)
+- [Surah](#surah)
+- [Translation](#translation)
+
+---
+
 ## Audio
 There are two kind of **Audios** one is *Arabic* and second is *Translation*.
 Here are some endpoints you can use to get **Audios**

@@ -112,6 +112,166 @@ Here are some endpoints you can use to get **Audios**
     const res = await Audio.translationAudio('ayah-id', 'edition-id');
     ```
 
+## Ayah
+Get **ayah** of Quran. All **ayah** endpoints contains additional `parts` system which hold more
+information about this **ayah**. For example you can get **ayah** with it's `Trnasltion`, `Image` and
+`Surah` etc.  
+
+Possible `parts` are `Translation`, `Surah`, `Edition`, `Arabic_Audio`, `Translation_Audio` and `Image`
+
+Each **Ayah Parts** also contain the `edition-id` if you don't specify any by default edition `en` apply.
+
+- ### Find Ayah by id [Try it Now]()
+
+    without parts 
+
+    [https://quran-api.octabyte.io/v1/ayah/AYAH-ID]()
+
+    with parts 
+    
+    [https://quran-api.octabyte.io/v1/ayah/AYAH-ID?parts.list=Translation,Image,Edition]()
+
+    with parts and Edition
+    
+    [https://quran-api.octabyte.io/v1/ayah/AYAH-ID?parts.list=Translation,Image,Edition&parts.edition_id=EDITION-ID]()
+
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Ayah} = require("quran-client");
+
+    // Without parts
+    const res = await Ayah.byId('AYAH-ID');
+    console.log(res.ayahResponse)
+
+    // With parts
+    const res = await Ayah.byId('AYAH-ID', ['Translation', 'Image', 'Edition']);
+    console.log(res.ayahResponse.ayah)
+    console.log(res.ayahResponse.translation)
+
+    // With parts and edition
+    const res = await Ayah.byId('AYAH-ID', ['Translation', 'Image', 'Edition'], 'EDITION-ID');
+    ```
+
+- ### Find Ayah by surah id [Try it Now]()
+
+    without parts 
+
+    [https://quran-api.octabyte.io/v1/ayah/surah/SURAH-ID]()
+
+    with parts 
+    
+    [https://quran-api.octabyte.io/v1/ayah/surah/SURAH-ID?parts.list=Translation,Image,Edition]()
+
+    with limit, cursor and parts
+    [https://quran-api.octabyte.io/v1/ayah/surah/SURAH-ID?limit=5&cursor=CURSOR&parts.list=Translation,Image,Edition]()
+
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Ayah} = require("quran-client");
+
+    // Without parts
+    const res = await Ayah.bySurahId('SURAH-ID');
+
+    // With parts
+    const res = await Ayah.bySurahId('SURAH-ID', null, nul, ['Translation', 'Image', 'Edition']);
+
+    // With limit, cursor and parts
+    const res = await Ayah.bySurahId('SURAH-ID', CURSOR, LIMIT, ['Translation', 'Image', 'Edition']);
+    ```
+
+- ### Find Ayah by number [Try it Now]()
+
+    [https://quran-api.octabyte.io/v1/ayah/number/AYAH-NUMBER]()
+
+    **Parts endpoint also apply like others**
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Ayah} = require("quran-client");
+
+    const res = await Ayah.byNumber('AYAH-NUMBER');
+    ```
+
+- ### Find Ayah by number in surah [Try it Now]()
+
+    [https://quran-api.octabyte.io/v1/ayah/number_in_surah/NUMBER]()
+
+    **Parts endpoint also apply like others**
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Ayah} = require("quran-client");
+
+    const res = await Ayah.byNumberInSurah('NUMBER');
+    ```
+
+- ### Find Ayah by Juz [Try it Now]()
+
+    [https://quran-api.octabyte.io/v1/ayah/juz/NUMBER]()
+
+    **Parts endpoint and limit, cursor also apply like others**
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Ayah} = require("quran-client");
+
+    const res = await Ayah.byJuz('NUMBER');
+    ```
+
+- ### Find Ayah by Manzil [Try it Now]()
+
+    [https://quran-api.octabyte.io/v1/ayah/manzil/NUMBER]()
+
+    **Parts endpoint and limit, cursor also apply like others**
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Ayah} = require("quran-client");
+
+    const res = await Ayah.byManzil('NUMBER');
+    ```
+
+- ### Find Ayah by Ruku [Try it Now]()
+
+    [https://quran-api.octabyte.io/v1/ayah/ruku/NUMBER]()
+
+    **Parts endpoint and limit, cursor also apply like others**
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Ayah} = require("quran-client");
+
+    const res = await Ayah.byRuku('NUMBER');
+    ```
+
+- ### Find Ayah by Hizb Quarter [Try it Now]()
+
+    [https://quran-api.octabyte.io/v1/ayah/hizb_quarter/NUMBER]()
+
+    **Parts endpoint and limit, cursor also apply like others**
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Ayah} = require("quran-client");
+
+    const res = await Ayah.byHizbQuarter('NUMBER');
+    ```
+
+- ### Find Ayah by Sajda [Try it Now]()
+
+    [https://quran-api.octabyte.io/v1/ayah/sajda/TRUE-OR-FALSE]()
+
+    **Parts endpoint and limit, cursor also apply like others**
+
+    **Using clinet library in NodeJs** [Quran Client NodeJs](https://www.npmjs.com/package/quran-client)
+    ```nodejs
+    const {Ayah} = require("quran-client");
+
+    const res = await Ayah.bySajda(TRUE-OR-FALSE);
+    ```
+
 ## Edition
 There are many **edition** you can use to fetch different data according to these **editions**
 If you does not specifiy and **edition** then by default edition `edition-en` will be applied. 

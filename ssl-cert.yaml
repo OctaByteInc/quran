@@ -1,0 +1,32 @@
+apiVersion: networking.gke.io/v1beta1
+kind: ManagedCertificate
+metadata:
+  name: quran-ssl
+spec:
+  domains:
+    - quran.endpoints.utopian-button-227405.cloud.goog
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: quran-ingress-svc
+spec:
+  selector:
+    name: quran-ingress-svc
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 443
+      targetPort: 443
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: quran-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: 34.71.56.199
+    networking.gke.io/managed-certificates: quran-ssl
+spec:
+  backend:
+    serviceName: quran-ingress-svc
+    servicePort: 443
